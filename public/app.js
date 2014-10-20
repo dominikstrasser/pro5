@@ -12,7 +12,7 @@ config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/dashboard'});
 }]);
 
-// Testkommentar von Thomas
+// Hallo
 angular.module("pro5_hzv").controller("testController", function($scope){
     $scope.currentUser = "currentUser - Objekt";
 });
