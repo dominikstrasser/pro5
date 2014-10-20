@@ -1,1 +1,9 @@
-Grundsätzlich json einfügen und dann bei bookings die datums ändern...
+{
+"name": "Hotel Sammer",
+"plz": 4120,
+"city": "Neufelden",
+"address": "Markt 30",
+"logo": "uploads/img/logo.jpg",
+"email": "info@hotelsammer.at",
+"emailTemplate": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum."
+}
