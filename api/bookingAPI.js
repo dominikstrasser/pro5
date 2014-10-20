@@ -5,8 +5,8 @@ var moment = require("moment");
 var setTimeTo12 = function(d){
     d.hour(12);
     d.minutes(0);
-    d.milliseconds(0);
     d.seconds(0);
+    d.milliseconds(0);
 };
 
 router.get("/", function(req, res){
@@ -15,7 +15,6 @@ router.get("/", function(req, res){
         if(err) console.log(err);
         res.json(result);
     });
-
 });
 
 router.get("/getCurrentArrivals", function(req, res){
