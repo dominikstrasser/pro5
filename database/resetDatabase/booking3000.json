@@ -1,0 +1,21 @@
+{
+    "status": 0,
+    "person_count": 2,
+    "room_count": 2,
+    "room_id": ["544131a06ef262ae06d8a31f"],
+    "category": "HP",
+    "message": [
+        {
+            "date": 1413300202,
+            "from_guest": 0,
+            "subject": "booking nr 12345",
+            "body": "here is my offer..."
+        },
+        {
+            "date": 1413300202,
+            "from_guest": 1,
+            "subject": "booking nr 12345777777",
+            "body": "Yoo, im taking the room"
+        }
+    ]
+}

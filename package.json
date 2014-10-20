@@ -1,0 +1,18 @@
+{
+  "name": "pro5_hotelzimmerverwaltung",
+  "version": "1.0.0",
+  "description": "Eine online Hotelzimmerverwaltung auf basis von MEAN",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dominik Strasser",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.9.0",
+    "express": "^4.9.7",
+    "moment": "^2.8.3",
+    "mongoose": "^3.8.17",
+    "q": "^1.0.1"
+  }
+}

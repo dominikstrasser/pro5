@@ -1,0 +1,23 @@
+[
+    {
+        "number": 0,
+        "name": "Raum Nr 1",
+        "beds": 2,
+        "category": ["HP", "NF"],
+        "extra": ["Gitterbett"]
+    },
+    {
+        "number": 1,
+        "name": "Raum Nr 2",
+        "beds": 3,
+        "category": ["HP", "NF", "SE"],
+        "extra": []
+    },
+    {
+        "number": 2,
+        "name": "Raum Nr 3",
+        "beds": 2,
+        "category": ["HP"],
+        "extra": ["Balkon"]
+    }
+]

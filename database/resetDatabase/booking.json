@@ -1,0 +1,38 @@
+[
+    {
+        "status": 0,
+        "person_count": 1,
+        "room_count": 1,
+        "room_id": [],
+        "category": "HP"
+    },
+    {
+        "status": 0,
+        "person_count": 4,
+        "room_count": 1,
+        "room_id": [],
+        "category": "HP"
+    },
+    {
+        "status": 0,
+        "person_count": 2,
+        "room_count": 2,
+        "room_id": [],
+        "category": "HP",
+        "message": [
+            {
+                "date": 1413300202,
+                "from_guest": 0,
+                "subject": "booking nr 12345",
+                "body": "here is my offer..."
+            },
+            {
+                "date": 1413300202,
+                "from_guest": 1,
+                "subject": "booking nr 12345777777",
+                "body": "Yoo, im taking the room"
+            }
+        ]
+    }
+
+]

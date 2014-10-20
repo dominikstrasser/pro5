@@ -1,0 +1,44 @@
+[
+    {
+        "first_name": "Dominik",
+        "last_name": "Strasser",
+        "title": "Bsc",
+        "email": "strasserdominik@hotmail.com",
+        "phone": "+43 664 656 80 45",
+        "plz": 4020,
+        "city": "Linz",
+        "address": "Lastenstraße 25",
+        "country": "AUT",
+        "interests": ["Golf", "Wellness", "Culture"],
+        "note": "Likes Beer"
+
+    },
+    {
+        "first_name": "Thomas",
+        "last_name": "Steidl",
+        "title": "Bsc",
+        "email": "thomas@hotmail.com",
+        "phone": "+43 664 656 80 45",
+        "plz": 4020,
+        "city": "Helfenberg",
+        "address": "Lastenstraße 25",
+        "country": "AUT",
+        "interests": ["Wellness", "Culture"],
+        "note": "Likes Beer and ..."
+    },
+    {
+        "first_name": "Markus",
+        "last_name": "Tretzmüller",
+        "title": "Bsc",
+        "email": "Markus@hotmail.com",
+        "phone": "+43 664 656 80 45",
+        "plz": 4020,
+        "city": "Hagenberg",
+        "address": "Lastenstraße 25",
+        "country": "AUT",
+        "interests": ["Golf", "Culture"],
+        "note": "Likes Beer very much"
+    }
+
+
+]
