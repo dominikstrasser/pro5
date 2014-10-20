@@ -10,10 +10,12 @@ var db = mongoose.connection;
 var roomModel = require("./../model/room.js");
 var bookingModel = require("./../model/booking.js");
 var guestModel = require("./../model/guest.js");
+var hotelModel = require("./../model/hotel.js");
 
 var roomData = require("./room.json");
 var bookingData = require("./booking.json");
 var guestData = require("./guest.json");
+var hotelData = require("./hotel.json");
 
 db.on("error", function(){
     console.log("Mongoose Error");
@@ -57,6 +59,16 @@ db.once("open", function(){
         return deferred.promise;
     };
 
+    var removeHotelData = function(){
+        console.log("reset.js - Guest:remove");
+        var deferred = q.defer();
+        hotelModel.remove({},function(err){
+            if (err) deferred.reject(err);
+            deferred.resolve("removeGuestData finished");
+        });
+        return deferred.promise;
+    };
+
 
     var insertData = function(){
         /*
@@ -64,7 +76,9 @@ db.once("open", function(){
         *   2) Insert 3 Guests
         *   3) Insert 3 Bookings with Room and GuestID
         * */
-        var insertDataCounter = roomData.length + guestData.length;
+
+        //+1 wegen Hotel Datensatz
+        var insertDataCounter = roomData.length + guestData.length + 1;
 
         for(var i = 0; i < roomData.length; i++) {
             var testRoom = new roomModel(roomData[i]);
@@ -84,6 +98,17 @@ db.once("open", function(){
                 if(--insertDataCounter == 0) insertBookings();
             });
         }
+
+        var testHotel = new hotelModel(hotelData);
+        console.log(testHotel);
+        testHotel.save(function(err, result){
+            if (err) console.log(err);
+            console.log("reset.js - Hotel:saved");
+            if(--insertDataCounter == 0) insertBookings();
+        });
+
+
+
     };
 
 
@@ -175,7 +200,8 @@ db.once("open", function(){
     q.all([
         removeBookingData(),
         removeGuestData(),
-        removeRoomData()
+        removeRoomData(),
+        removeHotelData()
     ]).then(function(){
         console.log("remove:COMPLETE");
         insertData();
