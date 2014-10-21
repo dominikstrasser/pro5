@@ -18,7 +18,7 @@ router.get("/", function(req, res){
 });
 
 router.get("/getCurrentArrivals", function(req, res){
-
+    console.log("bookingAPI : /getCurrentArrivals");
     var today = moment.utc();
     setTimeTo12(today);
     var tomorrow = moment.utc().add(7,"days");

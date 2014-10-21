@@ -25,5 +25,5 @@ angular.module('pro5_hzv.dashboard', [
         $scope.tomorrow = $moment.utc($scope.today).add(1,"days");
 
         $scope.arrivals = bookingService.currentArrivals();
-        $scope.departures = bookingService.currentArrivals();
+        //$scope.departures = bookingService.currentArrivals();
 }]);
