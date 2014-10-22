@@ -9,7 +9,8 @@
   <title>My AngularJS App</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="import" href="bower_components/polymer/layout.html">
 </head>
 <body>
   <ul class="menu">
@@ -17,7 +18,9 @@
     <li><a href="#/view2">view2</a></li>
   </ul>
 
-  <div ng-view></div>
+  <div class="container">
+    <div ng-view></div>
+  </div>
 
   <div ng-controller="testController">
       {{currentUser}}
@@ -31,6 +34,7 @@
   <script src="bower_components/angular-resource/angular-resource.min.js"></script>
   <script src="bower_components/moment/moment.js"></script>
   <script src="bower_components/angular-momentjs/angular-momentjs.js"></script>
+  <script src="bower_components/platform/platform.js"></script>
 
   <script src="app.js"></script>
   <script src="services.js"></script>
