@@ -1,0 +1,8 @@
+$width-md: 970px;
+$width-lg: 1170px;
+
+.container {
+  width: $width-md;
+  margin: 0 auto;
+  background: darkgrey;
+}
