@@ -16,19 +16,28 @@
     <link rel="import" href="bower_components/core-menu/core-menu.html">
 </head>
 <body layout vertical fullbleed unresolved>
-
+<!--
+  <ul class="menu">
+    <li><a href="#/dashboard">Hotel Name</a></li>
+    <li><a href="#/roomList">Zimmerliste</a></li>
+      <li><a href="#/requests">Anfragen</a></li>
+      <li><a href="#/bookings">Buchungen</a></li>
+      <li><a href="#/guests">Gäste</a></li>
+      <li><a href="#/management">Hotelverwaltung</a></li>
+      <li><a href="#">Username</a></li>
+  </ul>
+  -->
 <core-header-panel flex>
     <core-toolbar>
         <core-menu layout horizontal flex>
-            <div id="leftNav">
+            <div>
                 <a href="#/dashboard">Hotel Name</a>
                 <a href="#/roomList">Zimmerliste</a>
                 <a href="#/requests">Anfragen</a>
                 <a href="#/bookings">Buchungen</a>
             </div>
             <div flex></div>
-            <div id="rightNav">
-                <a href="#/guests">Gäste</a>
+            <div><a href="#/guests">Gäste</a>
                 <a href="#/management">Hotelverwaltung</a>
                 <a href="#">Username</a>
             </div>
