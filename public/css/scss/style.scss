@@ -10,6 +10,10 @@ $border-request: 1px solid darkgrey;
   padding: 20px 0;
 }
 
+#leftNav, #rightNav {
+  font-size: 16px;
+}
+
 .logo, .arrivals, .departures {
   margin: 0 20px;
 }
@@ -46,8 +50,8 @@ $border-request: 1px solid darkgrey;
     width: $width-md;
   }
 }
-@media (min-width: 1200px) {
+/*@media (min-width: 1200px) {
   .container {
     width: $width-lg;
   }
-}
+}*/

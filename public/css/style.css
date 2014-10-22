@@ -3,6 +3,9 @@
   /*border: $border;*/
   padding: 20px 0; }
 
+#leftNav, #rightNav {
+  font-size: 16px; }
+
 .logo, .arrivals, .departures {
   margin: 0 20px; }
 
@@ -35,8 +38,10 @@
 @media (min-width: 992px) {
   .container {
     width: 970px; } }
-@media (min-width: 1200px) {
+/*@media (min-width: 1200px) {
   .container {
-    width: 1170px; } }
+    width: $width-lg;
+  }
+}*/
 
 /*# sourceMappingURL=style.css.map */
