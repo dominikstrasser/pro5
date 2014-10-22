@@ -1,26 +1,57 @@
 $width-md: 970px;
 $width-lg: 1170px;
 
-$border: 1px solid #000;
+$border: 2px solid #000;
 $border-request: 1px solid darkgrey;
 
-.container {
+/*
+ * NAVCONTAINER, CONTAINER
+ */
+#navContainer, .container {
   margin: 0 auto;
-  /*border: $border;*/
+}
+.container {
   padding: 20px 0;
 }
 
-#leftNav, #rightNav {
+/*
+ * NAVIGATION
+ */
+#nav {
+  background-color: #ffffff;
+  border-bottom: $border;
+}
+#leftNav a, #rightNav a {
   font-size: 16px;
+  color: #000000;
+  text-decoration: none;
+}
+#leftNav a:hover, #rightNav a:hover {
+  text-decoration: underline;
+}
+#leftNav a {
+  margin-right: 20px;
+}
+#rightNav a {
+  margin-left: 20px;
 }
 
+/*
+ * LOGO, ARRIVALS, DEPARTURES
+ */
 .logo, .arrivals, .departures {
   margin: 0 20px;
 }
 .logo {
   margin-top: 20px;
 }
+.logo img {
+  max-width: 200px;
+}
 
+/*
+ * REQUEST
+ */
 .request {
   position: relative;
   padding: 20px;
@@ -35,23 +66,30 @@ $border-request: 1px solid darkgrey;
   top: 20px;
   color: green;
 }
+.request input {
+  background: #EFEFEF;
+  border: $border;
+  padding: 8px;
+}
 .request input[type="button"] {
   float: right;
   color: #ffffff;
   background-color: #000000;
   border: none;
   width: 120px;
-  padding: 8px;
   text-transform: uppercase;
 }
 
+/*
+ * MEDIA QUERIES
+ */
 @media (min-width: 992px) {
-  .container {
+  #navContainer, .container {
     width: $width-md;
   }
 }
-/*@media (min-width: 1200px) {
-  .container {
+@media (min-width: 1200px) {
+  #navContainer, .container {
     width: $width-lg;
   }
-}*/
+}

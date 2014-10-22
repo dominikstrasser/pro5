@@ -1,17 +1,48 @@
+/*
+ * NAVCONTAINER, CONTAINER
+ */
+#navContainer, .container {
+  margin: 0 auto; }
+
 .container {
-  margin: 0 auto;
-  /*border: $border;*/
   padding: 20px 0; }
 
-#leftNav, #rightNav {
-  font-size: 16px; }
+/*
+ * NAVIGATION
+ */
+#nav {
+  background-color: #ffffff;
+  border-bottom: 2px solid #000; }
 
+#leftNav a, #rightNav a {
+  font-size: 16px;
+  color: #000000;
+  text-decoration: none; }
+
+#leftNav a:hover, #rightNav a:hover {
+  text-decoration: underline; }
+
+#leftNav a {
+  margin-right: 20px; }
+
+#rightNav a {
+  margin-left: 20px; }
+
+/*
+ * LOGO, ARRIVALS, DEPARTURES
+ */
 .logo, .arrivals, .departures {
   margin: 0 20px; }
 
 .logo {
   margin-top: 20px; }
 
+.logo img {
+  max-width: 200px; }
+
+/*
+ * REQUEST
+ */
 .request {
   position: relative;
   padding: 20px;
@@ -26,22 +57,27 @@
   top: 20px;
   color: green; }
 
+.request input {
+  background: #EFEFEF;
+  border: 2px solid #000;
+  padding: 8px; }
+
 .request input[type="button"] {
   float: right;
   color: #ffffff;
   background-color: #000000;
   border: none;
   width: 120px;
-  padding: 8px;
   text-transform: uppercase; }
 
+/*
+ * MEDIA QUERIES
+ */
 @media (min-width: 992px) {
-  .container {
+  #navContainer, .container {
     width: 970px; } }
-/*@media (min-width: 1200px) {
-  .container {
-    width: $width-lg;
-  }
-}*/
+@media (min-width: 1200px) {
+  #navContainer, .container {
+    width: 1170px; } }
 
 /*# sourceMappingURL=style.css.map */

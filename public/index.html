@@ -6,52 +6,47 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My AngularJS App</title>
+  <title>PRO5</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
-    <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
-    <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
-    <link rel="import" href="bower_components/core-menu/core-menu.html">
+  <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+  <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+  <link rel="import" href="bower_components/core-menu/core-menu.html">
 </head>
 <body layout vertical fullbleed unresolved>
-<!--
-  <ul class="menu">
-    <li><a href="#/dashboard">Hotel Name</a></li>
-    <li><a href="#/roomList">Zimmerliste</a></li>
-      <li><a href="#/requests">Anfragen</a></li>
-      <li><a href="#/bookings">Buchungen</a></li>
-      <li><a href="#/guests">Gäste</a></li>
-      <li><a href="#/management">Hotelverwaltung</a></li>
-      <li><a href="#">Username</a></li>
-  </ul>
-  -->
-<core-header-panel flex>
-    <core-toolbar>
-        <core-menu layout horizontal flex>
-            <div>
-                <a href="#/dashboard">Hotel Name</a>
-                <a href="#/roomList">Zimmerliste</a>
-                <a href="#/requests">Anfragen</a>
-                <a href="#/bookings">Buchungen</a>
-            </div>
-            <div flex></div>
-            <div><a href="#/guests">Gäste</a>
-                <a href="#/management">Hotelverwaltung</a>
-                <a href="#">Username</a>
-            </div>
-        </core-menu>
-    </core-toolbar>
-    <div class="container">
-        <div ng-view></div>
-    </div>
-</core-header-panel>
 
+    <core-header-panel flex mode="seamed">
 
+            <core-toolbar id="nav">
+                <div id="navContainer">
+                    <core-menu layout horizontal flex>
+                        <div id="leftNav">
+                            <a href="#/dashboard">Hotel Sammer</a>
+                            <a href="#/roomList">Zimmerliste</a>
+                            <a href="#/requests">Anfragen</a>
+                            <a href="#/bookings">Buchungen</a>
+                        </div>
+                        <div flex></div>
+                        <div id="rightNav">
+                            <a href="#/guests">Gäste</a>
+                            <a href="#/management">Hotelverwaltung</a>
+                            <a href="#">Benutzer</a>
+                        </div>
+                    </core-menu>
+                </div>
+            </core-toolbar>
+
+        <div class="container">
+            <div ng-view></div>
+        </div>
+    </core-header-panel>
+
+    <!--
   <div ng-controller="testController">
       {{currentUser}}
-  </div>
+  </div>-->
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
@@ -69,9 +64,9 @@
   <!-- Including the View Controllers -->
   <script src="views/dashboard/dashboard.js"></script>
   <script src="views/roomList/roomList.js"></script>
-    <script src="views/requests/requests.js"></script>
+  <script src="views/requests/requests.js"></script>
   <script src="views/bookings/bookings.js"></script>
   <script src="views/guests/guests.js"></script>
-    <script src="views/management/management.js"></script>
+  <script src="views/management/management.js"></script>
 </body>
 </html>
