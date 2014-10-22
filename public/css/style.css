@@ -1,6 +1,35 @@
 .container {
   width: 970px;
   margin: 0 auto;
-  background: red; }
+  /*border: $border;*/
+  padding: 20px 0; }
+
+.logo, .arrivals, .departures {
+  margin: 0 20px; }
+
+.logo {
+  margin-top: 20px; }
+
+.request {
+  position: relative;
+  padding: 20px;
+  border: 1px solid darkgrey;
+  margin-right: 20px;
+  background-color: #EFEFEF; }
+
+.request .status {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  color: green; }
+
+.request input[type="button"] {
+  float: right;
+  color: #ffffff;
+  background-color: #000000;
+  border: none;
+  width: 120px;
+  padding: 8px;
+  text-transform: uppercase; }
 
 /*# sourceMappingURL=style.css.map */

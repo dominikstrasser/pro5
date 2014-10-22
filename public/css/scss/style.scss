@@ -1,8 +1,42 @@
 $width-md: 970px;
 $width-lg: 1170px;
 
+$border: 1px solid #000;
+$border-request: 1px solid darkgrey;
+
 .container {
   width: $width-md;
   margin: 0 auto;
-  background: red;
+  /*border: $border;*/
+  padding: 20px 0;
+}
+
+.logo, .arrivals, .departures {
+  margin: 0 20px;
+}
+.logo {
+  margin-top: 20px;
+}
+
+.request {
+  position: relative;
+  padding: 20px;
+  border: $border-request;
+  margin-right: 20px;
+  background-color: #EFEFEF;
+}
+.request .status {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  color: green;
+}
+.request input[type="button"] {
+  float: right;
+  color: #ffffff;
+  background-color: #000000;
+  border: none;
+  width: 120px;
+  padding: 8px;
+  text-transform: uppercase;
 }
