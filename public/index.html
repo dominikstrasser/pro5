@@ -10,9 +10,12 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="import" href="bower_components/polymer/layout.html">
+    <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+    <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+    <link rel="import" href="bower_components/core-menu/core-menu.html">
 </head>
-<body>
+<body layout vertical fullbleed unresolved>
+<!--
   <ul class="menu">
     <li><a href="#/dashboard">Hotel Name</a></li>
     <li><a href="#/roomList">Zimmerliste</a></li>
@@ -22,10 +25,28 @@
       <li><a href="#/management">Hotelverwaltung</a></li>
       <li><a href="#">Username</a></li>
   </ul>
+  -->
+<core-header-panel flex>
+    <core-toolbar>
+        <core-menu layout horizontal flex>
+            <div>
+                <a href="#/dashboard">Hotel Name</a>
+                <a href="#/roomList">Zimmerliste</a>
+                <a href="#/requests">Anfragen</a>
+                <a href="#/bookings">Buchungen</a>
+            </div>
+            <div flex></div>
+            <div><a href="#/guests">Gäste</a>
+                <a href="#/management">Hotelverwaltung</a>
+                <a href="#">Username</a>
+            </div>
+        </core-menu>
+    </core-toolbar>
+    <div class="container">
+        <div ng-view></div>
+    </div>
+</core-header-panel>
 
-  <div class="container">
-    <div ng-view></div>
-  </div>
 
   <div ng-controller="testController">
       {{currentUser}}
