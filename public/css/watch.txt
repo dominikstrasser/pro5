@@ -1,1 +1,4 @@
 sass --watch style.scss:../style.css
+
+- Anfrageformular fertigstellen
+- Modularisierung
