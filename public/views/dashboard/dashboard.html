@@ -20,7 +20,6 @@
                     </span>
                     </div>
                 </div>
-                <h2>Morgen</h2>
                 <div ng-repeat="arrival in arrivals">
                     <div ng-if="checkDate(arrival.arr) == 2">
                         <span>{{arrival.arr | date:'dd.MM.yyyy'}}</span>
@@ -33,7 +32,7 @@
 
                     </div>
                 </div>
-                <h2>Nächste Tage...</h2>
+                <h2>Morgen</h2>
                 <div ng-repeat="arrival in arrivals">
                     <div ng-if="checkDate(arrival.arr) == 3">
                         <span>{{arrival.arr | date:'dd.MM.yyyy'}}</span>
@@ -53,10 +52,21 @@
 
             </div>
         </div>
-        <div class="request"><h1>Anfrage</h1>
-
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-
+        <div class="request">
+            <h1>Anfrage</h1>
+            <p class="status">10 Zimmer verfügbar</p>
+            <form>
+                <p>
+                Anreise <input type="date" name="arrival">
+                Abreise <input type="date" name="departure">
+                </p>
+                <p>
+                <input type="text" name="name" value="Nachname">
+                <input type="text" name="company" value="Firma">
+                <input type="email" name="email" value="E-Mail Adresse">
+                </p>
+                <input type="button" name="continue" value="Weiter">
+            </form>
         </div>
     </div>
 </div>
