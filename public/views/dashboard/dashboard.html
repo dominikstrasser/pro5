@@ -1,53 +1,65 @@
-<h1>Dashboard</h1>
-
 <div horizontal layout>
-    <div><h1>Logo Hotel</h1></div>
-    <div flex>
-        <div flex>
-            <h1>Aktuelle Anreisen</h1>
-            <div ng-repeat="arrival in arrivals">
-                <div ng-if="arrival.arr == today.valueOf()">
-                    <h2>Heute</h2>
-                    <span>{{arrival.arr | date:'dd.MM.yyyy'}}</span>
-                    <span>{{arrival.guest_id.last_name}}</span>
-                    <span>{{arrival.person_count}} Personen</span>
+    <div class="logo">
+        <img src="../img/logo.png">
+    </div>
+
+    <div vertical layout flex>
+        <div horizontal layout>
+            <div flex class="arrivals">
+
+                <h1>Aktuelle Anreisen</h1>
+                <div ng-repeat="arrival in arrivals">
+                    <div ng-if="arrival.arr == today.valueOf()">
+                        <h2>Heute</h2>
+                        <span>{{arrival.arr | date:'dd.MM.yyyy'}}</span>
+                        <span>{{arrival.guest_id.last_name}}</span>
+                        <span>{{arrival.person_count}} Personen</span>
                     <span>
                         Zimmer
                         <span ng-repeat="room in arrival.room_id">{{room.number}}{{$last ? '' : ', '}}</span>
                     </span>
+                    </div>
                 </div>
-            </div>
 
-            <h2>Morgen</h2>
-            <div ng-repeat="arrival in arrivals">
-                <div ng-if="arrival.arr == tomorrow.valueOf()">
-                    <span>{{arrival.arr | date:'dd.MM.yyyy'}}</span>
-                    <span>{{arrival.guest_id.last_name}}</span>
-                    <span>{{arrival.person_count}} Personen</span>
+                <h2>Morgen</h2>
+                <div ng-repeat="arrival in arrivals">
+                    <div ng-if="arrival.arr == tomorrow.valueOf()">
+                        <span>{{arrival.arr | date:'dd.MM.yyyy'}}</span>
+                        <span>{{arrival.guest_id.last_name}}</span>
+                        <span>{{arrival.person_count}} Personen</span>
                     <span>
                         Zimmer
                         <span ng-repeat="room in arrival.room_id">{{room.number}}</span>
                     </span>
 
+                    </div>
                 </div>
-            </div>
-            <h2>Nächste Tage...</h2>
-            <div ng-repeat="arrival in arrivals">
-                <div ng-if="arrival.arr > tomorrow.valueOf()">
-                    <span>{{arrival.arr | date:'dd.MM.yyyy'}}</span>
-                    <span>{{arrival.guest_id.last_name}}</span>
-                    <span>{{arrival.person_count}} Personen</span>
+                <h2>Nächste Tage...</h2>
+                <div ng-repeat="arrival in arrivals">
+                    <div ng-if="arrival.arr > tomorrow.valueOf()">
+                        <span>{{arrival.arr | date:'dd.MM.yyyy'}}</span>
+                        <span>{{arrival.guest_id.last_name}}</span>
+                        <span>{{arrival.person_count}} Personen</span>
                     <span>
                         Zimmer
                         <span ng-repeat="room in arrival.room_id">{{room.number}}</span>
                     </span>
+                    </div>
                 </div>
+
+            </div>
+            <div flex class="departures">
+
+                <div flex><h1>Aktuelle Abreisen</h1></div>
+
             </div>
         </div>
+        <div class="request"><h1>Anfrage</h1>
 
-        <div flex><h1>Aktuelle Abreisen</h1></div>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+        </div>
     </div>
-
 </div>
 
 <!--<p>todo: Aktuelle Anreisen verbessern Aktuelle Abreisen, Verfügbarkeit...</p>

@@ -1,6 +1,15 @@
 .container {
   width: 970px;
   margin: 0 auto;
-  background: red; }
+  border: 1px solid #000;
+  padding: 20px 0; }
+
+.logo, .arrivals, .departures {
+  margin: 0 20px; }
+
+.request {
+  padding: 20px;
+  border: 1px solid darkgrey;
+  margin-right: 20px; }
 
 /*# sourceMappingURL=style.css.map */

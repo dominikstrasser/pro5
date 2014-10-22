@@ -1,8 +1,22 @@
 $width-md: 970px;
 $width-lg: 1170px;
 
+$border: 1px solid #000;
+$border-request: 1px solid darkgrey;
+
+
+
 .container {
   width: $width-md;
   margin: 0 auto;
-  background: red;
+  border: $border;
+  padding: 20px 0;
+}
+.logo, .arrivals, .departures {
+  margin: 0 20px;
+}
+.request {
+  padding: 20px;
+  border: $border-request;
+  margin-right: 20px;
 }
