@@ -2,6 +2,7 @@
     {
         "first_name": "Dominik",
         "last_name": "Strasser",
+        "salutation": "Herr",
         "title": "Bsc",
         "email": "strasserdominik@hotmail.com",
         "phone": "+43 664 656 80 45",
@@ -16,6 +17,7 @@
     {
         "first_name": "Thomas",
         "last_name": "Steidl",
+        "salutation": "Familie",
         "title": "Bsc",
         "email": "thomas@hotmail.com",
         "phone": "+43 664 656 80 45",
@@ -29,6 +31,7 @@
     {
         "first_name": "Markus",
         "last_name": "Tretzmüller",
+        "salutation": "Herr",
         "title": "Bsc",
         "email": "Markus@hotmail.com",
         "phone": "+43 664 656 80 45",

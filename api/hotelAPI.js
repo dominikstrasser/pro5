@@ -10,4 +10,12 @@ router.get("/", function(req, res){
 
 });
 
+router.get("/dashboard", function(req, res){
+    console.log("hotelAPI : /dashboard");
+    hotelModel.find({}, 'name logo', function(err,result){
+        if(err) console.log(err);
+        res.json(result);
+    });
+});
+
 module.exports = router;
