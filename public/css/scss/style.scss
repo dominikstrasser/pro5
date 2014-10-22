@@ -5,7 +5,6 @@ $border: 1px solid #000;
 $border-request: 1px solid darkgrey;
 
 .container {
-  width: $width-md;
   margin: 0 auto;
   /*border: $border;*/
   padding: 20px 0;
@@ -39,4 +38,15 @@ $border-request: 1px solid darkgrey;
   width: 120px;
   padding: 8px;
   text-transform: uppercase;
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: $width-md;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: $width-lg;
+  }
 }
