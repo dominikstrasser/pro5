@@ -4,8 +4,8 @@ var BookingSchema = mongoose.Schema({
         $oid: mongoose.Schema.ObjectId
     },
     status: Number,
-    arr: Number,
-    dep: Number,
+    arr: Date,
+    dep: Date,
     person_count: Number,
     room_count: Number,
     room_id: [{type:mongoose.Schema.ObjectId, ref:"room"}],

@@ -139,20 +139,22 @@ db.once("open", function(){
     var saveBooking = function(bookingNr) {
         var deferred = q.defer();
 
-        var today = moment.utc();
+        var today = moment();
         today.hour(12);
         today.minutes(00);
         today.seconds(00);
         today.milliseconds(0);
+        console.log("TODAY:" + today.toDate());
 
-        console.log(today.valueOf());
-        bookingData[bookingNr].arr = today.valueOf();
-        bookingData[bookingNr].dep = today.valueOf();
+        //console.log(today.valueOf());
+        bookingData[bookingNr].arr = today.toDate();
+        bookingData[bookingNr].dep = today.toDate();
 
         var testBooking = new bookingModel(bookingData[bookingNr]);
         testBooking.save(function (err, result) {
             if (err) deferred.reject(err);
             console.log("reset.js - Booking:saved");
+            console.log(result);
             deferred.resolve();
             if(--saveBookingCount == 0) changeBookingTimes();
         });
@@ -171,11 +173,13 @@ db.once("open", function(){
 
     var changeBookingTimes = function(){
 
+        console.log("changeBookingTimes")
         var d = moment.utc();
         d.hour(12);
         d.seconds(00);
         d.minutes(00);
         d.milliseconds(0);
+
         var days = [];
         for(var i = 0; i < 3; i++){
             days.push(moment(d).add(i, "day"));
@@ -183,8 +187,8 @@ db.once("open", function(){
         bookingModel.find(function(err, result){
             if(err) console.log(err);
             for(var i = 0; i < result.length; i++) {
-                result[i].arr = days[i].valueOf();
-                result[i].dep = moment(days[i]).add(3,"day").valueOf();
+                result[i].arr = days[i].toDate();
+                result[i].dep = moment(days[i]).add(3,"day").toDate();
                 result[i].save(function (err, result) {
                     if (err) console.log(err);
                     console.log("geht");

@@ -68,15 +68,26 @@ router.get("/getCurrentDepartures", function(req, res){
 
 });
 
-router.get("/check", function(req, res){
+router.post("/check", function(req, res){
 
+    //console.log(moment.utc(req.body.dep));
+    //console.log(moment(req.body.arr))
+    var today = new Date();
+    var momentToday = moment();
+
+    console.log(today);
+    console.log(momentToday.toDate());
+
+    /*
     var reqArr = moment.utc(req.body.arr);
     var reqDep = moment.utc(req.body.dep);
+    console.log(req.body.arr);
+    console.log(req.body.dep);
     setTimeTo12(reqArr);
     setTimeTo12(reqDep);
 
     console.log(reqArr.toDate());
-
+    console.log(reqDep.toDate());
 
     bookingModel.find()
         .where('arr').lte(reqArr.valueOf())
@@ -85,6 +96,9 @@ router.get("/check", function(req, res){
             if(err) console.log(err);
             res.json(result);
         });
+
+    */
+    res.send("OK");
 
 });
 
