@@ -9,6 +9,8 @@ angular.module('pro5_hzv.roomList', ['ngRoute'])
   });
 }])
 
-.controller('roomListCtrl', [function() {
+.controller('roomListCtrl', ['$scope', '$moment',function($scope, $moment) {
+        $scope.arr = $moment().toISOString();
+        $scope.dep = $moment().toISOString();
 
 }]);
