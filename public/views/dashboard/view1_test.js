@@ -1,4 +1,4 @@
-'use strict';
+/*'use strict';
 
 describe('pro5_hzv.dashboard module', function() {
 
@@ -14,3 +14,4 @@ describe('pro5_hzv.dashboard module', function() {
 
   });
 });
+*/

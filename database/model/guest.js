@@ -5,6 +5,7 @@ var guestSchema = mongoose.Schema({
     },
     first_name: String,
     last_name: String,
+    salutation: String,
     title: String,
     email: String,
     phone: String,

@@ -1,4 +1,4 @@
-'use strict';
+/*'use strict';
 
 describe('pro5_hzv.view2 module', function() {
 
@@ -13,4 +13,4 @@ describe('pro5_hzv.view2 module', function() {
     }));
 
   });
-});
+});*/

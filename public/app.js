@@ -4,7 +4,11 @@
 angular.module('pro5_hzv', [
     'ngRoute',
     'pro5_hzv.dashboard',
-    'pro5_hzv.view2',
+    'pro5_hzv.roomList',
+    'pro5_hzv.requests',
+    'pro5_hzv.bookings',
+    'pro5_hzv.guests',
+    'pro5_hzv.management',
     'angular-momentjs',
     'pro5_hzv.bookingService'
 ]).

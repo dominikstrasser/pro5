@@ -14,8 +14,13 @@
 </head>
 <body>
   <ul class="menu">
-    <li><a href="#/dashboard">Dashboard</a></li>
-    <li><a href="#/view2">view2</a></li>
+    <li><a href="#/dashboard">Hotel Name</a></li>
+    <li><a href="#/roomList">Zimmerliste</a></li>
+      <li><a href="#/requests">Anfragen</a></li>
+      <li><a href="#/bookings">Buchungen</a></li>
+      <li><a href="#/guests">Gäste</a></li>
+      <li><a href="#/management">Hotelverwaltung</a></li>
+      <li><a href="#">Username</a></li>
   </ul>
 
   <div class="container">
@@ -38,7 +43,13 @@
 
   <script src="app.js"></script>
   <script src="services.js"></script>
-  <script src="dashboard/dashboardMain.js"></script>
-  <script src="view2/view2.js"></script>
+
+  <!-- Including the View Controllers -->
+  <script src="views/dashboard/dashboard.js"></script>
+  <script src="views/roomList/roomList.js"></script>
+    <script src="views/requests/requests.js"></script>
+  <script src="views/bookings/bookings.js"></script>
+  <script src="views/guests/guests.js"></script>
+    <script src="views/management/management.js"></script>
 </body>
 </html>

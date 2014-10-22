@@ -6,12 +6,12 @@ angular.module('pro5_hzv.dashboard', [
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/dashboard', {
-    templateUrl: 'dashboard/view1.html',
-    controller: 'View1Ctrl'
+    templateUrl: 'views/dashboard/dashboard.html',
+    controller: 'dashboardCtrl'
   });
 }])
 
-.controller('View1Ctrl', ['$scope', '$http', '$moment', 'bookingService', function($scope, $http, $moment, bookingService) {
+.controller('dashboardCtrl', ['$scope', '$http', '$moment', 'bookingService', function($scope, $http, $moment, bookingService) {
 
         $scope.arrivals = {};
         var setTimeTo12 = function(d){

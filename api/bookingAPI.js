@@ -34,7 +34,7 @@ router.get("/getCurrentArrivals", function(req, res){
             path: "room_id",
             select: "number"
         })
-        .select("arr guest_id person_count room_id")
+        .select("arr salutation guest_id person_count room_id")
         .exec(function(err, result){
             if(err) console.log(err);
             //console.log(result);
@@ -44,14 +44,14 @@ router.get("/getCurrentArrivals", function(req, res){
 });
 
 router.get("/getCurrentDepartures", function(req, res){
-
     var today = moment.utc();
     setTimeTo12(today);
     var tomorrow = moment.utc().add(7,"days");
     setTimeTo12(tomorrow);
 
+
     bookingModel.find()
-        .where('arr').gte(today.valueOf()).lte(tomorrow.valueOf())
+        .where('dep').gte(today.valueOf()).lte(tomorrow.valueOf())
         .populate({
             path: "guest_id",
             select: "last_name"
@@ -60,10 +60,29 @@ router.get("/getCurrentDepartures", function(req, res){
             path: "room_id",
             select: "number"
         })
-        .select("arr guest_id person_count room_id")
+        .select("dep salutation guest_id person_count room_id")
         .exec(function(err, result){
             if(err) console.log(err);
-            //console.log(result);
+            res.json(result);
+        });
+
+});
+
+router.get("/check", function(req, res){
+
+    var reqArr = moment.utc(req.body.arr);
+    var reqDep = moment.utc(req.body.dep);
+    setTimeTo12(reqArr);
+    setTimeTo12(reqDep);
+
+    console.log(reqArr.toDate());
+
+
+    bookingModel.find()
+        .where('arr').lte(reqArr.valueOf())
+        .select("arr dep")
+        .exec(function(err, result){
+            if(err) console.log(err);
             res.json(result);
         });
 
