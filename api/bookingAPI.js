@@ -69,15 +69,13 @@ router.get("/getCurrentDepartures", function(req, res){
 });
 
 router.post("/check", function(req, res){
-
+    // !!! arr und dep kommen als ISO DATE rein!
     //console.log(moment.utc(req.body.dep));
     //console.log(moment(req.body.arr))
-    var today = new Date();
-    var momentToday = moment();
+    var begin = moment(req.body.arr);
+    var end = moment(req.body.dep);
 
-    console.log(today);
-    console.log(momentToday.toDate());
-
+    console.log(begin.toISOString());
     /*
     var reqArr = moment.utc(req.body.arr);
     var reqDep = moment.utc(req.body.dep);
@@ -97,7 +95,7 @@ router.post("/check", function(req, res){
             res.json(result);
         });
 
-    */
+*/
     res.send("OK");
 
 });

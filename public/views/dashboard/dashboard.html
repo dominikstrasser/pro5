@@ -33,9 +33,9 @@
                     </div>
                 </div>
 
-                <div ng-repeat="arrival in arrivals">
+                <div ng-repeat="arrival in arrivals | orderBy:'arr':true">
                     <div ng-if="checkDate(arrival.arr) == 3">
-                        <h2>Datum</h2>
+                        <h2 ng-if="!isDatum">Datum</h2>
                         <span>{{arrival.arr | date:'dd.MM.yyyy'}}</span>
                         <span>{{arrival.guest_id.last_name}}</span>
                         <span>{{arrival.person_count}} Personen</span>
