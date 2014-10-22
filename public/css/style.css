@@ -1,5 +1,4 @@
 .container {
-  width: 970px;
   margin: 0 auto;
   /*border: $border;*/
   padding: 20px 0; }
@@ -31,5 +30,12 @@
   width: 120px;
   padding: 8px;
   text-transform: uppercase; }
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px; } }
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px; } }
 
 /*# sourceMappingURL=style.css.map */

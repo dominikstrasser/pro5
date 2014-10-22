@@ -6,10 +6,9 @@
     <div vertical layout flex>
         <div horizontal layout>
             <div flex class="arrivals">
-
                 <h1>Aktuelle Anreisen</h1>
                 <div ng-repeat="arrival in arrivals">
-                    <div ng-if="arrival.arr == today.valueOf()">
+                    <div ng-if="checkDate(arrival.arr) == 1">
                         <h2>Heute</h2>
                         <span>{{arrival.arr | date:'dd.MM.yyyy'}}</span>
                         <span>{{arrival.guest_id.last_name}}</span>
@@ -20,10 +19,9 @@
                     </span>
                     </div>
                 </div>
-
-                <h2>Heute</h2>
                 <div ng-repeat="arrival in arrivals">
-                    <div ng-if="arrival.arr == tomorrow.valueOf()">
+                    <div ng-if="checkDate(arrival.arr) == 2">
+                        <h2>Morgen</h2>
                         <span>{{arrival.arr | date:'dd.MM.yyyy'}}</span>
                         <span>{{arrival.guest_id.last_name}}</span>
                         <span>{{arrival.person_count}} Personen</span>
@@ -34,9 +32,10 @@
 
                     </div>
                 </div>
-                <h2>Morgen</h2>
+
                 <div ng-repeat="arrival in arrivals">
-                    <div ng-if="arrival.arr > tomorrow.valueOf()">
+                    <div ng-if="checkDate(arrival.arr) == 3">
+                        <h2>Datum</h2>
                         <span>{{arrival.arr | date:'dd.MM.yyyy'}}</span>
                         <span>{{arrival.guest_id.last_name}}</span>
                         <span>{{arrival.person_count}} Personen</span>
@@ -67,7 +66,7 @@
                 <input type="text" name="company" value="Firma">
                 <input type="email" name="email" value="E-Mail Adresse">
                 </p>
-                <input type="button" name="continue" value="Weiter">
+                <input type="button" name="continue" value="Weiters">
             </form>
         </div>
     </div>
