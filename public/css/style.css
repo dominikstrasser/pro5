@@ -1,4 +1,10 @@
 /*
+ * GENERAL STYLES
+ */
+.clear {
+  clear: both; }
+
+/*
  * NAVCONTAINER, CONTAINER
  */
 #navContainer, .container {
@@ -82,8 +88,37 @@
   color: #ffffff;
   background-color: #000000; }
 
-.clear {
-  clear: both; }
+/*
+ * COLLAPSE
+ */
+.collapse {
+  margin: 0 20px; }
+
+.collapse h1 {
+  float: left; }
+
+.collapse .open {
+  float: right;
+  margin-top: 30px; }
+
+.collapse .open:hover {
+  cursor: pointer; }
+
+.collapse1 .content .data div:nth-child(1) {
+  min-width: 200px; }
+
+.collapse1 .content .data div:nth-child(2) {
+  min-width: 50px; }
+
+.collapse1 .content .data div:nth-child(3) {
+  min-width: 110px; }
+
+.collapse3 .content .email {
+  width: 60%;
+  border: 2px solid #000; }
+
+.collapse3 .content .drag {
+  width: 40%; }
 
 /*
  * MEDIA QUERIES
