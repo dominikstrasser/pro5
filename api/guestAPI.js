@@ -18,4 +18,15 @@ router.post("/", function (req, res) {
     });
 });
 
+router.get("/:guestId", function (req, res) {
+    console.log("guestAPI - get : /:guestId");
+
+    console.log(req.params.guestId);
+
+    guestModel.find({"_id" :req.params.guestId}, function (err, result) {
+        if (err) throw new Error(err);
+        res.json(result);
+    });
+});
+
 module.exports = router;
