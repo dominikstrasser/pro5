@@ -37,13 +37,13 @@
 
             </div>
         </div>
-        <div class="request">
+        <div class="request" ng-controller="requestFormController">
             <h1>Anfrage</h1>
-            <p class="status">10 Zimmer verfügbar</p>
+            <p class="status">{{available_rooms.length}} Zimmer verfügbar</p>
             <form>
                 <p>
-                    Anreise <input type="text" name="arrival">
-                    Abreise <input type="text" name="departure">
+                    <input ui-date="date-options" ng-model="requestForm.arr" name="arrival">
+                    <input ui-date="date-options" ng-model="requestForm.dep" name="departure">
                 </p>
 
                 <p>Personen</p>
@@ -64,9 +64,9 @@
                 <div class="clear"></div>
 
                 <p>Zimmer</p>
-                <core-selector class="list" selected="-1">
-                    <div class="item">1</div>
-                    <div class="item">2</div>
+                <core-selector valueattr="label" class="list" selectedModel="{{requestForm.person_count}}">
+                    <div label="foo" class="item">1</div>
+                    <div label="2" class="item">2</div>
                     <div class="item">3</div>
                     <div class="item">4</div>
                     <select name="number-chooser">
@@ -79,7 +79,7 @@
                 <div class="clear"></div>
 
                 <p>Kategorie</p>
-                <core-selector class="list" selected="-1">
+                <core-selector ng-model="requestForm.category" class="list" selected="-1">
                     <div class="item">HP</div>
                     <div class="item">NF</div>
                 </core-selector>
@@ -90,7 +90,7 @@
                     <input type="text" name="company" placeholder="Firma">
                     <input type="email" name="email" placeholder="E-Mail Adresse">
                 </p>
-                <input type="button" name="continue" value="Weiter">
+                <input type="submit" value="Weiter">
             </form>
         </div>
     </div>
