@@ -4,6 +4,9 @@ $width-lg: 1170px;
 $border: 2px solid #000;
 $border-request: 1px solid darkgrey;
 
+$black = #000000;
+$white = #ffffff;
+
 /*
  * NAVCONTAINER, CONTAINER
  */
@@ -18,12 +21,12 @@ $border-request: 1px solid darkgrey;
  * NAVIGATION
  */
 #nav {
-  background-color: #ffffff;
+  background-color: $white;
   border-bottom: $border;
 }
 #leftNav a, #rightNav a {
   font-size: 16px;
-  color: #000000;
+  color: $black;
   text-decoration: none;
 }
 #leftNav a:hover, #rightNav a:hover {
@@ -73,11 +76,24 @@ $border-request: 1px solid darkgrey;
 }
 .request input[type="button"] {
   float: right;
-  color: #ffffff;
-  background-color: #000000;
+  color: $white;
+  background-color: $black;
   border: none;
   width: 120px;
   text-transform: uppercase;
+}
+.request .item {
+  width: 20px;
+  float: left;
+  border: $border-request;
+}
+.request .core-selected {
+  color: $white;
+  background-color: $black;
+}
+
+.clear {
+  clear: both;
 }
 
 /*

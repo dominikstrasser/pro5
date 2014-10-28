@@ -42,12 +42,21 @@
             <p class="status">10 Zimmer verfügbar</p>
             <form>
                 <p>
-                    Anreise <input type="date" name="arrival">
-                    Abreise <input type="date" name="departure">
+                    Anreise <input type="text" name="arrival">
+                    Abreise <input type="text" name="departure">
                 </p>
                 <p>
-                    Personen <input type="number" name="one">
+                    Personen
                 </p>
+                <core-selector class="list" selected="0">
+                    <div class="item">1</div>
+                    <div class="item">2</div>
+                    <div class="item">3</div>
+                    <div class="item">4</div>
+                    <div class="item">5</div>
+                    <div class="item">6</div>
+                </core-selector>
+                <div class="clear"></div>
                 <p>
                     <input type="text" name="name" placeholder="Nachname">
                     <input type="text" name="company" placeholder="Firma">
