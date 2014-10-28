@@ -13,4 +13,15 @@ angular.module('pro5_hzv.roomList', ['ngRoute'])
         $scope.arr = $moment().toISOString();
         $scope.dep = $moment().toISOString();
 
+        $scope.currentGuest;
+        $scope.email;
+        $scope.last_name;
+
+        $scope.$watch('last_name', function(newValue, oldValue) {
+            console.log("test");
+            if(newValue == "Dominik"){
+
+            }
+        });
+
 }]);

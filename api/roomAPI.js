@@ -8,4 +8,12 @@ router.get("/", function (req, res) {
     });
 });
 
+router.get("/id", function (req, res) {
+    console.log("roomAPI : /");
+    roomModel.find({}, '_id', function (err, result) {
+        if (err) throw new Error(err);
+        res.json(result);
+    });
+});
+
 module.exports = router;
