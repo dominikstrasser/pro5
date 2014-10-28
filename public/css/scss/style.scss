@@ -4,8 +4,8 @@ $width-lg: 1170px;
 $border: 2px solid #000;
 $border-request: 1px solid darkgrey;
 
-$black = #000000;
-$white = #ffffff;
+$black: #000000;
+$white: #ffffff;
 
 /*
  * NAVCONTAINER, CONTAINER
@@ -86,6 +86,9 @@ $white = #ffffff;
   width: 20px;
   float: left;
   border: $border-request;
+}
+.request .item:hover {
+  cursor: pointer;
 }
 .request .core-selected {
   color: $white;
