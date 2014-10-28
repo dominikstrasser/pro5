@@ -1,14 +1,37 @@
+
+<h2>Provisorische Anfrage</h2>
+
+        {{available_rooms_count}} Zimmver verfügbar
+
 <form action="api/booking/check" method="POST">
-    <input  name="arr" ng-model="arr">
-    <input  name="dep" ng-model="dep">
+    <label>Arr</label>
+    <input  name="arr" ng-model="anfrage.arr"><br>
+    <label>Dep</label>
+    <input  name="dep" ng-model="anfrage.dep"><br>
+    <label>Personen</label>
+    <input  name="person_count" ng-model="anfrage.person_count"><br>
+    <label>Räume</label>
+    <input  name="room_count" ng-model="anfrage.room_count"><br>
+    <label>Kategorie</label><br>
+    <input type="radio" name="category1" ng-model="anfrage.category" value="HP"> HP<br>
+    <input type="radio" name="category2" ng-model="anfrage.category" value="NF"> NF<br>
     <button type="submit">Senden</button>
 </form>
+        <h1>IN TESTFILTER GANZES ANFRGE OBJEKT REINGEBEN UND DANN DIE AUSGABE RENDERN!</h1>
+        <h2>mit Q die Asynchronen Funktionen verwalten</h2>
+        {{anfrage.person_count}}
+        <ul ng-repeat="room in available_rooms | testFilter:anfrage">
+            <li>{{room.name}}</li>
+        </ul>
 
-
+<h2>Gast Hinzufügen</h2>
 <form action="api/guest/" method="POST">
     <input  name="last_name" ng-model="last_name">
     <input  name="email" ng-model="email">
-    <button type="submit">Senden</button>
+    <button type="submit">Anfrage Buchen</button>
 </form>
+
+        <h1>Zimmerliste:</h1>
+        <h3>1) Alle Zimmer holen 2) Buchungen für den Zeitraum holen 3) Buchungen und Zimmer zusammenfügen und anzeigen</h3>
 
 
