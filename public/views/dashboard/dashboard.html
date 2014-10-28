@@ -7,49 +7,33 @@
         <div horizontal layout>
             <div flex class="arrivals">
                 <h1>Aktuelle Anreisen</h1>
-                <div ng-repeat="arrival in arrivals">
-                    <div ng-if="checkDate(arrival.arr) == 1">
-                        <h2>Heute</h2>
-                        <span>{{arrival.arr | date:'dd.MM.yyyy'}}</span>
-                        <span>{{arrival.guest_id.last_name}}</span>
-                        <span>{{arrival.person_count}} Personen</span>
+                <div ng-repeat="arrival in arrivals | orderBy: 'arr'">
+
+                    <h2 ng-hide="isCurrentDate(arrival.arr)">{{displayDate(arrival.arr) | date:'dd.MM.yyyy'}}</h2>
+                    <span>{{arrival.arr | date:'dd.MM.yyyy'}}</span>
+                    <span>{{arrival.guest_id.last_name}}</span>
+                    <span>{{arrival.person_count}} Personen</span>
                     <span>
                         Zimmer
                         <span ng-repeat="room in arrival.room_id">{{room.number}}{{$last ? '' : ', '}}</span>
                     </span>
-                    </div>
-                </div>
-                <div ng-repeat="arrival in arrivals">
-                    <div ng-if="checkDate(arrival.arr) == 2">
-                        <h2>Morgen</h2>
-                        <span>{{arrival.arr | date:'dd.MM.yyyy'}}</span>
-                        <span>{{arrival.guest_id.last_name}}</span>
-                        <span>{{arrival.person_count}} Personen</span>
-                    <span>
-                        Zimmer
-                        <span ng-repeat="room in arrival.room_id">{{room.number}}</span>
-                    </span>
-
-                    </div>
-                </div>
-
-                <div ng-repeat="arrival in arrivals | orderBy:'arr':true">
-                    <div ng-if="checkDate(arrival.arr) == 3">
-                        <h2 ng-if="!isDatum">Datum</h2>
-                        <span>{{arrival.arr | date:'dd.MM.yyyy'}}</span>
-                        <span>{{arrival.guest_id.last_name}}</span>
-                        <span>{{arrival.person_count}} Personen</span>
-                    <span>
-                        Zimmer
-                        <span ng-repeat="room in arrival.room_id">{{room.number}}</span>
-                    </span>
-                    </div>
                 </div>
 
             </div>
             <div flex class="departures">
+                <h1>Aktuelle Abreisen</h1>
+                <div ng-repeat="departure in departures | orderBy: 'dep'">
 
-                <div flex><h1>Aktuelle Abreisen</h1></div>
+                    <h2 ng-hide="isCurrentDate(departure.dep)">{{displayDate(departure.dep) | date:'dd.MM.yyyy'}}</h2>
+
+                    <span>{{departure.dep | date:'dd.MM.yyyy'}}</span>
+                    <span>{{departure.guest_id.last_name}}</span>
+                    <span>{{departure.person_count}} Personen</span>
+                    <span>Zimmer
+
+                        <span ng-repeat="room in arrival.room_id">{{room.number}}</span>
+                    </span>
+                </div>
 
             </div>
         </div>
@@ -58,16 +42,16 @@
             <p class="status">10 Zimmer verfügbar</p>
             <form>
                 <p>
-                Anreise <input type="date" name="arrival">
-                Abreise <input type="date" name="departure">
+                    Anreise <input type="date" name="arrival">
+                    Abreise <input type="date" name="departure">
                 </p>
                 <p>
-                Personen <input type="number" name="one">
+                    Personen <input type="number" name="one">
                 </p>
                 <p>
-                <input type="text" name="name" placeholder="Nachname">
-                <input type="text" name="company" placeholder="Firma">
-                <input type="email" name="email" placeholder="E-Mail Adresse">
+                    <input type="text" name="name" placeholder="Nachname">
+                    <input type="text" name="company" placeholder="Firma">
+                    <input type="email" name="email" placeholder="E-Mail Adresse">
                 </p>
                 <input type="button" name="continue" value="Weiter">
             </form>
