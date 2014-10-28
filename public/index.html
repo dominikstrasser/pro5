@@ -11,15 +11,23 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="bower_components/jquery-ui/themes/smoothness/jquery-ui.css"/>
   <link rel="stylesheet" href="css/style.css">
-
+    <!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">-->
     <script src="bower_components/platform/platform.js"></script>
   <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
   <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
   <link rel="import" href="bower_components/core-menu/core-menu.html">
   <link rel="import" href="bower_components/core-selector/core-selector.html">
   <link rel="import" href="bower_components/core-collapse/core-collapse.html">
+    <style>
+        ul.dropdown-menu{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background: gray;
+            list-style: none;
+        }
+    </style>
 </head>
 <body layout vertical fullbleed unresolved>
 
@@ -42,7 +50,6 @@
                     </core-menu>
                 </div>
             </core-toolbar>
-
         <div class="container">
             <div ng-view></div>
             <div id="guestInformation" ng-controller="indexCtrl">
@@ -76,22 +83,15 @@
             </div>
         </div>
     </core-header-panel>
-    <!--
-  <div ng-controller="testController">
-      {{currentUser}}
-  </div>-->
 
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="libs/ui-bootstrap-custom-tpls-0.10.0.min.js"></script>
+    <!--<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>-->
   <script src="bower_components/angular-resource/angular-resource.min.js"></script>
   <script src="bower_components/moment/moment.js"></script>
   <script src="bower_components/angular-momentjs/angular-momentjs.js"></script>
-    <script src="bower_components/angular-ui-date/src/date.js"></script>
+
 
   <script src="app.js"></script>
   <script src="services.js"></script>
