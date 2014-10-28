@@ -3,6 +3,7 @@
 // Declare app level module which depends on views, and components
 angular.module('pro5_hzv', [
     'ngRoute',
+    'ui.date',
     'pro5_hzv.dashboard',
     'pro5_hzv.roomList',
     'pro5_hzv.requests',

@@ -70,4 +70,56 @@ angular.module('pro5_hzv.dashboard', [
         $scope.arrivals = arrivalService.currentArrivals();
         $scope.departures = departureService.currentDepartures();
 
-    }]);
+    }]).controller("requestFormController", function($scope, $http, $moment){
+
+
+        var setTimeTo12 = function(d){
+            d.hour(12);
+            d.seconds(0);
+            d.minutes(0);
+            d.milliseconds(0);
+        };
+
+        $scope.requestForm = {};
+        $scope.requestForm.room_count = "2";
+        $scope.dateOptions = {
+            changeYear: true,
+            changeMonth: true,
+            yearRange: '2014:2020',
+            dateFormat: "dd mm yyyy"
+        };
+
+        $http.get("api/room/")
+            .success(function(data, status, headers, config){
+                $scope.all_rooms = data;
+                $scope.available_rooms = $scope.all_rooms.slice(0);
+            });
+
+        $scope.$watchCollection("requestForm", function(newValue, oldValue){
+            if($moment(newValue.arr).isValid() && $moment(newValue.dep).isValid()) {
+                var data = {};
+                data.arr = $moment(newValue.arr);
+                setTimeTo12(data.arr);
+                data.dep = $moment(newValue.dep);
+                setTimeTo12(data.dep);
+                $http.post("api/booking/check", data)
+                    .success(function (data, status, headers, config) {
+                        $scope.remove_rooms = data;
+                        $scope.available_rooms = $scope.all_rooms.slice(0);
+                        for (var i = 0; i < $scope.available_rooms.length; i++) {
+                            for (var j = 0; j < data.length; j++) {
+                                if ($scope.available_rooms[i]._id == data[j].room_id[0]) {
+                                    $scope.available_rooms.splice(i,1);
+                                    i--;
+                                    break;
+                                }
+                            }
+                        }
+                    });
+            }
+        });
+
+
+        //$scope.requestForm.arr = "TEST";
+
+    });
