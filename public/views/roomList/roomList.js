@@ -9,19 +9,49 @@ angular.module('pro5_hzv.roomList', ['ngRoute'])
   });
 }])
 
-.controller('roomListCtrl', ['$scope', '$moment',function($scope, $moment) {
-        $scope.arr = $moment().toISOString();
-        $scope.dep = $moment().toISOString();
+.controller('roomListCtrl', ['$scope', '$moment', '$http',function($scope, $moment, $http) {
+
 
         $scope.currentGuest;
         $scope.email;
         $scope.last_name;
+        $scope.anfrage = {};
+        $scope.anfrage.arr = $moment().toISOString();
+        $scope.anfrage.dep = $moment().add(2,"days").toISOString();
 
-        $scope.$watch('last_name', function(newValue, oldValue) {
-            console.log("test");
-            if(newValue == "Dominik"){
+        $http.get("api/room/")
+            .success(function(data, status, headers, config){
+                $scope.all_rooms = data;
+                $scope.available_rooms = $scope.all_rooms.slice(0);
+            });
 
+        $scope.$watchCollection("anfrage", function(newValue, oldValue){
+            if($moment(newValue.arr).isValid() && $moment(newValue.dep).isValid()) {
+                $http.post("api/booking/check", newValue)
+                    .success(function (data, status, headers, config) {
+                        $scope.remove_rooms = data;
+                        $scope.available_rooms = $scope.all_rooms.slice(0);
+                        for (var i = 0; i < $scope.available_rooms.length; i++) {
+                            for (var j = 0; j < data.length; j++) {
+                                if ($scope.available_rooms[i]._id == data[j].room_id[0]) {
+                                    $scope.available_rooms.splice(i,1);
+                                    i--;
+                                    break;
+                                }
+                            }
+                        }
+                    });
             }
-        });
 
-}]);
+        });
+}]).filter('testFilter', function() {
+        return function(input, status) {
+            if(typeof status === 'undefined' || status == "") return input;
+            var out = [];
+            for (var i = 0; i < input.length; i++) {
+                if (input[i].beds == status)
+                    out.push(input[i]);
+            }
+            return out;
+        };
+    });
