@@ -10,6 +10,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 var db = require("./database/dbConnection.js");
 var routes = require("./routes/index.js");
 
+//var listenMail = require("./email/listen.js");
+//var sendMail = require("./email/send.js");
 
 db.once("open", function(){
     console.log("db open");
