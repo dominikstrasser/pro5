@@ -3,7 +3,7 @@
         <img src="../img/logo_neu.png">
     </div>
 
-    <div vertical layout flex>
+    <div id="current" vertical layout flex>
         <div horizontal layout>
             <div flex class="arrivals">
                 <h1>Aktuelle Anreisen</h1>
@@ -44,62 +44,63 @@
 
             </div>
         </div>
-        <div class="request" ng-controller="requestFormController">
-            <h1>Neue Anfrage</h1>
-            <p class="status">{{available_rooms.length}} Zimmer verfügbar</p>
-            <form>
-                Anreise <input type="text" ng-model="requestForm.arr" name="arr" bs-datepicker>
-                <br>
-                Abreise <input type="text" ng-model="requestForm.dep" name="dep" bs-datepicker>
-
-                <p>Personen</p>
-                <core-selector class="list" selected="-1">
-                    <div class="item">1</div>
-                    <div class="item">2</div>
-                    <div class="item">3</div>
-                    <div class="item">4</div>
-                    <div class="item">5</div>
-                    <div class="item">6</div>
-                    <select name="number-chooser">
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
-                    </select>
-                </core-selector>
-                <div class="clear"></div>
-
-                <p>Zimmer</p>
-                <core-selector valueattr="label" class="list" selectedModel="{{requestForm.person_count}}">
-                    <div label="foo" class="item">1</div>
-                    <div label="2" class="item">2</div>
-                    <div class="item">3</div>
-                    <div class="item">4</div>
-                    <select name="number-chooser">
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                    </select>
-                </core-selector>
-                <div class="clear"></div>
-
-                <p>Kategorie</p>
-                <core-selector ng-model="requestForm.category" class="list" selected="-1">
-                    <div class="item">HP</div>
-                    <div class="item">NF</div>
-                </core-selector>
-                <div class="clear"></div>
-
-                <p>
-                    <input type="text" name="name" placeholder="Nachname">
-                    <input type="text" name="company" placeholder="Firma">
-                    <input type="email" name="email" placeholder="E-Mail Adresse">
-                </p>
-                <input type="submit" value="Weiter">
-            </form>
-        </div>
     </div>
+</div>
+
+<div class="request" ng-controller="requestFormController">
+    <h1>Neue Anfrage</h1>
+    <p class="status">{{available_rooms.length}} Zimmer verfügbar</p>
+    <form>
+        Anreise <input type="text" ng-model="requestForm.arr" name="arr" bs-datepicker>
+        <br>
+        Abreise <input type="text" ng-model="requestForm.dep" name="dep" bs-datepicker>
+
+        <p>Personen</p>
+        <core-selector class="list" selected="-1">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+            <select name="number-chooser">
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </select>
+        </core-selector>
+        <div class="clear"></div>
+
+        <p>Zimmer</p>
+        <core-selector valueattr="label" class="list" selectedModel="{{requestForm.person_count}}">
+            <div label="foo" class="item">1</div>
+            <div label="2" class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <select name="number-chooser">
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+            </select>
+        </core-selector>
+        <div class="clear"></div>
+
+        <p>Kategorie</p>
+        <core-selector ng-model="requestForm.category" class="list" selected="-1">
+            <div class="item">HP</div>
+            <div class="item">NF</div>
+        </core-selector>
+        <div class="clear"></div>
+
+        <p>
+            <input type="text" name="name" placeholder="Nachname">
+            <input type="text" name="company" placeholder="Firma">
+            <input type="email" name="email" placeholder="E-Mail Adresse">
+        </p>
+        <input type="submit" value="Weiter">
+    </form>
 </div>
 
 <!--<p>todo: Aktuelle Anreisen verbessern Aktuelle Abreisen, Verfügbarkeit...</p>-->

@@ -30,15 +30,18 @@ $white: #FFFFFF;
  */
 * {
   font-family: 'proxima';
+  font-weight: normal;
   font-size: 16px;
   color: $darkblue;
 }
 h1 {
   text-transform: uppercase;
   color: $blue;
+  font-weight: normal;
 }
 h2 {
   text-transform: uppercase;
+  font-weight: normal;
 }
 .clear {
   clear: both;
@@ -69,13 +72,19 @@ h2 {
   text-decoration: none;
 }
 #leftNav a:hover, #rightNav a:hover {
-  text-decoration: underline;
+  background: #434b62;
 }
 #leftNav a {
-  margin-right: 20px;
+  margin-right: -5px;
+  border-left: 1px solid #434b62;
+  border-right: 1px solid #434b62;
+  padding: 15px;
 }
 #rightNav a {
-  margin-left: 20px;
+  margin-right: -5px;
+  border-left: 1px solid #434b62;
+  border-right: 1px solid #434b62;
+  padding: 15px;
 }
 
 /*
@@ -89,6 +98,9 @@ h2 {
 }
 .logo img {
   max-width: 200px;
+}
+#current {
+  margin-top: 30px;
 }
 
 /*
