@@ -84,7 +84,7 @@ router.post("/check", function(req, res){
     */
     //.where('arr').lte(reqDep.valueOf())
     if(typeof reqRoom === 'undefined'){
-        console.log("ASDFASDFASDF");
+        console.log("reqRoom undefined");
     }
     /*
     * get all bookings earlier than the departure of the new booking

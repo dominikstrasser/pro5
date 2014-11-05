@@ -41,10 +41,11 @@
             <h1>Anfrage</h1>
             <p class="status">{{available_rooms.length}} Zimmer verfügbar</p>
             <form>
-                <p>
-                    <input ui-date="date-options" ng-model="requestForm.arr" name="arrival">
-                    <input ui-date="date-options" ng-model="requestForm.dep" name="departure">
-                </p>
+                <input type="text"
+
+                       ng-model="requestForm.arr"
+                       name="arr" bs-datepicker>
+                <input type="text" ng-model="requestForm.dep" name="dep" bs-datepicker>
 
                 <p>Personen</p>
                 <core-selector class="list" selected="-1">
