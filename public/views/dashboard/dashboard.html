@@ -10,13 +10,20 @@
                 <div ng-repeat="arrival in arrivals | orderBy: 'arr'">
 
                     <h2 ng-hide="isCurrentDate(arrival.arr)">{{displayDate(arrival.arr) | date:'dd.MM.yyyy'}}</h2>
-                    <span>{{arrival.arr | date:'dd.MM.yyyy'}}</span>
-                    <span>{{arrival.guest_id.last_name}}</span>
-                    <span>{{arrival.person_count}} Personen</span>
-                    <span>
-                        Zimmer
-                        <span ng-repeat="room in arrival.room_id">{{room.number}}{{$last ? '' : ', '}}</span>
-                    </span>
+                    <div>
+                        <span>{{arrival.guest_id.salutation}} </span>
+                        <span>{{arrival.guest_id.last_name}}</span>
+                        <span>{{arrival.person_count}} Personen</span>
+
+                    </div>
+                    <div>
+                        <span>
+                            Zimmer
+                            <span ng-repeat="room in arrival.room_id">{{room.number}}{{$last ? '' : ', '}}</span>
+                        </span><br>
+                        <span>Abreise : {{arrival.dep | date:"dd.MM.yyyy"}}</span><br>
+                        <span>Verpflegung: {{arrival.category}}</span>
+                    </div>
                 </div>
 
             </div>
