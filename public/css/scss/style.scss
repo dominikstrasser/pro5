@@ -160,6 +160,57 @@ h1, h2 {
 }
 
 /*
+ * TABS
+ */
+.tabs-wrapper {
+  input[type=radio] {
+    display: none;
+  }
+  label {
+    display: inline-block;
+    cursor: pointer;
+    color: $black;
+    width: 49%;
+    background: $white;
+    text-align:center;
+    &:last-of-type {
+      border-bottom:none;
+    }
+    &:hover {
+      background: $black;
+      color: $white;
+    }
+  }
+}
+#tab1, #tab2 {
+  &:checked{
+    + label {
+      background: $black;
+      color: $white
+    }
+  }
+}
+.tab-body {
+  position: absolute;
+  top: -9999px;
+  padding: 10px;
+}
+.tab-body h1 {
+  float: none;
+}
+.tab-body-wrapper {
+  /*background: $tab-body-wrapper-color;
+  border-top: $tab-checked-border-color $tab-delimiter-line-height solid;
+  border-bottom-right-radius:3px;
+  border-bottom-left-radius:3px;
+  border-top-right-radius:3px;*/
+}
+#tab1:checked ~ .tab-body-wrapper #tab-body-1, #tab2:checked ~ .tab-body-wrapper #tab-body-2 {
+  position: relative;
+  top: 0px;
+}
+
+/*
  * MEDIA QUERIES
  */
 @media (min-width: 992px) {
