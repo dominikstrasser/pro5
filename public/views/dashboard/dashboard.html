@@ -1,6 +1,6 @@
 <div horizontal layout>
     <div class="logo">
-        <img src="../img/logo.png">
+        <img src="../img/logo_neu.png">
     </div>
 
     <div vertical layout flex>
@@ -38,14 +38,12 @@
             </div>
         </div>
         <div class="request" ng-controller="requestFormController">
-            <h1>Anfrage</h1>
+            <h1>Neue Anfrage</h1>
             <p class="status">{{available_rooms.length}} Zimmer verfügbar</p>
             <form>
-                <input type="text"
-
-                       ng-model="requestForm.arr"
-                       name="arr" bs-datepicker>
-                <input type="text" ng-model="requestForm.dep" name="dep" bs-datepicker>
+                Anreise <input type="text" ng-model="requestForm.arr" name="arr" bs-datepicker>
+                <br>
+                Abreise <input type="text" ng-model="requestForm.dep" name="dep" bs-datepicker>
 
                 <p>Personen</p>
                 <core-selector class="list" selected="-1">

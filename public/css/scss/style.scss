@@ -2,15 +2,42 @@ $width-md: 970px;
 $width-lg: 1170px;
 
 $border: 2px solid #000;
-$border-request: 1px solid darkgrey;
+
+$blue: #2f3545;
+$darkblue: #1e2331;
+$formblue: #40475b;
+
+$grey: #eef1f9;
+$darkgrey: #c9cedb;
 
 $black: #000000;
-$white: #ffffff;
+$white: #FFFFFF;
+
+@font-face {
+  font-family: 'proxima';
+  src: url('../fonts/proximanovasoft-regular-webfont.eot');
+  src: url('../fonts/proximanovasoft-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/proximanovasoft-regular-webfont.woff2') format('woff2'),
+  url('../fonts/proximanovasoft-regular-webfont.woff') format('woff'),
+  url('../fonts/proximanovasoft-regular-webfont.ttf') format('truetype'),
+  url('../fonts/proximanovasoft-regular-webfont.svg#proxima_nova_softregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 
 /*
  * GENERAL STYLES
  */
-h1, h2 {
+* {
+  font-family: 'proxima';
+  font-size: 16px;
+  color: $darkblue;
+}
+h1 {
+  text-transform: uppercase;
+  color: $blue;
+}
+h2 {
   text-transform: uppercase;
 }
 .clear {
@@ -23,6 +50,9 @@ h1, h2 {
 #navContainer, .container {
   margin: 0 auto;
 }
+#navContainer {
+  margin-top: -15px;
+}
 .container {
   padding: 20px 0;
 }
@@ -31,12 +61,11 @@ h1, h2 {
  * NAVIGATION
  */
 #nav {
-  background-color: $white;
-  border-bottom: $border;
+  background-color: $blue;
+  height: 50px;
 }
 #leftNav a, #rightNav a {
-  font-size: 16px;
-  color: $black;
+  color: $white;
   text-decoration: none;
 }
 #leftNav a:hover, #rightNav a:hover {
@@ -68,10 +97,9 @@ h1, h2 {
 .request {
   position: relative;
   padding: 20px;
-  border: $border-request;
   margin-right: 20px;
   margin-top: 20px;
-  background-color: #EFEFEF;
+  background-color: $grey;
 }
 .request .status {
   position: absolute;
@@ -86,8 +114,8 @@ h1, h2 {
 }
 .request input[type="button"] {
   float: right;
-  color: $white;
-  background-color: $black;
+  color: #FFFFFF;
+  background-color: black;
   border: none;
   width: 120px;
   text-transform: uppercase;
@@ -111,8 +139,8 @@ h1, h2 {
   -webkit-appearance: none;*/
 }
 .request .core-selected {
-  color: $white;
-  background-color: $black;
+  color: #FFFFFF;
+  background-color: black;
 }
 
 /*
@@ -169,24 +197,24 @@ h1, h2 {
   label {
     display: inline-block;
     cursor: pointer;
-    color: $black;
+    color: black;
     width: 49%;
-    background: $white;
+    background: #FFFFFF;
     text-align:center;
     &:last-of-type {
       border-bottom:none;
     }
     &:hover {
-      background: $black;
-      color: $white;
+      background: black;
+      color: #FFFFFF;
     }
   }
 }
 #tab1, #tab2 {
   &:checked{
     + label {
-      background: $black;
-      color: $white
+      background: black;
+      color: #FFFFFF;
     }
   }
 }

@@ -1,7 +1,22 @@
+@font-face {
+  font-family: 'proxima';
+  src: url("../fonts/proximanovasoft-regular-webfont.eot");
+  src: url("../fonts/proximanovasoft-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/proximanovasoft-regular-webfont.woff2") format("woff2"), url("../fonts/proximanovasoft-regular-webfont.woff") format("woff"), url("../fonts/proximanovasoft-regular-webfont.ttf") format("truetype"), url("../fonts/proximanovasoft-regular-webfont.svg#proxima_nova_softregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 /*
  * GENERAL STYLES
  */
-h1, h2 {
+* {
+  font-family: 'proxima';
+  font-size: 16px;
+  color: #1e2331; }
+
+h1 {
+  text-transform: uppercase;
+  color: #2f3545; }
+
+h2 {
   text-transform: uppercase; }
 
 .clear {
@@ -13,6 +28,9 @@ h1, h2 {
 #navContainer, .container {
   margin: 0 auto; }
 
+#navContainer {
+  margin-top: -15px; }
+
 .container {
   padding: 20px 0; }
 
@@ -20,12 +38,11 @@ h1, h2 {
  * NAVIGATION
  */
 #nav {
-  background-color: #ffffff;
-  border-bottom: 2px solid #000; }
+  background-color: #2f3545;
+  height: 50px; }
 
 #leftNav a, #rightNav a {
-  font-size: 16px;
-  color: #000000;
+  color: #FFFFFF;
   text-decoration: none; }
 
 #leftNav a:hover, #rightNav a:hover {
@@ -55,10 +72,9 @@ h1, h2 {
 .request {
   position: relative;
   padding: 20px;
-  border: 1px solid darkgrey;
   margin-right: 20px;
   margin-top: 20px;
-  background-color: #EFEFEF; }
+  background-color: #eef1f9; }
 
 .request .status {
   position: absolute;
@@ -73,8 +89,8 @@ h1, h2 {
 
 .request input[type="button"] {
   float: right;
-  color: #ffffff;
-  background-color: #000000;
+  color: #FFFFFF;
+  background-color: black;
   border: none;
   width: 120px;
   text-transform: uppercase; }
@@ -98,8 +114,8 @@ h1, h2 {
   -webkit-appearance: none;*/ }
 
 .request .core-selected {
-  color: #ffffff;
-  background-color: #000000; }
+  color: #FFFFFF;
+  background-color: black; }
 
 /*
  * COLLAPSE
@@ -152,19 +168,19 @@ h1, h2 {
 .tabs-wrapper label {
   display: inline-block;
   cursor: pointer;
-  color: #000000;
+  color: black;
   width: 49%;
-  background: #ffffff;
+  background: #FFFFFF;
   text-align: center; }
   .tabs-wrapper label:last-of-type {
     border-bottom: none; }
   .tabs-wrapper label:hover {
-    background: #000000;
-    color: #ffffff; }
+    background: black;
+    color: #FFFFFF; }
 
 #tab1:checked + label, #tab2:checked + label {
-  background: #000000;
-  color: #ffffff; }
+  background: black;
+  color: #FFFFFF; }
 
 .tab-body {
   position: absolute;
