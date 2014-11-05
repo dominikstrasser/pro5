@@ -3,6 +3,7 @@
 // Declare app level module which depends on views, and components
 angular.module('pro5_hzv', [
     'ngRoute',
+    'ngResource',
     'mgcrea.ngStrap.datepicker',
     'pro5_hzv.dashboard',
     'pro5_hzv.roomList',
@@ -26,11 +27,20 @@ config(['$routeProvider', function($routeProvider) {
         });
     })
     .controller("indexCtrl", ['$scope','guestMainDataService', function ($scope, guestMainDataService) {
-    $scope.guest = {};
-    $scope.guest.id = '544f503e31925fc402810f03';
-    guestMainDataService.getSingleGuest(function(data) {
-        $scope.guest = data[0];
-    });
-    console.log('indexCtrl working!');
-    console.log($scope.guest);
+
+        $scope.getGuest = function (id) {
+            var guest = guestMainDataService.get({ id: id }, function() {
+                $scope.guest = guest;
+                console.log($scope.guest);
+            });
+        };
+
+        $scope.saveGuest = function ()
+        {
+
+            $scope.guest.$update(function () {
+                //data saved. do something here.
+                console.log("data was saved");
+            });
+        }
 }]);

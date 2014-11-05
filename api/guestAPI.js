@@ -28,7 +28,9 @@ router.get("/:_id", function (req, res) {
 });
 
 router.post("/:_id", function (req, res) {
-    console.log("guestAPI - post : /:_id");
+    console.log(req.params._id);
+
+    delete req.body._id; // wichtig: ID kann man nicht updaten
 
     guestModel.findOneAndUpdate({"_id" : req.params._id}, req.body,
         function (err, result)

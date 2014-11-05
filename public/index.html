@@ -56,7 +56,10 @@
         <div class="container">
             <div ng-view></div>
             <div id="guestInformation" ng-controller="indexCtrl">
-                {{guest[0].first_name}}
+                <form>
+                    <input type="text" ng-model="id">
+                    <button ng-click="getGuest(id)">Guest laden</button>
+                </form>
                 <form>
                     <label for="salutation">Anrede: </label>
                 <select name="salutation" id="salutation">
@@ -68,20 +71,20 @@
                     <label for="first_name">Vorname: </label>
                     <input ng-model="guest.first_name" type="text" name="first_name" id="first_name">
                     <label for="last_name">Nachname: </label>
-                    <input type="text" name="last_name" id="last_name" placeholder="{{guest.first_name}}">
+                    <input ng-model="guest.last_name" type="text" name="last_name" id="last_name">
                     <label for="address">Straße: </label>
-                    <input type="text" name="address" id="address">
+                    <input ng-model="guest.address" type="text" name="address" id="address">
                     <label for="plz">PLZ: </label>
-                    <input type="number" name="plz" id="plz">
+                    <input ng-model="guest.plz" type="number" name="plz" id="plz">
                     <label for="city">Stadt: </label>
-                    <input type="text" name="city" id="city">
+                    <input ng-model="guest.city" type="text" name="city" id="city">
                     <label for="country">Land: </label>
-                    <input type="text" name="country" id="country">
+                    <input ng-model="guest.country" type="text" name="country" id="country">
                     <label for="phone">Telefon: </label>
-                    <input type="number" name="phone" id="phone">
+                    <input ng-model="guest.phone" type="text" name="phone" id="phone">
                     <label for="email">Email: </label>
-                    <input type="email" name="email" id="email">
-                    <input type="submit" name="save" value="Speichern">
+                    <input ng-model="guest.email" type="email" name="email" id="email">
+                    <button ng-click="saveGuest()">Speichern</button>
                 </form>
             </div>
         </div>
@@ -94,6 +97,7 @@
   <script src="bower_components/angular-resource/angular-resource.min.js"></script>
   <script src="bower_components/moment/moment.js"></script>
   <script src="bower_components/angular-momentjs/angular-momentjs.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
 
   <script src="app.js"></script>
   <script src="services.js"></script>
