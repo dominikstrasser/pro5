@@ -23,8 +23,6 @@ angular.module('pro5_hzv.dashboard', [
         };
 
         $scope.currentDate = "first";
-
-
         $scope.isCurrentDate = function(date) {
             var check = true;
             var dateBuffer = date;

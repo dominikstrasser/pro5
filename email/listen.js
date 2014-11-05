@@ -21,7 +21,7 @@ var mailListener = new MailListener({
 mailListener.start(); // start listening
 
 // stop listening
-//mailListener.stop();
+mailListener.stop();
 
 mailListener.on("server:connected", function(){
     console.log("imapConnected");
@@ -44,9 +44,11 @@ mailListener.on("mail", function(mail, seqno, attributes){
     // mail processing code goes here
 });
 
+
 mailListener.on("attachment", function(attachment){
     console.log(attachment.path);
 });
+
 
 // it's possible to access imap object from node-imap library for performing additional actions. E.x.
 //mailListener.imap.move(:msguids, :mailboxes, function(){})

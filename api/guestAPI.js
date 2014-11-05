@@ -18,15 +18,26 @@ router.post("/", function (req, res) {
     });
 });
 
-router.get("/:guestId", function (req, res) {
-    console.log("guestAPI - get : /:guestId");
-
-    console.log(req.params.guestId);
-
-    guestModel.find({"_id" :req.params.guestId}, function (err, result) {
+router.get("/:_id", function (req, res) {
+    console.log("guestAPI - get : /:_id");
+    console.log(req.params._id);
+    guestModel.findOne({"_id" :req.params._id}, function (err, result) {
         if (err) throw new Error(err);
         res.json(result);
     });
+});
+
+router.post("/:_id", function (req, res) {
+    console.log("guestAPI - post : /:_id");
+
+    guestModel.findOneAndUpdate({"_id" : req.params._id}, req.body,
+        function (err, result)
+            {
+                if (err) throw new Error(err);
+                res.json(result);
+            }
+    );
+
 });
 
 module.exports = router;

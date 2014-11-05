@@ -28,13 +28,13 @@ router.get("/getCurrentArrivals", function(req, res){
         .where('arr').gte(today.valueOf()).lte(tomorrow.valueOf())
         .populate({
             path: "guest_id",
-            select: "last_name"
+            select: "salutation last_name"
         })
         .populate({
             path: "room_id",
             select: "number"
         })
-        .select("arr salutation guest_id person_count room_id")
+        .select("arr dep category salutation guest_id person_count room_id")
         .exec(function(err, result){
             if(err) console.log(err);
             //console.log(result);
@@ -54,13 +54,13 @@ router.get("/getCurrentDepartures", function(req, res){
         .where('dep').gte(today.valueOf()).lte(tomorrow.valueOf())
         .populate({
             path: "guest_id",
-            select: "last_name"
+            select: "salutation last_name"
         })
         .populate({
             path: "room_id",
             select: "number"
         })
-        .select("dep salutation guest_id person_count room_id")
+        .select("arr dep category salutation guest_id person_count room_id")
         .exec(function(err, result){
             if(err) console.log(err);
             res.json(result);

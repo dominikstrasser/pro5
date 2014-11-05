@@ -11,6 +11,19 @@ angular.module('pro5_hzv.roomList', ['ngRoute'])
 
 .controller('roomListCtrl', ['$scope', '$moment', '$http',function($scope, $moment, $http) {
 
+        $scope.email = {};
+        $scope.email.subject = "test";
+        $scope.email.body = "test";
+        $scope.email.date = new Date();
+
+        $scope.sendEmail = function(){
+            console.log($scope.email.body);
+            $http.post("api/email/" + "5459e28dd60b8ae519904f3a", $scope.email)
+                .success(function(data, status, headers,config){
+                console.log(data);
+            });
+        };
+
 
         $scope.currentGuest;
         $scope.email;
@@ -54,4 +67,34 @@ angular.module('pro5_hzv.roomList', ['ngRoute'])
             }
             return out;
         };
-    });
+    }).directive('contenteditable', ['$sce', function($sce) {
+        return {
+            restrict: 'A', // only activate on element attribute
+            require: '?ngModel', // get a hold of NgModelController
+            link: function(scope, element, attrs, ngModel) {
+                if (!ngModel) return; // do nothing if no ng-model
+
+                // Specify how UI should be updated
+                ngModel.$render = function() {
+                    element.html($sce.getTrustedHtml(ngModel.$viewValue || ''));
+                };
+
+                // Listen for change events to enable binding
+                element.on('blur keyup change', function() {
+                    scope.$apply(read);
+                });
+                read(); // initialize
+
+                // Write data to the model
+                function read() {
+                    var html = element.html();
+                    // When we clear the content editable the browser leaves a <br> behind
+                    // If strip-br attribute is provided then we strip this out
+                    if ( attrs.stripBr && html == '<br>' ) {
+                        html = '';
+                    }
+                    ngModel.$setViewValue(html);
+                }
+            }
+        };
+    }]);
