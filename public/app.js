@@ -12,8 +12,7 @@ angular.module('pro5_hzv', [
     'pro5_hzv.guests',
     'pro5_hzv.management',
     'angular-momentjs',
-    'pro5_hzv.bookingService',
-    'pro5_hzv.guestService'
+    'pro5_hzv.dataService'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/dashboard'});
@@ -26,21 +25,26 @@ config(['$routeProvider', function($routeProvider) {
             //delay: { show: 500, hide: 100000 }
         });
     })
-    .controller("indexCtrl", ['$scope','guestMainDataService', function ($scope, guestMainDataService) {
+    .controller("indexCtrl", ['$scope','guestProvider', function ($scope, guestProvider) {
 
-        $scope.getGuest = function (id) {
-            var guest = guestMainDataService.get({ id: id }, function() {
-                $scope.guest = guest;
-                console.log($scope.guest);
+
+        var cGuestId;
+
+        $scope.getGuest = function (_id) {
+            guestProvider.get({ _id: _id }, function(data) {
+                $scope.guest = data;
+                cGuestId = data._id;
             });
         };
 
-        $scope.saveGuest = function ()
-        {
 
-            $scope.guest.$update(function () {
+        $scope.saveGuest = function () {
+            delete $scope.guest['_id'];
+
+            guestProvider.update({"_id": cGuestId}, $scope.guest, function (data) {
                 //data saved. do something here.
                 console.log("data was saved");
             });
+
         }
 }]);

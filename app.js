@@ -20,9 +20,9 @@ db.once("open", function(){
     var bookingAPI = require("./api/bookingAPI.js");
     var guestAPI = require("./api/guestAPI.js");
     //var emailAPI = require("./api/emailAPI.js");
-    app.use("/api/room", roomAPI);
-    app.use("/api/booking", bookingAPI);
-    app.use("/api/guest", guestAPI);
+    app.use("/api/rooms", roomAPI);
+    app.use("/api/bookings", bookingAPI);
+    app.use("/api/guests", guestAPI);
     app.use("/api/hotel", hotelAPI);
     //app.use("/api/email", emailAPI);
 });

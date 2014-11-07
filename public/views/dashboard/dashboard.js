@@ -11,7 +11,7 @@ angular.module('pro5_hzv.dashboard', [
         });
     }])
 
-    .controller('dashboardCtrl', ['$scope', '$moment', 'arrivalService', 'departureService', function($scope, $moment, arrivalService, departureService) {
+    .controller('dashboardCtrl', ['$scope', '$moment', 'bookingProvider', function($scope, $moment, bookingProvider) {
 
         $scope.arrivals = {};
         $scope.departures = {};
@@ -64,17 +64,15 @@ angular.module('pro5_hzv.dashboard', [
         setTimeTo12($scope.today);
         setTimeTo12($scope.tomorrow);
 
-        $scope.arrivals = arrivalService.currentArrivals();
-        $scope.departures = departureService.currentDepartures();
+        $scope.arrivals = bookingProvider.currentArrivals();
+        $scope.departures = bookingProvider.currentDepartures();
+
+
 
     }])
 
 
-
-
-
-
-    .controller("requestFormController", function($scope, $http, $moment){
+    .controller("requestFormController", function($scope, $moment, bookingProvider, guestProvider, roomProvider){
 
 
         var setTimeTo12 = function(d){
@@ -85,12 +83,10 @@ angular.module('pro5_hzv.dashboard', [
         };
 
 
-        $http.get("api/room/")
-            .success(function(data, status, headers, config){
-                $scope.all_rooms = data;
-                $scope.available_rooms = $scope.all_rooms.slice(0);
-            });
-
+        roomProvider.query(function(data){
+            $scope.all_rooms = data;
+            $scope.available_rooms = $scope.all_rooms.slice(0);
+        });
         $scope.$watchCollection("requestForm", function(newValue, oldValue){
             if(typeof newValue != 'undefined') {
                 if ($moment(newValue.arr).isValid() && $moment(newValue.dep).isValid()) {
@@ -99,20 +95,19 @@ angular.module('pro5_hzv.dashboard', [
                     setTimeTo12(data.arr);
                     data.dep = $moment(newValue.dep);
                     setTimeTo12(data.dep);
-                    $http.post("api/booking/check", data)
-                        .success(function (data, status, headers, config) {
-                            $scope.remove_rooms = data;
-                            $scope.available_rooms = $scope.all_rooms.slice(0);
-                            for (var i = 0; i < $scope.available_rooms.length; i++) {
-                                for (var j = 0; j < data.length; j++) {
-                                    if ($scope.available_rooms[i]._id == data[j].room_id[0]) {
-                                        $scope.available_rooms.splice(i, 1);
-                                        i--;
-                                        break;
-                                    }
+                    bookingProvider.check(data, function(data){
+                        $scope.remove_rooms = data;
+                        $scope.available_rooms = $scope.all_rooms.slice(0);
+                        for (var i = 0; i < $scope.available_rooms.length; i++) {
+                            for (var j = 0; j < data.length; j++) {
+                                if ($scope.available_rooms[i]._id == data[j].room_id[0]) {
+                                    $scope.available_rooms.splice(i, 1);
+                                    i--;
+                                    break;
                                 }
                             }
-                        });
+                        }
+                    });
                 }
             }
         });

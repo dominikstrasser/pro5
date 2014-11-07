@@ -1,18 +1,17 @@
-angular.module('pro5_hzv.bookingService', ['ngResource'])
-    .factory('arrivalService', function($resource){
-        return $resource('api/booking/getCurrentArrivals/', {}, {
-            currentArrivals: {method:'GET', params:{}, isArray:true}
+angular.module('pro5_hzv.dataService', ['ngResource'])
+    .factory('bookingProvider', function($resource){
+        return $resource('api/bookings/:_id', {},{
+            currentArrivals: {method:'GET', url:'api/bookings/getCurrentArrivals/', isArray:true},
+            currentDepartures: {method:'GET', url:'api/bookings/getCurrentDepartures/', isArray:true},
+            check: {method: "GET", url:'api/bookings/check/', isArray:true},
+            update: {method: 'PUT' }
         });
-    }
-).factory('departureService', function($resource){
-        return $resource('api/booking/getCurrentDepartures/', {},{
-            currentDepartures: {method:'GET', params:{}, isArray:true}
+    }).factory('guestProvider', function($resource){
+        return $resource('api/guests/:_id', {_id : "@_id"},{
+            update: {method: 'PUT' }
+        });
+    }).factory('roomProvider', function($resource){
+        return $resource('api/rooms/:_id', {},{
+            update: {method: 'PUT' }
         });
     });
-angular.module('pro5_hzv.guestService', ['ngResource']).factory('guestMainDataService', function($resource){
-    return $resource('api/guest/:id', { id: '@_id' },{
-        update: {
-            method: 'POST' // this method issues a PUT request
-        }
-    });
-});

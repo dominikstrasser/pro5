@@ -1,45 +1,64 @@
 var router = require("express").Router();
 var guestModel = require("./../database/model/guest.js");
-router.get("/", function (req, res) {
-    console.log("guestAPI - get : /");
-    guestModel.find(function (err, result) {
-        if (err) throw new Error(err);
-        res.json(result);
-    });
-});
 
-router.post("/", function (req, res) {
-    console.log("guestAPI - post : /");
-    var guest = new guestModel(req.body);
-    console.log(guest);
-    guest.save(function (err, result) {
-        if (err) throw new Error(err);
-        res.json(result);
-    });
-});
 
-router.get("/:_id", function (req, res) {
-    console.log("guestAPI - get : /:_id");
-    console.log(req.params._id);
-    guestModel.findOne({"_id" :req.params._id}, function (err, result) {
-        if (err) throw new Error(err);
-        res.json(result);
-    });
-});
+function guestDAO(){
 
-router.post("/:_id", function (req, res) {
-    console.log(req.params._id);
+    this.getGuests = function(req, res) {
+        console.log("guestAPI - getGuests");
+        guestModel.find(function (err, result) {
+            if (err) console.log(err);
+            console.log(result);
+            res.json(result);
+        });
+    };
 
-    delete req.body._id; // wichtig: ID kann man nicht updaten
+    this.getGuest = function(req, res) {
+        console.log("guestAPI - getGuest");
+        guestModel.findById(req.params._id,function (err, result) {
+            if (err) console.log(err);
+            res.json(result);
+        });
+    };
 
-    guestModel.findOneAndUpdate({"_id" : req.params._id}, req.body,
-        function (err, result)
-            {
-                if (err) throw new Error(err);
-                res.json(result);
-            }
-    );
+    this.postGuest = function(req, res) {
+        console.log("guestAPI - postGuest");
+        var guest = new guestModel(req.body);
+        guest.save(function (err, result) {
+            if (err) console.log(err);
+            res.json(result);
+        });
+    };
 
-});
+    this.putGuest = function(req, res) {
+        console.log("guestAPI - putGuest");
+        guestModel.findOneAndUpdate({"_id" : req.params._id}, req.body, function (err, result) {
+            if (err) console.log(err);
+            res.json(result);
+        });
+    };
+
+    this.deleteGuest = function(req, res) {
+        console.log("guestAPI - deleteGuest");
+        guestModel.remove({"_id" : req.params._id},function (err, result) {
+            if (err) console.log(err);
+            res.json(result);
+        });
+    };
+
+}
+
+var guestDAO = new guestDAO();
+
+//Exact Routes before Parameterized routes!
+
+//extra routes
+
+//typical CRUD
+router.post("/",guestDAO.postGuest);
+router.get("/",guestDAO.getGuests);
+router.get("/:_id",guestDAO.getGuest);
+router.put("/:_id",guestDAO.putGuest);
+router.delete("/:_id",guestDAO.deleteGuest);
 
 module.exports = router;
