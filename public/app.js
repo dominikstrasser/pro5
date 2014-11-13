@@ -2,6 +2,7 @@
 
 // Declare app level module which depends on views, and components
 angular.module('pro5_hzv', [
+    'ngAnimate',
     'ngRoute',
     'ngResource',
     'mgcrea.ngStrap.datepicker',
@@ -30,12 +31,14 @@ config(['$routeProvider', function($routeProvider) {
 
 
         var cGuestId;
+        $scope.active = false;
 
         $scope.getGuest = function (_id) {
             guestProvider.get({ _id: _id }, function(data) {
                 $scope.guest = data;
                 cGuestId = data._id;
             });
+            $scope.active = true;
         };
 
 
