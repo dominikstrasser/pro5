@@ -4,31 +4,18 @@
 
     <div class="clear"></div>
 
-    <core-collapse fixedSize class="box collapse1">
+    <core-collapse opened fixedSize class="box collapse1">
         <div class="content">
 
             <div vertical layout>
-                <div horizontal layout class="data">
-                    <div horizontal>Familie Mustermann</div>
-                    <div horizontal>1</div>
-                    <div horizontal>4 Personen</div>
-                    <div horizontal flex>Zimmer 12, Zimmer 18</div>
-                    <div horizontal>Details</div>
-                </div>
-
-                <div horizontal layout class="data">
-                    <div horizontal>Familie Sammer</div>
-                    <div horizontal></div>
-                    <div horizontal>6 Personen</div>
-                    <div horizontal flex>Zimmer 9, Zimmer 10, Zimmer 20</div>
-                    <div horizontal>Details</div>
-                </div>
-
-                <div horizontal layout class="data">
-                    <div horizontal>Familie Mustermann 2</div>
-                    <div horizontal>2</div>
-                    <div horizontal>4 Personen</div>
-                    <div horizontal flex>Zimmer 12, Zimmer 18</div>
+                <div horizontal layout class="data" ng-repeat="req in reqs">
+                    <div horizontal>{{req.guest_id.salutation}} {{req.guest_id.last_name}}</div>
+                    <div horizontal>{{req.arr | date:'dd.MM.yyyy'}}</div>
+                    <div horizontal>{{req.dep | date:'dd.MM.yyyy'}}</div>
+                    <div horizontal>{{req.person_count}} Personen</div>
+                    <div horizontal flex><span>Zimmer
+                        <span ng-repeat="room in req.room_id">{{room.number}}</span>
+                    </span></div>
                     <div horizontal>Details</div>
                 </div>
             </div>
@@ -54,18 +41,27 @@
 
     <div class="clear"></div>
 
-    <core-collapse fixedSize class="box collapse3">
+    <core-collapse opened fixedSize class="box collapse3" ng-controller="emailController">
         <div class="content">
             <div vertical layout>
                 <div horizontal layout>
-                    <div horizontal class="email-left">
-                        Liebe Familie Mustermann<br>
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.<br>
-                        Mit freundlichen Grüßen<br>
-                        Sebastian Sammer
+                    <div vertical layout>
+                        <div class="email-left">
+                            <div class="email-begin" ng-bind-html="email.begin">
+                            </div>
+                            <div class="email-drop" ng-bind-html="email.text">
+                                <p>DROP</p>
+                            </div>
+                            <div class="email-end"ng-bind-html="email.end">
+                            </div>
+                        </div>
+                        <div><button ng-click="sendEmail()">E-Mail Senden</button></div>
                     </div>
-                    <div horizontal class="drag">
+                    <div class="email-drag">
+                    <p>DRAG</p>
 
+
+<!--
                         <div class="tabs-wrapper">
                             <input type="radio" name="tab" id="tab1" class="tab-head" checked="checked"/>
                             <label for="tab1">Textbausteine</label>
@@ -83,9 +79,11 @@
                                 </div>
                             </div>
                         </div>
-
+-->
                     </div>
+
                 </div>
+
 
                 <div horizontal layout>
                     <div horizontal class="email-right">
