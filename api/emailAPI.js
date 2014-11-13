@@ -26,7 +26,7 @@ router.post("/:_id", function (req, res) {
         bookingModel.findOneAndUpdate({"_id" : req.params._id},{$push: {"message": req.body}},function(err, result){
            if(err) console.log(err);
             console.log("Email wurde zu Buchung gespeichert");
-            res.send(200).end();
+            res.status(200).end();
         });
     });
 });

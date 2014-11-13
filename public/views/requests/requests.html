@@ -1,4 +1,5 @@
 <section class="collapse">
+
     <h1>Alle Anfragen</h1>
     <span class="open" onclick="document.querySelector('.collapse1').toggle()">Icon</span>
 
@@ -47,60 +48,34 @@
                 <div horizontal layout>
                     <div vertical layout>
                         <div class="email-left">
-                            <div class="email-begin" ng-bind-html="email.begin">
+                            <div class="email-begin" contenteditable="true" ng-model="email.begin">
                             </div>
-                            <div class="email-drop" ng-bind-html="email.text">
-                                <p>DROP</p>
+                            <div class="email-drop" ng-model="email.text" contenteditable="true">
+
                             </div>
-                            <div class="email-end"ng-bind-html="email.end">
+                            <div class="email-end" contenteditable="true" ng-model="email.end" >
                             </div>
                         </div>
-                        <div><button ng-click="sendEmail()">E-Mail Senden</button></div>
+                        <div><button ng-disabled="enableEmail" ng-click="sendEmail()">E-Mail Senden</button></div>
                     </div>
                     <div class="email-drag">
-                    <p>DRAG</p>
+                        <div class="item" id="item1" data-text={{testBox.text}} draggable>{{testBox.title}}</div>
+                    </div>
 
+                </div>
 
-<!--
-                        <div class="tabs-wrapper">
-                            <input type="radio" name="tab" id="tab1" class="tab-head" checked="checked"/>
-                            <label for="tab1">Textbausteine</label>
-                            <input type="radio" name="tab" id="tab2" class="tab-head" />
-                            <label for="tab2">Pauschalen</label>
+                <div class="email-list">
 
-                            <div class="tab-body-wrapper">
-                                <div id="tab-body-1" class="tab-body">
-                                    <h1>Wellness</h1>
-                                    <h1>Golf</h1>
-                                </div>
-                                <div id="tab-body-2" class="tab-body">
-                                    <h1>Lorem</h1>
-                                    <h1>Test</h1>
-                                </div>
-                            </div>
+                    <div horizontal layout ng-repeat="msg in currentRequest.messages">
+                        <div horizontal class="email-info">
+                            {{currentRequest.guest_id.salutation}} {{currentRequest.guest_id.last_name}}<br>
+
+                            E-Mail vom {{msg.date | date: 'dd.MM.yyyy'}}
                         </div>
--->
+                        <div horizontal class="email-right" ng-bind-html="toTrustedHtml(msg.body)">
+                        </div>
                     </div>
 
-                </div>
-
-
-                <div horizontal layout>
-                    <div horizontal class="email-right">
-                        Liebe Familie Mustermann<br>
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.<br>
-                        Mit freundlichen Grüßen<br>
-                        Sebastian Sammer
-                    </div>
-                </div>
-
-                <div horizontal layout>
-                    <div horizontal class="email-left">
-                        Liebe Familie Mustermann<br>
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.<br>
-                        Mit freundlichen Grüßen<br>
-                        Sebastian Sammer
-                    </div>
                 </div>
             </div>
         </div>

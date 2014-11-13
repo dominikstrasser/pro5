@@ -22,7 +22,8 @@ function bookingDAO(){
 
     this.getBooking = function(req, res) {
         console.log("bookingAPI - getBooking");
-        bookingModel.findById(req.params._id,function (err, result) {
+        console.log(req.params._id);
+        bookingModel.findById(req.params._id, function (err, result) {
             if (err) console.log(err);
             res.json(result);
         });
@@ -136,7 +137,13 @@ function bookingDAO(){
     this.detail = function(req, res){
         console.log("bookingAPI : /detail");
 
-        var myQuery = bookingModel.find();
+        var myQuery;
+        console.log(req.params._id);
+        if(typeof req.params._id != 'undefined'){
+            myQuery = bookingModel.find({'_id' : req.params._id});
+        }else{
+            myQuery = bookingModel.find();
+        }
 
         if(req.query.status == 0 || req.query.status == 1){
             console.log("test");
@@ -146,7 +153,7 @@ function bookingDAO(){
         myQuery
             .populate({
                 path: "guest_id",
-                select: "salutation last_name"
+                select: "salutation last_name, first_name, email"
             })
             .populate({
                 path: "room_id",
@@ -171,7 +178,7 @@ router.get("/check",bookingDAO.check);
 router.get("/getCurrentArrivals", bookingDAO.getCurrentArrivals);
 router.get("/getCurrentDepartures", bookingDAO.getCurrentDepartures);
 router.get("/detail", bookingDAO.detail);
-
+router.get("/detail/:_id", bookingDAO.detail);
 
 //typical CRUD
 router.post("/",bookingDAO.postBooking);

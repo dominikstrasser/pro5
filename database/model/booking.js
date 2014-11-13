@@ -12,7 +12,7 @@ var BookingSchema = mongoose.Schema({
     flat_rate: {type:mongoose.Schema.ObjectId, ref:"guest"},
     category: String,
     guest_id: {type:mongoose.Schema.ObjectId, ref:"guest"},
-    message: [
+    messages: [
         {
             date: Date,
             from_guest: Number,
