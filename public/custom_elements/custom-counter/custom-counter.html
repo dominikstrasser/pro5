@@ -1,0 +1,39 @@
+<link href="../../bower_components/polymer/polymer.html" rel="import">
+
+<polymer-element name="custom-counter" attributes="current singular plural">
+
+    <template>
+
+        <div id="custom-counter-container">
+            <button on-click="{{increase}}">+</button>
+            <template if="{{current == 1}}">
+                <input type="text" value="{{current}} {{singular}}">
+            </template>
+            <template if="{{current != 1}}">
+                <input type="text" value="{{current}} {{plural}}">
+            </template>
+            <button on-click="{{decrease}}">-</button>
+        </div>
+
+    </template>
+
+    <script>
+        Polymer('custom-counter', {
+
+            increase: function() {
+                this.current++;
+            },
+
+            decrease: function() {
+                if (this.current > 0) {
+                    this.current--;
+                }
+            },
+
+            ready: function() {
+                this.current = parseInt(this.current);
+            }
+
+        });
+    </script>
+</polymer-element>
