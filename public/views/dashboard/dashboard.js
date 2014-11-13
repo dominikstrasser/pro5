@@ -90,14 +90,18 @@ angular.module('pro5_hzv.dashboard', [
         $scope.$watchCollection("requestForm", function(newValue, oldValue){
             if(typeof newValue != 'undefined') {
                 if ($moment(newValue.arr).isValid() && $moment(newValue.dep).isValid()) {
+
                     var data = {};
                     data.arr = $moment(newValue.arr);
                     setTimeTo12(data.arr);
                     data.dep = $moment(newValue.dep);
                     setTimeTo12(data.dep);
+
                     bookingProvider.check(data, function(data){
+
                         $scope.remove_rooms = data;
                         $scope.available_rooms = $scope.all_rooms.slice(0);
+
                         for (var i = 0; i < $scope.available_rooms.length; i++) {
                             for (var j = 0; j < data.length; j++) {
                                 if ($scope.available_rooms[i]._id == data[j].room_id[0]) {

@@ -22,27 +22,37 @@ angular.module('pro5_hzv.requests', ['ngRoute'])
         $scope.testBox = {};
         $scope.testBox.title = "testBox"
         $scope.testBox.text = "Das ist ein Test";
+
         $scope.enableEmail = false;
+
+
         $scope.sendEmail = function(){
             $scope.enableEmail = true;
             var emailData = {"body" : $scope.email.begin + $scope.email.text + $scope.email.end};
-            emailProvider.save({'_id' : "54648b111eef5c729338ae7a"}, emailData, function(data){
+            emailData.subject = "Buchung xyz";
+            emailData.date = Date.now();
+            emailProvider.save({'_id' : $scope.currentRequest._id}, emailData, function(data){
                 console.log(data);
                 $scope.enableEmail = false;
+                bookingProvider.detail({_id: "5464ade0e4b0ac2744f1503e"}, function(data){
+                    $scope.currentRequest = data[0];
+                });
+
             });
         };
 
 
-       $scope.currentRequest = bookingProvider.detail({_id: "54648b111eef5c729338ae7c"}, function(data){
-            console.log(data);
+        $scope.currentRequest = {};
+        bookingProvider.detail({_id: "5464ade0e4b0ac2744f1503e"}, function(data){
+            $scope.currentRequest = data[0];
         });
 
         $scope.toTrustedHtml = function(data){
             return $sce.trustAsHtml(data);
-        }
+        };
 
         $scope.handleDrop = function() {
             alert('Item has been dropped');
-        }
+        };
 
     }]);
