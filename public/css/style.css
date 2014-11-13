@@ -14,7 +14,7 @@
   font-weight: normal;
   font-style: normal; }
 /*
- * GENERAL STYLES
+ * GENERAL STYLESa
  */
 * {
   font-family: "proxima";
@@ -101,7 +101,8 @@ h2 {
   position: relative;
   padding: 20px;
   margin-right: 20px;
-  margin-top: 20px; }
+  margin-top: 20px;
+  border-bottom: 2px solid #c9cedb; }
 
 .request .status {
   position: absolute;
@@ -134,7 +135,7 @@ div.dropdown-menu {
 .btn-today {
   background: red; }
 
-.request input {
+.request input, .request custom-counter::shadow .custom-counter-container input {
   background: #FFFFFF;
   border: 2px solid #c9cedb;
   padding: 8px;
@@ -147,7 +148,7 @@ div.dropdown-menu {
   border-radius: 5px; }
 
 .request .last input[type="text"], .request .last input[type="email"] {
-  width: 225px; }
+  width: 325px; }
 
 .request .last input[type="submit"] {
   float: right;
@@ -159,11 +160,13 @@ div.dropdown-menu {
   padding-top: 4px;
   height: 48px; }
 
-.request .component input[type="text"] {
+.request custom-counter::shadow .custom-counter-container input[type="text"] {
   max-width: 120px;
-  text-align: center; }
+  text-align: center;
+  font-family: "proxima";
+  font-size: 16px; }
 
-.request .component button {
+.request custom-counter::shadow .custom-counter-container button {
   width: 30px;
   padding: 0;
   background: #40475b;
@@ -172,10 +175,17 @@ div.dropdown-menu {
   border: none;
   height: 30px;
   font-family: "proxima";
+  font-size: 16px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
-  border-radius: 5px; }
+  border-radius: 5px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
 
 .request .item {
   width: 20px;
@@ -190,7 +200,13 @@ div.dropdown-menu {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
-  border-radius: 5px; }
+  border-radius: 5px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
 
 .request .item:hover {
   cursor: pointer; }

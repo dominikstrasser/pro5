@@ -28,6 +28,14 @@ $font: 'proxima';
   -ms-border-radius: $radius;
   border-radius: $radius;
 }
+@mixin user-select($param) {
+  -webkit-touch-callout: $param;
+  -webkit-user-select: $param;
+  -khtml-user-select: $param;
+  -moz-user-select: $param;
+  -ms-user-select: $param;
+  user-select: $param;
+}
 
 /*
  * FONTS
@@ -45,7 +53,7 @@ $font: 'proxima';
 }
 
 /*
- * GENERAL STYLES
+ * GENERAL STYLESa
  */
 * {
   font-family: $font;
@@ -57,7 +65,7 @@ h1 {
   text-transform: uppercase;
   color: $blue;
   font-weight: normal;
-  border-bottom: 2px solid #c9cedb;
+  border-bottom: $border;
   padding-bottom: 10px;
 }
 h2 {
@@ -137,6 +145,7 @@ h2 {
   padding: 20px;
   margin-right: 20px;
   margin-top: 20px;
+  border-bottom: $border;
 }
 .request .status {
   position: absolute;
@@ -169,7 +178,7 @@ div.dropdown-menu{
 .btn-today{
   background: red;
 }
-.request input {
+.request input, .request custom-counter::shadow .custom-counter-container input {
   background: $white;
   border: $border;
   padding: 8px;
@@ -179,7 +188,7 @@ div.dropdown-menu{
   @include border-radius(5px);
 }
 .request .last input[type="text"], .request .last input[type="email"] {
-  width: 225px;
+  width: 325px;
 }
 .request .last input[type="submit"] {
   float: right;
@@ -191,11 +200,13 @@ div.dropdown-menu{
   padding-top: 4px;
   height: 48px;
 }
-.request .component input[type="text"] {
+.request custom-counter::shadow .custom-counter-container input[type="text"] {
   max-width: 120px;
   text-align: center;
+  font-family: $font;
+  font-size: 16px;
 }
-.request .component button {
+.request custom-counter::shadow .custom-counter-container button {
   width: 30px;
   padding: 0;
   background: $formblue;
@@ -204,7 +215,9 @@ div.dropdown-menu{
   border: none;
   height: 30px;
   font-family: $font;
+  font-size: 16px;
   @include border-radius(5px);
+  @include user-select(none);
 }
 .request .item {
   width: 20px;
@@ -217,6 +230,7 @@ div.dropdown-menu{
   border-color: $formblue;
   color: $white;
   @include border-radius(5px);
+  @include user-select(none);
 }
 .request .item:hover {
   cursor: pointer;
