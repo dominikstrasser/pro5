@@ -3,9 +3,9 @@
         <div horizontal layout>
             <div flex class="arrivals">
                 <h1>Aktuelle Anreisen</h1>
-                <div ng-repeat="arrival in arrivals | orderBy: 'arr'">
+                <div ng-repeat="arrival in arrivals | orderBy: 'arr' | orderDate ">
 
-                    <h2 ng-hide="isCurrentDate(arrival.arr)">{{displayDate(arrival.arr) | date:'dd.MM.yyyy'}}</h2>
+                    <h2 ng-if="!isCurrentDate(arrival.arr)">{{displayDate(arrival.arr) | date:'dd.MM.yyyy'}}</h2>
                     <div>
                         <span>{{arrival.guest_id.salutation}} </span>
                         <span>{{arrival.guest_id.last_name}}</span>
