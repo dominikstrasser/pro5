@@ -28,7 +28,7 @@ $border: 2px solid $darkgrey;
   user-select: $param;
 }
 @mixin requestChrome() {
-  .request input {
+  .formular input {
     background: $white;
     border: $border;
     padding: 8px;
@@ -37,13 +37,13 @@ $border: 2px solid $darkgrey;
     font-family: $font;
     @include border-radius(5px);
   }
-  .request .custom-counter-container input[type="text"] {
+  .formular .custom-counter-container input[type="text"] {
     max-width: 120px;
     text-align: center;
     font-family: $font;
     font-size: 16px;
   }
-  .request .custom-counter-container button {
+  .formular .custom-counter-container button {
     width: 30px;
     padding: 0;
     background: $formblue;
@@ -58,7 +58,7 @@ $border: 2px solid $darkgrey;
   }
 }
 @mixin requestFirefoxSafari() {
-  .request custom-counter::shadow .custom-counter-container input {
+  .formular custom-counter::shadow .custom-counter-container input {
     background: $white;
     border: $border;
     padding: 8px;
@@ -67,13 +67,13 @@ $border: 2px solid $darkgrey;
     font-family: $font;
     @include border-radius(5px);
   }
-  .request custom-counter::shadow .custom-counter-container input[type="text"] {
+  .formular custom-counter::shadow .custom-counter-container input[type="text"] {
     max-width: 120px;
     text-align: center;
     font-family: $font;
     font-size: 16px;
   }
-  .request custom-counter::shadow .custom-counter-container button {
+  .formular custom-counter::shadow .custom-counter-container button {
     width: 30px;
     padding: 0;
     background: $formblue;
@@ -190,32 +190,82 @@ h2 {
 }
 
 /*
+ * FOOTER
+ */
+#guestInformation .container {
+  padding: 0;
+}
+#guestInformation .formular {
+  margin-top: 0;
+}
+#guestInformation {
+  background-color: $blue;
+  bottom: 0px;
+  color: $white;
+}
+#guestInformationHeader {
+  height: 40px;
+}
+#guestInformation .up, #guestInformation .down {
+  float: right;
+  width: 12px;
+  height: 6px;
+  padding: 20px;
+}
+#guestInformation .up {
+  background: url("../img/arrows/up_white.png") no-repeat center $darkblue;
+}
+#guestInformation .down {
+  background: url("../img/arrows/down_white.png") no-repeat center $darkblue;
+}
+#guestInformation .up:hover, #guestInformation .down:hover {
+  cursor: pointer;
+}
+#guestInformation input[type="text"],
+#guestInformation input[type="number"],
+#guestInformation input[type="email"] {
+  background: $blue;
+  border-color: $white;
+  color: $white;
+}
+#guestInformation select {
+  border: $border;
+  background: $blue;
+  border-color: $white;
+  color: $white;
+  padding: 8px;
+  height: 50px;
+  width: 171px;
+  font-family: "proxima";
+  @include border-radius(5px);
+}
+
+/*
  * REQUEST FORM
  */
-.request {
+.formular {
   position: relative;
   padding: 20px;
-  margin-right: 20px;
   margin-top: 20px;
 }
-.request .status {
+.formular .status {
   position: absolute;
   right: 20px;
   top: 35px;
   color: $green;
 }
-.request .col {
+.formular .col {
   float: left;
   margin-right: 25px;
 }
-.request .col.last {
+.formular .col.last {
   float: right;
   margin-right: 0px;
 }
-.request .row {
+.formular .row {
   margin-bottom: 12px;
 }
-.request .cal {
+.formular .cal {
   background: url("../img/cal.png") no-repeat;
   background-position: 130px 10px;
 }
@@ -233,10 +283,10 @@ div.dropdown-menu{
 @include requestChrome();
 @include requestFirefoxSafari();
 
-.request .last input[type="text"], .request .last input[type="email"] {
-  width: 315px;
+.formular .last input[type="text"], .formular .last input[type="email"] {
+  width: 345px;
 }
-.request .last input[type="submit"] {
+.formular .greenButton {
   float: right;
   color: #FFFFFF;
   background: $green;
@@ -246,7 +296,7 @@ div.dropdown-menu{
   padding-top: 4px;
   height: 48px;
 }
-.request .item {
+.formular .item {
   width: 20px;
   float: left;
   border: $border;
@@ -259,10 +309,10 @@ div.dropdown-menu{
   @include border-radius(5px);
   @include user-select(none);
 }
-.request .item:hover {
+.formular .item:hover {
   cursor: pointer;
 }
-.request .core-selected {
+.formular .core-selected {
   background: $green;
   border-color: $green;
   color: $white;

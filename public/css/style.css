@@ -87,32 +87,84 @@ h2 {
   margin-top: 30px; }
 
 /*
+ * FOOTER
+ */
+#guestInformation .container {
+  padding: 0; }
+
+#guestInformation .formular {
+  margin-top: 0; }
+
+#guestInformation {
+  background-color: #2f3545;
+  bottom: 0px;
+  color: #FFFFFF; }
+
+#guestInformationHeader {
+  height: 40px; }
+
+#guestInformation .up, #guestInformation .down {
+  float: right;
+  width: 12px;
+  height: 6px;
+  padding: 20px; }
+
+#guestInformation .up {
+  background: url("../img/arrows/up_white.png") no-repeat center #1e2331; }
+
+#guestInformation .down {
+  background: url("../img/arrows/down_white.png") no-repeat center #1e2331; }
+
+#guestInformation .up:hover, #guestInformation .down:hover {
+  cursor: pointer; }
+
+#guestInformation input[type="text"],
+#guestInformation input[type="number"],
+#guestInformation input[type="email"] {
+  background: #2f3545;
+  border-color: #FFFFFF;
+  color: #FFFFFF; }
+
+#guestInformation select {
+  border: 2px solid #c9cedb;
+  background: #2f3545;
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+  padding: 8px;
+  height: 50px;
+  width: 171px;
+  font-family: "proxima";
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px; }
+
+/*
  * REQUEST FORM
  */
-.request {
+.formular {
   position: relative;
   padding: 20px;
-  margin-right: 20px;
   margin-top: 20px; }
 
-.request .status {
+.formular .status {
   position: absolute;
   right: 20px;
   top: 35px;
   color: #57dcba; }
 
-.request .col {
+.formular .col {
   float: left;
   margin-right: 25px; }
 
-.request .col.last {
+.formular .col.last {
   float: right;
   margin-right: 0px; }
 
-.request .row {
+.formular .row {
   margin-bottom: 12px; }
 
-.request .cal {
+.formular .cal {
   background: url("../img/cal.png") no-repeat;
   background-position: 130px 10px; }
 
@@ -126,7 +178,7 @@ div.dropdown-menu {
 .btn-today {
   background: red; }
 
-.request input {
+.formular input {
   background: #FFFFFF;
   border: 2px solid #c9cedb;
   padding: 8px;
@@ -138,13 +190,13 @@ div.dropdown-menu {
   -ms-border-radius: 5px;
   border-radius: 5px; }
 
-.request .custom-counter-container input[type="text"] {
+.formular .custom-counter-container input[type="text"] {
   max-width: 120px;
   text-align: center;
   font-family: "proxima";
   font-size: 16px; }
 
-.request .custom-counter-container button {
+.formular .custom-counter-container button {
   width: 30px;
   padding: 0;
   background: #40475b;
@@ -165,7 +217,7 @@ div.dropdown-menu {
   -ms-user-select: none;
   user-select: none; }
 
-.request custom-counter::shadow .custom-counter-container input {
+.formular custom-counter::shadow .custom-counter-container input {
   background: #FFFFFF;
   border: 2px solid #c9cedb;
   padding: 8px;
@@ -177,13 +229,13 @@ div.dropdown-menu {
   -ms-border-radius: 5px;
   border-radius: 5px; }
 
-.request custom-counter::shadow .custom-counter-container input[type="text"] {
+.formular custom-counter::shadow .custom-counter-container input[type="text"] {
   max-width: 120px;
   text-align: center;
   font-family: "proxima";
   font-size: 16px; }
 
-.request custom-counter::shadow .custom-counter-container button {
+.formular custom-counter::shadow .custom-counter-container button {
   width: 30px;
   padding: 0;
   background: #40475b;
@@ -204,10 +256,10 @@ div.dropdown-menu {
   -ms-user-select: none;
   user-select: none; }
 
-.request .last input[type="text"], .request .last input[type="email"] {
-  width: 315px; }
+.formular .last input[type="text"], .formular .last input[type="email"] {
+  width: 345px; }
 
-.request .last input[type="submit"] {
+.formular .greenButton {
   float: right;
   color: #FFFFFF;
   background: #57dcba;
@@ -217,7 +269,7 @@ div.dropdown-menu {
   padding-top: 4px;
   height: 48px; }
 
-.request .item {
+.formular .item {
   width: 20px;
   float: left;
   border: 2px solid #c9cedb;
@@ -238,10 +290,10 @@ div.dropdown-menu {
   -ms-user-select: none;
   user-select: none; }
 
-.request .item:hover {
+.formular .item:hover {
   cursor: pointer; }
 
-.request .core-selected {
+.formular .core-selected {
   background: #57dcba;
   border-color: #57dcba;
   color: #FFFFFF; }
