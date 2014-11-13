@@ -153,7 +153,7 @@ function bookingDAO(){
         myQuery
             .populate({
                 path: "guest_id",
-                select: "salutation last_name, first_name, email"
+                select: "salutation last_name first_name email"
             })
             .populate({
                 path: "room_id",

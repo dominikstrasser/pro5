@@ -9,6 +9,6 @@ angular.module('pro5_hzv.bookings', ['ngRoute'])
         });
     }])
 
-    .controller('bookingsCtrl', [function() {
-
+    .controller('bookingsCtrl', ["$scope", "bookingProvider", function($scope, bookingProvider) {
+        $scope.reqs = bookingProvider.detail({'status': 1});
     }]);
