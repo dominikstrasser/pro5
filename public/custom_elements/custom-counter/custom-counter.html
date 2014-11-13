@@ -1,18 +1,18 @@
 <link href="../../bower_components/polymer/polymer.html" rel="import">
 
-<polymer-element name="custom-counter" attributes="current singular plural">
+<polymer-element name="custom-counter" attributes="current singular plural size">
 
     <template>
 
-        <div id="custom-counter-container">
-            <button on-click="{{increase}}">+</button>
+        <div class="custom-counter-container">
+            <button on-click="{{decrease}}">-</button>
             <template if="{{current == 1}}">
-                <input type="text" value="{{current}} {{singular}}">
+                <input type="text" value="{{current}} {{singular}}" size="{{size}}" readonly>
             </template>
             <template if="{{current != 1}}">
-                <input type="text" value="{{current}} {{plural}}">
+                <input type="text" value="{{current}} {{plural}}" size="{{size}}" readonly>
             </template>
-            <button on-click="{{decrease}}">-</button>
+            <button on-click="{{increase}}">+</button>
         </div>
 
     </template>

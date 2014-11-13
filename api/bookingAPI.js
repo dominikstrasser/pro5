@@ -133,6 +133,33 @@ function bookingDAO(){
 
     };
 
+    this.detail = function(req, res){
+        console.log("bookingAPI : /detail");
+
+        var myQuery = bookingModel.find();
+
+        if(req.query.status == 0 || req.query.status == 1){
+            console.log("test");
+            myQuery.where('status').equals(req.query.status);
+        }
+
+        myQuery
+            .populate({
+                path: "guest_id",
+                select: "salutation last_name"
+            })
+            .populate({
+                path: "room_id",
+                select: "number"
+            });
+        myQuery.exec(function(err, result){
+                if(err) console.log(err);
+                //console.log(result);
+                res.json(result);
+            });
+
+    };
+
 }
 
 var bookingDAO = new bookingDAO();
@@ -143,6 +170,7 @@ var bookingDAO = new bookingDAO();
 router.get("/check",bookingDAO.check);
 router.get("/getCurrentArrivals", bookingDAO.getCurrentArrivals);
 router.get("/getCurrentDepartures", bookingDAO.getCurrentDepartures);
+router.get("/detail", bookingDAO.detail);
 
 
 //typical CRUD

@@ -20,7 +20,7 @@ config(['$routeProvider', function($routeProvider) {
 }])
     .config(function($datepickerProvider) {
         angular.extend($datepickerProvider.defaults, {
-            dateFormat: 'dd. MMMM yyyy',
+            dateFormat: 'dd.MM.yyyy',
             startWeek: 1,
             autoclose: "true"
             //delay: { show: 500, hide: 100000 }
