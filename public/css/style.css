@@ -1,3 +1,12 @@
+/*
+ * VARIABLES
+ */
+/*
+ * MIXINS
+ */
+/*
+ * FONTS
+ */
 @font-face {
   font-family: 'proxima';
   src: url("../fonts/proximanovasoft-regular-webfont.eot");
@@ -8,15 +17,17 @@
  * GENERAL STYLES
  */
 * {
-  font-family: 'proxima';
+  font-family: "proxima";
   font-weight: normal;
   font-size: 16px;
-  color: #1e2331; }
+  color: 2px solid #c9cedb; }
 
 h1 {
   text-transform: uppercase;
   color: #2f3545;
-  font-weight: normal; }
+  font-weight: normal;
+  border-bottom: 2px solid #c9cedb;
+  padding-bottom: 10px; }
 
 h2 {
   text-transform: uppercase;
@@ -57,6 +68,11 @@ h2 {
   border-right: 1px solid #434b62;
   padding: 15px; }
 
+#leftNav a:first-child {
+  background: url("../img/hzv.png") no-repeat center center;
+  margin-right: -1px;
+  padding-left: 50px; }
+
 #rightNav a {
   margin-right: -5px;
   border-left: 1px solid #434b62;
@@ -85,49 +101,104 @@ h2 {
   position: relative;
   padding: 20px;
   margin-right: 20px;
-  margin-top: 20px;
-  background-color: #eef1f9; }
+  margin-top: 20px; }
 
 .request .status {
   position: absolute;
   right: 20px;
-  top: 20px;
-  color: green; }
+  top: 35px;
+  color: #57dcba; }
+
+.request .col {
+  float: left;
+  margin-right: 25px; }
+
+.request .col.last {
+  float: right;
+  margin-right: 0px; }
+
+.request .row {
+  margin-bottom: 12px; }
+
+.request .cal {
+  background: url("../img/cal.png") no-repeat;
+  background-position: 130px 10px; }
+
+div.dropdown-menu {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: gray;
+  list-style: none; }
+
+.btn-today {
+  background: red; }
 
 .request input {
-  background: #EFEFEF;
-  border: 2px solid #000;
-  padding: 8px; }
+  background: #FFFFFF;
+  border: 2px solid #c9cedb;
+  padding: 8px;
+  height: 30px;
+  color: #1e2331;
+  font-family: "proxima";
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px; }
 
-.request input[type="button"] {
+.request .last input[type="text"], .request .last input[type="email"] {
+  width: 225px; }
+
+.request .last input[type="submit"] {
   float: right;
   color: #FFFFFF;
-  background-color: black;
+  background: #57dcba;
   border: none;
-  width: 120px;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  padding: 0px 20px;
+  padding-top: 4px;
+  height: 48px; }
+
+.request .component input[type="text"] {
+  max-width: 120px;
+  text-align: center; }
+
+.request .component button {
+  width: 30px;
+  padding: 0;
+  background: #40475b;
+  border-color: #40475b;
+  color: #FFFFFF;
+  border: none;
+  height: 30px;
+  font-family: "proxima";
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px; }
 
 .request .item {
   width: 20px;
   float: left;
-  border: 2px solid #000;
+  border: 2px solid #c9cedb;
   margin-right: 10px;
-  padding: 8px;
-  text-align: center; }
+  padding: 12px;
+  text-align: center;
+  background: #40475b;
+  border-color: #40475b;
+  color: #FFFFFF;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px; }
 
 .request .item:hover {
   cursor: pointer; }
 
-.request select {
-  background: #EFEFEF;
-  border: 2px solid #000;
-  height: 38px;
-  /*border-radius: 0;
-  -webkit-appearance: none;*/ }
-
 .request .core-selected {
-  color: #FFFFFF;
-  background-color: black; }
+  background: #57dcba;
+  border-color: #57dcba;
+  color: #FFFFFF; }
 
 /*
  * COLLAPSE
@@ -162,14 +233,14 @@ h2 {
 
 .collapse3 .content .email-left {
   width: 60%;
-  border: 2px solid #000; }
+  border: 2px solid #c9cedb; }
 
 .collapse3 .content .drag {
   width: 40%; }
 
 .collapse3 .content .email-right {
   width: 60%;
-  border: 2px solid #000;
+  border: 2px solid #c9cedb;
   margin-left: 40%; }
 
 /*
