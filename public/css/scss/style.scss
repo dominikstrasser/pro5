@@ -1,27 +1,18 @@
-/*
- * VARIABLES
- */
 $width-md: 970px;
 $width-lg: 1170px;
 
 $blue: #2f3545;
 $darkblue: #1e2331;
 $formblue: #40475b;
-
 $grey: #eef1f9;
 $darkgrey: #c9cedb;
-
 $green: #57dcba;
-
 $black: #000000;
 $white: #FFFFFF;
 
-$border: 2px solid $darkgrey;
 $font: 'proxima';
+$border: 2px solid $darkgrey;
 
-/*
- * MIXINS
- */
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
@@ -36,9 +27,69 @@ $font: 'proxima';
   -ms-user-select: $param;
   user-select: $param;
 }
+@mixin requestChrome() {
+  .request input {
+    background: $white;
+    border: $border;
+    padding: 8px;
+    height: 30px;
+    color: $darkblue;
+    font-family: $font;
+    @include border-radius(5px);
+  }
+  .request .custom-counter-container input[type="text"] {
+    max-width: 120px;
+    text-align: center;
+    font-family: $font;
+    font-size: 16px;
+  }
+  .request .custom-counter-container button {
+    width: 30px;
+    padding: 0;
+    background: $formblue;
+    border-color: $formblue;
+    color: $white;
+    border: none;
+    height: 30px;
+    font-family: $font;
+    font-size: 16px;
+    @include border-radius(5px);
+    @include user-select(none);
+  }
+}
+@mixin requestFirefoxSafari() {
+  .request custom-counter::shadow .custom-counter-container input {
+    background: $white;
+    border: $border;
+    padding: 8px;
+    height: 30px;
+    color: $darkblue;
+    font-family: $font;
+    @include border-radius(5px);
+  }
+  .request custom-counter::shadow .custom-counter-container input[type="text"] {
+    max-width: 120px;
+    text-align: center;
+    font-family: $font;
+    font-size: 16px;
+  }
+  .request custom-counter::shadow .custom-counter-container button {
+    width: 30px;
+    padding: 0;
+    background: $formblue;
+    border-color: $formblue;
+    color: $white;
+    border: none;
+    height: 30px;
+    font-family: $font;
+    font-size: 16px;
+    @include border-radius(5px);
+    @include user-select(none);
+  }
+}
 
 /*
- * FONTS
+ * FONT
  */
 @font-face {
   font-family: 'proxima';
@@ -53,7 +104,7 @@ $font: 'proxima';
 }
 
 /*
- * GENERAL STYLESa
+ * GENERAL STYLES
  */
 * {
   font-family: $font;
@@ -101,7 +152,7 @@ h2 {
   text-decoration: none;
 }
 #leftNav a:hover, #rightNav a:hover {
-  background: #434b62;
+  //background: #434b62;
 }
 #leftNav a {
   margin-right: -5px;
@@ -119,6 +170,7 @@ h2 {
   border-left: 1px solid #434b62;
   border-right: 1px solid #434b62;
   padding: 15px;
+  background: $darkblue;
 }
 
 /*
@@ -145,7 +197,6 @@ h2 {
   padding: 20px;
   margin-right: 20px;
   margin-top: 20px;
-  border-bottom: $border;
 }
 .request .status {
   position: absolute;
@@ -178,17 +229,12 @@ div.dropdown-menu{
 .btn-today{
   background: red;
 }
-.request input, .request custom-counter::shadow .custom-counter-container input {
-  background: $white;
-  border: $border;
-  padding: 8px;
-  height: 30px;
-  color: $darkblue;
-  font-family: $font;
-  @include border-radius(5px);
-}
+
+@include requestChrome();
+@include requestFirefoxSafari();
+
 .request .last input[type="text"], .request .last input[type="email"] {
-  width: 325px;
+  width: 315px;
 }
 .request .last input[type="submit"] {
   float: right;
@@ -199,25 +245,6 @@ div.dropdown-menu{
   padding: 0px 20px;
   padding-top: 4px;
   height: 48px;
-}
-.request custom-counter::shadow .custom-counter-container input[type="text"] {
-  max-width: 120px;
-  text-align: center;
-  font-family: $font;
-  font-size: 16px;
-}
-.request custom-counter::shadow .custom-counter-container button {
-  width: 30px;
-  padding: 0;
-  background: $formblue;
-  border-color: $formblue;
-  color: $white;
-  border: none;
-  height: 30px;
-  font-family: $font;
-  font-size: 16px;
-  @include border-radius(5px);
-  @include user-select(none);
 }
 .request .item {
   width: 20px;
@@ -283,57 +310,6 @@ div.dropdown-menu{
   width: 60%;
   border: $border;
   margin-left: 40%;
-}
-
-/*
- * TABS
- */
-.tabs-wrapper {
-  input[type=radio] {
-    display: none;
-  }
-  label {
-    display: inline-block;
-    cursor: pointer;
-    color: black;
-    width: 49%;
-    background: #FFFFFF;
-    text-align:center;
-    &:last-of-type {
-      border-bottom:none;
-    }
-    &:hover {
-      background: black;
-      color: #FFFFFF;
-    }
-  }
-}
-#tab1, #tab2 {
-  &:checked{
-    + label {
-      background: black;
-      color: #FFFFFF;
-    }
-  }
-}
-.tab-body {
-  position: absolute;
-  top: -9999px;
-  padding: 10px;
-}
-.tab-body h1 {
-  float: none;
-}
-.tab-body-wrapper {
-  /*background: $tab-body-wrapper-color;
-  border-top: $tab-checked-border-color $tab-delimiter-line-height solid;
-  border-bottom-right-radius:3px;
-  border-bottom-left-radius:3px;
-  border-top-right-radius:3px;*/
-}
-#tab1:checked ~ .tab-body-wrapper #tab-body-1, #tab2:checked ~ .tab-body-wrapper #tab-body-2 {
-  position: relative;
-  top: 0px;
 }
 
 /*

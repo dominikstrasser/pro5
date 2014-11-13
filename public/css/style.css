@@ -1,11 +1,5 @@
 /*
- * VARIABLES
- */
-/*
- * MIXINS
- */
-/*
- * FONTS
+ * FONT
  */
 @font-face {
   font-family: 'proxima';
@@ -14,7 +8,7 @@
   font-weight: normal;
   font-style: normal; }
 /*
- * GENERAL STYLESa
+ * GENERAL STYLES
  */
 * {
   font-family: "proxima";
@@ -59,9 +53,6 @@ h2 {
   color: #FFFFFF;
   text-decoration: none; }
 
-#leftNav a:hover, #rightNav a:hover {
-  background: #434b62; }
-
 #leftNav a {
   margin-right: -5px;
   border-left: 1px solid #434b62;
@@ -77,7 +68,8 @@ h2 {
   margin-right: -5px;
   border-left: 1px solid #434b62;
   border-right: 1px solid #434b62;
-  padding: 15px; }
+  padding: 15px;
+  background: #1e2331; }
 
 /*
  * LOGO, ARRIVALS, DEPARTURES
@@ -101,8 +93,7 @@ h2 {
   position: relative;
   padding: 20px;
   margin-right: 20px;
-  margin-top: 20px;
-  border-bottom: 2px solid #c9cedb; }
+  margin-top: 20px; }
 
 .request .status {
   position: absolute;
@@ -135,7 +126,7 @@ div.dropdown-menu {
 .btn-today {
   background: red; }
 
-.request input, .request custom-counter::shadow .custom-counter-container input {
+.request input {
   background: #FFFFFF;
   border: 2px solid #c9cedb;
   padding: 8px;
@@ -147,18 +138,44 @@ div.dropdown-menu {
   -ms-border-radius: 5px;
   border-radius: 5px; }
 
-.request .last input[type="text"], .request .last input[type="email"] {
-  width: 325px; }
+.request .custom-counter-container input[type="text"] {
+  max-width: 120px;
+  text-align: center;
+  font-family: "proxima";
+  font-size: 16px; }
 
-.request .last input[type="submit"] {
-  float: right;
+.request .custom-counter-container button {
+  width: 30px;
+  padding: 0;
+  background: #40475b;
+  border-color: #40475b;
   color: #FFFFFF;
-  background: #57dcba;
   border: none;
-  text-transform: uppercase;
-  padding: 0px 20px;
-  padding-top: 4px;
-  height: 48px; }
+  height: 30px;
+  font-family: "proxima";
+  font-size: 16px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.request custom-counter::shadow .custom-counter-container input {
+  background: #FFFFFF;
+  border: 2px solid #c9cedb;
+  padding: 8px;
+  height: 30px;
+  color: #1e2331;
+  font-family: "proxima";
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px; }
 
 .request custom-counter::shadow .custom-counter-container input[type="text"] {
   max-width: 120px;
@@ -186,6 +203,19 @@ div.dropdown-menu {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
+
+.request .last input[type="text"], .request .last input[type="email"] {
+  width: 315px; }
+
+.request .last input[type="submit"] {
+  float: right;
+  color: #FFFFFF;
+  background: #57dcba;
+  border: none;
+  text-transform: uppercase;
+  padding: 0px 20px;
+  padding-top: 4px;
+  height: 48px; }
 
 .request .item {
   width: 20px;
@@ -258,47 +288,6 @@ div.dropdown-menu {
   width: 60%;
   border: 2px solid #c9cedb;
   margin-left: 40%; }
-
-/*
- * TABS
- */
-.tabs-wrapper input[type=radio] {
-  display: none; }
-.tabs-wrapper label {
-  display: inline-block;
-  cursor: pointer;
-  color: black;
-  width: 49%;
-  background: #FFFFFF;
-  text-align: center; }
-  .tabs-wrapper label:last-of-type {
-    border-bottom: none; }
-  .tabs-wrapper label:hover {
-    background: black;
-    color: #FFFFFF; }
-
-#tab1:checked + label, #tab2:checked + label {
-  background: black;
-  color: #FFFFFF; }
-
-.tab-body {
-  position: absolute;
-  top: -9999px;
-  padding: 10px; }
-
-.tab-body h1 {
-  float: none; }
-
-.tab-body-wrapper {
-  /*background: $tab-body-wrapper-color;
-  border-top: $tab-checked-border-color $tab-delimiter-line-height solid;
-  border-bottom-right-radius:3px;
-  border-bottom-left-radius:3px;
-  border-top-right-radius:3px;*/ }
-
-#tab1:checked ~ .tab-body-wrapper #tab-body-1, #tab2:checked ~ .tab-body-wrapper #tab-body-2 {
-  position: relative;
-  top: 0px; }
 
 /*
  * MEDIA QUERIES
