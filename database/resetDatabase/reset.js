@@ -28,8 +28,7 @@ db.on("close", function(){
 
 
 
-db.once("open", function(){
-    console.log("Mongoose open");
+
 
     var removeRoomData = function() {
         console.log("reset.js - Room:remove");
@@ -200,7 +199,8 @@ db.once("open", function(){
     };
 
 
-
+db.once("open", function(){
+    console.log("Mongoose open");
 
 
     q.all([

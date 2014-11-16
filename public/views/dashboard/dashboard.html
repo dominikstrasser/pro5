@@ -49,6 +49,10 @@
 
 <div class="formular" ng-controller="requestFormController">
     <h1>Neue Anfrage</h1>
+    <p>Die Datums werden im FE zu UTC 12:00:00 gewandelt...
+    Aber die Umwandlung muss von Lokaler Zeitzohne in UTC geschehen und nicht UTC generieren!
+        In DB werden datums als UTC gespeichert...
+        (kurz vor mitternacht-Problem)</p>
     <p class="status">{{available_rooms.length}} Zimmer verfügbar</p>
     <form>
         <div class="col">
@@ -58,7 +62,7 @@
 
         <div class="col">
             <div class="row">
-                <custom-counter current="0" singular="Person" plural="Personen" size="12"></custom-counter>
+                <custom-counter ng-model="requestForm.persons" current="0" singular="Person" plural="Personen" size="12"></custom-counter>
             </div>
         </div>
 
@@ -83,15 +87,15 @@
 
         <div class="col last">
             <div class="row">
-                <input type="text" name="name" placeholder="Nachname/Firma">
+                <input type="text" ng-model="requestForm.last_name" name="name" placeholder="Nachname/Firma">
             </div>
 
             <div class="row">
-                <input type="email" name="email" placeholder="E-Mail Adresse">
+                <input type="text" ng-model="requestForm.email" name="email" placeholder="E-Mail Adresse">
             </div>
 
             <div class="row">
-                <input type="submit" class="greenButton" value="Weiter">
+                <input ng-click="testBooking()" type="submit" class="greenButton" value="Weiter">
             </div>
         </div>
 
