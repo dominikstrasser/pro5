@@ -11,7 +11,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 var db = require("./database/dbConnection.js");
 var routes = require("./routes/index.js");
 
-
+var emailListener = require("./email/listen.js");
+emailListener.start();
 //app.use(logger('dev'));
 
 db.once("open", function(){

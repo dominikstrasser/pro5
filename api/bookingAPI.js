@@ -109,7 +109,7 @@ function bookingDAO(){
 
     };
     this.getCurrentDepartures = function(req, res){
-        console.log("bookingAPI : /getCurrentArrivals");
+        console.log("bookingAPI : /getCurrentDepartures");
         var today = moment.utc();
         setTimeTo12(today);
         var tomorrow = moment.utc().add(7,"days");

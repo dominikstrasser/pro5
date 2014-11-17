@@ -29,12 +29,12 @@ angular.module('pro5_hzv.requests', ['ngRoute'])
         $scope.sendEmail = function(){
             $scope.enableEmail = true;
             var emailData = {"body" : $scope.email.begin + $scope.email.text + $scope.email.end};
-            emailData.subject = "Buchung xyz";
+            emailData.subject = "Anfrage Nr. 5469bef4e4b0c9468004bc2e";
             emailData.date = Date.now();
             emailProvider.save({'_id' : $scope.currentRequest._id}, emailData, function(data){
                 console.log(data);
                 $scope.enableEmail = false;
-                bookingProvider.detail({_id: "5464ade0e4b0ac2744f1503e"}, function(data){
+                bookingProvider.detail({_id: "5469bef4e4b0c9468004bc2e"}, function(data){
                     $scope.currentRequest = data[0];
                 });
 
@@ -43,7 +43,7 @@ angular.module('pro5_hzv.requests', ['ngRoute'])
 
 
         $scope.currentRequest = {};
-        bookingProvider.detail({_id: "5464ade0e4b0ac2744f1503e"}, function(data){
+        bookingProvider.detail({_id: "5469bef4e4b0c9468004bc2e"}, function(data){
             $scope.currentRequest = data[0];
         });
 

@@ -1,5 +1,6 @@
 var MailListener = require("mail-listener2");
 
+var bookingModel = require("./../database/model/booking.js");
 var cfg = require("./config.js");
 
 var mailListener = new MailListener({
@@ -18,10 +19,10 @@ var mailListener = new MailListener({
     attachmentOptions: { directory: "attachments/" } // specify a download directory for attachments
 });
 
-mailListener.start(); // start listening
+
 
 // stop listening
-mailListener.stop();
+
 
 mailListener.on("server:connected", function(){
     console.log("imapConnected");
@@ -29,17 +30,44 @@ mailListener.on("server:connected", function(){
 
 mailListener.on("server:disconnected", function(){
     console.log("imapDisconnected");
+    mailListener.start();
 });
 
 mailListener.on("error", function(err){
     console.log(err);
 });
 
+var checkSubject = function(subj){
+
+    var bId = subj.indexOf("Anfrage Nr. ");
+    if(bId > -1){
+        var strId = subj.substr(bId + 12,24);
+        var mongoObjectId = new RegExp("^[0-9a-fA-F]{24}$");
+        if(strId.match(mongoObjectId)) {
+            console.log("GEHT");
+            console.log(strId);
+            return strId;
+        }
+    }
+    return false;
+};
+
 mailListener.on("mail", function(mail, seqno, attributes){
     // do something with mail object including attachments
-    console.log("emailParsed", mail);
-    console.log("From", mail.headers.from);
-    console.log("Subject", mail.headers.subject);
+
+    var id = checkSubject(mail.headers.subject);
+    if(id){
+        var msg = {
+            body : mail.html,
+            from_guest : 1,
+            subject : mail.headers.subject,
+            date : mail.headers.date
+        };
+        bookingModel.findOneAndUpdate({"_id" : id},{$push: {"messages": msg}},function(err, result){
+            if(err) console.log(err);
+            console.log("Email wurde zu Buchung gespeichert");
+        });
+    }
 
     // mail processing code goes here
 });
@@ -48,6 +76,21 @@ mailListener.on("mail", function(mail, seqno, attributes){
 mailListener.on("attachment", function(attachment){
     console.log(attachment.path);
 });
+
+var contr = {
+
+    start: function(){
+        mailListener.start(); // start listening
+    },
+    stop: function(){
+        mailListener.stop();
+    },
+    checkSubject: function(subj){
+        return checkSubject(subj);
+    }
+};
+
+module.exports = contr;
 
 
 // it's possible to access imap object from node-imap library for performing additional actions. E.x.
