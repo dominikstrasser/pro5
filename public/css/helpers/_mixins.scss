@@ -1,0 +1,74 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+@mixin user-select($param) {
+  -webkit-touch-callout: $param;
+  -webkit-user-select: $param;
+  -khtml-user-select: $param;
+  -moz-user-select: $param;
+  -ms-user-select: $param;
+  user-select: $param;
+}
+@mixin requestChrome() {
+  .formular input {
+    background: $white;
+    border: $border;
+    padding: 8px;
+    height: 30px;
+    color: $darkblue;
+    font-family: $font;
+    @include border-radius(5px);
+  }
+  .formular .custom-counter-container input[type="text"] {
+    max-width: 120px;
+    text-align: center;
+    font-family: $font;
+    font-size: 16px;
+  }
+  .formular .custom-counter-container button {
+    width: 30px;
+    padding: 0;
+    background: $formblue;
+    border-color: $formblue;
+    color: $white;
+    border: none;
+    height: 30px;
+    font-family: $font;
+    font-size: 16px;
+    @include border-radius(5px);
+    @include user-select(none);
+  }
+}
+@mixin requestFirefoxSafari() {
+  .formular custom-counter::shadow .custom-counter-container input {
+    background: $white;
+    border: $border;
+    padding: 8px;
+    height: 30px;
+    color: $darkblue;
+    font-family: $font;
+    @include border-radius(5px);
+  }
+  .formular custom-counter::shadow .custom-counter-container input[type="text"] {
+    max-width: 120px;
+    text-align: center;
+    font-family: $font;
+    font-size: 16px;
+  }
+  .formular custom-counter::shadow .custom-counter-container button {
+    width: 30px;
+    padding: 0;
+    background: $formblue;
+    border-color: $formblue;
+    color: $white;
+    border: none;
+    height: 30px;
+    font-family: $font;
+    font-size: 16px;
+    @include border-radius(5px);
+    @include user-select(none);
+  }
+}

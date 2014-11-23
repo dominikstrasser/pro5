@@ -1,0 +1,32 @@
+/*
+ * NAVIGATION
+ */
+#nav {
+  background-color: $blue;
+  height: 50px;
+}
+#leftNav a, #rightNav a {
+  color: $white;
+  text-decoration: none;
+}
+#leftNav a:hover, #rightNav a:hover {
+  //background: #434b62;
+}
+#leftNav a {
+  margin-right: -5px;
+  border-left: 1px solid #434b62;
+  border-right: 1px solid #434b62;
+  padding: 15px;
+}
+#leftNav a:first-child {
+  background: url("../img/hzv.png") no-repeat center center;
+  margin-right: -1px;
+  padding-left: 50px;
+}
+#rightNav a {
+  margin-right: -5px;
+  border-left: 1px solid #434b62;
+  border-right: 1px solid #434b62;
+  padding: 15px;
+  background: $darkblue;
+}
