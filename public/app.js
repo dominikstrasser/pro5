@@ -14,7 +14,8 @@ angular.module('pro5_hzv', [
     'pro5_hzv.management',
     'angular-momentjs',
     'pro5_hzv.dataService',
-    'pro5_hzv.dragDropDirective'
+    'pro5_hzv.dragDropDirective',
+    'pro5_hzv.roomListDirective'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/dashboard'});
