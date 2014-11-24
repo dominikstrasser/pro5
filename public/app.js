@@ -25,7 +25,7 @@ config(['$routeProvider', function($routeProvider) {
             dateFormat: 'dd.MM.yyyy',
             startWeek: 1,
             autoclose: "true"
-            //delay: { show: 500, hide: 100000 }
+            //delay: { show: 100, hide: 1000000000 }
         });
     })
     .controller("indexCtrl", ['$scope','guestProvider', function ($scope, guestProvider) {
@@ -35,7 +35,7 @@ config(['$routeProvider', function($routeProvider) {
         $scope.active = false;
 
         $scope.getGuest = function (_id) {
-            guestProvider.get({ _id: '546c4db5be2ac9df19ede64c' }, function(data) {
+            guestProvider.get({ _id: '5472f00e3fb30781458ad88f' }, function(data) {
                 $scope.guest = data;
                 cGuestId = data._id;
             });

@@ -13,3 +13,47 @@
 #current {
   margin-top: 30px;
 }
+#current h1 {
+  margin-bottom: 0;
+  border: none;
+}
+#current h2 {
+  border-top: $border;
+  border-bottom: $border;
+  padding-left: 10px;
+  padding-top: 15px;
+  padding-bottom: 14px;
+  margin: 0;
+  font-size: 16px;
+  position: relative;
+}
+#current .arrow {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 21px;
+  background: $grey;
+}
+#current .arrow:hover {
+  cursor: pointer;
+}
+#current .dayEntryHeader {
+  border-bottom: $border-light;
+  padding-left: 10px;
+  padding-top: 15px;
+  padding-bottom: 14px;
+  position: relative;
+}
+#current .dayEntryHeader .arrow {
+  background: none;
+}
+#current .dayEntry {
+  background: $darkgrey;
+}
+#current .dayEntry.active {
+  background: none;
+}
+#current .dayEntryDetails {
+  background: $grey;
+  padding-left: 10px;
+}
