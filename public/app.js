@@ -34,7 +34,7 @@ config(['$routeProvider', function($routeProvider) {
         $scope.active = false;
 
         $scope.getGuest = function (_id) {
-            guestProvider.get({ _id: '54648b111eef5c729338ae76' }, function(data) {
+            guestProvider.get({ _id: '546c4db5be2ac9df19ede64c' }, function(data) {
                 $scope.guest = data;
                 cGuestId = data._id;
             });

@@ -11,7 +11,7 @@ router.post("/:_id", function (req, res) {
 
     var mailOptions = {
         from: "strasserdominik@hotmail.com", // sender address
-        to: 'thomas.steidl@live.at', // list of receivers
+        to: 'S1210238071@students.fh-hagenberg.at', // list of receivers
         subject: req.body.subject, // Subject line
         //text: req.body.body // plaintext body
         html: req.body.body // html body
