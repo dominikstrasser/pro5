@@ -1,31 +1,47 @@
 angular.module('pro5_hzv.filters', []).filter('orderDate', [ '$moment' ,function($moment) {
     return function(input) {
 
-        /*var today = moment().utc();
-        var tomorrow = moment.utc(today).add(1, "days");
-        setTimeTo12(today);
-        setTimeTo12(tomorrow);*/
+    // if(input.$resolved) {
+         var array = [];
+         console.log(input);
+         //var currentDay = input[0];
+         //console.log(currentDay);
 
 
-        var object = {};
-        var currentDay = input[0].arr;
-        var counter = 0;
+          angular.forEach(input, function(item) {
+              var day = $moment(item.arr).day();
+              //var counter = 0;
+              if (array[day] != undefined) {
+                  array[day][item._id] = item;
 
-        angular.forEach(input, function(item) {
+                  console.log(array[day]);
+              }else {
+                  var key = item._id;
+                  var obj = {};
+                  obj[key] = item;
+                  array[day] = obj;
+              }
+              //array[day][counter] = {buffer: item};
 
-            var arr = $moment(item.arr);
-            if (arr.isSame(currentDay, "days")) {
-                object[currentDay][counter] = item;
-                counter++;
-            } else {
-                counter = 0;
-                currentDay = input.arr;
-                object[currentDay][counter] = item;
-            }
 
-        });
+          /*var arr = $moment(item.arr);
+          if (arr.isSame(currentDay, "days")) {
+          object[currentDay][counter++] = item;
+          //counter++;
+          } else {
+              counter = 0;
+          while (object[currentDay][counter]) {
+              counter++;
+          }
+          //currentDay = input.arr;
+          object[currentDay][counter] = item;
+          }*/
 
-        return object;
 
-    }
+
+          });
+         console.log(array);
+         return array;
+     }
+    //}
 } ]);

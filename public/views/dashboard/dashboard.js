@@ -59,15 +59,96 @@ angular.module('pro5_hzv.dashboard', [
             if(d.isAfter($scope.tomorrow, "days")) return 3;
         };
 
+        $scope.dayAnimation = function(section){
+
+            if($scope.selected === section){
+                $scope.selected = false;
+            }else {
+                $scope.selected = section;
+            }
+            console.log(section);
+
+        };
+
+        $scope.isSelected = function(section){
+
+            return $scope.selected === section;
+        };
+
+        $scope.dayEntryAnimation = function(section){
+            if($scope.selectedEntry === section){
+                $scope.selectedEntry = false;
+            }else {
+                $scope.selectedEntry = section;
+            }
+        };
+
+        $scope.isSelectedEntry = function(section){
+
+            return $scope.selectedEntry === section;
+        };
+
         $scope.today = moment().utc();
         $scope.tomorrow = moment.utc($scope.today).add(1, "days");
         setTimeTo12($scope.today);
         setTimeTo12($scope.tomorrow);
 
-        $scope.arrivals = bookingProvider.currentArrivals();
-        $scope.departures = bookingProvider.currentDepartures();
+        $scope.arrivalsOrder = [];
+        $scope.arrivals = bookingProvider.currentArrivals(function(data){
+            var array = [];
 
+                angular.forEach(data, function (item) {
 
+                    var counter = 0;
+
+                    var day = $moment(item.arr).day();
+                    if (array[day] != undefined) {
+
+                        while(array[day][counter] != undefined) {
+                            counter++;
+                        }
+                        array[day][counter] = item;
+
+                    } else {
+                        var key = counter;
+                        var obj = {};
+                        obj[key] = item;
+                        array[day] = obj;
+                    }
+
+                });
+
+            console.log(array);
+            $scope.arrivalsOrder = array;
+        });
+        $scope.departuresOrder = [];
+        $scope.departures = bookingProvider.currentDepartures(function(data){
+            var array = [];
+
+            angular.forEach(data, function (item) {
+
+                var counter = 0;
+
+                var day = $moment(item.dep).day();
+                if (array[day] != undefined) {
+
+                    while(array[day][counter] != undefined) {
+                        counter++;
+                    }
+                    array[day][counter] = item;
+
+                } else {
+                    var key = counter;
+                    var obj = {};
+                    obj[key] = item;
+                    array[day] = obj;
+                }
+
+            });
+
+            console.log(array);
+            $scope.departuresOrder = array;
+        });
 
     }])
 
