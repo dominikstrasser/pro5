@@ -17,6 +17,7 @@
   border-left: 1px solid #434b62;
   border-right: 1px solid #434b62;
   padding: 15px;
+  outline: none;
 }
 #leftNav a:first-child {
   background: url("../img/hzv.png") no-repeat center center;
@@ -29,4 +30,15 @@
   border-right: 1px solid #434b62;
   padding: 15px;
   background: $darkblue;
+  outline: none;
+}
+@-moz-document url-prefix() {
+  #leftNav a, #rightNav a {
+    margin-right: 0px;
+    border-left: none;
+    background: none;
+  }
+  #leftNav a:first-child, #rightNav a:first-child {
+    border-left: 1px solid #434b62;
+  }
 }

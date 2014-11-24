@@ -1,0 +1,32 @@
+.datepicker {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin-top: 10px;
+  padding: 10px;
+  background: $white;
+  list-style: none;
+  border: $border;
+  @include border-radius(5px);
+}
+.datepicker .btn-block {
+  border: none;
+  background: none;
+}
+.datepicker tbody .btn-default {
+  background: none;
+  border: $border-light;
+  @include border-radius(5px);
+}
+.datepicker tbody .btn-default:hover {
+  background: $blue;
+}
+.datepicker tbody .btn-default:hover > span {
+  color: $white;
+}
+.datepicker tbody .btn-today {
+  background: $green;
+}
+.datepicker tbody .btn-today span {
+  color: $white;
+}
