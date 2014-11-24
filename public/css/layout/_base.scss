@@ -30,3 +30,16 @@ h2 {
 .container {
   padding: 20px 0;
 }
+/*
+ * MEDIA QUERIES
+ */
+@media (min-width: 992px) {
+  #navContainer, .container {
+    width: $width-md;
+  }
+}
+@media (min-width: 1200px) {
+  #navContainer, .container {
+    width: $width-lg;
+  }
+}
