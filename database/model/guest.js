@@ -15,7 +15,7 @@ var guestSchema = mongoose.Schema({
     country: String,
     interests: [String],
     note: String,
-    birthday: Date,
+    birthday: { type: Date, default: Date.now },
     booking_id: [mongoose.Schema.ObjectId]
 });
 
