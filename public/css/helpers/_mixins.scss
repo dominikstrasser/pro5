@@ -41,6 +41,10 @@
     @include border-radius(5px);
     @include user-select(none);
   }
+  .formular .custom-counter-container button:hover {
+    background: $button-blue-hover;
+    cursor: pointer;
+  }
 }
 @mixin requestFirefoxSafari() {
   .formular custom-counter::shadow .custom-counter-container input {
@@ -70,5 +74,9 @@
     font-size: 16px;
     @include border-radius(5px);
     @include user-select(none);
+  }
+  .formular custom-counter::shadow .custom-counter-container button:hover {
+    background: $button-blue-hover;
+    cursor: pointer;
   }
 }

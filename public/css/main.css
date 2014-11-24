@@ -232,6 +232,10 @@ div.dropdown-menu {
   -ms-user-select: none;
   user-select: none; }
 
+.formular .custom-counter-container button:hover {
+  background: #ffba42;
+  cursor: pointer; }
+
 .formular custom-counter::shadow .custom-counter-container input {
   background: #FFFFFF;
   border: 2px solid #c9cedb;
@@ -270,6 +274,10 @@ div.dropdown-menu {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
+
+.formular custom-counter::shadow .custom-counter-container button:hover {
+  background: #ffba42;
+  cursor: pointer; }
 
 .formular .last input[type="text"], .formular .last input[type="email"] {
   width: 325px; }
@@ -318,6 +326,9 @@ input.greenButton, button.greenButton {
   -ms-border-radius: 5px;
   border-radius: 5px; }
 
+input.greenButton:hover, button.greenButton:hover {
+  background: #ffba42; }
+
 button.blueButton {
   color: #FFFFFF;
   background: #40475b;
@@ -328,6 +339,9 @@ button.blueButton {
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   border-radius: 5px; }
+
+button.blueButton:hover {
+  background: #ffba42; }
 
 /*
  * COLLAPSE

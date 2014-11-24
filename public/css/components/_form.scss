@@ -80,6 +80,9 @@ input.greenButton, button.greenButton {
   font-family: $font;
   @include border-radius(5px);
 }
+input.greenButton:hover, button.greenButton:hover {
+  background: $button-green-hover;
+}
 button.blueButton {
   color: #FFFFFF;
   background: $formblue;
@@ -87,4 +90,7 @@ button.blueButton {
   padding: 5px 15px;
   font-family: $font;
   @include border-radius(5px);
+}
+button.blueButton:hover {
+  background: $button-blue-hover;
 }
