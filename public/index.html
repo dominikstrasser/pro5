@@ -55,49 +55,7 @@
     </core-header-panel>
 
     <div id="guestInformation">
-        <div class="container formular">
-            <div id="guestInformationHeader" ng-show="active">
-                <span>{{guest.first_name}} {{guest.last_name}}</span>
-                <div ng-hide="allActive" ng-click="allActive = true" class="up"></div>
-                <div ng-show="allActive" ng-click="allActive = false" class="down"></div>
-            </div>
 
-            <form ng-show="allActive">
-                <div class="col">
-                    <div class="row">
-                        <select name="salutation" id="salutation">
-                            <option>Herr</option>
-                            <option>Frau</option>
-                            <option>Familie</option>
-                            <option>Firma</option>
-                        </select>
-                    </div>
-
-                    <div class="row"><input ng-model="guest.address" type="text" name="address" id="address"></div>
-                    <div class="row"><input ng-model="guest.phone" type="text" name="phone" id="phone"></div>
-                </div>
-
-                <div class="col">
-                    <div class="row"><input ng-model="guest.first_name" type="text" name="first_name" id="first_name"></div>
-                    <div class="row"><input ng-model="guest.plz" type="number" name="plz" id="plz"></div>
-                    <div class="row"><input ng-model="guest.email" type="email" name="email" id="email"></div>
-                </div>
-
-                <div class="col">
-                    <div class="row"><input ng-model="guest.last_name" type="text" name="last_name" id="last_name"></div>
-                    <div class="row"><input ng-model="guest.city" type="text" name="city" id="city"></div>
-                </div>
-
-                <div class="col">
-                    <div class="row"><input ng-model="guest.country" type="text" name="country" id="country"></div>
-                </div>
-
-                <div class="col">
-                    <input type="submit" class="greenButton" value="Speichern" ng-click="saveGuest()">
-                </div>
-
-                <div class="clear"></div>
-            </form>
 
         <div class="container formular">
             <div id="guestInformationHeader" ng-show="active">
