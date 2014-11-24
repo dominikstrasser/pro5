@@ -4,8 +4,8 @@ var moment = require('moment');
 
 var mongoose = require("mongoose");
 
-mongoose.connect("mongodb://testUser:mtd_pro5@ds063859.mongolab.com:63859/pro5_hotel");
-//mongoose.connect('mongodb://localhost/pro5_hotel');
+//mongoose.connect("mongodb://testUser:mtd_pro5@ds063859.mongolab.com:63859/pro5_hotel");
+mongoose.connect('mongodb://localhost/pro5_hotel');
 
 var db = mongoose.connection;
 
@@ -28,8 +28,7 @@ db.on("close", function(){
 
 
 
-db.once("open", function(){
-    console.log("Mongoose open");
+
 
     var removeRoomData = function() {
         console.log("reset.js - Room:remove");
@@ -200,7 +199,8 @@ db.once("open", function(){
     };
 
 
-
+db.once("open", function(){
+    console.log("Mongoose open");
 
 
     q.all([

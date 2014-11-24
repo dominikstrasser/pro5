@@ -1,0 +1,43 @@
+/*
+ * COLLAPSE
+ */
+.collapse {
+  margin: 0 20px;
+}
+.collapse h1 {
+  float: left;
+}
+.collapse .open {
+  float: right;
+  margin-top: 30px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.collapse .open:hover {
+  cursor: pointer;
+}
+.collapse1 .content .data div:nth-child(1) {
+  min-width: 200px;
+}
+.collapse1 .content .data div:nth-child(2) {
+  min-width: 50px;
+}
+.collapse1 .content .data div:nth-child(3) {
+  min-width: 110px;
+}
+.collapse3 .content .email-left {
+  width: 60%;
+  border: $border;
+}
+.collapse3 .content .drag {
+  width: 40%;
+}
+.collapse3 .content .email-right {
+  width: 60%;
+  border: $border;
+  margin-left: 40%;
+}

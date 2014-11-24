@@ -1,0 +1,77 @@
+/*
+ * FORMULAR
+ */
+.formular {
+  position: relative;
+  padding: 20px;
+  margin-top: 20px;
+}
+.formular .status {
+  position: absolute;
+  right: 20px;
+  top: 35px;
+  color: $green;
+}
+.formular .col {
+  float: left;
+  margin-right: 25px;
+}
+.formular .col.last {
+  float: right;
+  margin-right: 0px;
+}
+.formular .row {
+  margin-bottom: 12px;
+}
+.formular .cal {
+  background: url("../img/cal.png") no-repeat;
+  background-position: 130px 10px;
+}
+div.dropdown-menu{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: gray;
+  list-style: none;
+}
+.btn-today{
+  background: red;
+}
+
+@include requestChrome();
+@include requestFirefoxSafari();
+
+.formular .last input[type="text"], .formular .last input[type="email"] {
+  width: 345px;
+}
+.formular .greenButton {
+  float: right;
+  color: #FFFFFF;
+  background: $green;
+  border: none;
+  text-transform: uppercase;
+  padding: 0px 20px;
+  padding-top: 4px;
+  height: 48px;
+}
+.formular .item {
+  width: 20px;
+  float: left;
+  border: $border;
+  margin-right: 10px;
+  padding: 12px;
+  text-align: center;
+  background: $formblue;
+  border-color: $formblue;
+  color: $white;
+  @include border-radius(5px);
+  @include user-select(none);
+}
+.formular .item:hover {
+  cursor: pointer;
+}
+.formular .core-selected {
+  background: $green;
+  border-color: $green;
+  color: $white;
+}

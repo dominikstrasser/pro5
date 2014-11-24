@@ -1,0 +1,45 @@
+/*
+ * GENERAL STYLES
+ */
+* {
+  font-family: $font;
+  font-weight: normal;
+  font-size: 16px;
+  color: $border;
+}
+h1 {
+  text-transform: uppercase;
+  color: $blue;
+  font-weight: normal;
+  border-bottom: $border;
+  padding-bottom: 10px;
+}
+h2 {
+  text-transform: uppercase;
+  font-weight: normal;
+}
+.clear {
+  clear: both;
+}
+#navContainer, .container {
+  margin: 0 auto;
+}
+#navContainer {
+  margin-top: -15px;
+}
+.container {
+  padding: 20px 0;
+}
+/*
+ * MEDIA QUERIES
+ */
+@media (min-width: 992px) {
+  #navContainer, .container {
+    width: $width-md;
+  }
+}
+@media (min-width: 1200px) {
+  #navContainer, .container {
+    width: $width-lg;
+  }
+}

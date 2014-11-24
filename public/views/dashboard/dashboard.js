@@ -58,6 +58,7 @@ angular.module('pro5_hzv.dashboard', [
             if(d.isSame($scope.tomorrow, "days")) return 2;
             if(d.isAfter($scope.tomorrow, "days")) return 3;
         };
+        
 
         $scope.dayAnimation = function(section){
 
@@ -92,6 +93,19 @@ angular.module('pro5_hzv.dashboard', [
         $scope.tomorrow = moment.utc($scope.today).add(1, "days");
         setTimeTo12($scope.today);
         setTimeTo12($scope.tomorrow);
+
+
+        /*
+         * NICHT UTC?!?!?!?!?
+         * */
+        
+        var today = new Date();
+
+        var cArr = moment.utc([
+            today.getFullYear(),
+            today.getMonth(),
+            today.getDate(),
+            12, 0, 0, 0]);
 
         $scope.arrivalsOrder = [];
         $scope.arrivals = bookingProvider.currentArrivals(function(data){
@@ -163,22 +177,59 @@ angular.module('pro5_hzv.dashboard', [
             d.milliseconds(0);
         };
 
+        $scope.requestForm = {};
+        $scope.requestForm.status =  0;
+        $scope.requestForm.person_count = 1;
+        $scope.requestForm.room_count =  1;
+        $scope.requestForm.room_id = [];
+        $scope.requestForm.category = "TEST";
 
+
+        $scope.testBooking = function(){
+
+            //console.log($scope.requestForm);
+
+            var arr = moment.utc([
+                $scope.requestForm.arr.getFullYear(),
+                $scope.requestForm.arr.getMonth(),
+                $scope.requestForm.arr.getDate(),
+                12, 0, 0, 0]);
+
+            var dep = moment.utc([
+                $scope.requestForm.dep.getFullYear(),
+                $scope.requestForm.dep.getMonth(),
+                $scope.requestForm.dep.getDate(),
+                12, 0, 0, 0]);
+
+            console.log(arr);
+
+            $scope.requestForm.arr = arr.toDate();
+            $scope.requestForm.dep = dep.toDate();
+            bookingProvider.save($scope.requestForm);
+
+        };
+
+        /*
         roomProvider.query(function(data){
             $scope.all_rooms = data;
             $scope.available_rooms = $scope.all_rooms.slice(0);
         });
+
         $scope.$watchCollection("requestForm", function(newValue, oldValue){
             if(typeof newValue != 'undefined') {
                 if ($moment(newValue.arr).isValid() && $moment(newValue.dep).isValid()) {
+
                     var data = {};
                     data.arr = $moment(newValue.arr);
                     setTimeTo12(data.arr);
                     data.dep = $moment(newValue.dep);
                     setTimeTo12(data.dep);
+
                     bookingProvider.check(data, function(data){
+
                         $scope.remove_rooms = data;
                         $scope.available_rooms = $scope.all_rooms.slice(0);
+
                         for (var i = 0; i < $scope.available_rooms.length; i++) {
                             for (var j = 0; j < data.length; j++) {
                                 if ($scope.available_rooms[i]._id == data[j].room_id[0]) {
@@ -192,6 +243,6 @@ angular.module('pro5_hzv.dashboard', [
                 }
             }
         });
-
+        */
 
     });

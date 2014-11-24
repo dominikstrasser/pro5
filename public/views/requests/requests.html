@@ -65,14 +65,15 @@
                 </div>
 
                 <div class="email-list">
-
-                    <div horizontal layout ng-repeat="msg in currentRequest.messages">
-                        <div horizontal class="email-info">
-                            {{currentRequest.guest_id.salutation}} {{currentRequest.guest_id.last_name}}<br>
-
-                            E-Mail vom {{msg.date | date: 'dd.MM.yyyy'}}
-                        </div>
-                        <div horizontal class="email-right" ng-bind-html="toTrustedHtml(msg.body)">
+                    <div horizontal layout  ng-repeat="msg in currentRequest.messages | orderBy: '-date'">
+                        <div ng-class="{'email-right' : msg.from_guest, 'email-left' : !msg.from_guest}">
+                            <div horizontal class="email-info">
+                                {{currentRequest.guest_id.salutation}} {{currentRequest.guest_id.last_name}}<br>
+                                {{currentRequest.guest_id.email}}<br>
+                                E-Mail vom {{msg.date | date: 'dd.MM.yyyy HH:mm:ss'}}
+                            </div>
+                            <div horizontal ng-bind-html="toTrustedHtml(msg.body)">
+                            </div>
                         </div>
                     </div>
 

@@ -10,8 +10,8 @@
   <meta name="description" content="">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/vendors/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/animations.css">
   <script src="bower_components/platform/platform.js"></script>
   <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
@@ -53,44 +53,98 @@
 
         </div>
     </core-header-panel>
-    <div id="guestInformation">
-        <div id="guestInformationHeader" ng-show="active">
-            <span>Max Mustermann</span>
-            <button ng-hide="allActive" ng-click="allActive = true">
-                <span>Ausklappen</span>
-            </button>
-            <button ng-show="allActive" ng-click="allActive = false">
-                <span>Einkplappen</span>
-            </button>
-        </div>
-        <form ng-show="allActive">
-            <label for="salutation">Anrede: </label>
-            <select name="salutation" id="salutation">
-                <option>Herr</option>
-                <option>Frau</option>
-                <option>Familie</option>
-                <option>Firma</option>
-            </select>
-            <label for="first_name">Vorname: </label>
-            <input ng-model="guest.first_name" type="text" name="first_name" id="first_name">
-            <label for="last_name">Nachname: </label>
-            <input ng-model="guest.last_name" type="text" name="last_name" id="last_name">
-            <label for="address">Straße: </label>
-            <input ng-model="guest.address" type="text" name="address" id="address">
-            <label for="plz">PLZ: </label>
-            <input ng-model="guest.plz" type="text" name="plz" id="plz">
-            <label for="city">Stadt: </label>
-            <input ng-model="guest.city" type="text" name="city" id="city">
-            <label for="country">Land: </label>
-            <input ng-model="guest.country" type="text" name="country" id="country">
-            <label for="phone">Telefon: </label>
-            <input ng-model="guest.phone" type="text" name="phone" id="phone">
-            <label for="email">Email: </label>
-            <input ng-model="guest.email" type="email" name="email" id="email">
-            <button ng-click="saveGuest()">Speichern</button>
-        </form>
-    </div>
 
+    <div id="guestInformation">
+        <div class="container formular">
+            <div id="guestInformationHeader" ng-show="active">
+                <span>{{guest.first_name}} {{guest.last_name}}</span>
+                <div ng-hide="allActive" ng-click="allActive = true" class="up"></div>
+                <div ng-show="allActive" ng-click="allActive = false" class="down"></div>
+            </div>
+
+            <form ng-show="allActive">
+                <div class="col">
+                    <div class="row">
+                        <select name="salutation" id="salutation">
+                            <option>Herr</option>
+                            <option>Frau</option>
+                            <option>Familie</option>
+                            <option>Firma</option>
+                        </select>
+                    </div>
+
+                    <div class="row"><input ng-model="guest.address" type="text" name="address" id="address"></div>
+                    <div class="row"><input ng-model="guest.phone" type="text" name="phone" id="phone"></div>
+                </div>
+
+                <div class="col">
+                    <div class="row"><input ng-model="guest.first_name" type="text" name="first_name" id="first_name"></div>
+                    <div class="row"><input ng-model="guest.plz" type="number" name="plz" id="plz"></div>
+                    <div class="row"><input ng-model="guest.email" type="email" name="email" id="email"></div>
+                </div>
+
+                <div class="col">
+                    <div class="row"><input ng-model="guest.last_name" type="text" name="last_name" id="last_name"></div>
+                    <div class="row"><input ng-model="guest.city" type="text" name="city" id="city"></div>
+                </div>
+
+                <div class="col">
+                    <div class="row"><input ng-model="guest.country" type="text" name="country" id="country"></div>
+                </div>
+
+                <div class="col">
+                    <input type="submit" class="greenButton" value="Speichern" ng-click="saveGuest()">
+                </div>
+
+                <div class="clear"></div>
+            </form>
+
+        <div class="container formular">
+            <div id="guestInformationHeader" ng-show="active">
+                <span>{{guest.first_name}} {{guest.last_name}}</span>
+                <div ng-hide="allActive" ng-click="allActive = true" class="up"></div>
+                <div ng-show="allActive" ng-click="allActive = false" class="down"></div>
+            </div>
+
+            <form ng-show="allActive">
+                <div class="col">
+                    <div class="row">
+                        <select name="salutation" id="salutation">
+                            <option>Herr</option>
+                            <option>Frau</option>
+                            <option>Familie</option>
+                            <option>Firma</option>
+                        </select>
+                    </div>
+
+                    <div class="row"><input ng-model="guest.address" type="text" name="address" id="address"></div>
+                    <div class="row"><input ng-model="guest.phone" type="text" name="phone" id="phone"></div>
+                </div>
+
+                <div class="col">
+                    <div class="row"><input ng-model="guest.first_name" type="text" name="first_name" id="first_name"></div>
+                    <div class="row"><input ng-model="guest.plz" type="number" name="plz" id="plz"></div>
+                    <div class="row"><input ng-model="guest.email" type="email" name="email" id="email"></div>
+                </div>
+
+                <div class="col">
+                    <div class="row"><input ng-model="guest.last_name" type="text" name="last_name" id="last_name"></div>
+                    <div class="row"><input ng-model="guest.city" type="text" name="city" id="city"></div>
+                </div>
+
+                <div class="col">
+                    <div class="row"><input ng-model="guest.country" type="text" name="country" id="country"></div>
+                </div>
+
+                <div class="col">
+                    <input type="submit" class="greenButton" value="Speichern" ng-click="saveGuest()">
+                </div>
+
+                <div class="clear"></div>
+            </form>
+        </div>
+
+    </div>
 
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>

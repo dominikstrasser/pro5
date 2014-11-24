@@ -1,17 +1,19 @@
 var express = require("express");
 var app = express();
-
+var logger = require('morgan');
 var path = require("path");
 
 var bodyParser = require("body-parser");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+
 var db = require("./database/dbConnection.js");
 var routes = require("./routes/index.js");
 
-//var listenMail = require("./email/listen.js");
-//var sendMail = require("./email/send.js");
+var emailListener = require("./email/listen.js");
+emailListener.start();
+//app.use(logger('dev'));
 
 db.once("open", function(){
     console.log("db open");

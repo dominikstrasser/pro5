@@ -1,1 +1,26 @@
-<p>bookings</p>
+<section class="collapse">
+
+    <h1>Alle Buchungen</h1>
+    <span class="open" onclick="document.querySelector('.collapse1').toggle()">Icon</span>
+
+    <div class="clear"></div>
+
+    <core-collapse opened fixedSize class="box collapse1">
+        <div class="content">
+
+            <div vertical layout>
+                <div horizontal layout class="data" ng-repeat="req in reqs">
+                    <div horizontal>{{req.guest_id.salutation}} {{req.guest_id.last_name}}</div>
+                    <div horizontal>{{req.arr | date:'dd.MM.yyyy'}}</div>
+                    <div horizontal>{{req.dep | date:'dd.MM.yyyy'}}</div>
+                    <div horizontal>{{req.person_count}} Personen</div>
+                    <div horizontal flex><span>Zimmer
+                        <span ng-repeat="room in req.room_id">{{room.number}}</span>
+                    </span></div>
+                    <div horizontal>Details</div>
+                </div>
+            </div>
+
+        </div>
+    </core-collapse>
+</section>

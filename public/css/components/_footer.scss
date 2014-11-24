@@ -1,0 +1,50 @@
+/*
+ * FOOTER
+ */
+#guestInformation .container {
+  padding: 0;
+}
+#guestInformation .formular {
+  margin-top: 0;
+}
+#guestInformation {
+  background-color: $blue;
+  bottom: 0px;
+  color: $white;
+}
+#guestInformationHeader {
+  height: 40px;
+}
+#guestInformation .up, #guestInformation .down {
+  float: right;
+  width: 12px;
+  height: 6px;
+  padding: 20px;
+}
+#guestInformation .up {
+  background: url("../img/arrows/up_white.png") no-repeat center $darkblue;
+}
+#guestInformation .down {
+  background: url("../img/arrows/down_white.png") no-repeat center $darkblue;
+}
+#guestInformation .up:hover, #guestInformation .down:hover {
+  cursor: pointer;
+}
+#guestInformation input[type="text"],
+#guestInformation input[type="number"],
+#guestInformation input[type="email"] {
+  background: $blue;
+  border-color: $white;
+  color: $white;
+}
+#guestInformation select {
+  border: $border;
+  background: $blue;
+  border-color: $white;
+  color: $white;
+  padding: 8px;
+  height: 50px;
+  width: 171px;
+  font-family: "proxima";
+  @include border-radius(5px);
+}
