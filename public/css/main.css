@@ -22,11 +22,13 @@ h1 {
   font-weight: normal;
   border-bottom: 2px solid #c9cedb;
   padding-bottom: 10px;
-  padding-left: 10px; }
+  padding-left: 10px;
+  font-size: 30px; }
 
 h2 {
   text-transform: uppercase;
-  font-weight: normal; }
+  font-weight: normal;
+  font-size: 16px; }
 
 hr {
   border: 1px solid #c9cedb;
@@ -97,6 +99,50 @@ hr {
 
 #current {
   margin-top: 30px; }
+
+#current h1 {
+  margin-bottom: 0;
+  border: none; }
+
+#current h2 {
+  border-top: 2px solid #c9cedb;
+  border-bottom: 2px solid #c9cedb;
+  padding-left: 10px;
+  padding-top: 15px;
+  padding-bottom: 14px;
+  margin: 0;
+  font-size: 16px;
+  position: relative; }
+
+#current .arrow {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 21px;
+  background: #eef1f9; }
+
+#current .arrow:hover {
+  cursor: pointer; }
+
+#current .dayEntryHeader {
+  border-bottom: 2px solid #eef1f9;
+  padding-left: 10px;
+  padding-top: 15px;
+  padding-bottom: 14px;
+  position: relative; }
+
+#current .dayEntryHeader .arrow {
+  background: none; }
+
+#current .dayEntry {
+  background: #c9cedb; }
+
+#current .dayEntry.active {
+  background: none; }
+
+#current .dayEntryDetails {
+  background: #eef1f9;
+  padding-left: 10px; }
 
 /*
  * FOOTER
@@ -373,7 +419,7 @@ button.blueButton:hover {
   position: absolute;
   right: 0;
   top: 2px;
-  padding: 26px;
+  padding: 25px;
   background: #eef1f9; }
 
 .collapse .guest {

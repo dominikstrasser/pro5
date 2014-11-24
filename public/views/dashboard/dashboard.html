@@ -4,14 +4,14 @@
             <div flex class="arrivals">
                 <h1>Aktuelle Anreisen</h1>
                 <div ng-if="arrivalsOrder" ng-class="{'visible active' : isSelected(dayObject)}" class="day" ng-repeat="dayObject in arrivalsOrder track by $index">
-                    <h2 ng-if="dayObject">{{displayDate(dayObject[0].arr) | date:'dd.MM.yyyy'}}<i ng-click="dayAnimation(dayObject)">V</i></h2>
+                    <h2 ng-if="dayObject">{{displayDate(dayObject[0].arr) | date:'dd.MM.yyyy'}}<i ng-click="dayAnimation(dayObject)"><img src="../../img/arrows/down_grey.png" class="arrow" alt="arrow"></i></h2>
                     <div ng-class="{'visible active' : isSelectedEntry(arrival)}" class="dayEntry" ng-if="dayObject" ng-repeat="arrival in dayObject">
                     <!--<h2 ng-if="!isCurrentDate(arrival.arr)">{{displayDate(arrival.arr) | date:'dd.MM.yyyy'}}</h2>-->
                     <div class="dayEntryHeader">
                         <span>{{arrival.guest_id.salutation}} </span>
                         <span>{{arrival.guest_id.last_name}}</span>
                         <span>{{arrival.person_count}} Personen</span>
-                        <i ng-click="dayEntryAnimation(arrival)">V</i>
+                        <i ng-click="dayEntryAnimation(arrival)"><img src="../../img/arrows/down_blue.png" class="arrow" alt="arrow"></i>
                     </div>
                     <div class="dayEntryDetails">
                         <div>
@@ -28,7 +28,7 @@
             <div flex class="departures">
                 <h1>Aktuelle Abreisen</h1>
                 <div ng-if="departuresOrder" ng-class="{'visible active' : isSelected(dayObject)}" class="day" ng-repeat="dayObject in departuresOrder track by $index">
-                    <h2 ng-if="dayObject">{{displayDate(dayObject[0].dep) | date:'dd.MM.yyyy'}}<i ng-click="dayAnimation(dayObject)">V</i></h2>
+                    <h2 ng-if="dayObject">{{displayDate(dayObject[0].dep) | date:'dd.MM.yyyy'}}<i ng-click="dayAnimation(dayObject)"><img src="../../img/arrows/down_grey.png" class="arrow" alt="arrow"></i></h2>
                     <div class="dayEntry" ng-if="dayObject" ng-repeat="departure in dayObject">
                         <!--<h2 ng-if="!isCurrentDate(arrival.arr)">{{displayDate(arrival.arr) | date:'dd.MM.yyyy'}}</h2>-->
                         <span>{{departure.dep | date:'dd.MM.yyyy'}}</span>
@@ -42,22 +42,6 @@
                 </div>
 
             </div>
-            <!--<div flex class="departures">
-                <h1>Aktuelle Abreisen</h1>
-                <div ng-repeat="departure in departures | orderBy: 'dep'">
-
-                    <h2 ng-hide="isCurrentDate(departure.dep)">{{displayDate(departure.dep) | date:'dd.MM.yyyy'}}</h2>
-
-                    <span>{{departure.dep | date:'dd.MM.yyyy'}}</span>
-                    <span>{{departure.guest_id.last_name}}</span>
-                    <span>{{departure.person_count}} Personen</span>
-                    <span>Zimmer
-
-                        <span ng-repeat="room in arrival.room_id">{{room.number}}</span>
-                    </span>
-                </div>
-
-            </div>-->
         </div>
     </div>
 
