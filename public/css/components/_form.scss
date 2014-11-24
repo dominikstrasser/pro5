@@ -6,9 +6,12 @@
   padding: 20px;
   margin-top: 20px;
 }
+.formular form {
+  padding: 0 10px;
+}
 .formular .status {
   position: absolute;
-  right: 20px;
+  right: 30px;
   top: 35px;
   color: $green;
 }
@@ -42,17 +45,7 @@ div.dropdown-menu{
 @include requestFirefoxSafari();
 
 .formular .last input[type="text"], .formular .last input[type="email"] {
-  width: 345px;
-}
-.formular .greenButton {
-  float: right;
-  color: #FFFFFF;
-  background: $green;
-  border: none;
-  text-transform: uppercase;
-  padding: 0px 20px;
-  padding-top: 4px;
-  height: 48px;
+  width: 325px;
 }
 .formular .item {
   width: 20px;
@@ -74,4 +67,24 @@ div.dropdown-menu{
   background: $green;
   border-color: $green;
   color: $white;
+}
+input.greenButton, button.greenButton {
+  float: right;
+  color: #FFFFFF;
+  background: $green;
+  border: none;
+  text-transform: uppercase;
+  padding: 0px 20px;
+  padding-top: 4px;
+  height: 48px;
+  font-family: $font;
+  @include border-radius(5px);
+}
+button.blueButton {
+  color: #FFFFFF;
+  background: $formblue;
+  border: none;
+  padding: 5px 15px;
+  font-family: $font;
+  @include border-radius(5px);
 }

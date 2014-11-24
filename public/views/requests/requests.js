@@ -34,7 +34,7 @@ angular.module('pro5_hzv.requests', ['ngRoute'])
             emailProvider.save({'_id' : $scope.currentRequest._id}, emailData, function(data){
                 console.log(data);
                 $scope.enableEmail = false;
-                bookingProvider.detail({_id: "5464ade0e4b0ac2744f1503e"}, function(data){
+                bookingProvider.detail({_id: "5472f00e3fb30781458ad894"}, function(data){
                     $scope.currentRequest = data[0];
                 });
 
@@ -43,7 +43,7 @@ angular.module('pro5_hzv.requests', ['ngRoute'])
 
 
         $scope.currentRequest = {};
-        bookingProvider.detail({_id: "5464ade0e4b0ac2744f1503e"}, function(data){
+        bookingProvider.detail({_id: "5472f00e3fb30781458ad894"}, function(data){
             $scope.currentRequest = data[0];
         });
 

@@ -5,7 +5,7 @@
   font-family: $font;
   font-weight: normal;
   font-size: 16px;
-  color: $border;
+  color: $blue;
 }
 h1 {
   text-transform: uppercase;
@@ -13,10 +13,16 @@ h1 {
   font-weight: normal;
   border-bottom: $border;
   padding-bottom: 10px;
+  padding-left: 10px;
 }
 h2 {
   text-transform: uppercase;
   font-weight: normal;
+}
+hr {
+  border: $border-hr;
+  margin-bottom: 30px;
+  margin-top: 15px;
 }
 .clear {
   clear: both;
