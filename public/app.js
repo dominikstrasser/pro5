@@ -15,7 +15,7 @@ angular.module('pro5_hzv', [
     'angular-momentjs',
     'pro5_hzv.dataService',
     'pro5_hzv.dragDropDirective',
-    'pro5_hzv.filters'
+    'pro5_hzv.roomListDirective'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/dashboard'});
@@ -25,7 +25,7 @@ config(['$routeProvider', function($routeProvider) {
             dateFormat: 'dd.MM.yyyy',
             startWeek: 1,
             autoclose: "true"
-            //delay: { show: 500, hide: 100000 }
+            //delay: { show: 100, hide: 1000000000 }
         });
     })
     .controller("indexCtrl", ['$scope','guestProvider', function ($scope, guestProvider) {
@@ -35,7 +35,7 @@ config(['$routeProvider', function($routeProvider) {
         $scope.active = false;
 
         $scope.getGuest = function (_id) {
-            guestProvider.get({ _id: '54648b111eef5c729338ae76' }, function(data) {
+            guestProvider.get({ _id: '5472f00e3fb30781458ad88f' }, function(data) {
                 $scope.guest = data;
                 cGuestId = data._id;
             });

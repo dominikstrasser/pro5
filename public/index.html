@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="css/vendors/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/roomList.css">
   <script src="bower_components/platform/platform.js"></script>
   <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
   <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
@@ -77,11 +78,12 @@
 
                     <div class="row"><input ng-model="guest.address" type="text" name="address" id="address"></div>
                     <div class="row"><input ng-model="guest.phone" type="text" name="phone" id="phone"></div>
+                    <div class="row"><input ng-model="guest.birthday" type="text" name="date" id="date"></div>
                 </div>
 
                 <div class="col">
                     <div class="row"><input ng-model="guest.first_name" type="text" name="first_name" id="first_name"></div>
-                    <div class="row"><input ng-model="guest.plz" type="number" name="plz" id="plz"></div>
+                    <div class="row"><input ng-model="guest.plz" type="text" name="plz" id="plz"></div>
                     <div class="row"><input ng-model="guest.email" type="email" name="email" id="email"></div>
                 </div>
 
@@ -116,6 +118,7 @@
     <script src="filters.js"></script>
     <script src="services.js"></script>
     <script src="dragDropDirective.js"></script>
+    <script src="roomListDirective.js"></script>
   <script src="app.js"></script>
 
 

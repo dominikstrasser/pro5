@@ -30,16 +30,6 @@
   background: url("../img/cal.png") no-repeat;
   background-position: 130px 10px;
 }
-div.dropdown-menu{
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  background: gray;
-  list-style: none;
-}
-.btn-today{
-  background: red;
-}
 
 @include requestChrome();
 @include requestFirefoxSafari();

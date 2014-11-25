@@ -71,7 +71,8 @@ hr {
   margin-right: -5px;
   border-left: 1px solid #434b62;
   border-right: 1px solid #434b62;
-  padding: 15px; }
+  padding: 15px;
+  outline: none; }
 
 #leftNav a:first-child {
   background: url("../img/hzv.png") no-repeat center center;
@@ -83,8 +84,17 @@ hr {
   border-left: 1px solid #434b62;
   border-right: 1px solid #434b62;
   padding: 15px;
-  background: #1e2331; }
+  background: #1e2331;
+  outline: none; }
 
+@-moz-document url-prefix() {
+  #leftNav a, #rightNav a {
+    margin-right: 0px;
+    border-left: none;
+    background: none; }
+
+  #leftNav a:first-child, #rightNav a:first-child {
+    border-left: 1px solid #434b62; } }
 /*
  * LOGO, ARRIVALS, DEPARTURES
  */
@@ -144,28 +154,76 @@ hr {
   background: #eef1f9;
   padding-left: 10px; }
 
+.datepicker {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin-top: 10px;
+  padding: 10px;
+  background: #FFFFFF;
+  list-style: none;
+  border: 2px solid #c9cedb;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px; }
+
+.datepicker .btn-block {
+  border: none;
+  background: none; }
+
+.datepicker tbody .btn-default {
+  background: none;
+  border: 2px solid #eef1f9;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px; }
+
+.datepicker tbody .btn-default:hover {
+  background: #2f3545; }
+
+.datepicker tbody .btn-default:hover > span {
+  color: #FFFFFF; }
+
+.datepicker tbody .btn-today {
+  background: #57dcba; }
+
+.datepicker tbody .btn-today span {
+  color: #FFFFFF; }
+
 /*
  * FOOTER
  */
+#guestInformation {
+  background-color: #2f3545;
+  bottom: 0px;
+  color: #FFFFFF; }
+
 #guestInformation .container {
   padding: 0; }
 
 #guestInformation .formular {
   margin-top: 0; }
 
-#guestInformation {
-  background-color: #2f3545;
-  bottom: 0px;
-  color: #FFFFFF; }
+#guestInformation .formular form {
+  margin: 20px 0; }
 
 #guestInformationHeader {
   height: 40px; }
+
+#guestInformationHeader span {
+  display: inline-block;
+  padding-left: 10px;
+  margin-top: 12px;
+  color: #FFFFFF; }
 
 #guestInformation .up, #guestInformation .down {
   float: right;
   width: 12px;
   height: 6px;
-  padding: 20px; }
+  padding: 20px;
+  margin-right: 8px; }
 
 #guestInformation .up {
   background: url("../img/arrows/up_white.png") no-repeat center #1e2331; }
@@ -185,7 +243,7 @@ hr {
 
 #guestInformation select {
   border: 2px solid #c9cedb;
-  background: #2f3545;
+  background: none;
   border-color: #FFFFFF;
   color: #FFFFFF;
   padding: 8px;
@@ -228,16 +286,6 @@ hr {
 .formular .cal {
   background: url("../img/cal.png") no-repeat;
   background-position: 130px 10px; }
-
-div.dropdown-menu {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  background: gray;
-  list-style: none; }
-
-.btn-today {
-  background: red; }
 
 .formular input {
   background: #FFFFFF;
