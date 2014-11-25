@@ -1,1 +1,85 @@
-<p>guests</p>
+<div class="management">
+    <h1>Gästeverwaltung</h1>
+
+    <div class="management-content">
+        <section class="collapse">
+            <div vertical layout class="management-row">
+                <div horizontal layout>
+                    <div horizontal>Familie Mustermann</div>
+                    <div horizontal>letzter Urlaub am 10. Oktober 2014</div>
+                    <div horizontal>10 Besuche</div>
+                    <div horizontal flex>Schweiz</div>
+                </div>
+            </div>
+            <span class="open" onclick="document.querySelector('.collapse1').toggle()"><button class="blueButton">Details</button></span>
+
+            <div class="clear"></div>
+
+            <core-collapse fixedSize class="box collapse1">
+                <div class="content">
+
+                    <div class="formular">
+                        <form>
+                            <div class="col">
+                                <div class="row">
+                                    <select name="salutation" id="salutation">
+                                        <option>Herr</option>
+                                        <option>Frau</option>
+                                        <option>Familie</option>
+                                        <option>Firma</option>
+                                    </select>
+                                </div>
+
+                                <div class="row"><input type="text" name="address" id="address"></div>
+                                <div class="row"><input type="text" name="phone" id="phone"></div>
+                                <div class="row"><input type="text" name="date" id="date"></div>
+                            </div>
+
+                            <div class="col">
+                                <div class="row"><input type="text" name="first_name" id="first_name"></div>
+                                <div class="row"><input type="text" name="plz" id="plz"></div>
+                                <div class="row"><input type="email" name="email" id="email"></div>
+                            </div>
+
+                            <div class="col">
+                                <div class="row"><input type="text" name="last_name" id="last_name"></div>
+                                <div class="row"><input type="text" name="city" id="city"></div>
+                            </div>
+
+                            <div class="col">
+                                <div class="row"><input type="text" name="country" id="country"></div>
+                            </div>
+
+                            <div class="col">
+                                <input type="submit" class="greenButton" value="Speichern">
+                            </div>
+
+                            <div class="clear"></div>
+                        </form>
+                    </div>
+
+                </div>
+            </core-collapse>
+        </section>
+
+        <section class="collapse">
+            <div vertical layout class="management-row">
+                <div horizontal layout>
+                    <div horizontal>Familie Mustermann</div>
+                    <div horizontal>letzter Urlaub am 10. Oktober 2014</div>
+                    <div horizontal>10 Besuche</div>
+                    <div horizontal flex>Schweiz</div>
+                </div>
+            </div>
+            <span class="open" onclick="document.querySelector('.collapse2').toggle()"><button class="blueButton">Details</button></span>
+
+            <div class="clear"></div>
+
+            <core-collapse fixedSize class="box collapse2">
+                <div class="content">
+                    hier kommt auch ein formular
+                </div>
+            </core-collapse>
+        </section>
+    </div>
+</div>
