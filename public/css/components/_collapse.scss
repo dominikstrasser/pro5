@@ -11,6 +11,9 @@
   margin-top: 60px;
   margin-bottom: 0;
 }
+.collapse h1.first {
+  margin-top: 37px;
+}
 .collapse .open {
   float: right;
   margin-top: 30px;
@@ -42,13 +45,15 @@
 }
 .collapse .content .data div:nth-child(1) {
   min-width: 130px;
-  /* 200px */
+  margin-right: 15px;
 }
 .collapse .content .data div:nth-child(2) {
   min-width: 50px;
+  margin-right: 15px;
 }
 .collapse .content .data div:nth-child(3) {
-  min-width: 110px;
+  min-width: 100px;
+  margin-right: 15px;
 }
 .collapse .content .email {
   border: $border;
@@ -85,11 +90,13 @@
   width: 70%;
   padding: 20px 30px;
   margin-bottom: 15px;
+  min-height: 78px;
 }
 .collapse .content .email-info-left, .collapse .content .email-info-right {
   width: 25%;
   padding: 0 20px;
   color: $darkgrey;
+  margin-top: 30px;
 }
 .collapse .content .email-info-right {
   text-align: right;

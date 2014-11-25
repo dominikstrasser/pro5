@@ -1,0 +1,43 @@
+/*
+ * GUEST- AND HOTELMANAGEMENT
+ */
+.management {
+  margin-top: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.management .management-content {
+  margin-top: 30px;
+}
+.management .collapse {
+  margin: 0;
+  position: relative;
+}
+.management .collapse .content {
+  margin-top: 20px;
+}
+.management .collapse .open {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  margin: 0;
+  float: none;
+}
+.management-row {
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  border-bottom: $border-light;
+}
+.management-row div div:nth-child(1) {
+  min-width: 150px;
+  margin-right: 15px;
+}
+.management-row div div:nth-child(2) {
+  min-width: 250px;
+  margin-right: 15px;
+}
+.management-row div div:nth-child(3) {
+  min-width: 100px;
+  margin-right: 15px;
+}
