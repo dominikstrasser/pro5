@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="css/vendors/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/roomList.css">
   <script src="bower_components/platform/platform.js"></script>
   <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
   <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
@@ -94,10 +93,13 @@
 
                 <div class="col">
                     <div class="row"><input ng-model="guest.country" type="text" name="country" id="country"></div>
+                    <div class="row"><input type="submit" class="greenButton" value="Speichern" ng-click="saveGuest()"></div>
                 </div>
 
                 <div class="col">
-                    <input type="submit" class="greenButton" value="Speichern" ng-click="saveGuest()">
+                    <div class="row"><input type="checkbox" name="zutat" value="salami"> Salami</div>
+                    <div class="row"><input type="checkbox" name="zutat" value="pilze"> Pilze</div>
+                    <div class="row"><input type="checkbox" name="zutat" value="sardellen"> Sardelle</div>
                 </div>
 
                 <div class="clear"></div>
