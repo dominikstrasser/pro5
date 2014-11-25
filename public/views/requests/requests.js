@@ -29,7 +29,7 @@ angular.module('pro5_hzv.requests', ['ngRoute'])
         $scope.sendEmail = function(){
             $scope.enableEmail = true;
             var emailData = {"body" : $scope.email.begin + $scope.email.text + $scope.email.end};
-            emailData.subject = "Buchung xyz";
+            emailData.subject = "Anfrage Nr. 5472f00e3fb30781458ad894";
             emailData.date = Date.now();
             emailProvider.save({'_id' : $scope.currentRequest._id}, emailData, function(data){
                 console.log(data);

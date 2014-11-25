@@ -7,8 +7,9 @@
 
     <core-collapse opened fixedSize class="box collapse1">
         <div class="content">
+            <button class="blueButton" ng-click="decreaseDate()">Prev</button> <button class="blueButton" ng-click="increaseDate()">Next</button>
             <div vertical layout>
-                <room-list rooms='rooms' bookings='bookings' startday='startday' ></room-list>
+                <room-list rooms='rooms' bookings='bookings' startday='startday'></room-list>
             </div>
         </div>
     </core-collapse>

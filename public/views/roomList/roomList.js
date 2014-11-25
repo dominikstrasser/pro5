@@ -15,8 +15,30 @@ angular.module('pro5_hzv.roomList', ['ngRoute'])
              $scope.rooms = data;
         });
 
-        bookingProvider.query(function(data){
-            $scope.bookings = data;
-        });
+        var refreshRoomList = function() {
+            bookingProvider.roomList({"start": $scope.startday.toDate()}, function (data) {
+                $scope.bookings = data;
+                console.log(data);
+            });
+        };
 
+        $scope.$watch("startday", function(n,o){
+            if(typeof n != 'undefined') {
+                console.log("startday änderung");
+                refreshRoomList();
+            }
+        },true);
+
+
+
+
+
+        $scope.increaseDate = function(){
+            $scope.startday.add(7, "days");
+            //console.log("increaseDate" + $scope.startday.toDate());
+        };
+        $scope.decreaseDate = function(){
+            $scope.startday.add(-7, "days");
+            //console.log("decreaseDate" + $scope.startday.toDate());
+        };
 }]);
