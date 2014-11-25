@@ -167,6 +167,38 @@ function bookingDAO(){
 
     };
 
+    this.roomList = function(req, res){
+        console.log("bookingAPI : /roomList");
+
+        var myQuery;
+            myQuery = bookingModel.find();
+
+        if(typeof req.query.start != "undefined"){
+
+            console.log("arr: " + req.query.start);
+            var start = moment(req.query.start).add(-7,"days");
+            var end = moment(req.query.start).add(21,"days");
+            myQuery.where('dep').gte(start.valueOf());
+            myQuery.where('arr').lte(end.valueOf());
+        }
+
+        myQuery
+            .populate({
+                path: "guest_id",
+                select: "salutation last_name first_name email"
+            })
+            .populate({
+                path: "room_id",
+                select: "number"
+            });
+        myQuery.exec(function(err, result){
+            if(err) console.log(err);
+            console.log(result);
+            res.json(result);
+        });
+
+    };
+
 }
 
 var bookingDAO = new bookingDAO();
@@ -179,6 +211,8 @@ router.get("/getCurrentArrivals", bookingDAO.getCurrentArrivals);
 router.get("/getCurrentDepartures", bookingDAO.getCurrentDepartures);
 router.get("/detail", bookingDAO.detail);
 router.get("/detail/:_id", bookingDAO.detail);
+router.get("/roomList/", bookingDAO.roomList);
+
 
 //typical CRUD
 router.post("/",bookingDAO.postBooking);

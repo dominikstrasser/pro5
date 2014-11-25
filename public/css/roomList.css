@@ -2,6 +2,7 @@
 
 .rl_wrapper{
     width: 950px;
+    overflow: hidden;
 }
 .rl_wrapper span{
     display: inline-block;

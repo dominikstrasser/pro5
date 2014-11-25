@@ -5,7 +5,8 @@ angular.module('pro5_hzv.dataService', ['ngResource'])
             currentDepartures: {method:'GET', url:'api/bookings/getCurrentDepartures/', isArray:true},
             check: {method: "GET", url:'api/bookings/check/', isArray:true},
             update: {method: 'PUT' },
-            detail: {method: "GET", url:'api/bookings/detail/:_id', isArray:true}
+            detail: {method: "GET", url:'api/bookings/detail/:_id', isArray:true},
+            roomList: {method: "GET", url:'api/bookings/roomList/', isArray:true}
         });
     }).factory('guestProvider', function($resource){
         return $resource('api/guests/:_id', {_id : "@_id"},{
