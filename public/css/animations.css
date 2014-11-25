@@ -18,24 +18,28 @@
 
 /*############# dashboard.html animation  #################*/
 
+.day.inactive .dayEntry{
+    -webkit-animation: hide 0.4s;
+    max-height: 0px;
+}
 .day .dayEntry {
     max-height: 500px;
     overflow: hidden;
 }
-.day.visible.active .dayEntry{
-    -webkit-animation: hide 0.4s;
-    max-height: 0px;
-}
 .day .dayEntry .dayEntryDetails {
-    max-height: 500px;
+    max-height: 0px;
     overflow: hidden;
 }
-.day .dayEntry.active.visible .dayEntryDetails {
-    -webkit-animation: hide 0.4s;
-    max-height: 0px;
+.day .dayEntry.inactive .dayEntryDetails {
+    -webkit-animation: hideEntry 0.4s;
+    max-height: 500px;
 }
 
 @-webkit-keyframes hide {
     from { max-height: 500px; }
     to   { max-height: 0px;}
+}
+@-webkit-keyframes hideEntry {
+    from { max-height: 0px; }
+    to   { max-height: 500px;}
 }

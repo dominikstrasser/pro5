@@ -58,35 +58,63 @@ angular.module('pro5_hzv.dashboard', [
             if(d.isSame($scope.tomorrow, "days")) return 2;
             if(d.isAfter($scope.tomorrow, "days")) return 3;
         };
-        
 
-        $scope.dayAnimation = function(section){
-
-            if($scope.selected === section){
-                $scope.selected = false;
-            }else {
-                $scope.selected = section;
-            }
-            console.log(section);
-
-        };
-
-        $scope.isSelected = function(section){
-
-            return $scope.selected === section;
-        };
-
-        $scope.dayEntryAnimation = function(section){
-            if($scope.selectedEntry === section){
-                $scope.selectedEntry = false;
-            }else {
-                $scope.selectedEntry = section;
+        $scope.selected = [];
+        $scope.selectedEntry = [];
+        $scope.init = function(index){
+            if(index == 1){
+                $scope.selected[index] = false;
+            }else{
+                $scope.selected[index] = true;
             }
         };
+        $scope.dayAnimation = function(index){
 
-        $scope.isSelectedEntry = function(section){
+            if(index in $scope.selected && $scope.selected[index]){
+                $scope.selected[index] = false;
+            }else {
+                $scope.selected[index] = true;
+            }
+            console.log(index);
 
-            return $scope.selectedEntry === section;
+        };
+        $scope.isSelected = function(index){
+            if ($scope.selected[index]) {
+                return true;
+            } else {
+                return false;
+            }
+
+        };
+        $scope.initEntry = function(parentIndex, index, parentLast, first){
+            if(first == index) {
+                $scope.selectedEntry[parentIndex] = new Array();
+                for (var i = 0; i < parentLast; i++) {
+                    $scope.selectedEntry[parentIndex][index] = true;
+                }
+            }
+            $scope.selected[parentIndex][index] = true;
+        };
+
+        $scope.dayEntryAnimation = function(parentIndex, index){
+            if(parentIndex in $scope.selectedEntry) {
+
+                if ($scope.selectedEntry[parentIndex][index]) {
+                    $scope.selectedEntry[parentIndex][index] = false;
+                } else {
+                    $scope.selectedEntry[parentIndex][index] = true;
+                }
+            }
+        };
+
+        $scope.isSelectedEntry = function(parentIndex, index){
+            if(parentIndex in $scope.selectedEntry) {
+                if ($scope.selectedEntry[parentIndex][index]) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
         };
 
         $scope.today = moment().utc();
@@ -98,7 +126,7 @@ angular.module('pro5_hzv.dashboard', [
         /*
          * NICHT UTC?!?!?!?!?
          * */
-        
+
         var today = new Date();
 
         var cArr = moment.utc([

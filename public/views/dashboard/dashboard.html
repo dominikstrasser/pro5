@@ -3,15 +3,15 @@
         <div horizontal layout>
             <div flex class="arrivals">
                 <h1>Aktuelle Anreisen</h1>
-                <div ng-if="arrivalsOrder" ng-class="{'visible active' : isSelected(dayObject)}" class="day" ng-repeat="dayObject in arrivalsOrder track by $index">
-                    <h2 ng-if="dayObject">{{displayDate(dayObject[0].arr) | date:'dd.MM.yyyy'}}<i ng-click="dayAnimation(dayObject)"><img src="../../img/arrows/down_grey.png" class="arrow" alt="arrow"></i></h2>
-                    <div ng-class="{'visible active' : isSelectedEntry(arrival)}" class="dayEntry" ng-if="dayObject" ng-repeat="arrival in dayObject">
+                <div ng-if="arrivalsOrder" ng-class="{'inactive' : isSelected($index)}" class="day" ng-repeat="dayObject in arrivalsOrder track by $index" ng-init="init($index)" >
+                    <h2 ng-if="dayObject">{{displayDate(dayObject[0].arr) | date:'dd.MM.yyyy'}}<i ng-click="dayAnimation($index)"><img src="../../img/arrows/down_grey.png" class="arrow" alt="arrow"></i></h2>
+                    <div class="dayEntry" ng-if="dayObject" ng-repeat="arrival in dayObject" ng-init="initEntry($parent.$index, $index, $parent.$last, $first)" ng-class="{'inactive' : isSelectedEntry($parent.$index, $index)}">
                     <!--<h2 ng-if="!isCurrentDate(arrival.arr)">{{displayDate(arrival.arr) | date:'dd.MM.yyyy'}}</h2>-->
                     <div class="dayEntryHeader">
                         <span>{{arrival.guest_id.salutation}} </span>
                         <span>{{arrival.guest_id.last_name}}</span>
                         <span>{{arrival.person_count}} Personen</span>
-                        <i ng-click="dayEntryAnimation(arrival)"><img src="../../img/arrows/down_blue.png" class="arrow" alt="arrow"></i>
+                        <i ng-click="dayEntryAnimation($parent.$index, $index)"><img src="../../img/arrows/down_blue.png" class="arrow" alt="arrow"></i>
                     </div>
                     <div class="dayEntryDetails">
                         <div>
