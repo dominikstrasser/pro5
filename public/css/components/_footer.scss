@@ -58,3 +58,6 @@
   font-family: "proxima";
   @include border-radius(5px);
 }
+.checkboxes span {
+  color: $white;
+}

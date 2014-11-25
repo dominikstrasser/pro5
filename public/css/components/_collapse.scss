@@ -14,11 +14,11 @@
 .collapse h1.first {
   margin-top: 37px;
 }
-.collapse .open {
+/*.collapse .open {
   float: right;
   margin-top: 30px;
   @include user-select(none);
-}
+}*/
 .collapse .open:hover {
   cursor: pointer;
 }
@@ -42,6 +42,9 @@
 .collapse .formular {
   padding: 0;
   margin: 0;
+}
+.collapse .box {
+  margin-top: 30px;
 }
 .collapse .content .data div:nth-child(1) {
   min-width: 130px;

@@ -44,12 +44,10 @@
         <div class="container view-container">
             <div ng-view class="view-frame"></div>
 
-            <!--
             <form>
                 <input type="text" ng-model="id">
                 <button ng-click="getGuest(id)">Guest laden</button>
             </form>
-            -->
 
         </div>
     </core-header-panel>
@@ -96,10 +94,11 @@
                     <div class="row"><input type="submit" class="greenButton" value="Speichern" ng-click="saveGuest()"></div>
                 </div>
 
-                <div class="col">
-                    <div class="row"><input type="checkbox" name="zutat" value="salami"> Salami</div>
-                    <div class="row"><input type="checkbox" name="zutat" value="pilze"> Pilze</div>
-                    <div class="row"><input type="checkbox" name="zutat" value="sardellen"> Sardelle</div>
+                <div class="col checkboxes">
+                    <div class="row"><input type="checkbox" name="" value=""> <span>Golf</span></div>
+                    <div class="row"><input type="checkbox" name="" value=""> <span>Wellness</span></div>
+                    <div class="row"><input type="checkbox" name="" value=""> <span>Familie</span></div>
+                    <div class="row"><input type="checkbox" name="" value=""> <span>Kultur</span></div>
                 </div>
 
                 <div class="clear"></div>
