@@ -13,6 +13,8 @@ angular.module('pro5_hzv.dashboard', [
 
     .controller('dashboardCtrl', ['$scope', '$moment', 'bookingProvider', function($scope, $moment, bookingProvider) {
 
+
+
         $scope.arrivals = {};
         $scope.departures = {};
         var setTimeTo12 = function(d){
@@ -173,6 +175,18 @@ angular.module('pro5_hzv.dashboard', [
 
     .controller("requestFormController", function($scope, $moment, bookingProvider, guestProvider, roomProvider){
 
+        $scope.names = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
+        $scope.guests = guestProvider.query();
+        console.log($scope.guests);
+        $scope.update = function(item) {
+            if(typeof $scope.selectedGuest === 'object') {
+                $scope.requestForm.last_name = $scope.selectedGuest.last_name;
+                $scope.requestForm.email = $scope.selectedGuest.email;
+            }else{
+                $scope.requestForm.last_name = $scope.selectedGuest;
+            }
+            console.log(item);
+        };
 
         var setTimeTo12 = function(d){
             d.hour(12);
