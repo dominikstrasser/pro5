@@ -3,15 +3,15 @@
         <div horizontal layout>
             <div flex class="arrivals">
                 <h1>Aktuelle Anreisen</h1>
-                <div ng-if="arrivalsOrder" ng-class="{'inactive' : isSelected($index)}" class="day" ng-repeat="dayObject in arrivalsOrder track by $index" ng-init="init($index)" >
+                <div ng-if="dayObject != undefined || dayObject != null" ng-class="{'inactive' : isSelected($index)}" class="day" ng-repeat="dayObject in arrivalsOrder track by $index" ng-init="init($index, $first)" >
                     <h2 ng-if="dayObject">{{displayDate(dayObject[0].arr) | date:'dd.MM.yyyy'}}<i ng-click="dayAnimation($index)"><img src="../../img/arrows/down_grey.png" class="arrow" alt="arrow"></i></h2>
-                    <div class="dayEntry" ng-if="dayObject" ng-repeat="arrival in dayObject" ng-init="initEntry($parent.$index, $index, $parent.$last, $first)" ng-class="{'inactive' : isSelectedEntry($parent.$index, $index)}">
+                    <div class="dayEntry" ng-if="dayObject" ng-repeat="arrival in dayObject">
                     <!--<h2 ng-if="!isCurrentDate(arrival.arr)">{{displayDate(arrival.arr) | date:'dd.MM.yyyy'}}</h2>-->
                     <div class="dayEntryHeader">
                         <span>{{arrival.guest_id.salutation}} </span>
                         <span>{{arrival.guest_id.last_name}}</span>
                         <span>{{arrival.person_count}} Personen</span>
-                        <i ng-click="dayEntryAnimation($parent.$index, $index)"><img src="../../img/arrows/down_blue.png" class="arrow" alt="arrow"></i>
+                        <i ng-click="dayEntryAnimation($event)"><img src="../../img/arrows/down_blue.png" class="arrow" alt="arrow"></i>
                     </div>
                     <div class="dayEntryDetails">
                         <div>
@@ -65,26 +65,25 @@
 
         <div class="col">
             <div class="row">
-                <custom-counter ng-model="requestForm.persons" current="0" singular="Person" plural="Personen" size="12"></custom-counter>
+                <custom-counter current="{{requestForm.person_count}}" singular="Person" plural="Personen" size="12"></custom-counter>
             </div>
         </div>
 
         <div class="col">
             <div class="row">
-                <custom-counter current="0" singular="EZ" plural="EZ" size="5"></custom-counter>
+                <custom-counter bind-polymer current="{{requestForm.room_count}}" singular="EZ" plural="EZ" size="5"></custom-counter>
             </div>
-
             <div class="row">
-                <custom-counter current="0" singular="DZ" plural="DZ" size="5"></custom-counter>
+                <custom-counter bind-polymer ng-model="requestForm.doubleRoom_count" current="{{requestForm.doubleRoom_count}}" singular="DZ" plural="DZ" size="5"></custom-counter>
             </div>
         </div>
 
         <div class="col">
             <div class="row">
-                <core-selector ng-model="requestForm.category" class="list" selected="-1">
+                <custom-select bind-polymer selectVal="{{requestForm.category}}">
                     <div class="item">NF</div>
                     <div class="item">HP</div>
-                </core-selector>
+                </custom-select>
             </div>
         </div>
 

@@ -30,7 +30,7 @@
     max-height: 0px;
     overflow: hidden;
 }
-.day .dayEntry.inactive .dayEntryDetails {
+.day .dayEntry .dayEntryDetails.inactive {
     -webkit-animation: hideEntry 0.4s;
     max-height: 500px;
 }

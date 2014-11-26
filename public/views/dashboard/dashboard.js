@@ -22,6 +22,7 @@ angular.module('pro5_hzv.dashboard', [
             d.milliseconds(0);
         };
 
+
         $scope.currentDate = "first";
         $scope.isCurrentDate = function(date) {
             var check = true;
@@ -61,12 +62,12 @@ angular.module('pro5_hzv.dashboard', [
 
         $scope.selected = [];
         $scope.selectedEntry = [];
-        $scope.init = function(index){
-            if(index == 1){
-                $scope.selected[index] = false;
-            }else{
+
+        $scope.init = function(index, first){
+                console.log(index);
+                console.log(first);
                 $scope.selected[index] = true;
-            }
+
         };
         $scope.dayAnimation = function(index){
 
@@ -75,7 +76,6 @@ angular.module('pro5_hzv.dashboard', [
             }else {
                 $scope.selected[index] = true;
             }
-            console.log(index);
 
         };
         $scope.isSelected = function(index){
@@ -86,36 +86,12 @@ angular.module('pro5_hzv.dashboard', [
             }
 
         };
-        $scope.initEntry = function(parentIndex, index, parentLast, first){
-            if(first == index) {
-                $scope.selectedEntry[parentIndex] = new Array();
-                for (var i = 0; i < parentLast; i++) {
-                    $scope.selectedEntry[parentIndex][index] = true;
-                }
-            }
-            $scope.selected[parentIndex][index] = true;
+
+        $scope.dayEntryAnimation = function(event){
+            var dayEntryDetails = event.target.parentNode.parentNode.nextSibling.nextSibling;
+            dayEntryDetails.classList.toggle('inactive');
         };
 
-        $scope.dayEntryAnimation = function(parentIndex, index){
-            if(parentIndex in $scope.selectedEntry) {
-
-                if ($scope.selectedEntry[parentIndex][index]) {
-                    $scope.selectedEntry[parentIndex][index] = false;
-                } else {
-                    $scope.selectedEntry[parentIndex][index] = true;
-                }
-            }
-        };
-
-        $scope.isSelectedEntry = function(parentIndex, index){
-            if(parentIndex in $scope.selectedEntry) {
-                if ($scope.selectedEntry[parentIndex][index]) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        };
 
         $scope.today = moment().utc();
         $scope.tomorrow = moment.utc($scope.today).add(1, "days");
@@ -140,13 +116,12 @@ angular.module('pro5_hzv.dashboard', [
             var array = [];
 
                 angular.forEach(data, function (item) {
-
                     var counter = 0;
 
                     var day = $moment(item.arr).day();
-                    if (array[day] != undefined) {
+                    if (day in array) {
 
-                        while(array[day][counter] != undefined) {
+                        while(!(counter in array[day])) {
                             counter++;
                         }
                         array[day][counter] = item;
@@ -162,6 +137,7 @@ angular.module('pro5_hzv.dashboard', [
 
             console.log(array);
             $scope.arrivalsOrder = array;
+            console.log($scope.arrivalsOrder);
         });
         $scope.departuresOrder = [];
         $scope.departures = bookingProvider.currentDepartures(function(data){
@@ -209,6 +185,7 @@ angular.module('pro5_hzv.dashboard', [
         $scope.requestForm.status =  0;
         $scope.requestForm.person_count = 1;
         $scope.requestForm.room_count =  1;
+        $scope.requestForm.doubleRoom_count = 1;
         $scope.requestForm.room_id = [];
         $scope.requestForm.category = "TEST";
 
@@ -233,7 +210,8 @@ angular.module('pro5_hzv.dashboard', [
 
             $scope.requestForm.arr = arr.toDate();
             $scope.requestForm.dep = dep.toDate();
-            bookingProvider.save($scope.requestForm);
+            console.log($scope.requestForm);
+            //bookingProvider.save($scope.requestForm);
 
         };
 

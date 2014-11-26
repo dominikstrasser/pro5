@@ -1,0 +1,27 @@
+<link href="../../bower_components/polymer/polymer.html" rel="import">
+<link rel="import" href="../../bower_components/core-selection/core-selection.html">
+
+<polymer-element name="custom-select">
+
+    <template>
+        <ul on-tap="{{itemTapAction}}">
+            <content></content>
+        </ul>
+        <core-selection attributes="selectVal" id="selection" on-core-select="{{selectAction}}"></core-selection>
+    </template>
+    <script>
+        Polymer('custom-select', {
+            itemTapAction: function(e, detail, sender) {
+                this.$.selection.select(e.target);
+            },
+            selectAction: function(e, detail, sender) {
+                detail.item.classList.toggle('core-selected', detail.isSelected);
+                console.log(detail.item);
+                this.selectVal = String(detail.item.innerHTML);
+            },
+            publish: {
+                selectVal: {value: 0, reflect: true}
+            }
+        });
+    </script>
+</polymer-element>
