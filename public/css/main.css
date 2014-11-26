@@ -16,17 +16,6 @@
   font-size: 16px;
   color: #2f3545; }
 
-body {
-  -webkit-animation: fadein 2s;
-  /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 2s;
-  /* Firefox < 16 */
-  -ms-animation: fadein 2s;
-  /* Internet Explorer */
-  -o-animation: fadein 2s;
-  /* Opera < 12.1 */
-  animation: fadein 2s; }
-
 h1 {
   text-transform: uppercase;
   color: #2f3545;
@@ -87,17 +76,17 @@ button:focus {
   right: 0; }
 
 .view-frame.ng-enter {
-  -webkit-animation: 1s fade-in;
-  -moz-animation: 1s fade-in;
-  -o-animation: 1s fade-in;
-  animation: 1s fade-in;
+  -webkit-animation: 0.5s fade-in;
+  -moz-animation: 0.5s fade-in;
+  -o-animation: 0.5s fade-in;
+  animation: 0.5s fade-in;
   z-index: 100; }
 
 .view-frame.ng-leave {
-  -webkit-animation: 1s fade-out;
-  -moz-animation: 1s fade-out;
-  -o-animation: 1s fade-out;
-  animation: 1s fade-out;
+  -webkit-animation: 0.5s fade-out;
+  -moz-animation: 0.5s fade-out;
+  -o-animation: 0.5s fade-out;
+  animation: 0.5s fade-out;
   z-index: 99; }
 
 @keyframes fade-in {
@@ -332,6 +321,10 @@ button:focus {
   -ms-border-radius: 5px;
   border-radius: 5px; }
 
+#guestInformation .interests .row {
+  color: #FFFFFF;
+  height: 23px; }
+
 /*
  * FORMULAR
  */
@@ -534,16 +527,11 @@ button.blueButton:hover {
 .collapse h1.first {
   margin-top: 37px; }
 
-.collapse .open {
+/*.collapse .open {
   float: right;
   margin-top: 30px;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; }
-
+  @include user-select(none);
+}*/
 .collapse .open:hover {
   cursor: pointer; }
 
@@ -570,6 +558,9 @@ button.blueButton:hover {
 .collapse .formular {
   padding: 0;
   margin: 0; }
+
+.collapse .box {
+  margin-top: 30px; }
 
 .collapse .content .data div:nth-child(1) {
   min-width: 130px;
@@ -681,26 +672,37 @@ button.blueButton:hover {
 /*
  * ROOMLIST
  */
+.rl {
+  margin-top: 0 !important; }
+
 .rl_wrapper {
-  width: 950px; }
+  margin-top: -1px;
+  border-bottom: 2px solid #c9cedb; }
 
 .rl_wrapper span {
   display: inline-block;
-  border: 1px solid black;
-  width: 25px;
-  height: 30px;
+  border: 1px solid #eef1f9;
+  width: 30px;
+  height: 44px;
+  text-align: center;
+  padding-top: 12px;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box; }
 
 .rl_wrapper .today {
-  background: grey; }
+  background: #c9cedb; }
 
 .rl_wrapper .rl_month {
-  width: 100px; }
+  text-transform: uppercase; }
 
 .rl_wrapper .rl_roomName {
-  width: 100px; }
+  width: 230px;
+  text-align: left;
+  padding-left: 60px;
+  background: #FFFFFF;
+  border-left: none;
+  z-index: 20; }
 
 .rl_room {
   position: relative; }
@@ -708,8 +710,12 @@ button.blueButton:hover {
 .rl_booking {
   position: absolute;
   top: 0px;
-  background: #cd5c5c;
-  opacity: 0.5;
-  width: auto; }
+  background: #eef1f9;
+  /*opacity: 0.5;*/
+  width: auto;
+  z-index: -1; }
+
+.rl_booking.booked {
+  background: #ffba42; }
 
 /*# sourceMappingURL=main.css.map */

@@ -58,3 +58,7 @@
   font-family: "proxima";
   @include border-radius(5px);
 }
+#guestInformation .interests .row {
+  color: $white;
+  height: 23px;
+}

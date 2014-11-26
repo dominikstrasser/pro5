@@ -22,12 +22,43 @@ angular.module('pro5_hzv.dashboard', [
             d.milliseconds(0);
         };
 
-
         $scope.checkDate = function(d){
             d = $moment(d);
             if(d.isSame($scope.today, "days")) return 1;
             if(d.isSame($scope.tomorrow, "days")) return 2;
             if(d.isAfter($scope.tomorrow, "days")) return 3;
+        };
+
+        $scope.selected = [];
+        $scope.selectedEntry = [];
+
+        $scope.init = function(index, first){
+                console.log(index);
+                console.log(first);
+                $scope.selected[index] = true;
+
+        };
+        $scope.dayAnimation = function(index){
+
+            if(index in $scope.selected && $scope.selected[index]){
+                $scope.selected[index] = false;
+            }else {
+                $scope.selected[index] = true;
+            }
+
+        };
+        $scope.isSelected = function(index){
+            if ($scope.selected[index]) {
+                return true;
+            } else {
+                return false;
+            }
+
+        };
+
+        $scope.dayEntryAnimation = function(event){
+            var dayEntryDetails = event.target.parentNode.parentNode.nextSibling.nextSibling;
+            dayEntryDetails.classList.toggle('inactive');
         };
 
 
@@ -47,8 +78,10 @@ angular.module('pro5_hzv.dashboard', [
             today.getMonth(),
             today.getDate(),
             12, 0, 0, 0]);
+
         $scope.arrivals = bookingProvider.currentArrivals({"cArr" : cArr.toDate()});
         $scope.departures = bookingProvider.currentDepartures(cArr);
+
 
     }])
 
@@ -67,8 +100,9 @@ angular.module('pro5_hzv.dashboard', [
         $scope.requestForm.status =  0;
         $scope.requestForm.person_count = 1;
         $scope.requestForm.room_count =  1;
+        $scope.requestForm.doubleRoom_count = 1;
         $scope.requestForm.room_id = [];
-        $scope.requestForm.category = "TEST";
+        $scope.requestForm.category = "NF";
 
 
         $scope.testBooking = function(){
@@ -91,7 +125,8 @@ angular.module('pro5_hzv.dashboard', [
 
             $scope.requestForm.arr = arr.toDate();
             $scope.requestForm.dep = dep.toDate();
-            bookingProvider.save($scope.requestForm);
+            console.log($scope.requestForm);
+            //bookingProvider.save($scope.requestForm);
 
         };
 

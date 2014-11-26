@@ -1,13 +1,13 @@
 <section class="collapse">
 
     <h1 class="first">Zimmerliste</h1>
-    <span class="open" onclick="document.querySelector('.collapse1').toggle()">Icon</span>
+    <span class="open" onclick="document.querySelector('.box').toggle()"><img src="../../img/arrows/down_grey.png" class="arrow"></span>
 
     <div class="clear"></div>
 
-    <core-collapse opened fixedSize class="box collapse1">
+    <core-collapse opened fixedSize class="box rl">
         <div class="content">
-            <button class="blueButton" ng-click="decreaseDate()">Prev</button> <button class="blueButton" ng-click="increaseDate()">Next</button>
+            <!--<button class="blueButton" ng-click="decreaseDate()">Prev</button> <button class="blueButton" ng-click="increaseDate()">Next</button>-->
             <div vertical layout>
                 <room-list rooms='rooms' bookings='bookings' startday='startday'></room-list>
             </div>

@@ -4,7 +4,6 @@
 
             <div flex class="arrivals">
                 <h1>Aktuelle Anreisen</h1>
-
                 <anreisen-dir bookings="arrivals" day="1" open="true"></anreisen-dir>
                 <anreisen-dir bookings="arrivals" day="2" open="false"></anreisen-dir>
                 <anreisen-dir bookings="arrivals" day="3" open="false"></anreisen-dir>
@@ -39,26 +38,25 @@
 
         <div class="col">
             <div class="row">
-                <custom-counter ng-model="requestForm.persons" current="0" singular="Person" plural="Personen" size="12"></custom-counter>
+                <custom-counter bind-polymer current="{{requestForm.person_count}}" singular="Person" plural="Personen" size="12"></custom-counter>
             </div>
         </div>
 
         <div class="col">
             <div class="row">
-                <custom-counter current="0" singular="EZ" plural="EZ" size="5"></custom-counter>
+                <custom-counter bind-polymer current="{{requestForm.room_count}}" singular="EZ" plural="EZ" size="5"></custom-counter>
             </div>
-
             <div class="row">
-                <custom-counter current="0" singular="DZ" plural="DZ" size="5"></custom-counter>
+                <custom-counter bind-polymer ng-model="requestForm.doubleRoom_count" current="{{requestForm.doubleRoom_count}}" singular="DZ" plural="DZ" size="5"></custom-counter>
             </div>
         </div>
 
         <div class="col">
             <div class="row">
-                <core-selector ng-model="requestForm.category" class="list" selected="-1">
+                <custom-select bind-polymer selectVal="{{requestForm.category}}">
                     <div class="item">NF</div>
                     <div class="item">HP</div>
-                </core-selector>
+                </custom-select>
             </div>
         </div>
 

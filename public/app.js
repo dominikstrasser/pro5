@@ -18,7 +18,8 @@ angular.module('pro5_hzv', [
     'pro5_hzv.dragDropDirective',
     'pro5_hzv.roomListDirective',
     'pro5_hzv.dashboardAnreisenDirective',
-    'pro5_hzv.dashboardAbreisenDirective'
+    'pro5_hzv.dashboardAbreisenDirective',
+    'eee-c.angularBindPolymer'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/dashboard'});
@@ -42,7 +43,7 @@ config(['$routeProvider', function($routeProvider) {
         $scope.active = false;
 
         $scope.getGuest = function (_id) {
-            guestProvider.get({ _id: '5472f00e3fb30781458ad88f' }, function(data) {
+            guestProvider.get({ _id: '5474b1d06aa7d9455aae4862' }, function(data) {
                 $scope.guest = data;
                 cGuestId = data._id;
             });

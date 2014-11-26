@@ -11,11 +11,11 @@
   right: 0;
 }
 .view-frame.ng-enter {
-  @include animation(1s, fade-in);
+  @include animation(0.5s, fade-in);
   z-index: 100;
 }
 .view-frame.ng-leave {
-  @include animation(1s, fade-out);
+  @include animation(0.5s, fade-out);
   z-index: 99;
 }
 @keyframes fade-in {

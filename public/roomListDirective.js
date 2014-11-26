@@ -97,7 +97,7 @@ angular.module('pro5_hzv.roomListDirective',[])
                 renderHeader = function(){
                     var monthName = document.createElement("span");
                     monthName.innerHTML = monthAsWord(startDate.month());
-                    monthName.setAttribute("class", "rl_roomName");
+                    monthName.setAttribute("class", "rl_roomName rl_month");
                     rl_header.appendChild(monthName);
 
                     for(var i = 0; i < days.length; i++){
@@ -134,7 +134,7 @@ angular.module('pro5_hzv.roomListDirective',[])
                         rl_room.setAttribute("class", "rl_room");
                         var roomName = document.createElement("span");
                         roomName.setAttribute("class", "rl_roomName");
-                        roomName.innerHTML = scope.rooms[i].name;
+                        roomName.innerHTML = scope.rooms[i].name;// + " <span class='type'>" + scope.rooms[i].type + "</span>";
 
                         for(var j = 0; j < scope.bookings.length; j++) {
                             if(scope.bookings[j].room_id[0]._id == scope.rooms[i]._id) {
@@ -200,7 +200,7 @@ angular.module('pro5_hzv.roomListDirective',[])
 
                     //Tage im Header -> 30 Tage
                     days = [];
-                    dayWidth = 25;
+                    dayWidth = 30;
                     initDates();
                     initDaysArray();
                     render();

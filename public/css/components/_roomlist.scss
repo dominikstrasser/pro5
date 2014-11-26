@@ -1,39 +1,49 @@
 /*
  * ROOMLIST
  */
-.rl_wrapper{
-  width: 950px;
+.rl {
+  margin-top: 0!important;
 }
-.rl_wrapper span{
+.rl_wrapper {
+  margin-top: -1px;
+  border-bottom: $border;
+}
+.rl_wrapper span {
   display: inline-block;
-  border: 1px solid black;
-  width: 25px;
-  height: 30px;
-  box-sizing:border-box;
-  -moz-box-sizing:border-box;
-  -webkit-box-sizing:border-box;
+  border: $border-ultralight;
+  width: 30px;
+  height: 44px;
+  text-align: center;
+  padding-top: 12px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }
-
-.rl_wrapper .today{
-  background: grey;
+.rl_wrapper .today {
+  background: $darkgrey;
 }
-
-.rl_wrapper .rl_month{
-  width: 100px;
+.rl_wrapper .rl_month {
+  text-transform: uppercase;
 }
-
-.rl_wrapper .rl_roomName{
-  width: 100px;
+.rl_wrapper .rl_roomName {
+  width: 230px;
+  text-align: left;
+  padding-left: 60px;
+  background: $white;
+  border-left: none;
+  z-index: 20;
 }
-
-.rl_room{
+.rl_room {
   position:relative;
 }
-
-.rl_booking{
-  position: absolute;
-  top: 0px;
-  background: #cd5c5c;
-  opacity: 0.5;
-  width: auto;
+.rl_booking {
+   position: absolute;
+   top: 0px;
+   background: $grey;
+   /*opacity: 0.5;*/
+   width: auto;
+   z-index: -1;
+ }
+.rl_booking.booked {
+  background: $orange-light;
 }
