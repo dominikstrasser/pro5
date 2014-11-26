@@ -10,8 +10,11 @@ angular.module('pro5_hzv.guests', ['ngRoute'])
     }])
 
     .controller('guestsCtrl', ['$scope', 'guestProvider', function($scope, guestProvider) {
-        guestProvider.query(function(data) {
-            $scope.guests = data;
-            //console.log($scope.guests);
-        });
+        $scope.guests = guestProvider.query();
+
+        $scope.updateGuest = function(id){
+
+            console.log(id);
+            guestProvider.update($scope.guests[id]);
+        }
     }]);

@@ -3,7 +3,7 @@
     <div bs-collapse-target class="panel-collapse" >
         <div class="dayEntry" ng-repeat="booking in bookings" >
             <div ng-if="checkDate(booking.dep) == day" bs-collapse start-collapsed="true">
-                <div class="dayEntryHeader" >
+                <div class="dayEntryHeader">
                     <span>{{booking.guest_id.salutation}} </span>
                     <span>{{booking.guest_id.last_name}}</span>
                     <span>{{booking.person_count}} Personen</span>
