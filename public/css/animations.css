@@ -28,7 +28,7 @@
 
 }
 .panel-collapse.in {
-    max-height: 300px;
+    max-height: 2000px;
 
     -webkit-transition: max-height 0.8s;
     -moz-transition: max-height 0.8s;

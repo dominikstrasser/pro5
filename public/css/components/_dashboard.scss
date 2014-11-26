@@ -44,11 +44,15 @@
   padding-bottom: 14px;
   position: relative;
 }
+#current .dayEntryHeader span:last-of-type {
+  float: right;
+  margin-right: 90px;
+}
 #current .dayEntryHeader .arrow {
   background: none;
 }
 #current .dayEntry {
-  /*background: $darkgrey;*/
+  background: $darkgrey;
 }
 #current .dayEntry.active {
   background: none;
