@@ -19,6 +19,8 @@
   <link rel="import" href="bower_components/core-selector/core-selector.html">
     <link rel="import" href="bower_components/core-selection/core-selection.html">
   <link rel="import" href="bower_components/core-collapse/core-collapse.html">
+  <link rel="import" href="bower_components/paper-checkbox/paper-checkbox.html">
+  <link rel="import" href="bower_components/paper-ripple/paper-ripple.html">
   <link rel="import" href="custom_elements/custom-counter/custom-counter.html">
     <link rel="import" href="custom_elements/custom-counter/test-input.html">
     <link rel="import" href="custom_elements/custom-select/custom-select.html">
@@ -95,14 +97,30 @@
 
                 <div class="col">
                     <div class="row"><input ng-model="guest.country" type="text" name="country" id="country"></div>
-                    <div class="row"><input type="submit" class="greenButton" value="Speichern" ng-click="saveGuest()"></div>
                 </div>
 
                 <div class="col checkboxes">
-                    <div class="row"><input type="checkbox" name="" value=""> <span>Golf</span></div>
-                    <div class="row"><input type="checkbox" name="" value=""> <span>Wellness</span></div>
-                    <div class="row"><input type="checkbox" name="" value=""> <span>Familie</span></div>
-                    <div class="row"><input type="checkbox" name="" value=""> <span>Kultur</span></div>
+                    <div class="row"><paper-checkbox checked></paper-checkbox></div>
+                    <div class="row"><paper-checkbox></paper-checkbox></div>
+                    <div class="row"><paper-checkbox></paper-checkbox></div>
+                    <div class="row"><paper-checkbox checked></paper-checkbox></div>
+                    <div class="row"><paper-checkbox></paper-checkbox></div>
+                    <div class="row"><paper-checkbox checked></paper-checkbox></div>
+                    <div class="row"><paper-checkbox></paper-checkbox></div>
+                </div>
+
+                <div class="col interests">
+                    <div class="row">Golf</div>
+                    <div class="row">Wellness</div>
+                    <div class="row">Familie</div>
+                    <div class="row">Kultur</div>
+                    <div class="row">Reiten</div>
+                    <div class="row">Stammgast</div>
+                    <div class="row">Wintersport</div>
+                </div>
+
+                <div class="col">
+                    <div class="row"><input type="submit" class="greenButton" value="Speichern" ng-click="saveGuest()"></div>
                 </div>
 
                 <div class="clear"></div>

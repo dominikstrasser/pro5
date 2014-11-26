@@ -321,8 +321,9 @@ button:focus {
   -ms-border-radius: 5px;
   border-radius: 5px; }
 
-.checkboxes span {
-  color: #FFFFFF; }
+#guestInformation .interests .row {
+  color: #FFFFFF;
+  height: 23px; }
 
 /*
  * FORMULAR
