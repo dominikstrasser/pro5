@@ -23,8 +23,6 @@ angular.module('pro5_hzv.roomList', ['ngRoute'])
         var refreshRoomList = function() {
             bookingProvider.roomList({"start": $scope.startday.toDate()}, function (data) {
                 $scope.bookings = data;
-                console.log($scope.startday.toDate());
-                console.log(data);
             });
         };
 

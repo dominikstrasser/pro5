@@ -96,6 +96,8 @@ angular.module('pro5_hzv.dashboard', [
             d.milliseconds(0);
         };
 
+
+
         $scope.requestForm = {};
         $scope.requestForm.status =  0;
         $scope.requestForm.person_count = 1;
@@ -121,11 +123,11 @@ angular.module('pro5_hzv.dashboard', [
                 $scope.requestForm.dep.getDate(),
                 12, 0, 0, 0]);
 
-            console.log(arr);
+            //console.log(arr);
 
             $scope.requestForm.arr = arr.toDate();
             $scope.requestForm.dep = dep.toDate();
-            console.log($scope.requestForm);
+            //console.log($scope.requestForm);
             //bookingProvider.save($scope.requestForm);
 
         };

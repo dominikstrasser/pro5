@@ -34,3 +34,7 @@
     -moz-transition: max-height 0.8s;
     transition: max-height 0.8s;
 }
+
+.rl_wrapper{
+    cursor: pointer;
+}

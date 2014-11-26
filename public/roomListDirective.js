@@ -12,7 +12,6 @@ angular.module('pro5_hzv.roomListDirective',[])
         link: function(scope, element, attrs) {
             // again we need the native object
             var el = element;
-
             scope.dataCounter = 0;
             scope.$watch("rooms", function(n,o){
 
@@ -99,6 +98,12 @@ angular.module('pro5_hzv.roomListDirective',[])
                     var monthName = document.createElement("span");
                     monthName.innerHTML = monthAsWord(startDate.month());
                     monthName.setAttribute("class", "rl_roomName rl_month");
+                    //console.log(monthName);
+                    monthName.addEventListener("click", function(){
+                        console.log("test");
+                        alert("TEST");
+                        //$scope.$parent.getGuest(scope.bookings[j].guest_id._id);
+                    });
                     rl_header.appendChild(monthName);
 
                     for(var i = 0; i < days.length; i++){
@@ -141,6 +146,11 @@ angular.module('pro5_hzv.roomListDirective',[])
                             if(scope.bookings[j].room_id[0]._id == scope.rooms[i]._id) {
                                 var rl_booking = renderBooking(scope.bookings[j].arr, scope.bookings[j].dep);
                                 rl_booking.innerHTML = scope.bookings[j].guest_id.last_name;
+                                rl_booking.setAttribute("data-id",j);
+                                rl_booking.addEventListener("click",function(e){
+                                    var id = e.target.getAttribute("data-id");
+                                    console.log(scope.bookings[id].guest_id.first_name);
+                                },false);
                                 rl_room.appendChild(rl_booking);
                             }
                         }
@@ -159,7 +169,7 @@ angular.module('pro5_hzv.roomListDirective',[])
 
                     rl_wrapper.appendChild(rl_header);
                     rl_wrapper.appendChild(rl_body);
-                    el.html(rl_wrapper.outerHTML);
+                    el[0].appendChild(rl_wrapper);
                 };
 
                 markToday = function(){

@@ -13,8 +13,7 @@ angular.module('pro5_hzv.guests', ['ngRoute'])
         $scope.guests = guestProvider.query();
 
         $scope.updateGuest = function(id){
-
-            console.log(id);
             guestProvider.update($scope.guests[id]);
-        }
+        };
+
     }]);
