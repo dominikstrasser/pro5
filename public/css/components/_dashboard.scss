@@ -26,6 +26,7 @@
   margin: 0;
   font-size: 16px;
   position: relative;
+  margin-bottom: -2px;
 }
 #current .arrow {
   position: absolute;
@@ -38,7 +39,6 @@
   cursor: pointer;
 }
 #current .dayEntryHeader {
-  border-bottom: $border-light;
   padding-left: 10px;
   padding-top: 15px;
   padding-bottom: 14px;
@@ -48,7 +48,7 @@
   background: none;
 }
 #current .dayEntry {
-  background: $darkgrey;
+  /*background: $darkgrey;*/
 }
 #current .dayEntry.active {
   background: none;
@@ -56,4 +56,13 @@
 #current .dayEntryDetails {
   background: $grey;
   padding-left: 10px;
+}
+#current .dayEntryDetails div:first-child {
+  padding-top: 15px;
+}
+#current .dayEntryDetails div:last-child {
+  padding-bottom: 15px;
+}
+#current .dayEntryDetails ~ div {
+  background: red;
 }

@@ -185,7 +185,8 @@ button:focus {
   padding-bottom: 14px;
   margin: 0;
   font-size: 16px;
-  position: relative; }
+  position: relative;
+  margin-bottom: -2px; }
 
 #current .arrow {
   position: absolute;
@@ -198,7 +199,6 @@ button:focus {
   cursor: pointer; }
 
 #current .dayEntryHeader {
-  border-bottom: 2px solid #eef1f9;
   padding-left: 10px;
   padding-top: 15px;
   padding-bottom: 14px;
@@ -208,7 +208,7 @@ button:focus {
   background: none; }
 
 #current .dayEntry {
-  background: #c9cedb; }
+  /*background: $darkgrey;*/ }
 
 #current .dayEntry.active {
   background: none; }
@@ -216,6 +216,15 @@ button:focus {
 #current .dayEntryDetails {
   background: #eef1f9;
   padding-left: 10px; }
+
+#current .dayEntryDetails div:first-child {
+  padding-top: 15px; }
+
+#current .dayEntryDetails div:last-child {
+  padding-bottom: 15px; }
+
+#current .dayEntryDetails ~ div {
+  background: red; }
 
 /*
  * DATEPICKER
@@ -519,39 +528,39 @@ button.blueButton:hover {
 /*
  * COLLAPSE
  */
-.collapse {
+.collapse-wrapper {
   margin: 0 20px;
   position: relative; }
 
-.collapse h1 {
+.collapse-wrapper h1 {
   border-top: 2px solid #c9cedb;
   padding-top: 11px;
   margin-top: 60px;
   margin-bottom: 0; }
 
-.collapse h1.first {
+.collapse-wrapper h1.first {
   margin-top: 37px; }
 
-/*.collapse .open {
+/*.collapse-wrapper .open {
   float: right;
   margin-top: 30px;
   @include user-select(none);
 }*/
-.collapse .open:hover {
+.collapse-wrapper .open:hover {
   cursor: pointer; }
 
-.collapse .open .arrow {
+.collapse-wrapper .open .arrow {
   position: absolute;
   right: 0;
   top: 2px;
   padding: 25px;
   background: #eef1f9; }
 
-.collapse .guest {
+.collapse-wrapper .guest {
   padding: 10px;
   border-bottom: 2px solid #eef1f9; }
 
-.collapse .guest .notification {
+.collapse-wrapper .guest .notification {
   background: #ff5a00;
   color: #FFFFFF;
   padding: 2px 10px;
@@ -560,31 +569,34 @@ button.blueButton:hover {
   -ms-border-radius: 20px;
   border-radius: 20px; }
 
-.collapse .formular {
+.collapse-wrapper .formular {
   padding: 0;
   margin: 0; }
 
-.collapse .box {
+.collapse-wrapper .box {
   margin-top: 30px; }
 
-.collapse .content .data div:nth-child(1) {
+.collapse-wrapper.panel-collapse {
+  margin: 0; }
+
+.collapse-wrapper .content .data div:nth-child(1) {
   min-width: 130px;
   margin-right: 15px; }
 
-.collapse .content .data div:nth-child(2) {
+.collapse-wrapper .content .data div:nth-child(2) {
   min-width: 50px;
   margin-right: 15px; }
 
-.collapse .content .data div:nth-child(3) {
+.collapse-wrapper .content .data div:nth-child(3) {
   min-width: 100px;
   margin-right: 15px; }
 
-.collapse .content .email {
+.collapse-wrapper .content .email {
   border: 2px solid #c9cedb;
   padding: 5px 30px;
   margin-bottom: 10px; }
 
-.collapse .content .email p.drop {
+.collapse-wrapper .content .email p.drop {
   border: 2px solid #eef1f9;
   min-height: 100px;
   -webkit-border-radius: 5px;
@@ -592,20 +604,20 @@ button.blueButton:hover {
   -ms-border-radius: 5px;
   border-radius: 5px; }
 
-.collapse .content .email-list {
+.collapse-wrapper .content .email-list {
   margin-top: 30px; }
 
-.collapse .content .email-write {
+.collapse-wrapper .content .email-write {
   width: 60%; }
 
-.collapse .content .email-drag {
+.collapse-wrapper .content .email-drag {
   width: 40%;
   margin-left: 30px; }
 
-.collapse .content .email-drag .items {
+.collapse-wrapper .content .email-drag .items {
   font-size: 18px; }
 
-.collapse .content .email-drag .item {
+.collapse-wrapper .content .email-drag .item {
   background: #40475b;
   color: #FFFFFF;
   padding: 8px 20px;
@@ -615,20 +627,20 @@ button.blueButton:hover {
   -ms-border-radius: 5px;
   border-radius: 5px; }
 
-.collapse .content .email-left, .collapse .content .email-right {
+.collapse-wrapper .content .email-left, .collapse .content .email-right {
   border: 2px solid #c9cedb;
   width: 70%;
   padding: 20px 30px;
   margin-bottom: 15px;
   min-height: 78px; }
 
-.collapse .content .email-info-left, .collapse .content .email-info-right {
+.collapse-wrapper .content .email-info-left, .collapse .content .email-info-right {
   width: 25%;
   padding: 0 20px;
   color: #c9cedb;
   margin-top: 30px; }
 
-.collapse .content .email-info-right {
+.collapse-wrapper .content .email-info-right {
   text-align: right; }
 
 /*
