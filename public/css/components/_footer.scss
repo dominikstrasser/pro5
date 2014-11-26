@@ -58,6 +58,7 @@
   font-family: "proxima";
   @include border-radius(5px);
 }
-.checkboxes span {
+#guestInformation .interests .row {
   color: $white;
+  height: 23px;
 }
