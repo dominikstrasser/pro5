@@ -101,7 +101,7 @@ function bookingDAO(){
             .select("arr dep category salutation guest_id person_count room_id")
             .exec(function(err, result){
                 if(err) console.log(err);
-                console.log(result);
+                //console.log(result);
                 res.json(result);
             });
 
@@ -159,7 +159,7 @@ function bookingDAO(){
             });
         myQuery.exec(function(err, result){
                 if(err) console.log(err);
-                console.log(result);
+                //console.log(result);
                 res.json(result);
             });
 
@@ -173,7 +173,6 @@ function bookingDAO(){
 
         if(typeof req.query.start != "undefined"){
 
-            console.log("arr: " + req.query.start);
             var start = moment(req.query.start).add(-7,"days");
             var end = moment(req.query.start).add(21,"days");
             myQuery.where('dep').gte(start.valueOf());

@@ -2,7 +2,7 @@
     <h1>Gästeverwaltung</h1>
 
     <div class="management-content">
-        <section class="collapse" ng-repeat="guest in guests">
+        <section class="collapse-wrapper" ng-repeat="guest in guests" bs-collapse start-collapsed="true">
             <div vertical layout class="management-row">
                 <div horizontal layout>
                     <div horizontal>{{guest.salutation}} {{guest.last_name}}</div>
@@ -11,18 +11,18 @@
                     <div horizontal flex>{{guest.country}}</div>
                 </div>
             </div>
-            <span class="open" onclick="document.querySelector('.box').toggle()"><button class="blueButton">Details</button></span>
+            <span class="open" bs-collapse-toggle><button class="blueButton">Details</button></span>
 
             <div class="clear"></div>
 
-            <core-collapse fixedSize class="box">
+            <div fixedSize class="box panel-collapse" bs-collapse-target >
                 <div class="content">
 
                     <div class="formular">
-                        <form>
+                        <div>
                             <div class="col">
                                 <div class="row">
-                                    <select name="salutation" id="salutation">
+                                    <select name="salutation" ng-model="guest.salutation">
                                         <option>Herr</option>
                                         <option>Frau</option>
                                         <option>Familie</option>
@@ -30,36 +30,36 @@
                                     </select>
                                 </div>
 
-                                <div class="row"><input type="text" name="address" id="address"></div>
-                                <div class="row"><input type="text" name="phone" id="phone"></div>
-                                <div class="row"><input type="text" name="date" id="date"></div>
+                                <div class="row"><input type="text" name="address" ng-model="guest.address"></div>
+                                <div class="row"><input type="text" name="phone" ng-model="guest.phone"></div>
+                                <div class="row"><input type="text" name="date" ng-model="guest.date"></div>
                             </div>
 
                             <div class="col">
-                                <div class="row"><input type="text" name="first_name" id="first_name"></div>
-                                <div class="row"><input type="text" name="plz" id="plz"></div>
-                                <div class="row"><input type="email" name="email" id="email"></div>
+                                <div class="row"><input type="text" name="first_name" ng-model="guest.first_name"></div>
+                                <div class="row"><input type="text" name="plz" ng-model="guest.plz"></div>
+                                <div class="row"><input type="email" name="email" ng-model="guest.email"></div>
                             </div>
 
                             <div class="col">
-                                <div class="row"><input type="text" name="last_name" id="last_name"></div>
-                                <div class="row"><input type="text" name="city" id="city"></div>
+                                <div class="row"><input type="text" name="last_name" ng-model="guest.last_name"></div>
+                                <div class="row"><input type="text" name="city" ng-model="guest.city"></div>
                             </div>
 
                             <div class="col">
-                                <div class="row"><input type="text" name="country" id="country"></div>
+                                <div class="row"><input type="text" name="country" ng-model="guest.country"></div>
                             </div>
 
                             <div class="col">
-                                <input type="submit" class="greenButton" value="Speichern">
+                                <button ng-click="updateGuest($index)" class="greenButton">Speichern</button>
                             </div>
 
                             <div class="clear"></div>
-                        </form>
+                        </div>
                     </div>
 
                 </div>
-            </core-collapse>
+            </div>
         </section>
     </div>
 </div>
