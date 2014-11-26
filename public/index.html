@@ -22,7 +22,6 @@
   <link rel="import" href="bower_components/paper-checkbox/paper-checkbox.html">
   <link rel="import" href="bower_components/paper-ripple/paper-ripple.html">
   <link rel="import" href="custom_elements/custom-counter/custom-counter.html">
-    <link rel="import" href="custom_elements/custom-counter/test-input.html">
     <link rel="import" href="custom_elements/custom-select/custom-select.html">
 
 </head>
@@ -64,6 +63,8 @@
         <div class="container formular">
             <div id="guestInformationHeader" ng-show="active">
                 <span>{{guest.first_name}} {{guest.last_name}}</span>
+                <button class="blueButton">Speichern</button>
+                <!--<input type="submit" class="greenButton" value="Speichern" ng-click="saveGuest()">-->
                 <div ng-hide="allActive" ng-click="allActive = true" class="up"></div>
                 <div ng-show="allActive" ng-click="allActive = false" class="down"></div>
             </div>
@@ -101,12 +102,12 @@
 
                 <div class="col checkboxes">
                     <div class="row"><paper-checkbox checked></paper-checkbox></div>
-                    <div class="row"><paper-checkbox></paper-checkbox></div>
-                    <div class="row"><paper-checkbox></paper-checkbox></div>
                     <div class="row"><paper-checkbox checked></paper-checkbox></div>
-                    <div class="row"><paper-checkbox></paper-checkbox></div>
                     <div class="row"><paper-checkbox checked></paper-checkbox></div>
-                    <div class="row"><paper-checkbox></paper-checkbox></div>
+                    <div class="row"><paper-checkbox checked></paper-checkbox></div>
+                    <div class="row"><paper-checkbox checked></paper-checkbox></div>
+                    <div class="row"><paper-checkbox checked></paper-checkbox></div>
+                    <div class="row"><paper-checkbox checked></paper-checkbox></div>
                 </div>
 
                 <div class="col interests">
@@ -119,8 +120,24 @@
                     <div class="row">Wintersport</div>
                 </div>
 
-                <div class="col">
-                    <div class="row"><input type="submit" class="greenButton" value="Speichern" ng-click="saveGuest()"></div>
+                <div class="col checkboxes">
+                    <div class="row"><paper-checkbox checked></paper-checkbox></div>
+                    <div class="row"><paper-checkbox checked></paper-checkbox></div>
+                    <div class="row"><paper-checkbox checked></paper-checkbox></div>
+                    <div class="row"><paper-checkbox checked></paper-checkbox></div>
+                    <div class="row"><paper-checkbox checked></paper-checkbox></div>
+                    <div class="row"><paper-checkbox checked></paper-checkbox></div>
+                    <div class="row"><paper-checkbox checked></paper-checkbox></div>
+                </div>
+
+                <div class="col interests">
+                    <div class="row">Golf</div>
+                    <div class="row">Wellness</div>
+                    <div class="row">Familie</div>
+                    <div class="row">Kultur</div>
+                    <div class="row">Reiten</div>
+                    <div class="row">Stammgast</div>
+                    <div class="row">Wintersport</div>
                 </div>
 
                 <div class="clear"></div>
