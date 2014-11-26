@@ -49,10 +49,16 @@
 .collapse-wrapper .room-collapse {
   margin-top: 0;
 }
-/*
-.collapse-wrapper.panel-collapse {
-  margin: 0;
-}*/
+.collapse-wrapper .room-collapse .blueButton {
+  position: absolute;
+  top: 15px;
+}
+.collapse-wrapper .room-collapse .blueButton.next {
+  right: 80px;
+}
+.collapse-wrapper .room-collapse .blueButton.prev {
+  right: 130px;
+}
 .collapse-wrapper .content .data div:nth-child(1) {
   min-width: 130px;
   margin-right: 15px;

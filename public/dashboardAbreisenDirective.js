@@ -43,7 +43,7 @@ angular.module('pro5_hzv.dashboardAbreisenDirective',[])
 
             if(scope.day == 1) scope.dayWord = "Heute";
             if(scope.day == 2) scope.dayWord = "Morgen";
-            if(scope.day == 3) scope.dayWord = "Kommende Tage";
+            if(scope.day == 3) scope.dayWord = "Kommende Woche";
             scope.today = $moment().utc();
             scope.tomorrow = $moment.utc(scope.today).add(1,"days");
             setTimeTo12(scope.today);

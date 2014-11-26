@@ -202,7 +202,8 @@ button:focus {
   padding-left: 10px;
   padding-top: 15px;
   padding-bottom: 14px;
-  position: relative; }
+  position: relative;
+  background: #c9cedb; }
 
 #current .dayEntryHeader span:last-of-type {
   float: right;
@@ -211,9 +212,6 @@ button:focus {
 #current .dayEntryHeader .arrow {
   background: none; }
 
-#current .dayEntry {
-  background: #c9cedb; }
-
 #current .dayEntry.active {
   background: none; }
 
@@ -221,14 +219,15 @@ button:focus {
   background: #eef1f9;
   padding-left: 10px; }
 
-#current .dayEntryDetails div:first-child {
+#current .dayEntryDetails .col {
+  float: left;
+  margin-right: 20px; }
+
+#current .dayEntryDetails .col div:first-child {
   padding-top: 15px; }
 
-#current .dayEntryDetails div:last-child {
+#current .dayEntryDetails .col:last-child {
   padding-bottom: 15px; }
-
-#current .dayEntryDetails ~ div {
-  background: red; }
 
 /*
  * DATEPICKER
@@ -325,7 +324,7 @@ button:focus {
   border-color: #FFFFFF;
   color: #FFFFFF; }
 
-#guestInformation select {
+#guestInformation select, .formular select {
   border: 2px solid #c9cedb;
   background: none;
   border-color: #FFFFFF;
@@ -374,6 +373,10 @@ button:focus {
 .formular .cal {
   background: url("../img/cal.png") no-repeat;
   background-position: 130px 10px; }
+
+.formular select {
+  border-color: #c9cedb;
+  color: #2f3545; }
 
 /* BEGIN CHROME */
 .formular input {
@@ -583,10 +586,16 @@ button.blueButton:hover {
 .collapse-wrapper .room-collapse {
   margin-top: 0; }
 
-/*
-.collapse-wrapper.panel-collapse {
-  margin: 0;
-}*/
+.collapse-wrapper .room-collapse .blueButton {
+  position: absolute;
+  top: 15px; }
+
+.collapse-wrapper .room-collapse .blueButton.next {
+  right: 80px; }
+
+.collapse-wrapper .room-collapse .blueButton.prev {
+  right: 130px; }
+
 .collapse-wrapper .content .data div:nth-child(1) {
   min-width: 130px;
   margin-right: 15px; }
@@ -675,6 +684,9 @@ button.blueButton:hover {
   top: 10px;
   margin: 0;
   float: none; }
+
+.management .collapse-wrapper .panel-collapse {
+  margin-top: 0; }
 
 .management-row {
   padding-left: 10px;

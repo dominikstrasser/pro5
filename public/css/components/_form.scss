@@ -30,6 +30,10 @@
   background: url("../img/cal.png") no-repeat;
   background-position: 130px 10px;
 }
+.formular select {
+  border-color: $darkgrey;
+  color: $blue;
+}
 
 /* BEGIN CHROME */
 .formular input {

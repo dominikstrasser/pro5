@@ -10,12 +10,17 @@
                     <i bs-collapse-toggle><img src="../../img/arrows/down_blue.png" class="arrow" alt="arrow"></i>
                 </div>
                 <div class="dayEntryDetails panel-collapse" bs-collapse-target>
-                    <div>
-                        Zimmer
-                        <span ng-repeat="room in booking.room_id">{{room.number}}{{$last ? '' : ', '}}</span>
+                    <div class="col">
+                        <div class="row">Zimmer</div>
+                        <div class="row">Abreise</div>
+                        <div class="row">Verpflegung</div>
                     </div>
-                    <div>Abreise : {{booking.dep | date:"dd.MM.yyyy"}}</div>
-                    <div>Verpflegung: {{booking.category}}</div>
+
+                    <div class="col">
+                        <div class="row" ng-repeat="room in booking.room_id">{{room.number}}{{$last ? '' : ', '}}</div>
+                        <div class="row">{{booking.dep | date:"dd. MMMM yyyy"}}</div>
+                        <div class="row">{{booking.category}}</div>
+                    </div>
                 </div>
             </div>
         </div>

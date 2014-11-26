@@ -43,6 +43,7 @@
   padding-top: 15px;
   padding-bottom: 14px;
   position: relative;
+  background: $darkgrey;
 }
 #current .dayEntryHeader span:last-of-type {
   float: right;
@@ -51,9 +52,6 @@
 #current .dayEntryHeader .arrow {
   background: none;
 }
-#current .dayEntry {
-  background: $darkgrey;
-}
 #current .dayEntry.active {
   background: none;
 }
@@ -61,12 +59,13 @@
   background: $grey;
   padding-left: 10px;
 }
-#current .dayEntryDetails div:first-child {
+#current .dayEntryDetails .col {
+  float: left;
+  margin-right: 20px;
+}
+#current .dayEntryDetails .col div:first-child {
   padding-top: 15px;
 }
-#current .dayEntryDetails div:last-child {
+#current .dayEntryDetails .col:last-child {
   padding-bottom: 15px;
-}
-#current .dayEntryDetails ~ div {
-  background: red;
 }

@@ -5,14 +5,16 @@
 
     <div class="clear"></div>
 
-    <div bs-collapse-target fixedSize class="box panel-collapse">
+    <div bs-collapse-target fixedSize class="box panel-collapse room-collapse">
         <div class="content">
 
             <div vertical layout>
                 <room-list rooms='rooms' bookings='bookings' startday='startday'></room-list>
             </div>
         </div>
-        <button class="blueButton" ng-click="decreaseDate()">Prev</button> <button class="blueButton" ng-click="increaseDate()">Next</button>
+
+        <button class="blueButton prev" ng-click="decreaseDate()"><</button>
+        <button class="blueButton next" ng-click="increaseDate()">></button>
 
     </div>
 </section>
