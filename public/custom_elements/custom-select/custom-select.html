@@ -1,12 +1,13 @@
 <link href="../../bower_components/polymer/polymer.html" rel="import">
 <link rel="import" href="../../bower_components/core-selection/core-selection.html">
+<link rel="import" href="../../bower_components/core-selector/core-selector.html">
 
 <polymer-element name="custom-select">
 
     <template>
-        <ul on-tap="{{itemTapAction}}">
+        <core-selector selected="0" on-tap="{{itemTapAction}}">
             <content></content>
-        </ul>
+        </core-selector>
         <core-selection attributes="selectVal" id="selection" on-core-select="{{selectAction}}"></core-selection>
     </template>
     <script>

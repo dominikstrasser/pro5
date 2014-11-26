@@ -187,7 +187,7 @@ angular.module('pro5_hzv.dashboard', [
         $scope.requestForm.room_count =  1;
         $scope.requestForm.doubleRoom_count = 1;
         $scope.requestForm.room_id = [];
-        $scope.requestForm.category = "TEST";
+        $scope.requestForm.category = "NF";
 
 
         $scope.testBooking = function(){
