@@ -26,6 +26,13 @@ hr {
   margin-bottom: 30px;
   margin-top: 15px;
 }
+*:focus,
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
 .clear {
   clear: both;
 }

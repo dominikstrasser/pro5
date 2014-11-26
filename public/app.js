@@ -25,8 +25,8 @@ config(['$routeProvider', function($routeProvider) {
         angular.extend($datepickerProvider.defaults, {
             dateFormat: 'dd.MM.yyyy',
             startWeek: 1,
-            autoclose: "true"
-            //delay: { show: 100, hide: 1000000000 }
+            autoclose: "true",
+            delay: { show: 100, hide: 1000000000 }
         });
     })
     .controller("indexCtrl", ['$scope','guestProvider', function ($scope, guestProvider) {

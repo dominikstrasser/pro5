@@ -35,6 +35,13 @@ hr {
   margin-bottom: 30px;
   margin-top: 15px; }
 
+*:focus,
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none; }
+
 .clear {
   clear: both; }
 
@@ -56,6 +63,62 @@ hr {
 @media (min-width: 1200px) {
   #navContainer, .container {
     width: 1170px; } }
+/*
+ * ANIMATIONS
+ */
+.view-container {
+  position: relative; }
+
+.view-frame.ng-enter, .view-frame.ng-leave {
+  background: white;
+  position: absolute;
+  left: 0;
+  right: 0; }
+
+.view-frame.ng-enter {
+  -webkit-animation: 0.5s fade-in;
+  -moz-animation: 0.5s fade-in;
+  -o-animation: 0.5s fade-in;
+  animation: 0.5s fade-in;
+  z-index: 100; }
+
+.view-frame.ng-leave {
+  -webkit-animation: 0.5s fade-out;
+  -moz-animation: 0.5s fade-out;
+  -o-animation: 0.5s fade-out;
+  animation: 0.5s fade-out;
+  z-index: 99; }
+
+@keyframes fade-in {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-moz-keyframes fade-in {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@keyframes fade-out {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+@-moz-keyframes fade-out {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+@-webkit-keyframes fade-out {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
 /*
  * NAVIGATION
  */
@@ -154,6 +217,9 @@ hr {
   background: #eef1f9;
   padding-left: 10px; }
 
+/*
+ * DATEPICKER
+ */
 .datepicker {
   position: absolute;
   top: 0px;
@@ -255,6 +321,9 @@ hr {
   -ms-border-radius: 5px;
   border-radius: 5px; }
 
+.checkboxes span {
+  color: #FFFFFF; }
+
 /*
  * FORMULAR
  */
@@ -287,6 +356,7 @@ hr {
   background: url("../img/cal.png") no-repeat;
   background-position: 130px 10px; }
 
+/* BEGIN CHROME */
 .formular input {
   background: #FFFFFF;
   border: 2px solid #c9cedb;
@@ -330,6 +400,8 @@ hr {
   background: #ffba42;
   cursor: pointer; }
 
+/* END CHROME */
+/* BEGIN FIREFOX SAFARI */
 .formular custom-counter::shadow .custom-counter-container input {
   background: #FFFFFF;
   border: 2px solid #c9cedb;
@@ -373,8 +445,9 @@ hr {
   background: #ffba42;
   cursor: pointer; }
 
+/* END FIREFOX SAFARI */
 .formular .last input[type="text"], .formular .last input[type="email"] {
-  width: 325px; }
+  width: 315px; }
 
 .formular .item {
   width: 20px;
@@ -450,16 +523,14 @@ button.blueButton:hover {
   margin-top: 60px;
   margin-bottom: 0; }
 
-.collapse .open {
+.collapse h1.first {
+  margin-top: 37px; }
+
+/*.collapse .open {
   float: right;
   margin-top: 30px;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; }
-
+  @include user-select(none);
+}*/
 .collapse .open:hover {
   cursor: pointer; }
 
@@ -487,15 +558,20 @@ button.blueButton:hover {
   padding: 0;
   margin: 0; }
 
+.collapse .box {
+  margin-top: 30px; }
+
 .collapse .content .data div:nth-child(1) {
   min-width: 130px;
-  /* 200px */ }
+  margin-right: 15px; }
 
 .collapse .content .data div:nth-child(2) {
-  min-width: 50px; }
+  min-width: 50px;
+  margin-right: 15px; }
 
 .collapse .content .data div:nth-child(3) {
-  min-width: 110px; }
+  min-width: 100px;
+  margin-right: 15px; }
 
 .collapse .content .email {
   border: 2px solid #c9cedb;
@@ -537,14 +613,108 @@ button.blueButton:hover {
   border: 2px solid #c9cedb;
   width: 70%;
   padding: 20px 30px;
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  min-height: 78px; }
 
 .collapse .content .email-info-left, .collapse .content .email-info-right {
   width: 25%;
   padding: 0 20px;
-  color: #c9cedb; }
+  color: #c9cedb;
+  margin-top: 30px; }
 
 .collapse .content .email-info-right {
   text-align: right; }
+
+/*
+ * GUEST- AND HOTELMANAGEMENT
+ */
+.management {
+  margin-top: 50px;
+  margin-left: 20px;
+  margin-right: 20px; }
+
+.management .management-content {
+  margin-top: 30px; }
+
+.management .collapse {
+  margin: 0;
+  position: relative; }
+
+.management .collapse .content {
+  margin-top: 20px; }
+
+.management .collapse .open {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  margin: 0;
+  float: none; }
+
+.management-row {
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #eef1f9; }
+
+.management-row div div:nth-child(1) {
+  min-width: 150px;
+  margin-right: 15px; }
+
+.management-row div div:nth-child(2) {
+  min-width: 250px;
+  margin-right: 15px; }
+
+.management-row div div:nth-child(3) {
+  min-width: 100px;
+  margin-right: 15px; }
+
+/*
+ * ROOMLIST
+ */
+.rl {
+  margin-top: 0 !important; }
+
+.rl_wrapper {
+  margin-top: -1px;
+  border-bottom: 2px solid #c9cedb; }
+
+.rl_wrapper span {
+  display: inline-block;
+  border: 1px solid #eef1f9;
+  width: 30px;
+  height: 44px;
+  text-align: center;
+  padding-top: 12px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box; }
+
+.rl_wrapper .today {
+  background: #c9cedb; }
+
+.rl_wrapper .rl_month {
+  text-transform: uppercase; }
+
+.rl_wrapper .rl_roomName {
+  width: 230px;
+  text-align: left;
+  padding-left: 60px;
+  background: #FFFFFF;
+  border-left: none;
+  z-index: 20; }
+
+.rl_room {
+  position: relative; }
+
+.rl_booking {
+  position: absolute;
+  top: 0px;
+  background: #eef1f9;
+  /*opacity: 0.5;*/
+  width: auto;
+  z-index: -1; }
+
+.rl_booking.booked {
+  background: #ffba42; }
 
 /*# sourceMappingURL=main.css.map */

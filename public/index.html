@@ -6,14 +6,12 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>PRO5</title>
+  <title>PRO5 HZV</title>
   <meta name="description" content="">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="img/hzv.png">
   <link rel="stylesheet" href="css/vendors/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/roomList.css">
   <script src="bower_components/platform/platform.js"></script>
   <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
   <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
@@ -47,14 +45,13 @@
                     </core-menu>
                 </div>
             </core-toolbar>
-        <div class="container">
-            <div ng-view></div>
+        <div class="container view-container">
+            <div ng-view class="view-frame"></div>
 
             <form>
                 <input type="text" ng-model="id">
                 <button ng-click="getGuest(id)">Guest laden</button>
             </form>
-
 
         </div>
     </core-header-panel>
@@ -98,10 +95,14 @@
 
                 <div class="col">
                     <div class="row"><input ng-model="guest.country" type="text" name="country" id="country"></div>
+                    <div class="row"><input type="submit" class="greenButton" value="Speichern" ng-click="saveGuest()"></div>
                 </div>
 
-                <div class="col">
-                    <input type="submit" class="greenButton" value="Speichern" ng-click="saveGuest()">
+                <div class="col checkboxes">
+                    <div class="row"><input type="checkbox" name="" value=""> <span>Golf</span></div>
+                    <div class="row"><input type="checkbox" name="" value=""> <span>Wellness</span></div>
+                    <div class="row"><input type="checkbox" name="" value=""> <span>Familie</span></div>
+                    <div class="row"><input type="checkbox" name="" value=""> <span>Kultur</span></div>
                 </div>
 
                 <div class="clear"></div>
@@ -123,8 +124,8 @@
     <script src="services.js"></script>
     <script src="dragDropDirective.js"></script>
     <script src="roomListDirective.js"></script>
-  <script src="app.js"></script>
 
+  <script src="app.js"></script>
 
   <!-- Including the View Controllers -->
   <script src="views/dashboard/dashboard.js"></script>
