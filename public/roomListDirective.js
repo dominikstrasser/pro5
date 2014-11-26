@@ -112,6 +112,7 @@ angular.module('pro5_hzv.roomListDirective',[])
                     rl_booking.setAttribute("class", "rl_booking");
                     var bArr = $moment(arr);
                     var bDep = $moment(dep);
+
                     var duration = $moment.duration(bArr.diff(startDate));
 
                     //Anzahl der Tage vom Beginn der Ansicht bis zum "start" der Buchung (arrival)
@@ -120,7 +121,7 @@ angular.module('pro5_hzv.roomListDirective',[])
                     //Anzahl der Tage zwischen Arrival und Departure
                     var end = $moment.duration(bDep.diff(bArr)).asDays();
 
-                    var bLeft = (100 - 12.5 + dayWidth*start);
+                    var bLeft = (100 + 12.5 + dayWidth*start);
                     var bWidth = end*dayWidth;
                     rl_booking.setAttribute("style", "left:"+ bLeft +"px; width: "+ bWidth +"px");
                     return rl_booking;

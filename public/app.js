@@ -6,6 +6,7 @@ angular.module('pro5_hzv', [
     'ngRoute',
     'ngResource',
     'mgcrea.ngStrap.datepicker',
+    'mgcrea.ngStrap.collapse',
     'pro5_hzv.dashboard',
     'pro5_hzv.roomList',
     'pro5_hzv.requests',
@@ -15,7 +16,9 @@ angular.module('pro5_hzv', [
     'angular-momentjs',
     'pro5_hzv.dataService',
     'pro5_hzv.dragDropDirective',
-    'pro5_hzv.roomListDirective'
+    'pro5_hzv.roomListDirective',
+    'pro5_hzv.dashboardAnreisenDirective',
+    'pro5_hzv.dashboardAbreisenDirective'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/dashboard'});
@@ -26,6 +29,10 @@ config(['$routeProvider', function($routeProvider) {
             startWeek: 1,
             autoclose: "true",
             delay: { show: 100, hide: 1000000000 }
+        });
+    }).config(function($collapseProvider) {
+        angular.extend($collapseProvider.defaults, {
+            animation: 'am-flip-x'
         });
     })
     .controller("indexCtrl", ['$scope','guestProvider', function ($scope, guestProvider) {

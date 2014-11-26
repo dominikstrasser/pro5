@@ -22,35 +22,6 @@ angular.module('pro5_hzv.dashboard', [
             d.milliseconds(0);
         };
 
-        $scope.currentDate = "first";
-        $scope.isCurrentDate = function(date) {
-            var check = true;
-            var dateBuffer = date;
-            date = $moment(date);
-            if ($scope.currentDate != "first") {
-                if (date.isSame($scope.currentDate, "days")) {
-                    check = true;
-                } else {
-                    check = false;
-                }
-            }
-            $scope.currentDate = dateBuffer;
-            return check;
-        };
-
-        $scope.displayDate = function (d) {
-            var dateBuffer = d;
-            d = $moment(d);
-            if(d.isSame($scope.today, "days")){
-                return "Heute";
-            }else{
-                if(d.isSame($scope.tomorrow, "days")) {
-                    return "Morgen";
-                } else {
-                    return dateBuffer;
-                }
-            }
-        };
 
         $scope.checkDate = function(d){
             d = $moment(d);
@@ -58,47 +29,17 @@ angular.module('pro5_hzv.dashboard', [
             if(d.isSame($scope.tomorrow, "days")) return 2;
             if(d.isAfter($scope.tomorrow, "days")) return 3;
         };
-        
 
-        $scope.dayAnimation = function(section){
 
-            if($scope.selected === section){
-                $scope.selected = false;
-            }else {
-                $scope.selected = section;
-            }
-            console.log(section);
-
-        };
-
-        $scope.isSelected = function(section){
-
-            return $scope.selected === section;
-        };
-
-        $scope.dayEntryAnimation = function(section){
-            if($scope.selectedEntry === section){
-                $scope.selectedEntry = false;
-            }else {
-                $scope.selectedEntry = section;
-            }
-        };
-
-        $scope.isSelectedEntry = function(section){
-
-            return $scope.selectedEntry === section;
-        };
 
         $scope.today = moment().utc();
         $scope.tomorrow = moment.utc($scope.today).add(1, "days");
         setTimeTo12($scope.today);
         setTimeTo12($scope.tomorrow);
-
-
         /*
          * NICHT UTC?!?!?!?!?
          * */
-        
+
         var today = new Date();
 
         var cArr = moment.utc([
@@ -106,63 +47,8 @@ angular.module('pro5_hzv.dashboard', [
             today.getMonth(),
             today.getDate(),
             12, 0, 0, 0]);
-
-        $scope.arrivalsOrder = [];
-        $scope.arrivals = bookingProvider.currentArrivals(function(data){
-            var array = [];
-
-                angular.forEach(data, function (item) {
-
-                    var counter = 0;
-
-                    var day = $moment(item.arr).day();
-                    if (array[day] != undefined) {
-
-                        while(array[day][counter] != undefined) {
-                            counter++;
-                        }
-                        array[day][counter] = item;
-
-                    } else {
-                        var key = counter;
-                        var obj = {};
-                        obj[key] = item;
-                        array[day] = obj;
-                    }
-
-                });
-
-            console.log(array);
-            $scope.arrivalsOrder = array;
-        });
-        $scope.departuresOrder = [];
-        $scope.departures = bookingProvider.currentDepartures(function(data){
-            var array = [];
-
-            angular.forEach(data, function (item) {
-
-                var counter = 0;
-
-                var day = $moment(item.dep).day();
-                if (array[day] != undefined) {
-
-                    while(array[day][counter] != undefined) {
-                        counter++;
-                    }
-                    array[day][counter] = item;
-
-                } else {
-                    var key = counter;
-                    var obj = {};
-                    obj[key] = item;
-                    array[day] = obj;
-                }
-
-            });
-
-            console.log(array);
-            $scope.departuresOrder = array;
-        });
+        $scope.arrivals = bookingProvider.currentArrivals({"cArr" : cArr.toDate()});
+        $scope.departures = bookingProvider.currentDepartures(cArr);
 
     }])
 

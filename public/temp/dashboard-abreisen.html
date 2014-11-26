@@ -1,0 +1,23 @@
+<div class="day" bs-collapse ng-model="panel" >
+    <h2>{{dayWord}} <img bs-collapse-toggle src="../../img/arrows/down_grey.png" class="arrow" alt="arrow"></h2>
+    <div bs-collapse-target class="panel-collapse" >
+        <div class="dayEntry" ng-repeat="booking in bookings" >
+            <div ng-if="checkDate(booking.dep) == day" bs-collapse start-collapsed="true">
+                <div class="dayEntryHeader" >
+                    <span>{{booking.guest_id.salutation}} </span>
+                    <span>{{booking.guest_id.last_name}}</span>
+                    <span>{{booking.person_count}} Personen</span>
+                    <i bs-collapse-toggle><img src="../../img/arrows/down_blue.png" class="arrow" alt="arrow"></i>
+                </div>
+                <div class="dayEntryDetails panel-collapse" bs-collapse-target>
+                    <div>
+                        Zimmer
+                        <span ng-repeat="room in booking.room_id">{{room.number}}{{$last ? '' : ', '}}</span>
+                    </div>
+                    <div>Abreise : {{booking.dep | date:"dd.MM.yyyy"}}</div>
+                    <div>Verpflegung: {{booking.category}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

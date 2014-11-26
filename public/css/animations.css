@@ -17,7 +17,7 @@
  }
 
 /*############# dashboard.html animation  #################*/
-
+/*
 .day .dayEntry {
     max-height: 500px;
     overflow: hidden;
@@ -38,4 +38,23 @@
 @-webkit-keyframes hide {
     from { max-height: 500px; }
     to   { max-height: 0px;}
+}
+*/
+.panel-collapse{
+    max-height: 0px;
+    overflow: hidden;
+
+    -webkit-transition: max-height 0.8s;
+    -moz-transition: max-height 0.8s;
+    transition: max-height 0.8s;
+
+
+}
+.panel-collapse.in{
+    max-height: 300px;
+
+    -webkit-transition: max-height 0.8s;
+    -moz-transition: max-height 0.8s;
+    transition: max-height 0.8s;
+
 }

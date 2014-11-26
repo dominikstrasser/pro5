@@ -22,7 +22,6 @@ function bookingDAO(){
 
     this.getBooking = function(req, res) {
         console.log("bookingAPI - getBooking");
-        console.log(req.params._id);
         bookingModel.findById(req.params._id, function (err, result) {
             if (err) console.log(err);
             res.json(result);
@@ -42,8 +41,6 @@ function bookingDAO(){
 
     this.putBooking = function(req, res) {
         console.log("bookingAPI - ");
-        //console.log(req.body);
-        //console.log(req.params._id);
         bookingModel.findOneAndUpdate({"_id" : req.params._id}, req.body, function (err, result) {
             if (err) console.log(err);
             res.json(result);
@@ -90,7 +87,7 @@ function bookingDAO(){
 
         var today = moment.utc(req.query.cArr);
         var maxDate = moment.utc(req.query.cArr).add(7,"days");
-
+        console.log(req.query.cArr);
         bookingModel.find()
             .where('arr').gte(today.valueOf()).lte(maxDate.valueOf())
             .populate({
@@ -104,6 +101,7 @@ function bookingDAO(){
             .select("arr dep category salutation guest_id person_count room_id")
             .exec(function(err, result){
                 if(err) console.log(err);
+                console.log(result);
                 res.json(result);
             });
 
@@ -161,7 +159,7 @@ function bookingDAO(){
             });
         myQuery.exec(function(err, result){
                 if(err) console.log(err);
-                //console.log(result);
+                console.log(result);
                 res.json(result);
             });
 
@@ -193,7 +191,7 @@ function bookingDAO(){
             });
         myQuery.exec(function(err, result){
             if(err) console.log(err);
-            console.log(result);
+
             res.json(result);
         });
 

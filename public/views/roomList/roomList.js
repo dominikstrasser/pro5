@@ -11,6 +11,11 @@ angular.module('pro5_hzv.roomList', ['ngRoute'])
 
 .controller('roomListCtrl', ['$scope', '$moment', 'roomProvider', 'bookingProvider',function($scope, $moment, roomProvider, bookingProvider) {
         $scope.startday = $moment();
+        $scope.startday.millisecond(0);
+        $scope.startday.second(0);
+        $scope.startday.minute(0);
+        $scope.startday.utc().hours(12);
+
         roomProvider.query(function(data){
              $scope.rooms = data;
         });
@@ -18,6 +23,7 @@ angular.module('pro5_hzv.roomList', ['ngRoute'])
         var refreshRoomList = function() {
             bookingProvider.roomList({"start": $scope.startday.toDate()}, function (data) {
                 $scope.bookings = data;
+                console.log($scope.startday.toDate());
                 console.log(data);
             });
         };
