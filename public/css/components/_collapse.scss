@@ -17,13 +17,17 @@
 .collapse-wrapper .open:hover {
   cursor: pointer;
 }
-.collapse-wrapper .open .arrow {
+.collapse-wrapper .open {
   position: absolute;
   right: 0;
   top: 2px;
-  padding: 25px;
-  /*background: $grey;*/
-  background: red;
+  height: 57px;
+  width: 57px;
+  background: $grey;
+}
+.collapse-wrapper .open .arrow {
+  margin-left: 22px;
+  margin-top: 24px;
 }
 .collapse-wrapper .guest {
   padding: 10px;

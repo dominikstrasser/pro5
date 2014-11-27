@@ -124,6 +124,9 @@ input:disabled {
     opacity: 1; }
   to {
     opacity: 0; } }
+img.arrow:hover {
+  background: red; }
+
 /*
  * NAVIGATION
  */
@@ -250,6 +253,7 @@ input:disabled {
   background: #FFFFFF;
   list-style: none;
   border: 2px solid #c9cedb;
+  text-align: center;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -590,13 +594,17 @@ button.blueButton:hover {
 .collapse-wrapper .open:hover {
   cursor: pointer; }
 
-.collapse-wrapper .open .arrow {
+.collapse-wrapper .open {
   position: absolute;
   right: 0;
   top: 2px;
-  padding: 25px;
-  /*background: $grey;*/
-  background: red; }
+  height: 57px;
+  width: 57px;
+  background: #eef1f9; }
+
+.collapse-wrapper .open .arrow {
+  margin-left: 22px;
+  margin-top: 24px; }
 
 .collapse-wrapper .guest {
   padding: 10px;
@@ -814,7 +822,6 @@ span.rl_booking {
   position: absolute;
   top: 0px;
   background: #eef1f9;
-  width: auto;
   z-index: 10;
   text-align: left;
   font-size: 10px; }
