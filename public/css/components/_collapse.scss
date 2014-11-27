@@ -26,8 +26,13 @@
   background: $grey;
 }
 .collapse-wrapper .open .arrow {
-  margin-left: 22px;
-  margin-top: 24px;
+  padding: 25px 23px;
+  @include rotate(0deg);
+  @include transition(0.5s);
+}
+.collapse-wrapper.collapse-open .open .arrow {
+  @include rotate(180deg);
+  @include transition(0.5s);
 }
 .collapse-wrapper .guest {
   padding: 10px;

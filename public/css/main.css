@@ -124,9 +124,6 @@ input:disabled {
     opacity: 1; }
   to {
     opacity: 0; } }
-img.arrow:hover {
-  background: red; }
-
 /*
  * NAVIGATION
  */
@@ -204,8 +201,7 @@ img.arrow:hover {
   right: 0;
   top: 0;
   padding: 21px;
-  /*background: $grey;*/
-  background: blue; }
+  background: #eef1f9; }
 
 #current .arrow:hover {
   cursor: pointer; }
@@ -543,7 +539,7 @@ img.arrow:hover {
   border-color: #57dcba;
   color: #FFFFFF; }
 
-input.greenButton, button.greenButton {
+input.bigButton, button.bigButton {
   float: right;
   color: #FFFFFF;
   background: #57dcba;
@@ -558,7 +554,7 @@ input.greenButton, button.greenButton {
   -ms-border-radius: 5px;
   border-radius: 5px; }
 
-input.greenButton:hover, button.greenButton:hover {
+input.bigButton:hover, button.bigButton:hover {
   background: #ffba42; }
 
 button.blueButton {
@@ -574,6 +570,12 @@ button.blueButton {
 
 button.blueButton:hover {
   background: #ffba42; }
+
+button.orange {
+  background: #ffba42; }
+
+button.red {
+  background: #ff5a00; }
 
 /*
  * COLLAPSE
@@ -603,8 +605,25 @@ button.blueButton:hover {
   background: #eef1f9; }
 
 .collapse-wrapper .open .arrow {
-  margin-left: 22px;
-  margin-top: 24px; }
+  padding: 25px 23px;
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s; }
+
+.collapse-wrapper.collapse-open .open .arrow {
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s; }
 
 .collapse-wrapper .guest {
   padding: 10px;
@@ -718,6 +737,23 @@ button.blueButton:hover {
   margin-top: 50px;
   margin-left: 20px;
   margin-right: 20px; }
+
+.management .filter {
+  position: relative; }
+
+.management .options {
+  position: absolute;
+  top: 3px;
+  right: 10px; }
+
+.management .options .search {
+  border: 2px solid #c9cedb;
+  padding: 3px 8px;
+  font-family: "proxima";
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px; }
 
 .management .management-content {
   margin-top: 30px; }

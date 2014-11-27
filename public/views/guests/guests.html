@@ -1,10 +1,14 @@
 <div class="management">
+    <div class="filter">
+        <h1>Gästeverwaltung</h1>
+        <div class="options">
+            <input type="text" class="search" placeholder="Gast suchen" ng-model="searchText.last_name">
+            <button class="blueButton" ng-click="predicate = 'last_name'; reverse=!reverse">Alphabet</button>
+            <button class="blueButton" ng-click="predicate = ''; reverse=!reverse">Letzter Urlaub</button>
+            <button class="blueButton" ng-click="predicate = 'country'; reverse=!reverse">Land</button>
+        </div>
+    </div>
 
-    <h1>Gästeverwaltung</h1>
-    <input ng-model="searchText.last_name">
-    <button class="blueButton" ng-click="predicate = 'last_name'; reverse=!reverse">Alphabet</button>
-    <button class="blueButton" ng-click="predicate = ''; reverse=!reverse">Letzter Urlaub</button>
-    <button class="blueButton" ng-click="predicate = 'country'; reverse=!reverse">Land</button>
     <button class="blueButton" ng-click="addGuestForm=true">Neuer Gast!</button>
     <div class="management-content">
 
@@ -43,8 +47,11 @@
                     </div>
 
                     <div class="col">
-                        <button ng-disabled="addGuestFormButtonDisabled" ng-click="saveGuest()" class="greenButton">Speichern</button>
-                        <button ng-disabled="addGuestFormButtonDisabled" ng-click="addGuestForm=!addGuestForm" class="greenButton">Cancel</button>
+                        <button ng-disabled="addGuestFormButtonDisabled" ng-click="saveGuest()" class="bigButton">Speichern</button>
+                    </div>
+
+                    <div class="col">
+                        <button ng-disabled="addGuestFormButtonDisabled" ng-click="addGuestForm=!addGuestForm" class="bigButton orange">Abbrechen</button>
                     </div>
 
                     <div class="clear"></div>
@@ -100,7 +107,10 @@
                             </div>
 
                             <div class="col">
-                                <button ng-click="updateGuest($index)" ng-disabled="updateGuestButtonDisabled" class="bigButton">Änderung Speicher</button>
+                                <button ng-click="updateGuest($index)" ng-disabled="updateGuestButtonDisabled" class="bigButton">Speichern</button>
+                            </div>
+
+                            <div class="col">
                                 <button ng-click="deleteGuest($index)" class="bigButton red">Löschen</button>
                             </div>
 
