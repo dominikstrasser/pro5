@@ -51,6 +51,9 @@ config(['$routeProvider', function($routeProvider) {
             $scope.active = true;
         };
 
+        $scope.$on("testEvent", function(e,data){
+           console.log("data");
+        });
 
         $scope.saveGuest = function () {
             delete $scope.guest['_id'];

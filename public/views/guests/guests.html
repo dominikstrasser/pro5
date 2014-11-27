@@ -1,8 +1,57 @@
 <div class="management">
-    <h1>Gästeverwaltung</h1>
 
+    <h1>Gästeverwaltung</h1>
+    <input ng-model="searchText.last_name">
+    <button class="blueButton" ng-click="predicate = 'last_name'; reverse=!reverse">Alphabet</button>
+    <button class="blueButton" ng-click="predicate = ''; reverse=!reverse">Letzter Urlaub</button>
+    <button class="blueButton" ng-click="predicate = 'country'; reverse=!reverse">Land</button>
+    <button class="blueButton" ng-click="addGuestForm()">Neuer Gast!</button>
     <div class="management-content">
-        <section class="collapse-wrapper" ng-repeat="guest in guests" bs-collapse start-collapsed="true">
+
+        <div class="addGuestForm">
+            <h2>Neuen Gast anlegen</h2>
+            <div class="formular">
+                <div>
+                    <div class="col">
+                        <div class="row">
+                            <select name="salutation" ng-model="newGuest.salutation" tabindex="1">
+                                <option>Herr</option>
+                                <option>Frau</option>
+                                <option>Familie</option>
+                                <option>Firma</option>
+                            </select>
+                        </div>
+
+                        <div class="row"><input type="text" placeholder="Adresse" tabindex="5" name="address" ng-model="newGuest.address"></div>
+                        <div class="row"><input type="text" placeholder="Telefon" tabindex="8" name="phone" ng-model="newGuest.phone"></div>
+                        <div class="row"><input type="text" placeholder="Geburtsdatum" tabindex="10" name="date" ng-model="newGuest.birthdate"></div>
+                    </div>
+
+                    <div class="col">
+                        <div class="row"><input type="text" placeholder="Vorname" tabindex="2" name="first_name" ng-model="newGuest.first_name"></div>
+                        <div class="row"><input type="text" placeholder="PLZ" tabindex="6" name="plz" ng-model="newGuest.plz"></div>
+                        <div class="row"><input type="email" placeholder="Email" tabindex="9" name="email" ng-model="newGuest.email"></div>
+                    </div>
+
+                    <div class="col">
+                        <div class="row"><input type="text" placeholder="Nachname" tabindex="3" name="last_name" ng-model="newGuest.last_name"></div>
+                        <div class="row"><input type="text" placeholder="Stadt" tabindex="7" name="city" ng-model="newGuest.city"></div>
+                    </div>
+
+                    <div class="col">
+                        <div class="row"><input type="text" placeholder="Land" tabindex="4" name="country" ng-model="newGuest.country"></div>
+                    </div>
+
+                    <div class="col">
+                        <button ng-click="saveGuest()" class="greenButton">Speichern</button>
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+
+        <section class="collapse-wrapper" ng-repeat="guest in guests | filter:searchText | orderBy:predicate:reverse" bs-collapse start-collapsed="true">
             <div vertical layout class="management-row">
                 <div horizontal layout>
                     <div horizontal>{{guest.salutation}} {{guest.last_name}}</div>

@@ -104,9 +104,13 @@ angular.module('pro5_hzv.roomListDirective',[])
                     }
                 };
 
-                renderBooking = function(arr, dep){
+                renderBooking = function(arr, dep, booked){
                     var rl_booking = document.createElement("span");
-                    rl_booking.setAttribute("class", "rl_booking");
+                    if(booked) {
+                        rl_booking.setAttribute("class", "rl_booking booked");
+                    }else{
+                        rl_booking.setAttribute("class", "rl_booking");
+                    }
                     var bArr = $moment(arr);
                     var bDep = $moment(dep);
 
@@ -135,7 +139,8 @@ angular.module('pro5_hzv.roomListDirective',[])
 
                         for(var j = 0; j < scope.bookings.length; j++) {
                             if(scope.bookings[j].room_id[0]._id == scope.rooms[i]._id) {
-                                var rl_booking = renderBooking(scope.bookings[j].arr, scope.bookings[j].dep);
+
+                                var rl_booking = renderBooking(scope.bookings[j].arr, scope.bookings[j].dep, scope.bookings[j].status );
                                 rl_booking.innerHTML = scope.bookings[j].guest_id.salutation + " " +scope.bookings[j].guest_id.last_name;
                                 rl_booking.setAttribute("data-id",j);
                                 rl_booking.addEventListener("click",function(e){

@@ -16,4 +16,14 @@ angular.module('pro5_hzv.guests', ['ngRoute'])
             guestProvider.update($scope.guests[id]);
         };
 
+        $scope.saveGuest = function(){
+            console.log("1");
+            guestProvider.save($scope.newGuest, function(data){
+                console.log(data);
+                console.log("2");
+            });
+        };
+
+
+
     }]);
