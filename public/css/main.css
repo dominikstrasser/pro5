@@ -205,9 +205,9 @@ button:focus {
   position: relative;
   background: #c9cedb; }
 
-#current .dayEntryHeader span:last-of-type {
-  float: right;
-  margin-right: 90px; }
+#current .dayEntryHeader .dayGuest {
+  float: left;
+  min-width: 180px; }
 
 #current .dayEntryHeader .arrow {
   background: none; }
