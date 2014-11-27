@@ -1,13 +1,15 @@
-angular.module('pro5_hzv.dashboardAnreisenDirective',[])
-    .directive('anreisenDir', function($moment) {
+angular.module('pro5_hzv.dashboardAktuellDirective',[])
+    .directive('aktuellDir', function($moment) {
     return {
         restrict: 'E',
         replace:true,
-        templateUrl:'temp/dashboard-anreisen.html',
+        //templateUrl:'temp/dashboard-anreisen.html',
+        template: '<div ng-include="contentUrl"></div>',
         scope: {
             bookings: '=',
             day:'@',
-            open:'@'
+            open:'@',
+            contentUrl:'@'
         },
         link: function(scope, element, attrs) {
 
