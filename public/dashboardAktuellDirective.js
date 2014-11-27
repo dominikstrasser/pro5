@@ -20,6 +20,9 @@ angular.module('pro5_hzv.dashboardAktuellDirective',[])
                 d.milliseconds(0);
             };
 
+
+
+
             scope.$watch("bookings", function(n,o){
 
                 if(typeof n != 'undefined') {
