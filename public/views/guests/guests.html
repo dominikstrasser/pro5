@@ -5,10 +5,10 @@
     <button class="blueButton" ng-click="predicate = 'last_name'; reverse=!reverse">Alphabet</button>
     <button class="blueButton" ng-click="predicate = ''; reverse=!reverse">Letzter Urlaub</button>
     <button class="blueButton" ng-click="predicate = 'country'; reverse=!reverse">Land</button>
-    <button class="blueButton" ng-click="addGuestForm()">Neuer Gast!</button>
+    <button class="blueButton" ng-click="addGuestForm=true">Neuer Gast!</button>
     <div class="management-content">
 
-        <div class="addGuestForm">
+        <div class="addGuestForm" ng-show="addGuestForm">
             <h2>Neuen Gast anlegen</h2>
             <div class="formular">
                 <div>
@@ -43,7 +43,8 @@
                     </div>
 
                     <div class="col">
-                        <button ng-click="saveGuest()" class="greenButton">Speichern</button>
+                        <button ng-disabled="addGuestFormButtonDisabled" ng-click="saveGuest()" class="greenButton">Speichern</button>
+                        <button ng-disabled="addGuestFormButtonDisabled" ng-click="addGuestForm=!addGuestForm" class="greenButton">Cancel</button>
                     </div>
 
                     <div class="clear"></div>
@@ -51,7 +52,7 @@
             </div>
         </div>
 
-        <section class="collapse-wrapper" ng-repeat="guest in guests | filter:searchText | orderBy:predicate:reverse" bs-collapse start-collapsed="true">
+        <section class="collapse-wrapper date" ng-repeat="guest in guests | filter:searchText | orderBy:predicate:reverse" bs-collapse start-collapsed="true">
             <div vertical layout class="management-row">
                 <div horizontal layout>
                     <div horizontal>{{guest.salutation}} {{guest.last_name}}</div>
@@ -67,7 +68,6 @@
 
             <div fixedSize class="box panel-collapse" bs-collapse-target >
                 <div class="content">
-
                     <div class="formular">
                         <div>
                             <div class="col">
@@ -82,9 +82,8 @@
 
                                 <div class="row"><input type="text" name="address" ng-model="guest.address"></div>
                                 <div class="row"><input type="text" name="phone" ng-model="guest.phone"></div>
-                                <div class="row"><input type="text" name="date" ng-model="guest.date"></div>
+                                <div class="row"><input type="text" class="cal" placeholder="Datum" ng-model="guest.birthday" name="birthday" bs-datepicker></div>
                             </div>
-
                             <div class="col">
                                 <div class="row"><input type="text" name="first_name" ng-model="guest.first_name"></div>
                                 <div class="row"><input type="text" name="plz" ng-model="guest.plz"></div>
@@ -101,7 +100,8 @@
                             </div>
 
                             <div class="col">
-                                <button ng-click="updateGuest($index)" class="greenButton">Speichern</button>
+                                <button ng-click="updateGuest($index)" ng-disabled="updateGuestButtonDisabled" class="bigButton">Änderung Speicher</button>
+                                <button ng-click="deleteGuest($index)" class="bigButton red">Löschen</button>
                             </div>
 
                             <div class="clear"></div>

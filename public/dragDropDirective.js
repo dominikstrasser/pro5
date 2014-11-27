@@ -3,7 +3,6 @@ angular.module('pro5_hzv.dragDropDirective',[])
     return function(scope, element) {
         // this gives us the native JS object
         var el = element[0];
-        console.log(el);
         el.draggable = true;
 
         el.addEventListener(

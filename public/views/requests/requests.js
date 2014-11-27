@@ -12,6 +12,21 @@ angular.module('pro5_hzv.requests', ['ngRoute'])
     .controller('requestsCtrl', ["$scope", "bookingProvider", function($scope, bookingProvider) {
 
         $scope.reqs = bookingProvider.detail({'status': 0});
+
+        $scope.setClassToWrapper = function(event){
+            var el = angular.element(event.target);
+            var wrapper = el.parent().parent();
+            var target = el.parent().next();
+            console.log("wrapper " + wrapper);
+            console.log("target " + target);
+
+            if(wrapper.hasClass("collapse-open")){
+                wrapper.removeClass("collapse-open");
+            }else{
+                wrapper.addClass("collapse-open");
+            }
+        }
+
     }]).controller('emailController', ["$scope", "$sce", "bookingProvider", "emailProvider", function($scope, $sce, bookingProvider, emailProvider){
 
         $scope.email = {};
@@ -24,6 +39,9 @@ angular.module('pro5_hzv.requests', ['ngRoute'])
         $scope.testBox.text = "Das ist ein Test";
 
         $scope.enableEmail = false;
+
+
+
 
 
         $scope.sendEmail = function(){

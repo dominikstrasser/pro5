@@ -10,17 +10,34 @@ angular.module('pro5_hzv.guests', ['ngRoute'])
     }])
 
     .controller('guestsCtrl', ['$scope', 'guestProvider', function($scope, guestProvider) {
+
+        $scope.addGuestForm = false;
+        $scope.addGuestFormButtonDisabled = false;
+        $scope.updateGuestButtonDisabled = false;
         $scope.guests = guestProvider.query();
 
         $scope.updateGuest = function(id){
-            guestProvider.update($scope.guests[id]);
+            $scope.updateGuestButtonDisabled = true;
+            guestProvider.update($scope.guests[id],function(data){
+                $scope.updateGuestButtonDisabled = false;
+
+            });
+        };
+        $scope.deleteGuest = function(id){
+            guestProvider.delete({"_id" : $scope.guests[id]._id},function(data){
+                console.log("deleted");
+                console.log(data);
+                $scope.guests = guestProvider.query();
+            });
         };
 
         $scope.saveGuest = function(){
-            console.log("1");
+            $scope.addGuestFormButtonDisabled = true;
             guestProvider.save($scope.newGuest, function(data){
-                console.log(data);
-                console.log("2");
+                $scope.addGuestFormButtonDisabled = false;
+                $scope.addGuestForm = false;
+
+                $scope.guests = guestProvider.query();
             });
         };
 
