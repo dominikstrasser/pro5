@@ -4,9 +4,11 @@
         <div class="dayEntry" ng-repeat="booking in bookings" >
             <div ng-if="checkDate(booking.dep) == day" bs-collapse start-collapsed="true">
                 <div class="dayEntryHeader">
-                    <span>{{booking.guest_id.salutation}} </span>
-                    <span>{{booking.guest_id.last_name}}</span>
-                    <span>{{booking.person_count}} Personen</span>
+                    <div class="dayGuest">
+                        <span>{{booking.guest_id.salutation}} </span>
+                        <span>{{booking.guest_id.last_name}}</span>
+                    </div>
+                    <span>{{booking.person_count}} {{booking.person_count==1 ? 'Person' : 'Personen'}}</span>
                     <i bs-collapse-toggle><img src="../../img/arrows/down_blue.png" class="arrow" alt="arrow"></i>
                 </div>
                 <div class="dayEntryDetails panel-collapse" bs-collapse-target>
