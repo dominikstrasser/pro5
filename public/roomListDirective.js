@@ -12,7 +12,6 @@ angular.module('pro5_hzv.roomListDirective',[])
         link: function(scope, element, attrs) {
             // again we need the native object
             var el = element;
-
             scope.dataCounter = 0;
             scope.$watch("rooms", function(n,o){
 
@@ -21,15 +20,12 @@ angular.module('pro5_hzv.roomListDirective',[])
                 }
             },true);
             scope.$watch("bookings", function(n,o){
-                console.log("bookings");
                 if(typeof n != 'undefined') {
                     scope.dataCounter++;
                 }
             },true);
 
             scope.$watch("startday", function(n,o){
-                //console.log("ROOMS")
-                //console.log(n);
                 if(typeof n != 'undefined') {
                     scope.dataCounter++;
                 }
@@ -54,6 +50,7 @@ angular.module('pro5_hzv.roomListDirective',[])
                     today,
                     startDate,
                     dayWidth,
+                    roomNameWidth,
 
                     init,
                     renderHeader,
@@ -97,7 +94,7 @@ angular.module('pro5_hzv.roomListDirective',[])
                 renderHeader = function(){
                     var monthName = document.createElement("span");
                     monthName.innerHTML = monthAsWord(startDate.month());
-                    monthName.setAttribute("class", "rl_roomName rl_month");
+                    monthName.setAttribute("class", "rl_month");
                     rl_header.appendChild(monthName);
 
                     for(var i = 0; i < days.length; i++){
@@ -112,6 +109,7 @@ angular.module('pro5_hzv.roomListDirective',[])
                     rl_booking.setAttribute("class", "rl_booking");
                     var bArr = $moment(arr);
                     var bDep = $moment(dep);
+
                     var duration = $moment.duration(bArr.diff(startDate));
 
                     //Anzahl der Tage vom Beginn der Ansicht bis zum "start" der Buchung (arrival)
@@ -120,7 +118,7 @@ angular.module('pro5_hzv.roomListDirective',[])
                     //Anzahl der Tage zwischen Arrival und Departure
                     var end = $moment.duration(bDep.diff(bArr)).asDays();
 
-                    var bLeft = (100 - 12.5 + dayWidth*start);
+                    var bLeft = (roomNameWidth + 12.5 + dayWidth*start);
                     var bWidth = end*dayWidth;
                     rl_booking.setAttribute("style", "left:"+ bLeft +"px; width: "+ bWidth +"px");
                     return rl_booking;
@@ -138,7 +136,11 @@ angular.module('pro5_hzv.roomListDirective',[])
                         for(var j = 0; j < scope.bookings.length; j++) {
                             if(scope.bookings[j].room_id[0]._id == scope.rooms[i]._id) {
                                 var rl_booking = renderBooking(scope.bookings[j].arr, scope.bookings[j].dep);
-                                rl_booking.innerHTML = scope.bookings[j].guest_id.last_name;
+                                rl_booking.innerHTML = scope.bookings[j].guest_id.salutation + " " +scope.bookings[j].guest_id.last_name;
+                                rl_booking.setAttribute("data-id",j);
+                                rl_booking.addEventListener("click",function(e){
+                                    var id = e.target.getAttribute("data-id");
+                                },false);
                                 rl_room.appendChild(rl_booking);
                             }
                         }
@@ -157,7 +159,10 @@ angular.module('pro5_hzv.roomListDirective',[])
 
                     rl_wrapper.appendChild(rl_header);
                     rl_wrapper.appendChild(rl_body);
-                    el.html(rl_wrapper.outerHTML);
+                    while (el[0].hasChildNodes()) {
+                        el[0].removeChild(el[0].lastChild);
+                    }
+                    el[0].appendChild(rl_wrapper);
                 };
 
                 markToday = function(){
@@ -200,6 +205,7 @@ angular.module('pro5_hzv.roomListDirective',[])
                     //Tage im Header -> 30 Tage
                     days = [];
                     dayWidth = 30;
+                    roomNameWidth = 230;
                     initDates();
                     initDaysArray();
                     render();

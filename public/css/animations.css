@@ -17,33 +17,35 @@
  }
 
 /*############# dashboard.html animation  #################*/
-
-.day.inactive .dayEntry{
-    -webkit-animation: hide 0.4s;
-    max-height: 0px;
-}
-.day .dayEntry {
-    max-height: 500px;
-    overflow: hidden;
-}
-.day .dayEntry .dayEntryDetails {
+.panel-collapse{
     max-height: 0px;
     overflow: hidden;
-}
-.day .dayEntry .dayEntryDetails.inactive {
-    -webkit-animation: hideEntry 0.4s;
-    max-height: 500px;
-}
 
-@-webkit-keyframes hide {
-    from { max-height: 500px; }
-    to   { max-height: 0px;}
+    -webkit-transition: max-height 0.8s;
+    -moz-transition: max-height 0.8s;
+    transition: max-height 0.8s;
+
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+
+
+}
+.panel-collapse.in {
+    max-height: 2000px;
+
+    -webkit-transition: max-height 0.8s;
+    -moz-transition: max-height 0.8s;
+    transition: max-height 0.8s;
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+}
+.collapse-wrapper.date .panel-collapse.in {
+    overflow: visible;
 }
 @-webkit-keyframes hideEntry {
     from { max-height: 0px; }
     to   { max-height: 500px;}
 }
-
 /*#################################################################*/
 
 

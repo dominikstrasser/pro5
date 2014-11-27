@@ -32,12 +32,10 @@ angular.module('pro5_hzv.requests', ['ngRoute'])
             emailData.subject = "Anfrage Nr. 5472f00e3fb30781458ad894";
             emailData.date = Date.now();
             emailProvider.save({'_id' : $scope.currentRequest._id}, emailData, function(data){
-                console.log(data);
                 $scope.enableEmail = false;
                 bookingProvider.detail({_id: "5472f00e3fb30781458ad894"}, function(data){
                     $scope.currentRequest = data[0];
                 });
-
             });
         };
 

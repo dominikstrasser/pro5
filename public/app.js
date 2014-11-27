@@ -8,6 +8,7 @@ angular.module('pro5_hzv', [
     'mgcrea.ngStrap.datepicker',
     'mgcrea.ngStrap.tooltip',
     'mgcrea.ngStrap.typeahead',
+    'mgcrea.ngStrap.collapse',
     'pro5_hzv.dashboard',
     'pro5_hzv.roomList',
     'pro5_hzv.requests',
@@ -18,6 +19,7 @@ angular.module('pro5_hzv', [
     'pro5_hzv.dataService',
     'pro5_hzv.dragDropDirective',
     'pro5_hzv.roomListDirective',
+    'pro5_hzv.dashboardAktuellDirective',
     'eee-c.angularBindPolymer'
 ]).
 config(['$routeProvider', function($routeProvider) {
@@ -27,8 +29,12 @@ config(['$routeProvider', function($routeProvider) {
         angular.extend($datepickerProvider.defaults, {
             dateFormat: 'dd.MM.yyyy',
             startWeek: 1,
-            autoclose: "true",
-            delay: { show: 100, hide: 1000000000 }
+            autoclose: "true"
+            //delay: { show: 100, hide: 1000000000 }
+        });
+    }).config(function($collapseProvider) {
+        angular.extend($collapseProvider.defaults, {
+            animation: 'am-flip-x'
         });
     })
     .controller("indexCtrl", ['$scope','guestProvider', function ($scope, guestProvider) {
@@ -38,7 +44,7 @@ config(['$routeProvider', function($routeProvider) {
         $scope.active = false;
 
         $scope.getGuest = function (_id) {
-            guestProvider.get({ _id: '5474b1d06aa7d9455aae4862' }, function(data) {
+            guestProvider.get({ _id: '5475b17fcc7b2bd060868008' }, function(data) {
                 $scope.guest = data;
                 cGuestId = data._id;
             });

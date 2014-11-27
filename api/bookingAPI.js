@@ -22,7 +22,6 @@ function bookingDAO(){
 
     this.getBooking = function(req, res) {
         console.log("bookingAPI - getBooking");
-        console.log(req.params._id);
         bookingModel.findById(req.params._id, function (err, result) {
             if (err) console.log(err);
             res.json(result);
@@ -41,9 +40,7 @@ function bookingDAO(){
     };
 
     this.putBooking = function(req, res) {
-        console.log("bookingAPI - ");
-        //console.log(req.body);
-        //console.log(req.params._id);
+        console.log("bookingAPI - putBooking");
         bookingModel.findOneAndUpdate({"_id" : req.params._id}, req.body, function (err, result) {
             if (err) console.log(err);
             res.json(result);
@@ -90,7 +87,7 @@ function bookingDAO(){
 
         var today = moment.utc(req.query.cArr);
         var maxDate = moment.utc(req.query.cArr).add(7,"days");
-
+        //console.log(req.query.cArr);
         bookingModel.find()
             .where('arr').gte(today.valueOf()).lte(maxDate.valueOf())
             .populate({
@@ -104,6 +101,7 @@ function bookingDAO(){
             .select("arr dep category salutation guest_id person_count room_id")
             .exec(function(err, result){
                 if(err) console.log(err);
+                //console.log(result);
                 res.json(result);
             });
 
@@ -138,7 +136,7 @@ function bookingDAO(){
         console.log("bookingAPI : /detail");
 
         var myQuery;
-        console.log(req.params._id);
+        //console.log(req.params._id);
         if(typeof req.params._id != 'undefined'){
             myQuery = bookingModel.find({'_id' : req.params._id});
         }else{
@@ -146,7 +144,6 @@ function bookingDAO(){
         }
 
         if(req.query.status == 0 || req.query.status == 1){
-            console.log("test");
             myQuery.where('status').equals(req.query.status);
         }
 
@@ -175,7 +172,6 @@ function bookingDAO(){
 
         if(typeof req.query.start != "undefined"){
 
-            console.log("arr: " + req.query.start);
             var start = moment(req.query.start).add(-7,"days");
             var end = moment(req.query.start).add(21,"days");
             myQuery.where('dep').gte(start.valueOf());
@@ -193,7 +189,7 @@ function bookingDAO(){
             });
         myQuery.exec(function(err, result){
             if(err) console.log(err);
-            console.log(result);
+
             res.json(result);
         });
 

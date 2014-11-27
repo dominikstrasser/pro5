@@ -1,16 +1,20 @@
-<section class="collapse">
+<section class="collapse-wrapper" bs-collapse>
 
     <h1 class="first">Zimmerliste</h1>
-    <span class="open" onclick="document.querySelector('.box').toggle()"><img src="../../img/arrows/down_grey.png" class="arrow"></span>
+    <span class="open" bs-collapse-toggle><img src="../../img/arrows/down_grey.png" class="arrow"></span>
 
     <div class="clear"></div>
 
-    <core-collapse opened fixedSize class="box rl">
+    <div bs-collapse-target fixedSize class="box panel-collapse room-collapse">
         <div class="content">
-            <!--<button class="blueButton" ng-click="decreaseDate()">Prev</button> <button class="blueButton" ng-click="increaseDate()">Next</button>-->
+
             <div vertical layout>
                 <room-list rooms='rooms' bookings='bookings' startday='startday'></room-list>
             </div>
         </div>
-    </core-collapse>
+
+        <button class="blueButton prev" ng-click="decreaseDate()"><</button>
+        <button class="blueButton next" ng-click="increaseDate()">></button>
+
+    </div>
 </section>

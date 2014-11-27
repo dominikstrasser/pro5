@@ -26,6 +26,7 @@
   margin: 0;
   font-size: 16px;
   position: relative;
+  margin-bottom: -2px;
 }
 #current .arrow {
   position: absolute;
@@ -38,17 +39,18 @@
   cursor: pointer;
 }
 #current .dayEntryHeader {
-  border-bottom: $border-light;
   padding-left: 10px;
   padding-top: 15px;
   padding-bottom: 14px;
   position: relative;
+  background: $darkgrey;
+}
+#current .dayEntryHeader span:last-of-type {
+  float: right;
+  margin-right: 90px;
 }
 #current .dayEntryHeader .arrow {
   background: none;
-}
-#current .dayEntry {
-  background: $darkgrey;
 }
 #current .dayEntry.active {
   background: none;
@@ -56,4 +58,14 @@
 #current .dayEntryDetails {
   background: $grey;
   padding-left: 10px;
+}
+#current .dayEntryDetails .col {
+  float: left;
+  margin-right: 20px;
+}
+#current .dayEntryDetails .col div:first-child {
+  padding-top: 15px;
+}
+#current .dayEntryDetails .col:last-child {
+  padding-bottom: 15px;
 }

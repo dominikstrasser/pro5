@@ -24,6 +24,11 @@
   margin-top: 12px;
   color: $white;
 }
+#guestInformationHeader .blueButton {
+  position: absolute;
+  right: 100px;
+  top: 8px;
+}
 #guestInformation .up, #guestInformation .down {
   float: right;
   width: 12px;
@@ -47,7 +52,7 @@
   border-color: $white;
   color: $white;
 }
-#guestInformation select {
+#guestInformation select, .formular select {
   border: $border;
   background: none;
   border-color: $white;
