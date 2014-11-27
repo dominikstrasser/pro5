@@ -94,7 +94,7 @@ angular.module('pro5_hzv.roomListDirective',[])
                 renderHeader = function(){
                     var monthName = document.createElement("span");
                     monthName.innerHTML = monthAsWord(startDate.month());
-                    monthName.setAttribute("class", "rl_roomName rl_month");
+                    monthName.setAttribute("class", "rl_month");
                     rl_header.appendChild(monthName);
 
                     for(var i = 0; i < days.length; i++){
@@ -136,7 +136,7 @@ angular.module('pro5_hzv.roomListDirective',[])
                         for(var j = 0; j < scope.bookings.length; j++) {
                             if(scope.bookings[j].room_id[0]._id == scope.rooms[i]._id) {
                                 var rl_booking = renderBooking(scope.bookings[j].arr, scope.bookings[j].dep);
-                                rl_booking.innerHTML = scope.bookings[j].guest_id.last_name;
+                                rl_booking.innerHTML = scope.bookings[j].guest_id.salutation + " " +scope.bookings[j].guest_id.last_name;
                                 rl_booking.setAttribute("data-id",j);
                                 rl_booking.addEventListener("click",function(e){
                                     var id = e.target.getAttribute("data-id");

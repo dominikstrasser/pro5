@@ -49,6 +49,7 @@
 .collapse-wrapper .panel-collapse {
   margin-top: 30px;
 }
+
 .collapse-wrapper .room-collapse {
   margin-top: 0;
 }
@@ -79,7 +80,7 @@
   padding: 5px 30px;
   margin-bottom: 10px;
 }
-.collapse-wrapper .content .email p.drop {
+.collapse-wrapper .content .email .drop {
   border: $border-light;
   min-height: 100px;
   @include border-radius(5px);

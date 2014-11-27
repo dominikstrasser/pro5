@@ -123,6 +123,8 @@
 }
 .formular .item:hover {
   cursor: pointer;
+  background: $button-blue-hover;
+  border-color: $button-blue-hover;
 }
 .formular .core-selected {
   background: $green;

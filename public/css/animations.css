@@ -39,7 +39,6 @@
     -webkit-transition-timing-function: linear;
     transition-timing-function: linear;
 }
-
-.rl_wrapper{
-    cursor: pointer;
+.collapse-wrapper.date .panel-collapse.in {
+    overflow: visible;
 }

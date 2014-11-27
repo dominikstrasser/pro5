@@ -11,16 +11,31 @@
   list-style: none;
   border: $border;
   @include border-radius(5px);
+  z-index: 1;
+}
+.datepicker .text-center .pull-left,
+.datepicker .text-center .pull-right  {
+  background: $formblue;
+  border: none;
+  padding: 5px 15px;
+  @include border-radius(5px);
+  margin-bottom: 10px;
+}
+.datepicker .text-center .pull-left:hover,
+.datepicker .text-center .pull-right:hover {
+  background: $button-blue-hover;
+}
+.datepicker .glyphicon-chevron-left:before,
+.datepicker .glyphicon-chevron-right:before {
+  color: $white;
+  font-family: $font;
+  font-style: normal;
 }
 .datepicker .glyphicon-chevron-left:before {
   content: '<';
-  color: $white;
-  font-family: $font;
 }
 .datepicker .glyphicon-chevron-right:before {
   content: '>';
-  color: $white;
-  font-family: $font;
 }
 .datepicker .btn-block {
   border: none;
@@ -32,7 +47,7 @@
   @include border-radius(5px);
 }
 .datepicker tbody .btn-default:hover {
-  background: $blue;
+  background: $button-blue-hover;
 }
 .datepicker tbody .btn-default:hover > span {
   color: $white;
