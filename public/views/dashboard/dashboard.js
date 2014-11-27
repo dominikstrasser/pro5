@@ -13,61 +13,6 @@ angular.module('pro5_hzv.dashboard', [
 
     .controller('dashboardCtrl', ['$scope', '$moment', 'bookingProvider', function($scope, $moment, bookingProvider) {
 
-        $scope.arrivals = {};
-        $scope.departures = {};
-        var setTimeTo12 = function(d){
-            d.hour(12);
-            d.seconds(0);
-            d.minutes(0);
-            d.milliseconds(0);
-        };
-
-        $scope.checkDate = function(d){
-            d = $moment(d);
-            if(d.isSame($scope.today, "days")) return 1;
-            if(d.isSame($scope.tomorrow, "days")) return 2;
-            if(d.isAfter($scope.tomorrow, "days")) return 3;
-        };
-
-        $scope.selected = [];
-        $scope.selectedEntry = [];
-
-        $scope.init = function(index, first){
-                $scope.selected[index] = true;
-
-        };
-        $scope.dayAnimation = function(index){
-
-            if(index in $scope.selected && $scope.selected[index]){
-                $scope.selected[index] = false;
-            }else {
-                $scope.selected[index] = true;
-            }
-
-        };
-        $scope.isSelected = function(index){
-            if ($scope.selected[index]) {
-                return true;
-            } else {
-                return false;
-            }
-
-        };
-
-        $scope.dayEntryAnimation = function(event){
-            var dayEntryDetails = event.target.parentNode.parentNode.nextSibling.nextSibling;
-            dayEntryDetails.classList.toggle('inactive');
-        };
-
-
-
-        $scope.today = moment().utc();
-        $scope.tomorrow = moment.utc($scope.today).add(1, "days");
-        setTimeTo12($scope.today);
-        setTimeTo12($scope.tomorrow);
-        /*
-         * NICHT UTC?!?!?!?!?
-         * */
 
         var today = new Date();
 
@@ -78,7 +23,7 @@ angular.module('pro5_hzv.dashboard', [
             12, 0, 0, 0]);
 
         $scope.arrivals = bookingProvider.currentArrivals({"cArr" : cArr.toDate()});
-        $scope.departures = bookingProvider.currentDepartures(cArr);
+        $scope.departures = bookingProvider.currentDepartures({"cArr" : cArr.toDate()});
 
 
     }])

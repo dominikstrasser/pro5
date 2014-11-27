@@ -36,7 +36,6 @@ angular.module('pro5_hzv.requests', ['ngRoute'])
                 bookingProvider.detail({_id: "5472f00e3fb30781458ad894"}, function(data){
                     $scope.currentRequest = data[0];
                 });
-
             });
         };
 
