@@ -25,6 +25,9 @@
     -moz-transition: max-height 0.8s;
     transition: max-height 0.8s;
 
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+
 
 }
 .panel-collapse.in {
@@ -33,6 +36,8 @@
     -webkit-transition: max-height 0.8s;
     -moz-transition: max-height 0.8s;
     transition: max-height 0.8s;
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
 }
 
 .rl_wrapper{

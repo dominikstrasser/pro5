@@ -28,7 +28,6 @@ angular.module('pro5_hzv.roomList', ['ngRoute'])
 
         $scope.$watch("startday", function(n,o){
             if(typeof n != 'undefined') {
-                console.log("startday änderung");
                 refreshRoomList();
             }
         },true);

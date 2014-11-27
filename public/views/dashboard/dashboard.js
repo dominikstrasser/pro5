@@ -33,8 +33,6 @@ angular.module('pro5_hzv.dashboard', [
         $scope.selectedEntry = [];
 
         $scope.init = function(index, first){
-                console.log(index);
-                console.log(first);
                 $scope.selected[index] = true;
 
         };
