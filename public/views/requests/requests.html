@@ -13,10 +13,8 @@
                     <div horizontal>{{req.guest_id.salutation}} {{req.guest_id.last_name}}</div>
                     <div horizontal><span class="notification">1</span></div>
                     <div horizontal>{{req.person_count}} Personen</div>
-                    <div horizontal flex><span>Zimmer
-                        <span ng-repeat="room in req.room_id">{{room.number}}</span>
-                    </span></div>
-                    <div horizontal><button class="blueButton">Details</button></div>
+                    <div horizontal flex><span>Zimmer <span ng-repeat="room in req.room_id">{{room.number}}</span></span></div>
+                    <button class="blueButton">Details</button>
                 </div>
             </div>
 

@@ -12,6 +12,16 @@
   border: $border;
   @include border-radius(5px);
 }
+.datepicker .glyphicon-chevron-left:before {
+  content: '<';
+  color: $white;
+  font-family: $font;
+}
+.datepicker .glyphicon-chevron-right:before {
+  content: '>';
+  color: $white;
+  font-family: $font;
+}
 .datepicker .btn-block {
   border: none;
   background: none;

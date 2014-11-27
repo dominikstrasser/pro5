@@ -246,6 +246,16 @@ button:focus {
   -ms-border-radius: 5px;
   border-radius: 5px; }
 
+.datepicker .glyphicon-chevron-left:before {
+  content: '<';
+  color: #FFFFFF;
+  font-family: "proxima"; }
+
+.datepicker .glyphicon-chevron-right:before {
+  content: '>';
+  color: #FFFFFF;
+  font-family: "proxima"; }
+
 .datepicker .btn-block {
   border: none;
   background: none; }
@@ -548,11 +558,6 @@ button.blueButton:hover {
 .collapse-wrapper h1.first {
   margin-top: 37px; }
 
-/*.collapse-wrapper .open {
-  float: right;
-  margin-top: 30px;
-  @include user-select(none);
-}*/
 .collapse-wrapper .open:hover {
   cursor: pointer; }
 
@@ -565,7 +570,10 @@ button.blueButton:hover {
 
 .collapse-wrapper .guest {
   padding: 10px;
-  border-bottom: 2px solid #eef1f9; }
+  padding-bottom: 20px;
+  padding-top: 20px;
+  border-bottom: 2px solid #eef1f9;
+  position: relative; }
 
 .collapse-wrapper .guest .notification {
   background: #ff5a00;
@@ -575,6 +583,11 @@ button.blueButton:hover {
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
   border-radius: 20px; }
+
+.collapse-wrapper .guest .blueButton {
+  position: absolute;
+  right: 10px;
+  top: 15px; }
 
 .collapse-wrapper .formular {
   padding: 0;
@@ -681,7 +694,7 @@ button.blueButton:hover {
 .management .collapse-wrapper .open {
   position: absolute;
   right: 10px;
-  top: 10px;
+  top: 15px;
   margin: 0;
   float: none; }
 
@@ -690,7 +703,7 @@ button.blueButton:hover {
 
 .management-row {
   padding-left: 10px;
-  padding-top: 10px;
+  padding-top: 20px;
   padding-bottom: 20px;
   border-bottom: 2px solid #eef1f9; }
 
