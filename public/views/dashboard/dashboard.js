@@ -178,14 +178,45 @@ angular.module('pro5_hzv.dashboard', [
         $scope.names = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
         $scope.guests = guestProvider.query();
         console.log($scope.guests);
-        $scope.update = function(item) {
-            if(typeof $scope.selectedGuest === 'object') {
-                $scope.requestForm.last_name = $scope.selectedGuest.last_name;
-                $scope.requestForm.email = $scope.selectedGuest.email;
-            }else{
-                $scope.requestForm.last_name = $scope.selectedGuest;
-            }
+        /*$scope.$watch('requestForm.last_name', function(n, o){
+            angular.forEach($scope.guests, function(guest, key){
+                if(guest.last_name === n) {
+                    $scope.requestForm.email = guest.email;
+                };
+            });
+        });*/
+
+        $scope.updateEmail = function(item) {
+            angular.forEach($scope.guests, function(guest, key){
+                if(guest.last_name === item) {
+                    $scope.requestForm.e_mail = guest.email;
+                    $scope.safeApply(function(){
+                        console.log("start digest");
+                    });
+                };
+            });
+            console.log(item);last_name
+        };
+        $scope.updateName = function(item) {
+            angular.forEach($scope.guests, function(guest, key){
+                if(guest.email === item) {
+                    $scope.requestForm.last_name = guest.last_name;
+                    $scope.safeApply(function(){
+                        console.log("start digest");
+                    });
+                };
+            });
             console.log(item);
+        };
+        $scope.safeApply = function(fn) {
+            var phase = this.$root.$$phase;
+            if(phase == '$apply' || phase == '$digest') {
+                if(fn && (typeof(fn) === 'function')) {
+                    fn();
+                }
+            } else {
+                this.$apply(fn);
+            }
         };
 
         var setTimeTo12 = function(d){
@@ -196,8 +227,9 @@ angular.module('pro5_hzv.dashboard', [
         };
 
         $scope.requestForm = {};
+        $scope.requestForm.e_mail = 'sdf';
         $scope.requestForm.status =  0;
-        $scope.requestForm.person_count = 1;
+        $scope.requestForm.person_count = 5;
         $scope.requestForm.room_count =  1;
         $scope.requestForm.doubleRoom_count = 1;
         $scope.requestForm.room_id = [];
