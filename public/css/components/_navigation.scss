@@ -10,12 +10,12 @@
   text-decoration: none;
 }
 #leftNav a:hover, #rightNav a:hover {
-  //background: #434b62;
+  background: $navblue;
 }
 #leftNav a {
   margin-right: -5px;
-  border-left: 1px solid #434b62;
-  border-right: 1px solid #434b62;
+  border-left: $border-nav;
+  border-right: $border-nav;
   padding: 15px;
   outline: none;
 }
@@ -26,8 +26,8 @@
 }
 #rightNav a {
   margin-right: -5px;
-  border-left: 1px solid #434b62;
-  border-right: 1px solid #434b62;
+  border-left: $border-nav;
+  border-right: $border-nav;
   padding: 15px;
   background: $darkblue;
   outline: none;
@@ -39,6 +39,6 @@
     background: none;
   }
   #leftNav a:first-child, #rightNav a:first-child {
-    border-left: 1px solid #434b62;
+    border-left: $border-nav;
   }
 }
