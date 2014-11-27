@@ -20,15 +20,12 @@ angular.module('pro5_hzv.roomListDirective',[])
                 }
             },true);
             scope.$watch("bookings", function(n,o){
-                console.log("bookings");
                 if(typeof n != 'undefined') {
                     scope.dataCounter++;
                 }
             },true);
 
             scope.$watch("startday", function(n,o){
-                //console.log("ROOMS")
-                //console.log(n);
                 if(typeof n != 'undefined') {
                     scope.dataCounter++;
                 }
@@ -98,12 +95,6 @@ angular.module('pro5_hzv.roomListDirective',[])
                     var monthName = document.createElement("span");
                     monthName.innerHTML = monthAsWord(startDate.month());
                     monthName.setAttribute("class", "rl_roomName rl_month");
-                    //console.log(monthName);
-                    monthName.addEventListener("click", function(){
-                        console.log("test");
-                        alert("TEST");
-                        //$scope.$parent.getGuest(scope.bookings[j].guest_id._id);
-                    });
                     rl_header.appendChild(monthName);
 
                     for(var i = 0; i < days.length; i++){
@@ -149,7 +140,6 @@ angular.module('pro5_hzv.roomListDirective',[])
                                 rl_booking.setAttribute("data-id",j);
                                 rl_booking.addEventListener("click",function(e){
                                     var id = e.target.getAttribute("data-id");
-                                    console.log(scope.bookings[id].guest_id.first_name);
                                 },false);
                                 rl_room.appendChild(rl_booking);
                             }
@@ -169,6 +159,9 @@ angular.module('pro5_hzv.roomListDirective',[])
 
                     rl_wrapper.appendChild(rl_header);
                     rl_wrapper.appendChild(rl_body);
+                    while (el[0].hasChildNodes()) {
+                        el[0].removeChild(el[0].lastChild);
+                    }
                     el[0].appendChild(rl_wrapper);
                 };
 

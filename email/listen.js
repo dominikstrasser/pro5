@@ -44,8 +44,6 @@ var checkSubject = function(subj){
         var strId = subj.substr(bId + 12,24);
         var mongoObjectId = new RegExp("^[0-9a-fA-F]{24}$");
         if(strId.match(mongoObjectId)) {
-            console.log("GEHT");
-            console.log(strId);
             return strId;
         }
     }

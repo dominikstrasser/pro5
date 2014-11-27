@@ -48,7 +48,7 @@ angular.module('pro5_hzv.dashboardAbreisenDirective',[])
             scope.tomorrow = $moment.utc(scope.today).add(1,"days");
             setTimeTo12(scope.today);
             setTimeTo12(scope.tomorrow);
-            
+
             scope.checkDate = function(d){
 
                 d = $moment(d);
