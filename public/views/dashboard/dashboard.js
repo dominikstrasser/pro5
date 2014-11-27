@@ -50,39 +50,6 @@ angular.module('pro5_hzv.dashboard', [
             });
         });*/
 
-        $scope.updateEmail = function(item) {
-            angular.forEach($scope.guests, function(guest, key){
-                if(guest.last_name === item) {
-                    $scope.requestForm.e_mail = guest.email;
-                    $scope.safeApply(function(){
-                        console.log("start digest");
-                    });
-                };
-            });
-            console.log(item);last_name
-        };
-        $scope.updateName = function(item) {
-            angular.forEach($scope.guests, function(guest, key){
-                if(guest.email === item) {
-                    $scope.requestForm.last_name = guest.last_name;
-                    $scope.safeApply(function(){
-                        console.log("start digest");
-                    });
-                };
-            });
-            console.log(item);
-        };
-        $scope.safeApply = function(fn) {
-            var phase = this.$root.$$phase;
-            if(phase == '$apply' || phase == '$digest') {
-                if(fn && (typeof(fn) === 'function')) {
-                    fn();
-                }
-            } else {
-                this.$apply(fn);
-            }
-        };
-
         var setTimeTo12 = function(d){
             d.hour(12);
             d.seconds(0);
@@ -93,13 +60,31 @@ angular.module('pro5_hzv.dashboard', [
 
 
         $scope.requestForm = {};
-        $scope.requestForm.e_mail = 'sdf';
+        $scope.requestForm.e_mail = '';
+        $scope.requestForm.last_name = '';
         $scope.requestForm.status =  0;
         $scope.requestForm.person_count = 5;
         $scope.requestForm.room_count =  1;
         $scope.requestForm.doubleRoom_count = 1;
         $scope.requestForm.room_id = [];
         $scope.requestForm.category = "NF";
+
+        $scope.updateEmail = function(item) {
+            angular.forEach($scope.guests, function(guest, key){
+                if(guest.last_name === item) {
+                    $scope.requestForm.e_mail = guest.email;
+                };
+            });
+            console.log(item);last_name
+        };
+        $scope.updateName = function(item) {
+            angular.forEach($scope.guests, function(guest, key){
+                if(guest.email === item) {
+                    $scope.requestForm.last_name = guest.last_name;
+                };
+            });
+            console.log(item);
+        };
 
 
         $scope.testBooking = function(){
