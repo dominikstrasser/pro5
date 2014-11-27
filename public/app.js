@@ -6,6 +6,8 @@ angular.module('pro5_hzv', [
     'ngRoute',
     'ngResource',
     'mgcrea.ngStrap.datepicker',
+    'mgcrea.ngStrap.tooltip',
+    'mgcrea.ngStrap.typeahead',
     'mgcrea.ngStrap.collapse',
     'pro5_hzv.dashboard',
     'pro5_hzv.roomList',
