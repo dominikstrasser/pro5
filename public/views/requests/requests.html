@@ -1,34 +1,20 @@
-<section class="collapse-wrapper collapse-open" bs-collapse>
-
-    <h1 class="first">Alle Anfragen</h1>
-    <span class="open" bs-collapse-toggle ng-click="setClassToWrapper($event)"  ><img  src="../../img/arrows/down_grey.png" class="arrow"></span>
-
-    <div class="clear"></div>
-
-    <div opened fixedSize bs-collapse-target class="panel-collapse">
-        <div class="content">
-
-            <div vertical layout>
-                <div horizontal layout class="data guest" ng-repeat="req in reqs">
-                    <div horizontal>{{req.guest_id.salutation}} {{req.guest_id.last_name}}</div>
-                    <div horizontal><span class="notification">1</span></div>
-                    <div horizontal>{{req.person_count}} Personen</div>
-                    <div horizontal flex><span>Zimmer <span ng-repeat="room in req.room_id">{{room.number}}</span></span></div>
-                    <button class="blueButton">Details</button>
-                </div>
-            </div>
-
+<custom-collapse colType="big" opened="true">
+    <h1>Alle Anfragen</h1>
+    <div class="content">
+        <div horizontal layout class="data guest" ng-repeat="req in reqs">
+            <div horizontal>{{req.guest_id.salutation}} {{req.guest_id.last_name}}</div>
+            <div horizontal><span class="notification">1</span></div>
+            <div horizontal>{{req.person_count}} Personen</div>
+            <div horizontal flex><span>Zimmer <span ng-repeat="room in req.room_id">{{room.number}}</span></span></div>
+            <button class="blueButton">Details</button>
         </div>
     </div>
-</section>
+</custom-collapse>
 
-<section class="collapse-wrapper date" bs-collapse>
+<custom-collapse colType="big">
     <h1>Anfrage Familie Mustermann</h1>
-    <span class="open" bs-collapse-toggle><img src="../../img/arrows/down_grey.png" class="arrow"></span>
 
-    <div class="clear"></div>
-
-    <div opened fixedSize bs-collapse-target class="panel-collapse">
+    <div class="panel-collapse">
         <div class="formular" ng-controller="requestFormController">
             <form>
                 <div class="col">
@@ -75,7 +61,7 @@
             </form>
         </div>
     </div>
-</section>
+</custom-collapse>
 
 <section class="collapse-wrapper" bs-collapse>
     <h1>Zimmerliste</h1>

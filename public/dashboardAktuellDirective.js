@@ -8,7 +8,7 @@ angular.module('pro5_hzv.dashboardAktuellDirective',[])
         scope: {
             bookings: '=',
             day:'@',
-            open:'@',
+            opened:'@',
             contentUrl:'@'
         },
         link: function(scope, element, attrs) {
@@ -26,23 +26,13 @@ angular.module('pro5_hzv.dashboardAktuellDirective',[])
             scope.$watch("bookings", function(n,o){
 
                 if(typeof n != 'undefined') {
-                    if (scope.open == 'true') {
-                        scope.panel = 0;
-                    } else {
-                        scope.panel = -1;
-                    }
                 }
 
             },true);
 
-            scope.$watch("open", function(n,o){
+            scope.$watch("opened", function(n,o){
 
                 if(typeof n != 'undefined') {
-                    if(scope.open == 'true'){
-
-                    }else{
-                        //document.querySelector(".day").removeAttribute("start-collapsed");
-                    }
                 }
             });
 

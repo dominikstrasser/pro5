@@ -18,27 +18,17 @@
 
 /*############# dashboard.html animation  #################*/
 .panel-collapse{
-    max-height: 0px;
     overflow: hidden;
 
-    -webkit-transition: max-height 0.8s;
-    -moz-transition: max-height 0.8s;
-    transition: max-height 0.8s;
-
-    -webkit-transition-timing-function: linear;
-    transition-timing-function: linear;
-
-
+    -webkit-transition: max-height 0.3s;
+    -moz-transition: max-height 0.3s;
+    transition: max-height 0.3s;
 }
 .panel-collapse.in {
-    max-height: 2000px;
 
-    -webkit-transition: max-height 0.8s;
-    -moz-transition: max-height 0.8s;
-    transition: max-height 0.8s;
-    -webkit-transition-timing-function: linear;
-    transition-timing-function: linear;
-
+    -webkit-transition: max-height 0.3s;
+    -moz-transition: max-height 0.3s;
+    transition: max-height 0.3s;
 }
 .collapse-wrapper.date .panel-collapse.in {
     overflow: visible;
@@ -126,4 +116,40 @@
 
 .addGuestForm.ng-hide {
    max-height: 0px;
+}
+
+
+custom-collapse /deep/ .data {
+    padding: 10px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-bottom: 2px solid #eef1f9;
+    position: relative;
+}
+
+custom-collapse /deep/ .collapse-wrapper{
+    margin: 0 20px;
+    position: relative;
+}
+
+custom-collapse /deep/ .collapse-wrapper h1{
+    border-top: 2px solid #c9cedb;
+    padding-top: 11px;
+    margin-top: 60px;
+    margin-bottom: 0;
+}
+
+custom-collapse /deep/ .collapse-wrapper .open {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    height: 57px;
+    width: 57px;
+    background: #eef1f9;
+}
+
+custom-collapse /deep/ .collapse-wrapper .open .arrow {
+    padding: 25px 23px;
+    transform: rotate(0deg);
+    transition: all 0.5s ease 0s;
 }

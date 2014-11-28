@@ -16,13 +16,14 @@ angular.module('pro5_hzv.requests', ['ngRoute'])
         $scope.setClassToWrapper = function(event){
             var el = angular.element(event.target);
             var wrapper = el.parent().parent();
-            var target = el.parent().next();
-            console.log("wrapper " + wrapper);
-            console.log("target " + target);
+            var target = el.parent().next().next();
+            console.log(target.children()[0].offsetHeight);
 
             if(wrapper.hasClass("collapse-open")){
+                target[0].setAttribute("style","max-height:0px");
                 wrapper.removeClass("collapse-open");
             }else{
+                target[0].setAttribute("style","max-height:"+ target.children()[0].offsetHeight +"px");
                 wrapper.addClass("collapse-open");
             }
         }
@@ -35,13 +36,10 @@ angular.module('pro5_hzv.requests', ['ngRoute'])
         $scope.email.text = $sce.trustAsHtml("<p class='drop' >&nbsp;</p>");
 
         $scope.testBox = {};
-        $scope.testBox.title = "testBox"
+        $scope.testBox.title = "testBox";
         $scope.testBox.text = "Das ist ein Test";
 
         $scope.enableEmail = false;
-
-
-
 
 
         $scope.sendEmail = function(){
