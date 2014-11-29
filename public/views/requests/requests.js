@@ -13,21 +13,6 @@ angular.module('pro5_hzv.requests', ['ngRoute'])
 
         $scope.reqs = bookingProvider.detail({'status': 0});
 
-        $scope.setClassToWrapper = function(event){
-            var el = angular.element(event.target);
-            var wrapper = el.parent().parent();
-            var target = el.parent().next().next();
-            console.log(target.children()[0].offsetHeight);
-
-            if(wrapper.hasClass("collapse-open")){
-                target[0].setAttribute("style","max-height:0px");
-                wrapper.removeClass("collapse-open");
-            }else{
-                target[0].setAttribute("style","max-height:"+ target.children()[0].offsetHeight +"px");
-                wrapper.addClass("collapse-open");
-            }
-        }
-
     }]).controller('emailController', ["$scope", "$sce", "bookingProvider", "emailProvider", function($scope, $sce, bookingProvider, emailProvider){
 
         $scope.email = {};

@@ -4,16 +4,16 @@
 
             <div flex class="arrivals">
                 <h1>Aktuelle Anreisen</h1>
-                <aktuell-dir bookings="arrivals" day="1" open="true" content-url="temp/dashboard-anreisen.html"></aktuell-dir>
-                <aktuell-dir bookings="arrivals" day="2" open="false" content-url="temp/dashboard-anreisen.html"></aktuell-dir>
-                <aktuell-dir bookings="arrivals" day="3" open="false" content-url="temp/dashboard-anreisen.html"></aktuell-dir>
+                <aktuell-dir bookings="arrivals" day="1" opened="true" content-url="temp/dashboard-anreisen.html"></aktuell-dir>
+                <aktuell-dir bookings="arrivals" day="2" content-url="temp/dashboard-anreisen.html"></aktuell-dir>
+                <aktuell-dir bookings="arrivals" day="3" content-url="temp/dashboard-anreisen.html"></aktuell-dir>
             </div>
 
             <div flex class="departures">
                 <h1>Aktuelle Abreisen</h1>
-                <aktuell-dir bookings="departures" day="1" open="true" content-url="temp/dashboard-abreisen.html"></aktuell-dir>
-                <aktuell-dir bookings="departures" day="2" open="false" content-url="temp/dashboard-abreisen.html"></aktuell-dir>
-                <aktuell-dir bookings="departures" day="3" open="false" content-url="temp/dashboard-abreisen.html"></aktuell-dir>
+                <aktuell-dir bookings="departures" day="1" opened="true" content-url="temp/dashboard-abreisen.html"></aktuell-dir>
+                <aktuell-dir bookings="departures" day="2" content-url="temp/dashboard-abreisen.html"></aktuell-dir>
+                <aktuell-dir bookings="departures" day="3" content-url="temp/dashboard-abreisen.html"></aktuell-dir>
             </div>
         </div>
     </div>
@@ -25,10 +25,6 @@
 
 <div class="formular" ng-controller="requestFormController">
     <h1>Neue Anfrage</h1>
-    <p>Die Datums werden im FE zu UTC 12:00:00 gewandelt...
-    Aber die Umwandlung muss von Lokaler Zeitzohne in UTC geschehen und nicht UTC generieren!
-        In DB werden datums als UTC gespeichert...
-        (kurz vor mitternacht-Problem)</p>
     <p class="status">{{available_rooms.length}} Zimmer verfügbar</p>
     <form class="form-inline" role="form">
         <div class="col">
@@ -67,8 +63,10 @@
             </div>
 
             <div class="row">
+                <!--
                 <input autocomplete="off" type="text" class="form-control" ng-change="updateName(requestForm.e_mail)" ng-model="requestForm.e_mail" name="email"
                        placeholder="E-Mail Adresse" data-animation="am-flip-x" bs-typeahead>
+                       -->
             </div>
 
             <div class="row">

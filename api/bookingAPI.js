@@ -102,6 +102,7 @@ function bookingDAO(){
             .exec(function(err, result){
                 if(err) console.log(err);
                 //console.log(result);
+                console.log("arr");
                 res.json(result);
             });
 
@@ -127,6 +128,7 @@ function bookingDAO(){
             .select("arr dep category salutation guest_id person_count room_id")
             .exec(function(err, result){
                 if(err) console.log(err);
+                console.log("dep");
                 res.json(result);
             });
 

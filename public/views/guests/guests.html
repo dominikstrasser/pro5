@@ -9,12 +9,11 @@
         </div>
     </div>
 
-    <button class="blueButton" ng-click="addGuestForm=true">Neuer Gast!</button>
+    <button class="blueButton" onclick="document.getElementById('newGuestCollapse').toggle()">Neuer Gast!</button>
     <div class="management-content">
-
-        <div class="addGuestForm" ng-show="addGuestForm">
-            <h2>Neuen Gast anlegen</h2>
+        <custom-collapse colType="none" id="newGuestCollapse">
             <div class="formular">
+                <h2>Neuen Gast anlegen</h2>
                 <div>
                     <div class="col">
                         <div class="row">
@@ -57,69 +56,67 @@
                     <div class="clear"></div>
                 </div>
             </div>
-        </div>
+        </custom-collapse>
 
-        <section class="collapse-wrapper date" ng-repeat="guest in guests | filter:searchText | orderBy:predicate:reverse" bs-collapse start-collapsed="true">
-            <div vertical layout class="management-row">
-                <div horizontal layout>
-                    <div horizontal>{{guest.salutation}} {{guest.last_name}}</div>
-                    <div horizontal>letzter Urlaub am 10. Oktober 2014</div>
-                    <div horizontal>10 Besuche</div>
-                    <div horizontal flex>{{guest.country}}</div>
-                </div>
+        <section class="collapse-wrapper date" ng-repeat="guest in guests | filter:searchText | orderBy:predicate:reverse" >
+            <custom-collapse colType="detail">
+                <h3 vertical layout class="management-row">
+                    <div horizontal layout>
+                        <div horizontal>{{guest.salutation}} {{guest.last_name}}</div>
+                        <div horizontal>letzter Urlaub am 10. Oktober 2014</div>
+                        <div horizontal>10 Besuche</div>
+                        <div horizontal flex>{{guest.country}}</div>
+                    </div>
+                </h3>
 
-                <button class="blueButton" bs-collapse-toggle>Details</button>
-            </div>
+                <div class="box panel-collapse" >
+                    <div class="content">
+                        <div class="formular">
+                            <div>
+                                <div class="col">
+                                    <div class="row">
+                                        <select name="salutation" ng-model="guest.salutation">
+                                            <option>Herr</option>
+                                            <option>Frau</option>
+                                            <option>Familie</option>
+                                            <option>Firma</option>
+                                        </select>
+                                    </div>
 
-            <div class="clear"></div>
-
-            <div fixedSize class="box panel-collapse" bs-collapse-target >
-                <div class="content">
-                    <div class="formular">
-                        <div>
-                            <div class="col">
-                                <div class="row">
-                                    <select name="salutation" ng-model="guest.salutation">
-                                        <option>Herr</option>
-                                        <option>Frau</option>
-                                        <option>Familie</option>
-                                        <option>Firma</option>
-                                    </select>
+                                    <div class="row"><input type="text" name="address" ng-model="guest.address"></div>
+                                    <div class="row"><input type="text" name="phone" ng-model="guest.phone"></div>
+                                    <div class="row"><input type="text" class="cal" placeholder="Datum" ng-model="guest.birthday" name="birthday" bs-datepicker></div>
+                                </div>
+                                <div class="col">
+                                    <div class="row"><input type="text" name="first_name" ng-model="guest.first_name"></div>
+                                    <div class="row"><input type="text" name="plz" ng-model="guest.plz"></div>
+                                    <div class="row"><input type="email" name="email" ng-model="guest.email"></div>
                                 </div>
 
-                                <div class="row"><input type="text" name="address" ng-model="guest.address"></div>
-                                <div class="row"><input type="text" name="phone" ng-model="guest.phone"></div>
-                                <div class="row"><input type="text" class="cal" placeholder="Datum" ng-model="guest.birthday" name="birthday" bs-datepicker></div>
-                            </div>
-                            <div class="col">
-                                <div class="row"><input type="text" name="first_name" ng-model="guest.first_name"></div>
-                                <div class="row"><input type="text" name="plz" ng-model="guest.plz"></div>
-                                <div class="row"><input type="email" name="email" ng-model="guest.email"></div>
-                            </div>
+                                <div class="col">
+                                    <div class="row"><input type="text" name="last_name" ng-model="guest.last_name"></div>
+                                    <div class="row"><input type="text" name="city" ng-model="guest.city"></div>
+                                </div>
 
-                            <div class="col">
-                                <div class="row"><input type="text" name="last_name" ng-model="guest.last_name"></div>
-                                <div class="row"><input type="text" name="city" ng-model="guest.city"></div>
-                            </div>
+                                <div class="col">
+                                    <div class="row"><input type="text" name="country" ng-model="guest.country"></div>
+                                </div>
 
-                            <div class="col">
-                                <div class="row"><input type="text" name="country" ng-model="guest.country"></div>
-                            </div>
+                                <div class="col">
+                                    <button ng-click="updateGuest($index)" ng-disabled="updateGuestButtonDisabled" class="bigButton">Speichern</button>
+                                </div>
 
-                            <div class="col">
-                                <button ng-click="updateGuest($index)" ng-disabled="updateGuestButtonDisabled" class="bigButton">Speichern</button>
-                            </div>
+                                <div class="col">
+                                    <button ng-click="deleteGuest($index)" class="bigButton red">Löschen</button>
+                                </div>
 
-                            <div class="col">
-                                <button ng-click="deleteGuest($index)" class="bigButton red">Löschen</button>
+                                <div class="clear"></div>
                             </div>
-
-                            <div class="clear"></div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
-            </div>
+            </custom-collapse>
         </section>
     </div>
 </div>
