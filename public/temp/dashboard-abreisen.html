@@ -1,0 +1,29 @@
+<custom-collapse colType="medium" opened="{{opened}}" >
+    <h2>{{dayWord}}</h2>
+    <div ng-repeat="booking in bookings" >
+
+        <custom-collapse colType="small" ng-if="checkDate(booking.dep) == day">
+            <h3>
+                    <span class="dayGuest">
+                        <span>{{booking.guest_id.salutation}} </span>
+                        <span>{{booking.guest_id.last_name}}</span>
+                    </span>
+                <span>{{booking.person_count}} {{booking.person_count==1 ? 'Person' : 'Personen'}}</span>
+            </h3>
+            <div class="dayEntryDetails">
+                <div class="col">
+                    <div class="row">Zimmer</div>
+                    <div class="row">Abreise</div>
+                    <div class="row">Verpflegung</div>
+                </div>
+
+                <div class="col">
+                    <div class="row" ng-repeat="room in booking.room_id">{{room.number}}{{$last ? '' : ', '}}</div>
+                    <div class="row">{{booking.dep | date:"EEEE, d. MMMM yyyy"}}</div>
+                    <div class="row">{{booking.category}}</div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </custom-collapse>
+    </div>
+</custom-collapse>
