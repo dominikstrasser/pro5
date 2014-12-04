@@ -6,7 +6,6 @@
   "author": "Dominik Strasser",
   "license": "ISC",
   "scripts": {
-    "start": "node app.js",
     "postinstall": "bower install"
   },
   "dependencies": {
