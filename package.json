@@ -6,7 +6,7 @@
   "author": "Dominik Strasser",
   "license": "ISC",
   "scripts": {
-    "postinstall": "bower install"
+    "postinstall": "bower ./public install"
   },
   "dependencies": {
     "body-parser": "^1.9.0",
