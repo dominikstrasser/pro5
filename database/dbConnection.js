@@ -1,6 +1,12 @@
 //var mongoPath = require("./dbConfig.js");
-console.log(require("./dbConfig.js"));
-var mongoPath = process.env.mongoPath | require("./dbConfig.js");
+var fs = require('fs');
+
+var mongoPath = process.env.mongoPath;
+
+if (fs.existsSync("../dbConfig.js")) {
+    var mongoPath = require("./dbConfig.js")
+}
+
 var mongoose  = require("mongoose");
 mongoose.connect(mongoPath);
 var db = mongoose.connection;
