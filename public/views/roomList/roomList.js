@@ -32,7 +32,8 @@ angular.module('pro5_hzv.roomList', ['ngRoute'])
             }
         },true);
 
-        $scope.filteredRooms = ["5478bae704eb543e7598ed8a","5478bae704eb543e7598ed8b"];
+        //$scope.filteredRooms = ["5478bae704eb543e7598ed8a","5478bae704eb543e7598ed8b"];
+        $scope.filteredRooms = [];
         $scope.selectedRooms = [];
         $scope.$watch("selectedRooms",function(n,o){
            console.log(n);
