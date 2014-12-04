@@ -32,7 +32,7 @@ angular.module('pro5_hzv.roomList', ['ngRoute'])
             }
         },true);
 
-        $scope.filteredRooms = ["547c24dbf8b19f2c19578496","547c24dbf8b19f2c19578495"];
+        $scope.filteredRooms = ["5478bae704eb543e7598ed8a","5478bae704eb543e7598ed8b"];
         $scope.selectedRooms = [];
         $scope.$watch("selectedRooms",function(n,o){
            console.log(n);
