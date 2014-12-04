@@ -190,6 +190,7 @@ angular.module('pro5_hzv.roomListDirective',[])
                     for(var i = 0; i < scope.rooms.length; i++){
 
                         if(scope.filteredRooms.length == 0){
+                            console.log("TEST");
                             var rl_room = renderRoom(scope.rooms[i]);
                             rl_body.appendChild(rl_room);
                         }
