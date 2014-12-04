@@ -40,7 +40,7 @@
 
         <div class="col">
             <div class="row">
-                <custom-counter bind-polymer current="{{requestForm.room_count}}" singular="EZ" plural="EZ" size="5"></custom-counter>
+                <custom-counter bind-polymer current={{requestForm.room_count}} singular="EZ" plural="EZ" size="5"></custom-counter>
             </div>
             <div class="row">
                 <custom-counter bind-polymer ng-model="requestForm.doubleRoom_count" current="{{requestForm.doubleRoom_count}}" singular="DZ" plural="DZ" size="5"></custom-counter>
@@ -70,7 +70,7 @@
             </div>
 
             <div class="row">
-                <input ng-click="testBooking()" type="submit" class="bigButton" value="Weiter">
+                <button ng-click="testBooking()" class="bigButton">Weiter</button>
             </div>
         </div>
 

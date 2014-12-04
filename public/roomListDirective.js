@@ -234,7 +234,7 @@ angular.module('pro5_hzv.roomListDirective',[])
                     today.millisecond(0);
                     today.second(0);
                     today.minute(0);
-                    today.utc().hour(12);
+                    today.hour(12);
 
                     startDate = moment.utc([
                         scope.startday.year(),

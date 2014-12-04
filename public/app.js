@@ -19,8 +19,8 @@ angular.module('pro5_hzv', [
     'pro5_hzv.dataService',
     'pro5_hzv.dragDropDirective',
     'pro5_hzv.roomListDirective',
-    'pro5_hzv.dashboardAktuellDirective'
-    //'eee-c.angularBindPolymer'
+    'pro5_hzv.dashboardAktuellDirective',
+    'pro5_hzv.bindPolymerDirective'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/dashboard'});

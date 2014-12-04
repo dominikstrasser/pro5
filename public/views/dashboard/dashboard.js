@@ -111,7 +111,7 @@ angular.module('pro5_hzv.dashboard', [
 
             $scope.requestForm.arr = arr.toDate();
             $scope.requestForm.dep = dep.toDate();
-            //console.log($scope.requestForm);
+            console.log($scope.requestForm);
             //bookingProvider.save($scope.requestForm);
 
         };
