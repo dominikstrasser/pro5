@@ -10,8 +10,8 @@ router.post("/:_id", function (req, res) {
     console.log("emailAPI - post: /");
 
     var mailOptions = {
-        from: "strasserdominik@hotmail.com", // sender address
-        to: 'thomas.steidl@live.at', // list of receivers
+        from: "hotelzimmerverwaltung@gmail.com", // sender address
+        to: 'strasserdominik@hotmail.com', // list of receivers
         subject: req.body.subject, // Subject line
         //text: req.body.body // plaintext body
         html: req.body.body // html body

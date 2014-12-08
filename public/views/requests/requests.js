@@ -30,11 +30,11 @@ angular.module('pro5_hzv.requests', ['ngRoute'])
         $scope.sendEmail = function(){
             $scope.enableEmail = true;
             var emailData = {"body" : $scope.email.begin + $scope.email.text + $scope.email.end};
-            emailData.subject = "Anfrage Nr. 5472f00e3fb30781458ad894";
+            emailData.subject = "Anfrage Nr. 5480ca10ec89333b3733852f";
             emailData.date = Date.now();
             emailProvider.save({'_id' : $scope.currentRequest._id}, emailData, function(data){
                 $scope.enableEmail = false;
-                bookingProvider.detail({_id: "5472f00e3fb30781458ad894"}, function(data){
+                bookingProvider.detail({_id: "5480ca10ec89333b3733852f"}, function(data){
                     $scope.currentRequest = data[0];
                 });
             });
@@ -42,7 +42,7 @@ angular.module('pro5_hzv.requests', ['ngRoute'])
 
 
         $scope.currentRequest = {};
-        bookingProvider.detail({_id: "5472f00e3fb30781458ad894"}, function(data){
+        bookingProvider.detail({_id: "5480ca10ec89333b3733852f"}, function(data){
             $scope.currentRequest = data[0];
         });
 

@@ -1,4 +1,3 @@
-//
 var mongoPath;
 if(typeof process.env.MONGOLABPATH != "undefined") {
     mongoPath = process.env.MONGOLABPATH;

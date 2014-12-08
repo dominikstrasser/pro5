@@ -1,1 +1,17 @@
-<p>hallo</p>
+<input type="text" ng-model="model" placeholder="{{prompt}}" ng-keydown="handleKey($event, (items | filter:{'last_name':model}))" /><!-- ng-keydown="selected=false" -->
+<br/>
+
+<div class="typeahead" ng-hide="!model.length || selected">
+    <div class="typeaheadItem" ng-repeat="item in items | filter:{'last_name':model}  track by $index" ng-click="handleSelection(item)" style="cursor:pointer" ng-class="{active:isCurrent($index)}" ng-mouseenter="setCurrent($index)">
+        <span class="title">{{item[maintitle]}}</span>
+        <span ng-if="item[subtitle]" class="subtitle">{{item[subtitle]}}</span>
+        <span ng-if="item[subsubtitle]" class="subtitle">{{item[subsubtitle]}}</span>
+    </div>
+</div>
+
+<!--<ul tabindex="-1" class="typeahead dropdown-menu" ng-hide="!model.length || selected">
+    <li role="presentation" ng-repeat="match in $matches" ng-class="{active: $index == $activeIndex}">
+        <a role="menuitem" tabindex="-1" ng-click="$select($index, $event)" ng-bind="match.label"></a>
+    </li>
+</ul>-->
+
