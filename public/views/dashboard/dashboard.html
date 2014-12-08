@@ -69,10 +69,10 @@
             </div>
             -->
             <div class="row">
-                <typeahead items="guests" prompt="Nachname" maintitle="last_name" subtitle="first_name" subsubtitle="email" model="name" on-select="onItemSelected(selectedItem)"></typeahead>
+                <typeahead items="guests" prompt="Nachname" maintitle="last_name" subtitle="first_name" subsubtitle="email" model="requestForm.last_name" on-select="onItemSelected(selectedItem)"></typeahead>
             </div>
             <div class="row">
-                <typeahead items="guests" prompt="Email" maintitle="email" model="mail" on-select="onItemSelected(selectedItem)"></typeahead>
+                <typeahead items="guests" prompt="Email" maintitle="email" model="requestForm.email" on-select="onItemSelected(selectedItem)"></typeahead>
             </div>
 
             <div class="row">

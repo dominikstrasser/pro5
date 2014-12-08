@@ -43,7 +43,7 @@ angular.module('pro5_hzv.dashboard', [
 
     .controller("requestFormController", function($scope, $moment, bookingProvider, guestProvider, roomProvider){
 
-        $scope.names = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
+        //$scope.names = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
 
         /*$scope.$watch('requestForm.last_name', function(n, o){
             angular.forEach($scope.guests, function(guest, key){
@@ -64,26 +64,21 @@ angular.module('pro5_hzv.dashboard', [
         //###################### Directive ##########################
 
         $scope.guests = guestProvider.query();
-        console.log($scope.guests);
         /*dataFactory.get('states.json').then(function(data) {
          $scope.items = data;
          });*/
-        $scope.name = ''; // This will hold the selected item
-        $scope.mail = ''; // This will hold the selected item
+        $scope.requestForm = {};
+        $scope.requestForm.email = '';// This will hold the selected item
+        $scope.requestForm.last_name = ''; // This will hold the selected item
 
         $scope.onItemSelected = function(selectedItem) { // this gets executed when an item is selected
             console.log(selectedItem);
             console.log(selectedItem['email']);
-            if($scope.name) $scope.mail = selectedItem['email'];
-            if($scope.mail) $scope.name = selectedItem['last_name'];
+            if($scope.requestForm.last_name) $scope.requestForm.email = selectedItem['email'];
+            if($scope.requestForm.email) $scope.requestForm.last_name = selectedItem['last_name'];
 
         };
 
-
-
-        $scope.requestForm = {};
-        $scope.requestForm.email = '';
-        $scope.requestForm.last_name = '';
         $scope.requestForm.status =  0;
         $scope.requestForm.person_count = 5;
         $scope.requestForm.room_count =  1;
