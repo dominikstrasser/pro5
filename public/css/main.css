@@ -42,10 +42,15 @@ textarea:focus,
 button:focus {
   outline: none; }
 
+button:disabled,
+input:disabled {
+  background: #c9cedb; }
+
 .clear {
   clear: both; }
 
-#navContainer, .container {
+#navContainer,
+.container {
   margin: 0 auto; }
 
 #navContainer {
@@ -130,6 +135,9 @@ button:focus {
   color: #FFFFFF;
   text-decoration: none; }
 
+#leftNav a:hover, #rightNav a:hover {
+  background: #434b62; }
+
 #leftNav a {
   margin-right: -5px;
   border-left: 1px solid #434b62;
@@ -165,7 +173,7 @@ button:focus {
   margin: 0 20px; }
 
 .logo {
-  margin-top: 20px; }
+  margin-top: 40px; }
 
 .logo img {
   max-width: 200px; }
@@ -241,6 +249,7 @@ button:focus {
   background: #FFFFFF;
   list-style: none;
   border: 2px solid #c9cedb;
+  text-align: center;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -530,7 +539,7 @@ button:focus {
   border-color: #57dcba;
   color: #FFFFFF; }
 
-input.greenButton, button.greenButton {
+input.bigButton, button.bigButton {
   float: right;
   color: #FFFFFF;
   background: #57dcba;
@@ -545,7 +554,7 @@ input.greenButton, button.greenButton {
   -ms-border-radius: 5px;
   border-radius: 5px; }
 
-input.greenButton:hover, button.greenButton:hover {
+input.bigButton:hover, button.bigButton:hover {
   background: #ffba42; }
 
 button.blueButton {
@@ -561,6 +570,12 @@ button.blueButton {
 
 button.blueButton:hover {
   background: #ffba42; }
+
+button.orange {
+  background: #ffba42; }
+
+button.red {
+  background: #ff5a00; }
 
 /*
  * COLLAPSE
@@ -581,12 +596,34 @@ button.blueButton:hover {
 .collapse-wrapper .open:hover {
   cursor: pointer; }
 
-.collapse-wrapper .open .arrow {
+.collapse-wrapper .open {
   position: absolute;
   right: 0;
   top: 2px;
-  padding: 25px;
+  height: 57px;
+  width: 57px;
   background: #eef1f9; }
+
+.collapse-wrapper .open .arrow {
+  padding: 25px 23px;
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s; }
+
+.collapse-wrapper.collapse-open .open .arrow {
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s; }
 
 .collapse-wrapper .guest {
   padding: 10px;
@@ -701,6 +738,23 @@ button.blueButton:hover {
   margin-left: 20px;
   margin-right: 20px; }
 
+.management .filter {
+  position: relative; }
+
+.management .options {
+  position: absolute;
+  top: 3px;
+  right: 10px; }
+
+.management .options .search {
+  border: 2px solid #c9cedb;
+  padding: 3px 8px;
+  font-family: "proxima";
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px; }
+
 .management .management-content {
   margin-top: 30px; }
 
@@ -708,16 +762,20 @@ button.blueButton:hover {
   margin: 0;
   position: relative; }
 
+.management .collapse-wrapper:first-of-type {
+  margin-top: 30px; }
+
 .management .collapse-wrapper .content {
   margin-top: 20px; }
 
+/*
 .management .collapse-wrapper .open {
   position: absolute;
   right: 10px;
   top: 15px;
   margin: 0;
-  float: none; }
-
+  float: none;
+}*/
 .management .collapse-wrapper .panel-collapse {
   margin-top: 0; }
 
@@ -738,6 +796,11 @@ button.blueButton:hover {
 .management-row div div:nth-child(3) {
   min-width: 100px;
   margin-right: 15px; }
+
+.collapse-wrapper .blueButton {
+  position: absolute;
+  right: 10px;
+  top: 15px; }
 
 /*
  * ROOMLIST
@@ -791,18 +854,18 @@ button.blueButton:hover {
   position: relative;
   height: 44px; }
 
-.rl_booking {
+span.rl_booking {
   position: absolute;
   top: 0px;
   background: #eef1f9;
-  /*opacity: 0.5;*/
-  width: auto;
-  z-index: 10; }
+  z-index: 10;
+  text-align: left;
+  font-size: 10px; }
 
-.rl_booking:hover {
+span.rl_booking:hover {
   cursor: pointer; }
 
-.rl_booking.booked {
+span.rl_booking.booked {
   background: #ffba42; }
 
 /*# sourceMappingURL=main.css.map */

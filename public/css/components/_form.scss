@@ -131,7 +131,7 @@
   border-color: $green;
   color: $white;
 }
-input.greenButton, button.greenButton {
+input.bigButton, button.bigButton {
   float: right;
   color: #FFFFFF;
   background: $green;
@@ -143,7 +143,7 @@ input.greenButton, button.greenButton {
   font-family: $font;
   @include border-radius(5px);
 }
-input.greenButton:hover, button.greenButton:hover {
+input.bigButton:hover, button.bigButton:hover {
   background: $button-green-hover;
 }
 button.blueButton {
@@ -156,4 +156,10 @@ button.blueButton {
 }
 button.blueButton:hover {
   background: $button-blue-hover;
+}
+button.orange {
+  background: $orange-light;
+}
+button.red {
+  background: $orange;
 }

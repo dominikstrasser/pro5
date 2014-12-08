@@ -12,6 +12,7 @@ angular.module('pro5_hzv.requests', ['ngRoute'])
     .controller('requestsCtrl', ["$scope", "bookingProvider", function($scope, bookingProvider) {
 
         $scope.reqs = bookingProvider.detail({'status': 0});
+
     }]).controller('emailController', ["$scope", "$sce", "bookingProvider", "emailProvider", function($scope, $sce, bookingProvider, emailProvider){
 
         $scope.email = {};
@@ -20,7 +21,7 @@ angular.module('pro5_hzv.requests', ['ngRoute'])
         $scope.email.text = $sce.trustAsHtml("<p class='drop' >&nbsp;</p>");
 
         $scope.testBox = {};
-        $scope.testBox.title = "testBox"
+        $scope.testBox.title = "testBox";
         $scope.testBox.text = "Das ist ein Test";
 
         $scope.enableEmail = false;

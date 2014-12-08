@@ -7,7 +7,9 @@ angular.module('pro5_hzv.roomListDirective',[])
         scope: {
             rooms: '=rooms',
             bookings: '=bookings',
-            startday: '=startday'
+            startday: '=startday',
+            selectedRooms: '=selectedRooms',
+            filteredRooms:'=filteredRooms'
         },
         link: function(scope, element, attrs) {
             // again we need the native object
@@ -37,6 +39,14 @@ angular.module('pro5_hzv.roomListDirective',[])
                 }
             });
 
+            scope.$watch("selectedRooms", function(n,o){
+
+                if(typeof n != 'undefined') {
+                    console.log(n);
+                    console.log("direktive");
+                }
+            },true);
+
 
             //start wird aufgerufen nachdem startday, bookings und rooms geladen wurden
             var start = function() {
@@ -55,8 +65,10 @@ angular.module('pro5_hzv.roomListDirective',[])
                     init,
                     renderHeader,
                     renderBody,
+                    renderRoom,
                     renderBooking,
                     render,
+                    filterRoom,
                     initDaysArray,
                     initDates,
                     markToday,
@@ -104,15 +116,18 @@ angular.module('pro5_hzv.roomListDirective',[])
                     }
                 };
 
-                renderBooking = function(arr, dep, booked){
+                renderBooking = function(booking){
+
+
                     var rl_booking = document.createElement("span");
-                    if(booked) {
+
+                    if (booking.status == 1) {
                         rl_booking.setAttribute("class", "rl_booking booked");
-                    }else{
+                    } else {
                         rl_booking.setAttribute("class", "rl_booking");
                     }
-                    var bArr = $moment(arr);
-                    var bDep = $moment(dep);
+                    var bArr = $moment(booking.arr);
+                    var bDep = $moment(booking.dep);
 
                     var duration = $moment.duration(bArr.diff(startDate));
 
@@ -122,37 +137,68 @@ angular.module('pro5_hzv.roomListDirective',[])
                     //Anzahl der Tage zwischen Arrival und Departure
                     var end = $moment.duration(bDep.diff(bArr)).asDays();
 
-                    var bLeft = (roomNameWidth + 12.5 + dayWidth*start);
-                    var bWidth = end*dayWidth;
-                    rl_booking.setAttribute("style", "left:"+ bLeft +"px; width: "+ bWidth +"px");
+                    var bLeft = (roomNameWidth + 12.5 + dayWidth * start);
+                    var bWidth = end * dayWidth;
+                    rl_booking.setAttribute("style", "left:" + bLeft + "px; width: " + bWidth + "px");
+                    rl_booking.setAttribute("data-id", booking.guest_id._id);
+                    rl_booking.innerHTML = booking.guest_id.salutation + " " + booking.guest_id.last_name;
+
+                    rl_booking.addEventListener("click", function (e) {
+                        var id = e.target.getAttribute("data-id");
+                    }, false);
+
                     return rl_booking;
+
+                };
+                renderRoom = function(room){
+
+                    var rl_room = document.createElement("div");
+                    rl_room.setAttribute("class", "rl_room");
+                    rl_room.setAttribute("data-id",room._id);
+                    rl_room.addEventListener("click", function (e) {
+                        var id = e.target.getAttribute("data-id");
+                        scope.selectedRooms.push(id);
+                        scope.$apply();
+                    }, false);
+
+                    var rl_roomName = document.createElement("span");
+                    rl_roomName.setAttribute("class", "rl_roomName");
+
+
+                    rl_roomName.innerHTML = room.name + " <span class='type'>" + room.type + "</span>";
+                    rl_room.appendChild(rl_roomName);
+                    for(var j = 0; j < scope.bookings.length; j++) {
+                        if (scope.bookings[j].room_id[0]._id == room._id) {
+                        var rl_booking = renderBooking(scope.bookings[j]);
+                        rl_room.appendChild(rl_booking);
+                        }
+                    }
+                    return rl_room;
+                };
+
+                filterRoom = function(room_id) {
+                    for (var i = 0; i < scope.filteredRooms.length; i++) {
+                        if (room_id == scope.filteredRooms[i]){
+                            return true;
+                        }
+                    }
+                    return false;
                 };
 
 
                 renderBody = function(){
                     for(var i = 0; i < scope.rooms.length; i++){
-                        var rl_room = document.createElement("div");
-                        rl_room.setAttribute("class", "rl_room");
-                        var roomName = document.createElement("span");
-                        roomName.setAttribute("class", "rl_roomName");
-                        roomName.innerHTML = scope.rooms[i].name;// + " <span class='type'>" + scope.rooms[i].type + "</span>";
 
-                        for(var j = 0; j < scope.bookings.length; j++) {
-                            if(scope.bookings[j].room_id[0]._id == scope.rooms[i]._id) {
-
-                                var rl_booking = renderBooking(scope.bookings[j].arr, scope.bookings[j].dep, scope.bookings[j].status );
-                                rl_booking.innerHTML = scope.bookings[j].guest_id.salutation + " " +scope.bookings[j].guest_id.last_name;
-                                rl_booking.setAttribute("data-id",j);
-                                rl_booking.addEventListener("click",function(e){
-                                    var id = e.target.getAttribute("data-id");
-                                },false);
-                                rl_room.appendChild(rl_booking);
+                        if(scope.filteredRooms.length == 0){
+                            var rl_room = renderRoom(scope.rooms[i]);
+                            rl_body.appendChild(rl_room);
+                        }
+                        else{
+                            if(filterRoom(scope.rooms[i]._id)){
+                                var rl_room = renderRoom(scope.rooms[i]);
+                                rl_body.appendChild(rl_room);
                             }
                         }
-
-
-                        rl_room.appendChild(roomName);
-                        rl_body.appendChild(rl_room);
                     }
                 };
 

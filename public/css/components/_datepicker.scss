@@ -10,6 +10,7 @@
   background: $white;
   list-style: none;
   border: $border;
+  text-align: center;
   @include border-radius(5px);
   z-index: 1;
 }

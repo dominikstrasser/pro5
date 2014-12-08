@@ -9,7 +9,13 @@
         <div class="content">
 
             <div vertical layout>
-                <room-list rooms='rooms' bookings='bookings' startday='startday'></room-list>
+                <room-list
+                        rooms='rooms'
+                        bookings='bookings'
+                        startday='startday'
+                        selected-rooms="selectedRooms"
+                        filtered-rooms="filteredRooms">
+                </room-list>
             </div>
         </div>
 

@@ -1,150 +1,139 @@
-<section class="collapse-wrapper" bs-collapse>
-
-    <h1 class="first">Alle Anfragen</h1>
-    <span class="open" bs-collapse-toggle><img src="../../img/arrows/down_grey.png" class="arrow"></span>
-
-    <div class="clear"></div>
-
-    <div opened fixedSize bs-collapse-target class="panel-collapse">
+<section class="collapse-wrapper">
+    <custom-collapse colType="big" opened="true">
+        <h1>Alle Anfragen</h1>
         <div class="content">
-
-            <div vertical layout>
-                <div horizontal layout class="data guest" ng-repeat="req in reqs">
-                    <div horizontal>{{req.guest_id.salutation}} {{req.guest_id.last_name}}</div>
-                    <div horizontal><span class="notification">1</span></div>
-                    <div horizontal>{{req.person_count}} Personen</div>
-                    <div horizontal flex><span>Zimmer <span ng-repeat="room in req.room_id">{{room.number}}</span></span></div>
-                    <button class="blueButton">Details</button>
-                </div>
+            <div horizontal layout class="data guest" ng-repeat="req in reqs">
+                <div horizontal>{{req.guest_id.salutation}} {{req.guest_id.last_name}}</div>
+                <div horizontal><span class="notification">1</span></div>
+                <div horizontal>{{req.person_count}} Personen</div>
+                <div horizontal flex><span>Zimmer <span ng-repeat="room in req.room_id">{{room.number}}</span></span></div>
+                <button class="blueButton">Details</button>
             </div>
-
         </div>
-    </div>
+    </custom-collapse>
 </section>
 
-<section class="collapse-wrapper date" bs-collapse>
-    <h1>Anfrage Familie Mustermann</h1>
-    <span class="open" bs-collapse-toggle><img src="../../img/arrows/down_grey.png" class="arrow"></span>
+<section class="collapse-wrapper">
+    <custom-collapse colType="big">
+        <h1>Anfrage Familie Mustermann</h1>
 
-    <div class="clear"></div>
-
-    <div opened fixedSize bs-collapse-target class="panel-collapse">
-        <div class="formular" ng-controller="requestFormController">
-            <form>
-                <div class="col">
-                    <div class="row">Anreise <input type="text" class="cal" placeholder="Datum" ng-model="requestForm.arr" name="arr" bs-datepicker></div>
-                    <div class="row">Abreise <input type="text" class="cal" placeholder="Datum" ng-model="requestForm.dep" name="dep" bs-datepicker></div>
-                </div>
-
-                <div class="col">
-                    <div class="row">
-                        <custom-counter current="0" singular="Person" plural="Personen" size="12"></custom-counter>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="row">
-                        <custom-counter current="0" singular="EZ" plural="EZ" size="5"></custom-counter>
+        <div class="panel-collapse">
+            <div class="formular" ng-controller="requestFormController">
+                <form>
+                    <div class="col">
+                        <div class="row">Anreise <input type="text" class="cal" placeholder="Datum" ng-model="requestForm.arr" name="arr" bs-datepicker></div>
+                        <div class="row">Abreise <input type="text" class="cal" placeholder="Datum" ng-model="requestForm.dep" name="dep" bs-datepicker></div>
                     </div>
 
-                    <div class="row">
-                        <custom-counter current="0" singular="DZ" plural="DZ" size="5"></custom-counter>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="row">
-                        <core-selector ng-model="requestForm.category" class="list" selected="-1">
-                            <div class="item">NF</div>
-                            <div class="item">HP</div>
-                        </core-selector>
-                    </div>
-                </div>
-
-                <div class="col last">
-                    <div class="row">
-                        <input type="text" name="name" placeholder="Nachname/Firma">
+                    <div class="col">
+                        <div class="row">
+                            <custom-counter current="0" singular="Person" plural="Personen" size="12"></custom-counter>
+                        </div>
                     </div>
 
-                    <div class="row">
-                        <input type="email" name="email" placeholder="E-Mail Adresse">
-                    </div>
-                </div>
+                    <div class="col">
+                        <div class="row">
+                            <custom-counter current="0" singular="EZ" plural="EZ" size="5"></custom-counter>
+                        </div>
 
-                <div class="clear"></div>
-            </form>
+                        <div class="row">
+                            <custom-counter current="0" singular="DZ" plural="DZ" size="5"></custom-counter>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="row">
+                            <core-selector ng-model="requestForm.category" class="list" selected="-1">
+                                <div class="item">NF</div>
+                                <div class="item">HP</div>
+                            </core-selector>
+                        </div>
+                    </div>
+
+                    <div class="col last">
+                        <div class="row">
+                            <input type="text" name="name" placeholder="Nachname/Firma">
+                        </div>
+
+                        <div class="row">
+                            <input type="email" name="email" placeholder="E-Mail Adresse">
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                </form>
+            </div>
         </div>
-    </div>
+    </custom-collapse>
 </section>
 
-<section class="collapse-wrapper" bs-collapse>
-    <h1>Zimmerliste</h1>
-    <span class="open" bs-collapse-toggle><img src="../../img/arrows/down_grey.png" class="arrow"></span>
 
-    <div class="clear"></div>
+        <!--
+        ENDE
+        -->
 
-    <div opened fixedSize bs-collapse-target class="panel-collapse">
+<section class="collapse-wrapper">
+    <custom-collapse colType="big">
+        <h1>Zimmerliste</h1>
         <div class="content">Forma temperiemque cornua sidera dissociata cornua recessit innabilis ligavit: solidumque coeptis nullus caelum sponte phoebe di regat mentisque tanta austro capacius amphitrite sui quin postquam semina fossae liquidum umor galeae coeptis caligine liberioris quin liquidum matutinis invasit posset: flexi glomeravit radiis certis invasit oppida postquam onerosior inclusum dominari opifex terris pace finxit quam aquae nunc sine altae auroram quam habentem homo totidemque scythiam in pondus ensis tegit caecoque poena lapidosos humanas coeperunt poena aetas totidem nec natura aethera locavit caelumque distinxit animalibus phoebe cingebant moderantum porrexerat terrae possedit sua sole diu summaque obliquis melioris orbem</div>
-    </div>
+    </custom-collapse>
 </section>
 
-<section class="collapse-wrapper" bs-collapse>
-    <h1>Korrespondenz</h1>
-    <span class="open" bs-collapse-toggle><img src="../../img/arrows/down_grey.png" class="arrow"></span>
+<section class="collapse-wrapper">
+    <custom-collapse colType="big">
+        <h1>Korrespondenz</h1>
 
-    <div class="clear"></div>
+        <div ng-controller="emailController">
+            <div class="content">
+                <div vertical layout>
+                    <div horizontal layout>
+                        <div vertical layout class="email-write">
+                            <div class="email">
+                                <div class="email-begin" contenteditable="true" ng-model="email.begin">
+                                </div>
+                                <div class="email-drop" ng-model="email.text" contenteditable="true">
 
-    <div opened fixedSize bs-collapse-target ng-controller="emailController" class="panel-collapse">
-        <div class="content">
-            <div vertical layout>
-                <div horizontal layout>
-                    <div vertical layout class="email-write">
-                        <div class="email">
-                            <div class="email-begin" contenteditable="true" ng-model="email.begin">
+                                </div>
+                                <div class="email-end" contenteditable="true" ng-model="email.end" >
+                                </div>
                             </div>
-                            <div class="email-drop" ng-model="email.text" contenteditable="true">
+                            <div><button ng-disabled="enableEmail" ng-click="sendEmail()" class="bigButton">E-Mail schicken</button></div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="email-drag">
+                            <p class="items">Verfügbare Textbausteine</p>
+                            <div class="item" id="item1" data-text={{testBox.text}} draggable>{{testBox.title}}</div>
+                            <div class="item" id="item2" data-text={{testBox.text}} draggable>{{testBox.title}}</div>
+                            <div class="item" id="item3" data-text={{testBox.text}} draggable>{{testBox.title}}</div>
+                        </div>
 
-                            </div>
-                            <div class="email-end" contenteditable="true" ng-model="email.end" >
-                            </div>
-                        </div>
-                        <div><button ng-disabled="enableEmail" ng-click="sendEmail()" class="greenButton">E-Mail schicken</button></div>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="email-drag">
-                        <p class="items">Verfügbare Textbausteine</p>
-                        <div class="item" id="item1" data-text={{testBox.text}} draggable>{{testBox.title}}</div>
-                        <div class="item" id="item2" data-text={{testBox.text}} draggable>{{testBox.title}}</div>
-                        <div class="item" id="item3" data-text={{testBox.text}} draggable>{{testBox.title}}</div>
-                    </div>
-
-                </div>
-
-                <div class="email-list">
-                    <div horizontal layout  ng-repeat="msg in currentRequest.messages | orderBy: '-date'">
-                        <div ng-if="msg.from_guest" class="email-info-right">
-                            {{currentRequest.guest_id.salutation}} {{currentRequest.guest_id.last_name}}<br>
-                            {{currentRequest.guest_id.email}}<br>
-                            E-Mail vom {{msg.date | date: 'dd. MMMM yyyy'}}
-                        </div>
-                        <div ng-class="{'email-right' : msg.from_guest, 'email-left' : !msg.from_guest}">
-                            <div horizontal ng-bind-html="toTrustedHtml(msg.body)">
-                            </div>
-                        </div>
-                        <div ng-if="!msg.from_guest" class="email-info-left">
-                            {{currentRequest.guest_id.salutation}} {{currentRequest.guest_id.last_name}}<br>
-                            {{currentRequest.guest_id.email}}<br>
-                            E-Mail vom {{msg.date | date: 'dd. MMMM yyyy'}}
-                        </div>
                     </div>
 
+                    <div class="email-list">
+                        <div horizontal layout  ng-repeat="msg in currentRequest.messages | orderBy: '-date'">
+                            <div ng-if="msg.from_guest" class="email-info-right">
+                                {{currentRequest.guest_id.salutation}} {{currentRequest.guest_id.last_name}}<br>
+                                {{currentRequest.guest_id.email}}<br>
+                                E-Mail vom {{msg.date | date: 'dd. MMMM yyyy'}}
+                            </div>
+                            <div ng-class="{'email-right' : msg.from_guest, 'email-left' : !msg.from_guest}">
+                                <div horizontal ng-bind-html="toTrustedHtml(msg.body)">
+                                </div>
+                            </div>
+                            <div ng-if="!msg.from_guest" class="email-info-left">
+                                {{currentRequest.guest_id.salutation}} {{currentRequest.guest_id.last_name}}<br>
+                                {{currentRequest.guest_id.email}}<br>
+                                E-Mail vom {{msg.date | date: 'dd. MMMM yyyy'}}
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <hr>
+        <hr>
 
-    <button class="greenButton">Anfrage speichern</button>
-    <div class="clear"></div>
+        <button class="bigButton">Anfrage speichern</button>
+    </custom-collapse>
 </section>

@@ -1,0 +1,54 @@
+<link href="../../bower_components/polymer/polymer.html" rel="import">
+<link rel="import" href="../../bower_components/core-collapse/core-collapse.html">
+
+<polymer-element name="custom-collapse" attributes="colType opened" on-test="{{toggle}}">
+
+    <template>
+        <div class="{{currentState}}">
+            <div class="{{colType}}">
+                <content select="h1"></content>
+                <content select="h2"></content>
+                <content select="h3"></content>
+
+                <template if="{{colType == 'big' || colType == 'small' || colType == 'medium'}}">
+                    <span class="open" on-click="{{toggle}}" ><img src="../../img/arrows/down_grey.png" class="arrow"></span>
+                </template>
+
+                <template if="{{colType == 'detail'}}">
+                    <button class="blueButton" on-click="{{toggle}}">Details</button>
+                </template>
+            </div>
+
+            <core-collapse id="collapse" opened?="{{opened}}">
+                <content select="div"></content>
+            </core-collapse>
+        </div>
+    </template>
+    <script>
+        Polymer('custom-collapse', {
+
+            currentState: "cc-open",
+            toggle: function() {
+                this.$.collapse.toggle();
+
+                if(this.currentState == "cc-open"){
+                    this.currentState = "cc-closed";
+                }else{
+                    this.currentState = "cc-open";
+                }
+
+            },
+
+
+            ready: function(){
+                if(this.opened){
+                    this.currentState = "cc-open";
+                }else{
+                    this.currentState = "cc-closed";
+                }
+
+            }
+
+        });
+    </script>
+</polymer-element>

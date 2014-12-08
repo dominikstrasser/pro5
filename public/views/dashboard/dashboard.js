@@ -30,8 +30,12 @@ angular.module('pro5_hzv.dashboard', [
             today.getDate(),
             12, 0, 0, 0]);
 
-        $scope.arrivals = bookingProvider.currentArrivals({"cArr" : cArr.toDate()});
-        $scope.departures = bookingProvider.currentDepartures({"cArr" : cArr.toDate()});
+        $scope.arrivals = bookingProvider.currentArrivals({"cArr" : cArr.toDate()},function(){
+            console.log("FERTIG1");
+        });
+        $scope.departures = bookingProvider.currentDepartures({"cArr" : cArr.toDate()},function(){
+            console.log("FERTIG2");
+        });
 
 
     }])

@@ -50,17 +50,17 @@
   position:relative;
   height: 44px;
 }
-.rl_booking {
-   position: absolute;
-   top: 0px;
-   background: $grey;
-   /*opacity: 0.5;*/
-   width: auto;
-   z-index: 10;
+span.rl_booking {
+  position: absolute;
+  top: 0px;
+  background: $grey;
+  z-index: 10;
+  text-align: left;
+  font-size: 10px;
  }
-.rl_booking:hover {
+span.rl_booking:hover {
   cursor: pointer;
 }
-.rl_booking.booked {
+span.rl_booking.booked {
   background: $orange-light;
 }

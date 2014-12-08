@@ -17,12 +17,22 @@
 .collapse-wrapper .open:hover {
   cursor: pointer;
 }
-.collapse-wrapper .open .arrow {
+.collapse-wrapper .open {
   position: absolute;
   right: 0;
   top: 2px;
-  padding: 25px;
+  height: 57px;
+  width: 57px;
   background: $grey;
+}
+.collapse-wrapper .open .arrow {
+  padding: 25px 23px;
+  @include rotate(0deg);
+  @include transition(0.5s);
+}
+.collapse-wrapper.collapse-open .open .arrow {
+  @include rotate(180deg);
+  @include transition(0.5s);
 }
 .collapse-wrapper .guest {
   padding: 10px;

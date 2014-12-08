@@ -3,3 +3,4 @@ public/bower_components
 database/dbConfig.js
 .idea
 email/config.js
+*.log

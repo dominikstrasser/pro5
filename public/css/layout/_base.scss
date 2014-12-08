@@ -33,10 +33,15 @@ textarea:focus,
 button:focus {
   outline: none;
 }
+button:disabled,
+input:disabled {
+  background: $darkgrey;
+}
 .clear {
   clear: both;
 }
-#navContainer, .container {
+#navContainer,
+.container {
   margin: 0 auto;
 }
 #navContainer {
