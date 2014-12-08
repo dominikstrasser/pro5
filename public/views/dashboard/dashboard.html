@@ -61,15 +61,19 @@
         </div>
 
         <div class="col last form-group">
-            <div class="row">
+            <!--<div class="row">
                 <input autocomplete="off" type="text" class="form-control" ng-change="updateEmail(requestForm.last_name)" ng-model="requestForm.last_name" name="name"
-                       placeholder="Nachname/Firma" ng-options="guest.last_name as guest.last_name for guest in guests" data-animation="am-flip-x"  bs-typeahead>
+                       placeholder="Nachname/Firma" ng-options="guest.last_name as guest.last_name + '<b> '+guest.email+'</b>' for guest in guests" data-animation="am-flip-x" template="/custom_elements/custom-tooltip/custom-tooltip.html"  bs-typeahead>
             </div>
 
             <div class="row">
                 <input autocomplete="off" type="text" class="form-control" ng-change="updateName(requestForm.e_mail)" ng-model="requestForm.e_mail" name="email"
-                       placeholder="E-Mail Adresse" data-animation="am-flip-x" bs-typeahead>
-            </div>
+                       placeholder="E-Mail Adresse" data-animation="am-flip-x" ng-options="guest.email as guest.email for guest in guests" bs-typeahead>
+            </div>-->
+            <typeahead items="guests" prompt="Nachname" maintitle="last_name" subtitle="first_name" subsubtitle="email" model="name" on-select="onItemSelected(selectedItem)"></typeahead>
+            <typeahead items="guests" prompt="Email" maintitle="email" model="mail" on-select="onItemSelected(selectedItem)"></typeahead>
+
+
 
             <div class="row">
                 <input ng-click="testBooking()" type="submit" class="greenButton" value="Weiter">
