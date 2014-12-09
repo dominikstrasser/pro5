@@ -26,10 +26,11 @@
 <div class="formular" ng-controller="requestFormController">
     <h1>Neue Anfrage</h1>
     <p class="status">{{available_rooms.length}} Zimmer verfügbar</p>
-    <form class="form-inline" role="form">
+    <form class="form-inline" role="form" name="form" novalidate>
         <div class="col">
-            <div class="row">Anreise <input type="text" class="cal" placeholder="Datum" ng-model="requestForm.arr" name="arr" bs-datepicker></div>
-            <div class="row">Abreise <input type="text" class="cal" placeholder="Datum" ng-model="requestForm.dep" name="dep" bs-datepicker></div>
+            <div class="row">Anreise <input required type="text" class="cal" placeholder="Datum" ng-model="requestForm.arr" name="arr" bs-datepicker></div>
+            <div class="row">Abreise <input required type="text" class="cal" placeholder="Datum" ng-model="requestForm.dep" name="dep" bs-datepicker></div>
+            <div class="row" ng-show="form.$submitted && (form.arr.$error.required || form.dep.$error.required)">Bitte geben Sie den Zeitraum ein</div>
         </div>
 
         <div class="col">
@@ -69,14 +70,16 @@
             </div>
             -->
             <div class="row">
-                <typeahead items="guests" prompt="Nachname" maintitle="last_name" subtitle="first_name" subsubtitle="email" model="requestForm.last_name" on-select="onItemSelected(selectedItem)"></typeahead>
+                <typeahead name="lastName" items="guests" prompt="Nachname" maintitle="last_name" subtitle="first_name" subsubtitle="email" model="requestForm.last_name" on-select="onItemSelected(selectedItem)" type="text"></typeahead>
+                <div ng-show="form.$submitted && form.lastName.$error.required" class="invalid-error">Bitte geben Sie den Nachnamen ein</div>
             </div>
             <div class="row">
-                <typeahead items="guests" prompt="Email" maintitle="email" model="requestForm.email" on-select="onItemSelected(selectedItem)"></typeahead>
+                <typeahead name="email" items="guests" prompt="Email" maintitle="email" model="requestForm.email" on-select="onItemSelected(selectedItem)" type="email"></typeahead>
+                <div ng-show="form.$submitted && (form.email.$error.required || form.email.$error.email)" class="invalid-error">Bitte geben Sie eine gültige Email Adresse ein</div>
             </div>
 
             <div class="row">
-                <button ng-click="testBooking()" class="bigButton">Weiter</button>
+                <button type="submit" ng-click="testBooking(form)" class="bigButton">Weiter</button>
             </div>
         </div>
 

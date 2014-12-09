@@ -37,7 +37,7 @@
     from { max-height: 0px; }
     to   { max-height: 500px;}
 }
-/*#################################################################*/
+/*###################### for the typeahead ###########################################*/
 
 .typeaheadItem.active {
     background-color: yellow;
@@ -45,6 +45,15 @@
 
 .typeaheadItem .subtitle, .typeaheadItem .subsubtitle {
     color: darkgray;
+}
+
+/* ############################### for  dashboard form validation ###################### */
+
+typeahead input.ng-invalid-email.ng-touched {
+    border-color: #FA787E;
+  }
+typeahead input.ng-valid-email.ng-touched.ng-valid-required {
+    border-color: #5CDEC4;
 }
 
 /*#################################################################*/

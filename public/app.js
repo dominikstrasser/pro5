@@ -105,6 +105,8 @@ config(['$routeProvider', function($routeProvider) {
                 maintitle: '@',
                 subtitle: '@',
                 subsubtitle: '@',
+                type: '@',
+                name: '@',
                 model: '=',
                 onSelect: '&'
             },

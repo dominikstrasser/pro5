@@ -104,28 +104,29 @@ angular.module('pro5_hzv.dashboard', [
         };*/
 
 
-        $scope.testBooking = function(){
+        $scope.testBooking = function(form){
 
-            //console.log($scope.requestForm);
+            if(form.$valid/* && ($scope.requestForm.doubleRoom_count != 0 || $scope.requestForm.room_count != 0)*/){
 
-            var arr = moment.utc([
-                $scope.requestForm.arr.getFullYear(),
-                $scope.requestForm.arr.getMonth(),
-                $scope.requestForm.arr.getDate(),
-                12, 0, 0, 0]);
+                var arr = moment.utc([
+                    $scope.requestForm.arr.getFullYear(),
+                    $scope.requestForm.arr.getMonth(),
+                    $scope.requestForm.arr.getDate(),
+                    12, 0, 0, 0]);
 
-            var dep = moment.utc([
-                $scope.requestForm.dep.getFullYear(),
-                $scope.requestForm.dep.getMonth(),
-                $scope.requestForm.dep.getDate(),
-                12, 0, 0, 0]);
+                var dep = moment.utc([
+                    $scope.requestForm.dep.getFullYear(),
+                    $scope.requestForm.dep.getMonth(),
+                    $scope.requestForm.dep.getDate(),
+                    12, 0, 0, 0]);
 
-            //console.log(arr);
+                //console.log(arr);
 
-            $scope.requestForm.arr = arr.toDate();
-            $scope.requestForm.dep = dep.toDate();
-            console.log($scope.requestForm);
-            //bookingProvider.save($scope.requestForm);
+                $scope.requestForm.arr = arr.toDate();
+                $scope.requestForm.dep = dep.toDate();
+                console.log("save Data!");
+                //bookingProvider.save($scope.requestForm);
+            }
 
         };
 

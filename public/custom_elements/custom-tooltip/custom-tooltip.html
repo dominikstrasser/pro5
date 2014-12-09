@@ -1,4 +1,4 @@
-<input type="text" ng-model="model" placeholder="{{prompt}}" ng-keydown="handleKey($event, (items | filter:{'last_name':model}))" /><!-- ng-keydown="selected=false" -->
+<input name="{{name}}" type="{{type}}" ng-model="model" placeholder="{{prompt}}" ng-keydown="handleKey($event, (items | filter:{'last_name':model}))" required/><!-- ng-keydown="selected=false" -->
 <br/>
 
 <div class="typeahead" ng-hide="!model.length || selected">
