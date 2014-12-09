@@ -4,28 +4,26 @@
 <polymer-element name="custom-collapse" attributes="colType opened" on-test="{{toggle}}">
 
     <template>
-        <div class="{{currentState}}">
-            <div class="{{colType}}">
-                <content select="h1"></content>
-                <content select="h2"></content>
-                <content select="h3"></content>
+        <div class="{{colType}}">
+            <content select="h1"></content>
+            <content select="h2"></content>
+            <content select="h3"></content>
 
-                <template if="{{colType == 'big' || colType == 'small' || colType == 'medium'}}">
-                    <content select="span.open" id="open" ></content>
-                    <!--<span class="open" id="open" ><img src="../../img/arrows/down_grey.png" class="arrow"></span>-->
-                </template>
+            <template if="{{colType == 'big' || colType == 'small' || colType == 'medium'}}">
+                <content select="span.open" id="open" ></content>
+                <!--<span class="open" id="open" ><img src="../../img/arrows/down_grey.png" class="arrow"></span>-->
+            </template>
 
-                <template if="{{colType == 'detail'}}">
-                    <!--<button class="blueButton" on-click="{{toggle}}">Details</button>-->
-                    <content select="button" id="btn" ></content>
-                </template>
+            <template if="{{colType == 'detail'}}">
+                <!--<button class="blueButton" on-click="{{toggle}}">Details</button>-->
+                <content select="button" id="btn" ></content>
+            </template>
 
-            </div>
-
-            <core-collapse id="collapse" opened?="{{opened}}">
-                <content select="div"></content>
-            </core-collapse>
         </div>
+
+        <core-collapse id="collapse" opened?="{{opened}}">
+            <content select="div"></content>
+        </core-collapse>
     </template>
     <script>
         Polymer('custom-collapse', {
@@ -37,8 +35,12 @@
 
                 if(this.currentState == "cc-open"){
                     this.currentState = "cc-closed";
-                }else{
+                    this.classList.add("cc-closed");
+                    this.classList.remove("cc-open");
+                }else {
                     this.currentState = "cc-open";
+                    this.classList.remove("cc-closed");
+                    this.classList.add("cc-open");
                 }
 
             },
@@ -46,20 +48,24 @@
 
             ready: function(){
                 var self = this;
+
                 if(this.opened){
                     this.currentState = "cc-open";
+                    this.classList.add("cc-open");
                 }else{
                     this.currentState = "cc-closed";
+                    this.classList.add("cc-closed");
                 }
                 if(typeof this.$.btn != 'undefined') {
                     this.$.btn.addEventListener("click", function () {
-                        self.$.collapse.toggle();
+                        self.toggle();
                     });
+
                 }
 
                 if(typeof this.$.open != 'undefined') {
                     this.$.open.addEventListener("click", function () {
-                        self.$.collapse.toggle();
+                        self.toggle();
                     });
                 }
             }
