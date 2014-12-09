@@ -185,17 +185,6 @@ input:disabled {
   margin-bottom: 0;
   border: none; }
 
-#current h2 {
-  border-top: 2px solid #c9cedb;
-  border-bottom: 2px solid #c9cedb;
-  padding-left: 10px;
-  padding-top: 15px;
-  padding-bottom: 14px;
-  margin: 0;
-  font-size: 16px;
-  position: relative;
-  margin-bottom: -2px; }
-
 #current .arrow {
   position: absolute;
   right: 0;
@@ -205,6 +194,13 @@ input:disabled {
 
 #current .arrow:hover {
   cursor: pointer; }
+
+#current .medium .arrow {
+  padding: 21px;
+  top: 2px; }
+
+#current .small .arrow {
+  background: none; }
 
 #current .dayEntryHeader {
   padding-left: 10px;
@@ -225,7 +221,8 @@ input:disabled {
 
 #current .dayEntryDetails {
   background: #eef1f9;
-  padding-left: 10px; }
+  padding-left: 10px;
+  padding-bottom: 10px; }
 
 #current .dayEntryDetails .col {
   float: left;
@@ -580,6 +577,9 @@ button.red {
 /*
  * COLLAPSE
  */
+.big, .medium, .small {
+  position: relative; }
+
 .collapse-wrapper {
   margin: 0 20px;
   position: relative; }
@@ -590,10 +590,10 @@ button.red {
   margin-top: 60px;
   margin-bottom: 0; }
 
-.collapse-wrapper h1.first {
+.collapse-wrapper h1:first-of-type {
   margin-top: 37px; }
 
-.collapse-wrapper .open:hover {
+.collapse-wrapper .arrow:hover {
   cursor: pointer; }
 
 .collapse-wrapper .open {
@@ -729,6 +729,29 @@ button.red {
 
 .collapse-wrapper .content .email-info-right {
   text-align: right; }
+
+.medium h2 {
+  border-top: 2px solid #c9cedb;
+  border-bottom: 2px solid #c9cedb;
+  padding-left: 10px;
+  padding-top: 15px;
+  padding-bottom: 14px;
+  margin: 0;
+  font-size: 16px;
+  position: relative;
+  margin-bottom: -2px; }
+
+.small h3 {
+  margin: 0px;
+  padding-left: 10px;
+  padding-top: 15px;
+  padding-bottom: 14px;
+  position: relative;
+  background: #c9cedb; }
+
+.detail h3 {
+  font-size: 16px;
+  margin: 0px; }
 
 /*
  * GUEST- AND HOTELMANAGEMENT

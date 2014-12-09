@@ -1,6 +1,7 @@
 <section class="collapse-wrapper">
-    <custom-collapse colType="big" opened="true">
+    <custom-collapse class="big" colType="big" opened="true">
         <h1>Alle Anfragen</h1>
+        <span class="open" ><img src="../../img/arrows/down_grey.png" class="arrow"></span>
         <div class="content">
             <div horizontal layout class="data guest" ng-repeat="req in reqs">
                 <div horizontal>{{req.guest_id.salutation}} {{req.guest_id.last_name}}</div>
@@ -14,9 +15,10 @@
 </section>
 
 <section class="collapse-wrapper">
-    <custom-collapse colType="big">
+    <custom-collapse class="big" colType="big">
         <h1>Anfrage Familie Mustermann</h1>
 
+        <span class="open" ><img src="../../img/arrows/down_grey.png" class="arrow"></span>
         <div class="panel-collapse">
             <div class="formular" ng-controller="requestFormController">
                 <form>
@@ -67,66 +69,69 @@
     </custom-collapse>
 </section>
 
-
-        <!--
-        ENDE
-        -->
-
 <section class="collapse-wrapper">
-    <custom-collapse colType="big">
+    <custom-collapse class="big" colType="big">
         <h1>Zimmerliste</h1>
-        <div class="content">Forma temperiemque cornua sidera dissociata cornua recessit innabilis ligavit: solidumque coeptis nullus caelum sponte phoebe di regat mentisque tanta austro capacius amphitrite sui quin postquam semina fossae liquidum umor galeae coeptis caligine liberioris quin liquidum matutinis invasit posset: flexi glomeravit radiis certis invasit oppida postquam onerosior inclusum dominari opifex terris pace finxit quam aquae nunc sine altae auroram quam habentem homo totidemque scythiam in pondus ensis tegit caecoque poena lapidosos humanas coeperunt poena aetas totidem nec natura aethera locavit caelumque distinxit animalibus phoebe cingebant moderantum porrexerat terrae possedit sua sole diu summaque obliquis melioris orbem</div>
+
+        <span class="open" ><img src="../../img/arrows/down_grey.png" class="arrow"></span>
+
+        <div class="panel-collapse">
+            Forma temperiemque cornua sidera dissociata cornua recessit innabilis ligavit: solidumque coeptis nullus caelum sponte phoebe di regat mentisque tanta austro capacius amphitrite sui quin postquam semina fossae liquidum umor galeae coeptis caligine liberioris quin liquidum matutinis invasit posset: flexi glomeravit radiis certis invasit oppida postquam onerosior inclusum dominari opifex terris pace finxit quam aquae nunc sine altae auroram quam habentem homo totidemque scythiam in pondus ensis tegit caecoque poena lapidosos humanas coeperunt poena aetas totidem nec natura aethera locavit caelumque distinxit animalibus phoebe cingebant moderantum porrexerat terrae possedit sua sole diu summaque obliquis melioris orbem
+        </div>
     </custom-collapse>
 </section>
 
 <section class="collapse-wrapper">
-    <custom-collapse colType="big">
+    <custom-collapse class="big" colType="big">
         <h1>Korrespondenz</h1>
 
-        <div ng-controller="emailController">
-            <div class="content">
-                <div vertical layout>
-                    <div horizontal layout>
-                        <div vertical layout class="email-write">
-                            <div class="email">
-                                <div class="email-begin" contenteditable="true" ng-model="email.begin">
-                                </div>
-                                <div class="email-drop" ng-model="email.text" contenteditable="true">
+        <span class="open" ><img src="../../img/arrows/down_grey.png" class="arrow"></span>
+        <div class="panel-collapse">
+            <div ng-controller="emailController">
+                <div class="content">
+                    <div vertical layout>
+                        <div horizontal layout>
+                            <div vertical layout class="email-write">
+                                <div class="email">
+                                    <div class="email-begin" contenteditable="true" ng-model="email.begin">
+                                    </div>
+                                    <div class="email-drop" ng-model="email.text" contenteditable="true">
 
+                                    </div>
+                                    <div class="email-end" contenteditable="true" ng-model="email.end" >
+                                    </div>
                                 </div>
-                                <div class="email-end" contenteditable="true" ng-model="email.end" >
-                                </div>
+                                <div><button ng-disabled="enableEmail" ng-click="sendEmail()" class="bigButton">E-Mail schicken</button></div>
+                                <div class="clear"></div>
                             </div>
-                            <div><button ng-disabled="enableEmail" ng-click="sendEmail()" class="bigButton">E-Mail schicken</button></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div class="email-drag">
-                            <p class="items">Verfügbare Textbausteine</p>
-                            <div class="item" id="item1" data-text={{testBox.text}} draggable>{{testBox.title}}</div>
-                            <div class="item" id="item2" data-text={{testBox.text}} draggable>{{testBox.title}}</div>
-                            <div class="item" id="item3" data-text={{testBox.text}} draggable>{{testBox.title}}</div>
-                        </div>
+                            <div class="email-drag">
+                                <p class="items">Verfügbare Textbausteine</p>
+                                <div class="item" id="item1" data-text={{testBox.text}} draggable>{{testBox.title}}</div>
+                                <div class="item" id="item2" data-text={{testBox.text}} draggable>{{testBox.title}}</div>
+                                <div class="item" id="item3" data-text={{testBox.text}} draggable>{{testBox.title}}</div>
+                            </div>
 
-                    </div>
-
-                    <div class="email-list">
-                        <div horizontal layout  ng-repeat="msg in currentRequest.messages | orderBy: '-date'">
-                            <div ng-if="msg.from_guest" class="email-info-right">
-                                {{currentRequest.guest_id.salutation}} {{currentRequest.guest_id.last_name}}<br>
-                                {{currentRequest.guest_id.email}}<br>
-                                E-Mail vom {{msg.date | date: 'dd. MMMM yyyy'}}
-                            </div>
-                            <div ng-class="{'email-right' : msg.from_guest, 'email-left' : !msg.from_guest}">
-                                <div horizontal ng-bind-html="toTrustedHtml(msg.body)">
-                                </div>
-                            </div>
-                            <div ng-if="!msg.from_guest" class="email-info-left">
-                                {{currentRequest.guest_id.salutation}} {{currentRequest.guest_id.last_name}}<br>
-                                {{currentRequest.guest_id.email}}<br>
-                                E-Mail vom {{msg.date | date: 'dd. MMMM yyyy'}}
-                            </div>
                         </div>
 
+                        <div class="email-list">
+                            <div horizontal layout  ng-repeat="msg in currentRequest.messages | orderBy: '-date'">
+                                <div ng-if="msg.from_guest" class="email-info-right">
+                                    {{currentRequest.guest_id.salutation}} {{currentRequest.guest_id.last_name}}<br>
+                                    {{currentRequest.guest_id.email}}<br>
+                                    E-Mail vom {{msg.date | date: 'dd. MMMM yyyy'}}
+                                </div>
+                                <div ng-class="{'email-right' : msg.from_guest, 'email-left' : !msg.from_guest}">
+                                    <div horizontal ng-bind-html="toTrustedHtml(msg.body)">
+                                    </div>
+                                </div>
+                                <div ng-if="!msg.from_guest" class="email-info-left">
+                                    {{currentRequest.guest_id.salutation}} {{currentRequest.guest_id.last_name}}<br>
+                                    {{currentRequest.guest_id.email}}<br>
+                                    E-Mail vom {{msg.date | date: 'dd. MMMM yyyy'}}
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
