@@ -43,9 +43,8 @@ angular.module('pro5_hzv.dashboard', [
 
     .controller("requestFormController", function($scope, $moment, bookingProvider, guestProvider, roomProvider){
 
-        $scope.names = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
-        $scope.guests = guestProvider.query();
-        console.log($scope.guests);
+        //$scope.names = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
+
         /*$scope.$watch('requestForm.last_name', function(n, o){
             angular.forEach($scope.guests, function(guest, key){
                 if(guest.last_name === n) {
@@ -62,10 +61,24 @@ angular.module('pro5_hzv.dashboard', [
         };
 
 
+        //###################### Directive ##########################
 
+        $scope.guests = guestProvider.query();
+        /*dataFactory.get('states.json').then(function(data) {
+         $scope.items = data;
+         });*/
         $scope.requestForm = {};
-        $scope.requestForm.e_mail = '';
-        $scope.requestForm.last_name = '';
+        $scope.requestForm.email = '';// This will hold the selected item
+        $scope.requestForm.last_name = ''; // This will hold the selected item
+
+        $scope.onItemSelected = function(selectedItem) { // this gets executed when an item is selected
+            console.log(selectedItem);
+            console.log(selectedItem['email']);
+            if($scope.requestForm.last_name) $scope.requestForm.email = selectedItem['email'];
+            if($scope.requestForm.email) $scope.requestForm.last_name = selectedItem['last_name'];
+
+        };
+
         $scope.requestForm.status =  0;
         $scope.requestForm.person_count = 5;
         $scope.requestForm.room_count =  1;
@@ -73,13 +86,13 @@ angular.module('pro5_hzv.dashboard', [
         $scope.requestForm.room_id = [];
         $scope.requestForm.category = "NF";
 
-        $scope.updateEmail = function(item) {
+        /*$scope.updateEmail = function(item) {
             angular.forEach($scope.guests, function(guest, key){
                 if(guest.last_name === item) {
                     $scope.requestForm.e_mail = guest.email;
                 };
             });
-            console.log(item);last_name
+            console.log(item);
         };
         $scope.updateName = function(item) {
             angular.forEach($scope.guests, function(guest, key){
@@ -88,7 +101,7 @@ angular.module('pro5_hzv.dashboard', [
                 };
             });
             console.log(item);
-        };
+        };*/
 
 
         $scope.testBooking = function(){
@@ -111,7 +124,7 @@ angular.module('pro5_hzv.dashboard', [
 
             $scope.requestForm.arr = arr.toDate();
             $scope.requestForm.dep = dep.toDate();
-            //console.log($scope.requestForm);
+            console.log($scope.requestForm);
             //bookingProvider.save($scope.requestForm);
 
         };

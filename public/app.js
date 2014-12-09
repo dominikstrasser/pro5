@@ -4,6 +4,7 @@
 angular.module('pro5_hzv', [
     'ngAnimate',
     'ngRoute',
+    'ngSanitize',
     'ngResource',
     'mgcrea.ngStrap.datepicker',
     'mgcrea.ngStrap.tooltip',
@@ -20,7 +21,7 @@ angular.module('pro5_hzv', [
     'pro5_hzv.dragDropDirective',
     'pro5_hzv.roomListDirective',
     'pro5_hzv.dashboardAktuellDirective',
-    'eee-c.angularBindPolymer'
+    'pro5_hzv.bindPolymerDirective'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/dashboard'});
@@ -94,5 +95,76 @@ config(['$routeProvider', function($routeProvider) {
                     ngModel.$setViewValue(html);
                 }
             }
+        };
+    }).directive('typeahead', function($timeout) {
+        return {
+            restrict: 'E',
+            scope: {
+                items: '=',
+                prompt: '@',
+                maintitle: '@',
+                subtitle: '@',
+                subsubtitle: '@',
+                model: '=',
+                onSelect: '&'
+            },
+            link: function(scope, elem, attrs) {
+                scope.handleSelection = function(selectedItem) {
+                    scope.model = selectedItem[scope.maintitle];
+                    scope.current = 0;
+                    scope.selected = true;
+                    $timeout(function() {
+                        scope.onSelect({selectedItem : selectedItem});
+                    }, 200);
+                };
+                scope.current = 0;
+                scope.selected = true; // hides the list initially
+                scope.isCurrent = function(index) {
+                    return scope.current == index;
+                };
+                scope.setCurrent = function(index) {
+                    scope.current = index;
+                };
+                scope.handleKey = function(evt, matches) {
+
+                    var size = matches.length;
+                    if(!/(38|40|13)/.test(evt.keyCode)){
+                        scope.selected = false;
+                        return;
+                    };
+
+                    if(evt.keyCode === 38 && scope.current > 0 && scope.model.length) scope.current--;
+                    if(evt.keyCode === 40 && scope.current < size-1 && scope.model.length) scope.current++;
+
+                    // Select with enter
+                    if(evt.keyCode === 13 && scope.model.length) {
+                        scope.model = matches[scope.current][scope.maintitle];
+                        var currentMatch = matches[scope.current];
+                        scope.selected = true;
+                        $timeout(function() {
+                            scope.onSelect({selectedItem : currentMatch});
+                        }, 200);
+                       // $typeahead.select(scope.$activeIndex);
+                        scope.current = 0;
+                        evt.preventDefault();
+                        evt.stopPropagation();
+                    };
+
+
+                    // Let ngSubmit pass if the typeahead tip is hidden
+                  /*  if($typeahead.$isVisible()) {
+                        evt.preventDefault();
+                        evt.stopPropagation();
+                    }*/
+/*
+                    // Navigate with keyboard
+                    else if(evt.keyCode === 38 && scope.$activeIndex > 0) scope.$activeIndex--;
+                    else if(evt.keyCode === 40 && scope.$activeIndex < scope.$matches.length - 1) scope.$activeIndex++;
+                    else if(angular.isUndefined(scope.$activeIndex)) scope.$activeIndex = 0;
+                    scope.$digest();
+                    */
+                };
+            },
+            templateUrl: 'custom_elements/custom-tooltip/custom-tooltip.html'
         };
     });

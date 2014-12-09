@@ -4,7 +4,7 @@ var cfg = require("./config.js");
 
 
 var transporter = nodemailer.createTransport({
-    service: 'Hotmail',
+    service: 'Gmail',
     auth: {
         user: cfg.user,
         pass: cfg.password

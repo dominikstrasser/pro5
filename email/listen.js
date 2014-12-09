@@ -61,6 +61,7 @@ mailListener.on("mail", function(mail, seqno, attributes){
             subject : mail.headers.subject,
             date : mail.headers.date
         };
+
         bookingModel.findOneAndUpdate({"_id" : id},{$push: {"messages": msg}},function(err, result){
             if(err) console.log(err);
             console.log("Email wurde zu Buchung gespeichert");

@@ -40,7 +40,7 @@
 
         <div class="col">
             <div class="row">
-                <custom-counter bind-polymer current="{{requestForm.room_count}}" singular="EZ" plural="EZ" size="5"></custom-counter>
+                <custom-counter bind-polymer current={{requestForm.room_count}} singular="EZ" plural="EZ" size="5"></custom-counter>
             </div>
             <div class="row">
                 <custom-counter bind-polymer ng-model="requestForm.doubleRoom_count" current="{{requestForm.doubleRoom_count}}" singular="DZ" plural="DZ" size="5"></custom-counter>
@@ -57,20 +57,26 @@
         </div>
 
         <div class="col last form-group">
-            <div class="row">
+            <!--<div class="row">
                 <input autocomplete="off" type="text" class="form-control" ng-change="updateEmail(requestForm.last_name)" ng-model="requestForm.last_name" name="name"
-                       placeholder="Nachname/Firma" ng-options="guest.last_name as guest.last_name for guest in guests" data-animation="am-flip-x"  bs-typeahead>
+                       placeholder="Nachname/Firma" ng-options="guest.last_name as guest.last_name + '<b> '+guest.email+'</b>' for guest in guests" data-animation="am-flip-x" template="/custom_elements/custom-tooltip/custom-tooltip.html"  bs-typeahead>
             </div>
 
             <div class="row">
                 <!--
                 <input autocomplete="off" type="text" class="form-control" ng-change="updateName(requestForm.e_mail)" ng-model="requestForm.e_mail" name="email"
                        placeholder="E-Mail Adresse" data-animation="am-flip-x" bs-typeahead>
-                       -->
+            </div>
+            -->
+            <div class="row">
+                <typeahead items="guests" prompt="Nachname" maintitle="last_name" subtitle="first_name" subsubtitle="email" model="requestForm.last_name" on-select="onItemSelected(selectedItem)"></typeahead>
+            </div>
+            <div class="row">
+                <typeahead items="guests" prompt="Email" maintitle="email" model="requestForm.email" on-select="onItemSelected(selectedItem)"></typeahead>
             </div>
 
             <div class="row">
-                <input ng-click="testBooking()" type="submit" class="bigButton" value="Weiter">
+                <button ng-click="testBooking()" class="bigButton">Weiter</button>
             </div>
         </div>
 
