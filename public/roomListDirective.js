@@ -159,7 +159,7 @@ angular.module('pro5_hzv.roomListDirective',[])
                         var id = e.target.getAttribute("data-id");
                         scope.selectedRooms.push(id);
                         scope.$apply();
-                    }, false);
+                    }, true);
 
                     var rl_roomName = document.createElement("span");
                     rl_roomName.setAttribute("class", "rl_roomName");
