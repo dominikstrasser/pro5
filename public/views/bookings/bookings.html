@@ -1,25 +1,16 @@
-<section class="collapse-wrapper" bs-collapse>
+<section class="collapse-wrapper">
+    <custom-collapse class="big" colType="big" opened="true">
+        <h1>Alle Buchungen</h1>
 
-    <h1 class="first">Alle Buchungen</h1>
-    <span class="open" bs-collapse-toggle><img src="../../img/arrows/down_grey.png" class="arrow"></span>
-
-    <div class="clear"></div>
-
-    <div opened fixedSize bs-collapse-target class="panel-collapse">
+        <span class="open" ><img src="../../img/arrows/down_grey.png" class="arrow"></span>
         <div class="content">
-
-            <div vertical layout>
-                <div horizontal layout class="data guest" ng-repeat="req in reqs">
-                    <div horizontal>{{req.guest_id.salutation}} {{req.guest_id.last_name}}</div>
-                    <div horizontal><span class="notification">1</span></div>
-                    <div horizontal>{{req.person_count}} Personen</div>
-                    <div horizontal flex><span>Zimmer
-                        <span ng-repeat="room in req.room_id">{{room.number}}</span>
-                    </span></div>
-                    <div horizontal><button class="blueButton">Details</button></div>
-                </div>
+            <div horizontal layout class="data guest" ng-repeat="req in reqs">
+                <div horizontal>{{req.guest_id.salutation}} {{req.guest_id.last_name}}</div>
+                <div horizontal><span class="notification">1</span></div>
+                <div horizontal>{{req.person_count}} Personen</div>
+                <div horizontal flex><span>Zimmer <span ng-repeat="room in req.room_id">{{room.number}}</span></span></div>
+                <button class="blueButton">Details</button>
             </div>
-
         </div>
-    </div>
+    </custom-collapse>
 </section>
