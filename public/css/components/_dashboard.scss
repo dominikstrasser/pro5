@@ -17,23 +17,6 @@
   margin-bottom: 0;
   border: none;
 }
-#current .arrow {
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 21px;
-  background: $grey;
-}
-#current .arrow:hover {
-  cursor: pointer;
-}
-#current .medium .arrow {
-  padding: 21px;
-  top: 2px;
-}
-#current .small .arrow {
-  background: none;
-}
 #current .dayEntryHeader {
   padding-left: 10px;
   padding-top: 15px;
@@ -45,16 +28,10 @@
   float: left;
   min-width: 180px;
 }
-#current .dayEntryHeader .arrow {
-  background: none;
-}
-#current .dayEntry.active {
-  background: none;
-}
 #current .dayEntryDetails {
   background: $grey;
   padding-left: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 }
 #current .dayEntryDetails .col {
   float: left;
