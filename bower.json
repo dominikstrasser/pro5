@@ -4,7 +4,6 @@
   "authors": [
     "Dominik Strasser <strasserdominik@hotmail.com>"
   ],
-  "directory": "~/public/vendor",
   "license": "MIT",
   "private": true,
   "ignore": [

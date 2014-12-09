@@ -1,6 +1,8 @@
 <section class="collapse-wrapper">
     <custom-collapse colType="big" opened="true">
         <h1>Alle Anfragen</h1>
+
+        <span class="open" ><img src="../../img/arrows/down_grey.png" class="arrow"></span>
         <div class="content">
             <div horizontal layout class="data guest" ng-repeat="req in reqs">
                 <div horizontal>{{req.guest_id.salutation}} {{req.guest_id.last_name}}</div>
