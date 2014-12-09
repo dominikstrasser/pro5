@@ -1,6 +1,9 @@
 /*
  * COLLAPSE
  */
+.big, .medium, .small{
+  position: relative;
+}
 .collapse-wrapper {
   margin: 0 20px;
   position: relative;
@@ -11,10 +14,10 @@
   margin-top: 60px;
   margin-bottom: 0;
 }
-.collapse-wrapper h1.first {
+.collapse-wrapper h1:first-of-type {
   margin-top: 37px;
 }
-.collapse-wrapper .open:hover {
+.collapse-wrapper .arrow:hover {
   cursor: pointer;
 }
 .collapse-wrapper .open {
@@ -130,4 +133,27 @@
 }
 .collapse-wrapper .content .email-info-right {
   text-align: right;
+}
+.medium h2 {
+  border-top: $border;
+  border-bottom: $border;
+  padding-left: 10px;
+  padding-top: 15px;
+  padding-bottom: 14px;
+  margin: 0;
+  font-size: 16px;
+  position: relative;
+  margin-bottom: -2px;
+}
+.small h3 {
+  margin:0px;
+  padding-left: 10px;
+  padding-top: 15px;
+  padding-bottom: 14px;
+  position: relative;
+  background: #c9cedb;
+}
+.detail h3{
+  font-size: 16px;
+  margin: 0px;
 }
