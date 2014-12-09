@@ -9,6 +9,7 @@ angular.module('pro5_hzv.management', ['ngRoute'])
         });
     }])
 
-    .controller('managementCtrl', [function() {
+    .controller('managementCtrl', ["$scope", "roomProvider", function($scope, roomProvider) {
+        $scope.rooms = roomProvider.query();
 
     }]);
