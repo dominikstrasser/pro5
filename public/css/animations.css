@@ -133,6 +133,7 @@
 /*
  * COLLAPSE
  */
+/*
 custom-collapse /deep/  .collapse-wrapper {
     margin: 0 20px;
     position: relative; }
@@ -283,7 +284,7 @@ custom-collapse /deep/  .content .email-info-left, .collapse .content .email-inf
 custom-collapse /deep/  .content .email-info-right {
     text-align: right; }
 
-
+*/
 
 /*
 #
@@ -302,6 +303,14 @@ custom-collapse /deep/  .content .email-info-right {
 
 .big .open:hover {
     cursor: pointer; }
+
+.medium .open {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    height: 57px;
+    width: 57px;
+    background: #eef1f9; }
 
 .big .open {
     position: absolute;
@@ -386,7 +395,7 @@ custom-collapse /deep/  .content .email-info-right {
     margin: 0px;
 }
 
-
+/*
 #current custom-collapse /deep/ .medium h2{
     border-top: 2px solid #c9cedb;
     border-bottom: 2px solid #c9cedb;
@@ -424,4 +433,13 @@ custom-collapse /deep/ .medium, custom-collapse /deep/ .small{
 custom-collapse /deep/ .medium .arrow{
     padding: 21px;
     top: 2px;
+}
+*/
+
+.collapse-wrap{
+    position: relative;
+}
+
+.rl_room:hover{
+    background: red;
 }
