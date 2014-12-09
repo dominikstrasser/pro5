@@ -110,10 +110,24 @@
   padding: 2px 10px;
   @include border-radius(20px);
 }
+.collapse-wrapper .blueButton {
+  position: absolute;
+  right: 10px;
+  top: -5px;
+}
 .collapse-wrapper .guest .blueButton {
   position: absolute;
   right: 10px;
   top: 15px;
+}
+.collapse-wrapper .changeDate {
+  position: absolute;
+  right: 80px;
+  top: 16px;
+  z-index: 10;
+}
+.collapse-wrapper .changeDate .blueButton {
+  position: static;
 }
 .collapse-wrapper .formular {
   padding: 0;
@@ -129,12 +143,6 @@
 .collapse-wrapper .room-collapse .blueButton {
   position: absolute;
   top: 15px;
-}
-.collapse-wrapper .room-collapse .blueButton.next {
-  right: 80px;
-}
-.collapse-wrapper .room-collapse .blueButton.prev {
-  right: 130px;
 }
 .collapse-wrapper .content .data div:nth-child(1) {
   min-width: 130px;

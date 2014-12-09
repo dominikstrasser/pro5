@@ -59,10 +59,9 @@
     background: red;
 }
 
-
-typeahead input.ng-invalid-email.ng-touched {
-    border-color: #FA787E;
+.typeaheadItem.active {
+    background-color: yellow;
 }
-typeahead input.ng-valid-email.ng-touched.ng-valid-required {
-    border-color: #5CDEC4;
+.typeaheadItem .subtitle, .typeaheadItem .subsubtitle {
+    color: darkgray;
 }

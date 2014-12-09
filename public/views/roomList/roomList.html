@@ -1,4 +1,9 @@
 <section class="collapse-wrapper">
+    <div class="changeDate">
+        <button class="blueButton prev" ng-click="decreaseDate()"><</button>
+        <button class="blueButton next" ng-click="increaseDate()">></button>
+    </div>
+
     <custom-collapse class="big" colType="big" opened="true">
         <h1>Zimmerliste</h1>
 
@@ -14,8 +19,5 @@
                 </room-list>
             </div>
         </div>
-
-        <button class="blueButton prev" ng-click="decreaseDate()"><</button>
-        <button class="blueButton next" ng-click="increaseDate()">></button>
     </custom-collapse>
 </section>

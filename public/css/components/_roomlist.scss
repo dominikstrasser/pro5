@@ -50,6 +50,11 @@
   position:relative;
   height: 44px;
 }
+.rl_roomName .type {
+  display: inline;
+  color: $darkgrey;
+  margin-left: 10px;
+}
 span.rl_booking {
   position: absolute;
   top: 0px;

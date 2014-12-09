@@ -6,16 +6,13 @@
             <button class="blueButton" ng-click="predicate = 'last_name'; reverse=!reverse">Alphabet</button>
             <button class="blueButton" ng-click="predicate = ''; reverse=!reverse">Letzter Urlaub</button>
             <button class="blueButton" ng-click="predicate = 'country'; reverse=!reverse">Land</button>
+            <button class="blueButton add" onclick="document.getElementById('newGuestCollapse').toggle()">+</button>
         </div>
     </div>
 
-    <!--
-    <button class="blueButton" onclick="document.getElementById('newGuestCollapse').toggle()">Neuer Gast!</button>
-    -->
     <div class="management-content">
         <custom-collapse colType="none" id="newGuestCollapse">
-            <div class="formular">
-                <h2>Neuen Gast anlegen</h2>
+            <div class="formular addGuest">
                 <div>
                     <div class="col">
                         <div class="row">
