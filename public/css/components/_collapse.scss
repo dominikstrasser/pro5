@@ -1,9 +1,95 @@
 /*
  * COLLAPSE
  */
-.big, .medium, .small{
+.big, .medium, .small, .detail {
   position: relative;
 }
+.big .open:hover, .medium .open:hover, .small .open:hover {
+  cursor: pointer;
+}
+
+.big .open .arrow {
+  @include rotate(0deg);
+  @include transition(0.5s);
+}
+.big.cc-open .open .arrow {
+  @include rotate(180deg);
+  @include transition(0.5s);
+}
+
+/*
+.big .open .arrow, .medium .open .arrow, .small .open .arrow {
+  @include rotate(0deg);
+  @include transition(0.5s);
+}
+.cc-open .open .arrow {
+  @include rotate(180deg);
+  @include transition(0.5s);
+}*/
+
+/* BIG */
+.big .open {
+  position: absolute;
+  right: 0;
+  top: 2px;
+  height: 57px;
+  width: 57px;
+  background: $grey;
+}
+.big .open .arrow {
+  padding: 25px 23px;
+}
+
+/* MEDIUM */
+.medium .open {
+  position: absolute;
+  right: 0;
+  top: 2px;
+  background: $grey;
+}
+.medium .open .arrow {
+  padding: 18.5px;
+}
+.medium h2 {
+  border-top: $border;
+  border-bottom: $border;
+  padding-left: 10px;
+  padding-top: 15px;
+  padding-bottom: 14px;
+  margin: 0;
+  font-size: 16px;
+  position: relative;
+  margin-bottom: -2px;
+}
+
+/* SMALL */
+.small .open {
+  background: none;
+}
+.small .open .arrow {
+  background: none;
+}
+.small h3 {
+  margin:0px;
+  padding-left: 10px;
+  padding-top: 15px;
+  padding-bottom: 14px;
+  position: relative;
+  border-bottom: $border-light;
+}
+.small h3:last-child {
+  border: none;
+}
+.small.cc-open h3 {
+  background: $darkgrey;
+}
+
+/* DETAIL */
+.detail h3 {
+  font-size: 16px;
+  margin: 0px;
+}
+
 .collapse-wrapper {
   margin: 0 20px;
   position: relative;
@@ -16,26 +102,6 @@
 }
 .collapse-wrapper h1:first-of-type {
   margin-top: 37px;
-}
-.collapse-wrapper .arrow:hover {
-  cursor: pointer;
-}
-.collapse-wrapper .open {
-  position: absolute;
-  right: 0;
-  top: 2px;
-  height: 57px;
-  width: 57px;
-  background: $grey;
-}
-.collapse-wrapper .open .arrow {
-  padding: 25px 23px;
-  @include rotate(0deg);
-  @include transition(0.5s);
-}
-.collapse-wrapper.collapse-open .open .arrow {
-  @include rotate(180deg);
-  @include transition(0.5s);
 }
 .collapse-wrapper .guest {
   padding: 10px;
@@ -133,27 +199,4 @@
 }
 .collapse-wrapper .content .email-info-right {
   text-align: right;
-}
-.medium h2 {
-  border-top: $border;
-  border-bottom: $border;
-  padding-left: 10px;
-  padding-top: 15px;
-  padding-bottom: 14px;
-  margin: 0;
-  font-size: 16px;
-  position: relative;
-  margin-bottom: -2px;
-}
-.small h3 {
-  margin:0px;
-  padding-left: 10px;
-  padding-top: 15px;
-  padding-bottom: 14px;
-  position: relative;
-  background: #c9cedb;
-}
-.detail h3{
-  font-size: 16px;
-  margin: 0px;
 }
