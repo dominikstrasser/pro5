@@ -76,9 +76,11 @@
                 if(this.opened){
                     this.currentState = "cc-open";
                     this.classList.add("cc-open");
+                    this.classList.remove("cc-closed");
                 }else{
                     this.currentState = "cc-closed";
                     this.classList.add("cc-closed");
+                    this.classList.remove("cc-open");
                 }
                 if(typeof this.$.btn != 'undefined') {
                     this.$.btn.addEventListener("click", function () {
