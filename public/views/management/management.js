@@ -21,14 +21,13 @@ angular.module('pro5_hzv.management', ['ngRoute'])
 
         $scope.updateRoom = function(id){
             $scope.updateRoomButtonDisabled = true;
+            console.log($scope.rooms);
             roomProvider.update($scope.rooms[id],function(data){
-
+                $scope.updateRoomButtonDisabled = false;
             });
         };
         $scope.deleteRoom = function(id){
             roomProvider.delete({"_id" : $scope.rooms[id]._id},function(data){
-                console.log("deleted");
-                console.log(data);
                 $scope.rooms.splice(id,1);
             });
         };
@@ -38,10 +37,14 @@ angular.module('pro5_hzv.management', ['ngRoute'])
             roomProvider.save($scope.newRoom, function(data){
                 $scope.addRoomFormButtonDisabled = false;
                 document.getElementById('newRoomCollapse').toggle();
-                $scope.rooms.unshift($scope.newRoom);
+                $scope.rooms.push(data);
                 $scope.newRoom = {};
             });
         };
 
+        $scope.clearRoom = function(){
+            $scope.newRoom = {};
+            document.getElementById('newRoomCollapse').toggle();
+        }
 
     }]);
