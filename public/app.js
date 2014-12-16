@@ -133,7 +133,7 @@ config(['$routeProvider', function($routeProvider) {
                         scope.onSelect({selectedItem : selectedItem});
                     }, 200);
                 };
-                scope.current = -1; //TODO fix bug if you doesn't want to select from dropdown
+                scope.current = -1; 
                 scope.selected = true; // hides the list initially
                 scope.isCurrent = function(index) {
                     return scope.current == index;
@@ -142,6 +142,12 @@ config(['$routeProvider', function($routeProvider) {
                     scope.current = index;
                 };
                 scope.handleKey = function(evt, matches) {
+
+                    if(evt.keyCode === 9) {
+                        console.log("tab");
+                        evt.preventDefault();
+                        return;
+                    }
 
                     var size = matches.length;
                     if(!/(38|40|13)/.test(evt.keyCode)){
@@ -163,12 +169,11 @@ config(['$routeProvider', function($routeProvider) {
                         scope.current = 0;
                         evt.preventDefault();
                         evt.stopPropagation();
-                    }else if(evt.keyCode === 13){
+                    }else if(evt.keyCode === 13) {
                         scope.selected = true;
                         evt.preventDefault();
                         evt.stopPropagation();
                     }
-
 
                     // Let ngSubmit pass if the typeahead tip is hidden
                   /*  if($typeahead.$isVisible()) {
