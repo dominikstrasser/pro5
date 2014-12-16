@@ -163,3 +163,25 @@ button.orange {
 button.red {
   background: $orange;
 }
+
+.typeahead {
+  position: absolute;
+  background: $white;
+  background: $blue;
+  margin-top: 12px;
+  @include border-radius(5px);
+}
+.typeaheadItem {
+  min-width: 319px;
+  padding: 15px 8px;
+  @include border-radius(5px);
+}
+.typeaheadItem.active {
+  background-color: $button-blue-hover;
+}
+.typeaheadItem .title {
+  color: $white;
+}
+.typeaheadItem .subtitle, .typeaheadItem .subsubtitle {
+  color: $white;
+}

@@ -551,6 +551,33 @@ button.orange {
 button.red {
   background: #ff5a00; }
 
+.typeahead {
+  position: absolute;
+  background: #FFFFFF;
+  background: #2f3545;
+  margin-top: 12px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px; }
+
+.typeaheadItem {
+  min-width: 319px;
+  padding: 15px 8px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px; }
+
+.typeaheadItem.active {
+  background-color: #ffba42; }
+
+.typeaheadItem .title {
+  color: #FFFFFF; }
+
+.typeaheadItem .subtitle, .typeaheadItem .subsubtitle {
+  color: #FFFFFF; }
+
 /*
  * COLLAPSE
  */

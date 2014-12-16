@@ -1,45 +1,47 @@
-<button class="blueButton add" onclick="document.getElementById('newRoomCollapse').toggle()">+</button>
-<section class="collapse-wrapper">
-    <custom-collapse class="big" colType="big" opened="true">
+<div class="management">
+    <div class="filter">
         <h1>Zimmerliste</h1>
+        <div class="options">
+            <button class="blueButton add" onclick="document.getElementById('newRoomCollapse').toggle()">+</button>
+        </div>
+    </div>
 
-        <span class="open" ><img src="../../img/arrows/down_grey.png" class="arrow"></span>
-        <div ng-repeat="room in rooms">
-
-            <custom-collapse colType="none" id="newRoomCollapse">
-                <div class="addGuest panel-collapse formular" >
-                    <div class="col">
-                        <div class="row"><input type="text" placeholder="Zimmer Nr." ng-model="newRoom.number"></div>
-                        <div class="row"><input type="text" placeholder="Zimmer Name" ng-model="newRoom.name"></div>
-                        <div class="row"><input type="text" placeholder="Kategorie" ng-model="newRoom.category"></div>
-                    </div>
-
-                    <div class="col">
-                        <div class="row"><custom-counter bind-polymer ng-model="newRoom.s_beds" current="{{newRoom.s_beds}}" singular="E-Bett" plural="E-Betten" size="7"></custom-counter></div>
-                        <div class="row"><custom-counter bind-polymer ng-model="newRoom.d_beds" current="{{newRoom.d_beds}}" singular="D-Bett" plural="D-Betten" size="7"></custom-counter></div>
-                    </div>
-
-                    <div class="col">
-                        <div class="row" ng-repeat="extra in newRoom.extra">
-                            <paper-checkbox checked></paper-checkbox> {{extra}}
-                        </div>
-                        <div class="row"><input type="text" placeholder="neues Extra..." name="address"></div>
-                    </div>
-
-                    <div class="col">
-                        <button ng-click="saveRoom($index)" ng-disabled="addRoomFormButtonDisabled" class="bigButton">Speichern</button>
-                    </div>
-
-                    <div class="col">
-                        <button ng-click="cancel()" class="bigButton red">Abbrechen</button>
-                    </div>
-
-                    <div class="clear"></div>
-
+    <div class="management-content">
+        <custom-collapse colType="none" id="newRoomCollapse">
+            <div class="addGuest panel-collapse formular" >
+                <div class="col">
+                    <div class="row"><input type="text" placeholder="Zimmer Nr." ng-model="newRoom.number"></div>
+                    <div class="row"><input type="text" placeholder="Zimmer Name" ng-model="newRoom.name"></div>
+                    <div class="row"><input type="text" placeholder="Kategorie" ng-model="newRoom.category"></div>
                 </div>
-            </custom-collapse>
 
-            <custom-collapse class="detail" colType="detail">
+                <div class="col">
+                    <div class="row"><custom-counter bind-polymer ng-model="newRoom.s_beds" current="{{newRoom.s_beds}}" singular="E-Bett" plural="E-Betten" size="7"></custom-counter></div>
+                    <div class="row"><custom-counter bind-polymer ng-model="newRoom.d_beds" current="{{newRoom.d_beds}}" singular="D-Bett" plural="D-Betten" size="7"></custom-counter></div>
+                </div>
+
+                <div class="col">
+                    <div class="row" ng-repeat="extra in newRoom.extra">
+                        <paper-checkbox checked></paper-checkbox> {{extra}}
+                    </div>
+                    <div class="row"><input type="text" placeholder="neues Extra..." name="address"></div>
+                </div>
+
+                <div class="col">
+                    <button ng-click="saveRoom($index)" ng-disabled="addRoomFormButtonDisabled" class="bigButton">Speichern</button>
+                </div>
+
+                <div class="col">
+                    <button ng-click="cancel()" class="bigButton red">Abbrechen</button>
+                </div>
+
+                <div class="clear"></div>
+
+            </div>
+        </custom-collapse>
+
+        <section class="collapse-wrapper date"  ng-repeat="room in rooms">
+            <custom-collapse colType="detail">
                 <h3 vertical layout class="management-row">
                     <div horizontal layout>
                         <div horizontal>#{{room.number}}</div>
@@ -82,47 +84,6 @@
 
                 </div>
             </custom-collapse>
-        </div>
-    </custom-collapse>
-</section>
-<!--
-<div horizontal layout>
-    <section class="collapse-wrapper" flex>
-        <custom-collapse class="big" colType="big" opened="true">
-            <h1>Zimmerkategorien</h1>
-            <span class="open" ><img src="../../img/arrows/down_grey.png" class="arrow"></span>
-            <div>
-                <a class="blueButton">Neue Kategorie</a>
-                <custom-collapse class="detail" colType="detail">
-                    <h3>Kategorie A</h3>
-
-                    <button class="blueButton">Details</button>
-
-                    <div class="formular">
-
-                        <div class="row">Einzelzimmer: <input type="text" name="address" ng-model="room.category"></div>
-                        <div class="row">Doppelzimmer: <input type="text" name="address" ng-model="room.category"></div>
-                        <div class="row">Suite: <input type="text" name="address" ng-model="room.category"></div>
-                        <div class="row">
-                            <input type="text" name="address" ng-model="room.category">
-                            <a>Neue Belegung</a>
-                        </div>
-                    </div>
-                </custom-collapse>
-
-            </div>
-        </custom-collapse>
-    </section>
-    <section class="collapse-wrapper" flex>
-        <custom-collapse class="big" colType="big" opened="true">
-            <h1>Belegungen</h1>
-            <span class="open" ><img src="../../img/arrows/down_grey.png" class="arrow"></span>
-            <div>
-                <h2>Einzelzimmer</h2>
-                <h2>Doppelzimmer</h2>
-                <h2>Suite</h2>
-            </div>
-        </custom-collapse>
-    </section>
+        </section>
+    </div>
 </div>
--->
