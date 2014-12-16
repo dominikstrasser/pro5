@@ -19,13 +19,12 @@ angular.module('pro5_hzv.guests', ['ngRoute'])
         $scope.updateGuest = function(id){
             $scope.updateGuestButtonDisabled = true;
             guestProvider.update($scope.guests[id],function(data){
-
+                $scope.updateGuestButtonDisabled = false;
             });
         };
         $scope.deleteGuest = function(id){
             guestProvider.delete({"_id" : $scope.guests[id]._id},function(data){
                 console.log("deleted");
-                console.log(data);
                 $scope.guests.splice(id,1);
             });
         };
@@ -36,10 +35,15 @@ angular.module('pro5_hzv.guests', ['ngRoute'])
                 $scope.addGuestFormButtonDisabled = false;
                 $scope.addGuestForm = false;
                 document.getElementById('newGuestCollapse').toggle();
-                $scope.guests.unshift($scope.newGuest);
+                $scope.guests.push(data);
                 $scope.newGuest = {};
             });
         };
+
+        $scope.clearGuest = function(){
+            $scope.newGuest = {};
+            document.getElementById('newGuestCollapse').toggle();
+        }
 
 
 
