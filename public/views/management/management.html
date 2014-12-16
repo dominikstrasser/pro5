@@ -1,57 +1,95 @@
-<div class="">
-    <section class="collapse-wrapper">
-        <custom-collapse class="big" colType="big" opened="true">
-            <h1>Zimmerliste</h1>
+<section class="collapse-wrapper">
+    <custom-collapse class="big" colType="big" opened="true">
+        <h1>Zimmerliste</h1>
 
-            <span class="open" ><img src="../../img/arrows/down_grey.png" class="arrow"></span>
-            <div ng-repeat="room in rooms">
-                <custom-collapse class="detail" colType="detail">
-                    <h3 vertical layout class="management-row">
-                        <div horizontal layout>
-                            <div horizontal>#{{room.number}}</div>
-                            <div horizontal>{{room.name}}</div>
-                            <div horizontal>{{room.beds}} Betten</div>
-                            <div horizontal>{{room.category}} Betten</div>
-                            <div horizontal>{{room.extra}}</div>
+        <span class="open" ><img src="../../img/arrows/down_grey.png" class="arrow"></span>
+        <div ng-repeat="room in rooms">
+            <custom-collapse class="detail" colType="detail">
+                <h3 vertical layout class="management-row">
+                    <div horizontal layout>
+                        <div horizontal>#{{room.number}}</div>
+                        <div horizontal>{{room.name}}</div>
+                        <div horizontal>{{room.beds}} Betten</div>
+                        <div horizontal>{{room.category}} Betten</div>
+                        <div horizontal>{{room.extra}}</div>
+                    </div>
+                </h3>
+                <button class="blueButton">Details</button>
+
+                <div class="box panel-collapse formular" >
+                    <div class="col">
+                        <div class="row"><input type="text" name="address" ng-model="room.number"></div>
+                        <div class="row"><input type="text" name="address" ng-model="room.name"></div>
+                        <div class="row"><input type="text" name="address" ng-model="room.category"></div>
+                    </div>
+
+                    <div class="col">
+                        <div class="row"><custom-counter bind-polymer ng-model="room.beds" current="{{room.beds}}" singular="Bett" plural="Betten" size="7"></custom-counter></div>
+                        <div class="row"><input type="text" name="address" ng-model="room.price"></div>
+                    </div>
+
+                    <div class="col">
+                        <div class="row" ng-repeat="extra in room.extra">
+                            <paper-checkbox checked></paper-checkbox> {{extra}}
                         </div>
-                    </h3>
+                        <div class="row"><input type="text" name="address"></div>
+                    </div>
+
+                    <div class="col">
+                        <button ng-click="updateGuest($index)" ng-disabled="updateGuestButtonDisabled" class="bigButton">Speichern</button>
+                    </div>
+
+                    <div class="col">
+                        <button ng-click="deleteGuest($index)" class="bigButton red">Löschen</button>
+                    </div>
+
+                    <div class="clear"></div>
+
+                </div>
+            </custom-collapse>
+        </div>
+
+        <button class="blueButton prev" ng-click="decreaseDate()"><</button>
+        <button class="blueButton next" ng-click="increaseDate()">></button>
+    </custom-collapse>
+</section>
+
+<div horizontal layout>
+    <section class="collapse-wrapper" flex>
+        <custom-collapse class="big" colType="big" opened="true">
+            <h1>Zimmerkategorien</h1>
+            <span class="open" ><img src="../../img/arrows/down_grey.png" class="arrow"></span>
+            <div>
+                <a class="blueButton">Neue Kategorie</a>
+                <custom-collapse class="detail" colType="detail">
+                    <h3>Kategorie A</h3>
+
                     <button class="blueButton">Details</button>
 
-                    <div class="box panel-collapse formular" >
-                        <div class="col">
-                            <div class="row"><input type="text" name="address" ng-model="room.number"></div>
-                            <div class="row"><input type="text" name="address" ng-model="room.name"></div>
-                            <div class="row"><input type="text" name="address" ng-model="room.category"></div>
+                    <div class="formular">
+
+                        <div class="row">Einzelzimmer: <input type="text" name="address" ng-model="room.category"></div>
+                        <div class="row">Doppelzimmer: <input type="text" name="address" ng-model="room.category"></div>
+                        <div class="row">Suite: <input type="text" name="address" ng-model="room.category"></div>
+                        <div class="row">
+                            <input type="text" name="address" ng-model="room.category">
+                            <a>Neue Belegung</a>
                         </div>
-
-                        <div class="col">
-                            <div class="row"><custom-counter bind-polymer ng-model="room.beds" current="{{room.beds}}" singular="Bett" plural="Betten" size="7"></custom-counter></div>
-                            <div class="row"><input type="text" name="address" ng-model="room.price"></div>
-                        </div>
-
-                        <div class="col">
-                            <div class="row" ng-repeat="extra in room.extra">
-                                <paper-checkbox checked></paper-checkbox> {{extra}}
-                            </div>
-                            <div class="row"><input type="text" name="address"></div>
-                        </div>
-
-                        <div class="col">
-                            <button ng-click="updateGuest($index)" ng-disabled="updateGuestButtonDisabled" class="bigButton">Speichern</button>
-                        </div>
-
-                        <div class="col">
-                            <button ng-click="deleteGuest($index)" class="bigButton red">Löschen</button>
-                        </div>
-
-                        <div class="clear"></div>
-
                     </div>
                 </custom-collapse>
-            </div>
 
-            <button class="blueButton prev" ng-click="decreaseDate()"><</button>
-            <button class="blueButton next" ng-click="increaseDate()">></button>
+            </div>
+        </custom-collapse>
+    </section>
+    <section class="collapse-wrapper" flex>
+        <custom-collapse class="big" colType="big" opened="true">
+            <h1>Belegungen</h1>
+            <span class="open" ><img src="../../img/arrows/down_grey.png" class="arrow"></span>
+            <div>
+                <h2>Einzelzimmer</h2>
+                <h2>Doppelzimmer</h2>
+                <h2>Suite</h2>
+            </div>
         </custom-collapse>
     </section>
 </div>
