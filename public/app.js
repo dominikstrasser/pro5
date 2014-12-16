@@ -116,17 +116,24 @@ config(['$routeProvider', function($routeProvider) {
                 var maintitle = scope.maintitle;
                 var model = scope.model;
 
-                scope.exp = '{'+maintitle+':'+model+'}';
+
+                //scope.exp = '{\''+maintitle+'\':'+model+'}';
+                scope.expr = function(query) {
+                    return function(item) {
+                        var re = new RegExp(query, 'gi');
+                        return item[scope.maintitle].match(re);
+                    }
+                };
 
                 scope.handleSelection = function(selectedItem) {
                     scope.model = selectedItem[scope.maintitle];
-                    scope.current = 0;
+                    scope.current = -1;
                     scope.selected = true;
                     $timeout(function() {
                         scope.onSelect({selectedItem : selectedItem});
                     }, 200);
                 };
-                scope.current = 0; //TODO fix bug if you doesn't want to select from dropdown
+                scope.current = -1; //TODO fix bug if you doesn't want to select from dropdown
                 scope.selected = true; // hides the list initially
                 scope.isCurrent = function(index) {
                     return scope.current == index;
@@ -141,11 +148,11 @@ config(['$routeProvider', function($routeProvider) {
                         scope.selected = false;
                         return;
                     };
-                    if(evt.keyCode === 38 && scope.current > 0 && scope.model.length) scope.current--;
-                    if(evt.keyCode === 40 && scope.current < size-1 && scope.model.length) scope.current++;
+                    if(evt.keyCode === 38 && scope.current >= 0 && scope.model.length) scope.current--;
+                    if(evt.keyCode === 40 && scope.current < size-1 && scope.model !== undefined) scope.current++;
 
                     // Select with enter
-                    if(evt.keyCode === 13 && scope.model.length && size > 0) {
+                    if(evt.keyCode === 13 && scope.model.length && size > 0 && scope.current >= 0) {
                         scope.model = matches[scope.current][scope.maintitle];
                         var currentMatch = matches[scope.current];
                         scope.selected = true;
@@ -156,7 +163,11 @@ config(['$routeProvider', function($routeProvider) {
                         scope.current = 0;
                         evt.preventDefault();
                         evt.stopPropagation();
-                    };
+                    }else if(evt.keyCode === 13){
+                        scope.selected = true;
+                        evt.preventDefault();
+                        evt.stopPropagation();
+                    }
 
 
                     // Let ngSubmit pass if the typeahead tip is hidden
