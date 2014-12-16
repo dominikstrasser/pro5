@@ -9,12 +9,33 @@ angular.module('pro5_hzv.roomList', ['ngRoute'])
   });
 }])
 
-.controller('roomListCtrl', ['$scope', '$moment', 'roomProvider', 'bookingProvider',function($scope, $moment, roomProvider, bookingProvider) {
+.controller('roomListCtrl', ['$scope', '$moment', 'roomProvider', 'bookingProvider', 'guestProvider',function($scope, $moment, roomProvider, bookingProvider, guestProvider) {
+
+        $scope.currentBooking = {};
+        $scope.guests = guestProvider.query();
+
         $scope.startday = $moment();
         $scope.startday.millisecond(0);
         $scope.startday.second(0);
         $scope.startday.minute(0);
         $scope.startday.utc().hours(12);
+
+        $scope.saveBooking = function(){
+            console.log($scope.currentBooking);
+            bookingProvider.save($scope.currentBooking, function(data){
+                console.log("gespeichert");
+                console.log(data);
+            });
+
+        };
+
+        $scope.handleForm = function(form){
+            console.log(form);
+            $scope.currentBooking = form;
+            $scope.currentBooking.room_id = $scope.selectedRooms;
+            console.log("save");
+        };
+
 
         roomProvider.query(function(data){
              $scope.rooms = data;
@@ -36,8 +57,7 @@ angular.module('pro5_hzv.roomList', ['ngRoute'])
         $scope.filteredRooms = [];
         $scope.selectedRooms = [];
         $scope.$watch("selectedRooms",function(n,o){
-            console.log(n);
-            console.log("controller");
+            $scope.currentBooking.room_id = n;
         },true);
 
 

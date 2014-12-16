@@ -39,15 +39,6 @@
     from { max-height: 0px; }
     to   { max-height: 500px;}
 }
-/*###################### for the typeahead ###########################################*/
-
-.typeaheadItem.active {
-    background-color: yellow;
-}
-
-.typeaheadItem .subtitle, .typeaheadItem .subsubtitle {
-    color: darkgray;
-}
 
 /* ############################### for  dashboard form validation ###################### */
 /*
@@ -59,69 +50,6 @@ typeahead input.ng-valid-email.ng-touched.ng-valid-required {
 }
 */
 /*#################################################################*/
-
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
-    display: none;
-    float: left;
-    min-width: 160px;
-    padding: 5px 0;
-    margin: 2px 0 0;
-    font-size: 14px;
-    text-align: left;
-    list-style: none;
-    background-color: #fff;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    border: 1px solid #ccc;
-    border: 1px solid rgba(0, 0, 0, .15);
-    border-radius: 4px;
-    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-}
-.dropdown-menu:hover {
-    cursor: pointer;
-}
-.dropdown-menu > li > a {
-    display: block;
-    padding: 3px 20px;
-    clear: both;
-    font-weight: normal;
-    line-height: 1.42857143;
-    color: #333;
-    white-space: nowrap;
-}
-.dropdown-menu > li > a:hover,
-.dropdown-menu > li > a:focus {
-    color: #262626;
-    text-decoration: none;
-    background-color: #f5f5f5;
-}
-.dropdown-menu > .active > a,
-.dropdown-menu > .active > a:hover,
-.dropdown-menu > .active > a:focus {
-    color: #fff;
-    text-decoration: none;
-    background-color: #428bca;
-    outline: 0;
-}
-.dropdown-menu > .disabled > a,
-.dropdown-menu > .disabled > a:hover,
-.dropdown-menu > .disabled > a:focus {
-    color: #777;
-}
-.dropdown-menu > .disabled > a:hover,
-.dropdown-menu > .disabled > a:focus {
-    text-decoration: none;
-    cursor: not-allowed;
-    background-color: transparent;
-    background-image: none;
-    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-
-}
 
 
 .addGuestForm {
@@ -140,11 +68,4 @@ typeahead input.ng-valid-email.ng-touched.ng-valid-required {
 
 .rl_room:hover {
     background: red;
-}
-
-.typeaheadItem.active {
-    background-color: yellow;
-}
-.typeaheadItem .subtitle, .typeaheadItem .subsubtitle {
-    color: darkgray;
 }

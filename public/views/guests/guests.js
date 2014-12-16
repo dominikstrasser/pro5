@@ -35,7 +35,7 @@ angular.module('pro5_hzv.guests', ['ngRoute'])
             guestProvider.save($scope.newGuest, function(data){
                 $scope.addGuestFormButtonDisabled = false;
                 $scope.addGuestForm = false;
-
+                document.getElementById('newGuestCollapse').toggle();
                 $scope.guests.unshift($scope.newGuest);
                 $scope.newGuest = {};
             });
