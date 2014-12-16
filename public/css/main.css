@@ -42,9 +42,8 @@ textarea:focus,
 button:focus {
   outline: none; }
 
-button:disabled,
-input:disabled {
-  background: #c9cedb; }
+button:disabled {
+  background: #c9cedb !important; }
 
 .clear {
   clear: both; }
