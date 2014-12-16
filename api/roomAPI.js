@@ -1,5 +1,6 @@
 var router = require("express").Router();
 var roomModel = require("./../database/model/room.js");
+var categoryModel = require("./../database/model/category.js");
 
 
 function roomDAO(){
@@ -45,6 +46,22 @@ function roomDAO(){
         });
     };
 
+
+    this.getCategories = function(req, res) {
+        console.log("roomAPI - getRooms");
+        categoryModel.find(function (err, result) {
+            if (err) console.log(err);
+            res.json(result);
+        });
+    };
+
+    this.postCategory = function(req, res){
+        console.log("roomAPI - postCategory");
+        var category = new categoryModel(req.body);
+        category.save(function(err, result){
+        });
+    }
+
 }
 
 var roomDAO = new roomDAO();
@@ -59,5 +76,9 @@ router.get("/",roomDAO.getRooms);
 router.get("/:_id",roomDAO.getRoom);
 router.put("/:_id",roomDAO.putRoom);
 router.delete("/:_id",roomDAO.deleteRoom);
+
+
+router.get("/categories/",roomDAO.getCategories);
+router.post("/categories/",roomDAO.postCategory);
 
 module.exports = router;
