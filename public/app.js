@@ -113,6 +113,11 @@ config(['$routeProvider', function($routeProvider) {
             },
             link: function(scope, elem, attrs) {
 
+                var maintitle = scope.maintitle;
+                var model = scope.model;
+
+                scope.exp = '{'+maintitle+':'+model+'}';
+
                 scope.handleSelection = function(selectedItem) {
                     scope.model = selectedItem[scope.maintitle];
                     scope.current = 0;
