@@ -1,7 +1,5 @@
 <input name="{{name}}" ng-model="model" placeholder="{{prompt}}" ng-keydown="handleKey($event, (items | filter:{'last_name' : model}))" autocomplete="off" type="text" required/><!-- ng-keydown="selected=false" -->
 <br/>
- <p>{{maintitle}}</p>
-<p>{{model}}</p>
 <div class="typeahead" ng-hide="!model.length || selected">
     <div class="typeaheadItem" ng-repeat="item in items | filter:{'last_name' : model}  track by $index" ng-click="handleSelection(item)" style="cursor:pointer" ng-class="{active:isCurrent($index)}" ng-mouseenter="setCurrent($index)">
         <span class="title">{{item[maintitle]}}</span>
