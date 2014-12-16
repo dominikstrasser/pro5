@@ -1,3 +1,12 @@
+<section class="formular">
+    <dashboard-form
+            complete-data-set="guests"
+            handle-submit="handleForm(form)">
+    </dashboard-form>
+    
+    {{currentBooking}}
+</section>
+
 <section class="collapse-wrapper">
     <div class="changeDate">
         <button class="blueButton prev" ng-click="decreaseDate()"><</button>
@@ -20,4 +29,7 @@
             </div>
         </div>
     </custom-collapse>
+</section>
+<section>
+    <button class="bigButton" ng-click="saveBooking()">Anfrage Speichern</button>
 </section>
