@@ -13,7 +13,7 @@ angular.module('pro5_hzv.dataService', ['ngResource'])
             update: {method: 'PUT' }
         });
     }).factory('roomProvider', function($resource){
-        return $resource('api/rooms/:_id', {},{
+        return $resource('api/rooms/:_id', {_id : "@_id"},{
             update: {method: 'PUT' }
         });
     }).factory('emailProvider', function($resource){

@@ -5,7 +5,8 @@ var roomSchema = mongoose.Schema({
     },
     number: Number,
     name: String,
-    beds: Number,
+    s_beds: Number,
+    d_beds: Number,
     price: Number,
     category: String,
     extra: [String]

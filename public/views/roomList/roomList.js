@@ -36,10 +36,9 @@ angular.module('pro5_hzv.roomList', ['ngRoute'])
         $scope.filteredRooms = [];
         $scope.selectedRooms = [];
         $scope.$watch("selectedRooms",function(n,o){
-           console.log(n);
+            console.log(n);
             console.log("controller");
         },true);
-        //$scope.selectedRooms = [];
 
 
 
