@@ -17,15 +17,23 @@
   @include transition(0.5s);
 }
 
-/*
-.big .open .arrow, .medium .open .arrow, .small .open .arrow {
+.medium.cc-closed .open .arrow:first-of-type {
   @include rotate(0deg);
   @include transition(0.5s);
 }
-.cc-open .open .arrow {
+.medium.cc-open .open .arrow:first-of-type {
   @include rotate(180deg);
   @include transition(0.5s);
-}*/
+}
+
+.small.cc-closed .open .arrowSmall {
+  @include rotate(0deg);
+  @include transition(0.5s);
+}
+.small.cc-open .open .arrowSmall {
+  @include rotate(180deg);
+  @include transition(0.5s);
+}
 
 /* BIG */
 .big .open {
@@ -46,6 +54,7 @@
   right: 0;
   top: 2px;
   background: $grey;
+  z-index: 10;
 }
 .medium .open .arrow {
   padding: 18.5px;
@@ -60,14 +69,16 @@
   font-size: 16px;
   position: relative;
   margin-bottom: -2px;
+  z-index: 5;
 }
 
 /* SMALL */
 .small .open {
   background: none;
 }
-.small .open .arrow {
+.small .open .arrowSmall {
   background: none;
+  padding: 18.5px;
 }
 .small h3 {
   margin:0px;
@@ -75,7 +86,7 @@
   padding-top: 15px;
   padding-bottom: 14px;
   position: relative;
-  border-bottom: $border-light;
+  border-top: $border-light;
 }
 .small h3:last-child {
   border: none;
@@ -161,9 +172,10 @@
   padding: 5px 30px;
   margin-bottom: 10px;
 }
-.collapse-wrapper .content .email .drop {
+.collapse-wrapper .content .email-drop {
   border: $border-light;
   min-height: 100px;
+  padding: 10px;
   @include border-radius(5px);
 }
 .collapse-wrapper .content .email-list {

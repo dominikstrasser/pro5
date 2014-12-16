@@ -18,11 +18,19 @@ angular.module('pro5_hzv.requests', ['ngRoute'])
         $scope.email = {};
         $scope.email.begin = $sce.trustAsHtml("<p>Liebe Familie Mustermann<br>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.<br></p>");
         $scope.email.end = $sce.trustAsHtml("<p>Mit freundlichen Grüßen<br>Sebastian Sammer</p>");
-        $scope.email.text = $sce.trustAsHtml("<p class='drop' >&nbsp;</p>");
+        $scope.email.text = $sce.trustAsHtml("<p class='drop' ></p>");
 
-        $scope.testBox = {};
-        $scope.testBox.title = "testBox";
-        $scope.testBox.text = "Das ist ein Test";
+        $scope.wellness = {};
+        $scope.wellness.title = "Wellness";
+        $scope.wellness.text = "Das ist ein Wellness Textbaustein";
+
+        $scope.golf = {};
+        $scope.golf.title = "Golf";
+        $scope.golf.text = "Das ist ein Golf Textbaustein";
+
+        $scope.kultur = {};
+        $scope.kultur.title = "Kultur";
+        $scope.kultur.text = "Das ist ein Kultur Textbaustein";
 
         $scope.enableEmail = false;
 
