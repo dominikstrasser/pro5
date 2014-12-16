@@ -587,6 +587,9 @@ button.red {
 .big .open:hover, .medium .open:hover, .small .open:hover {
   cursor: pointer; }
 
+.cc-open #collapse, .cc-open #collapse .panel-collapse {
+  overflow: visible !important; }
+
 .big .open .arrow {
   -moz-transform: rotate(0deg);
   -ms-transform: rotate(0deg);

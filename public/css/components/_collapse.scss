@@ -8,6 +8,10 @@
   cursor: pointer;
 }
 
+.cc-open #collapse, .cc-open #collapse .panel-collapse {
+  overflow: visible!important;
+}
+
 .big .open .arrow {
   @include rotate(0deg);
   @include transition(0.5s);
