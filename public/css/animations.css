@@ -85,3 +85,8 @@ typeahead input.ng-valid-email.ng-touched.ng-valid-required {
 .typeaheadItem .subtitle, .typeaheadItem .subsubtitle {
     color: darkgray;
 }
+
+
+.rl_room.selectedRoom{
+    background: yellow;
+}

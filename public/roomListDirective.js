@@ -42,8 +42,7 @@ angular.module('pro5_hzv.roomListDirective',[])
             scope.$watch("selectedRooms", function(n,o){
 
                 if(typeof n != 'undefined') {
-                    console.log(n);
-                    console.log("direktive");
+
                 }
             },true);
 
@@ -154,10 +153,21 @@ angular.module('pro5_hzv.roomListDirective',[])
 
                     var rl_room = document.createElement("div");
                     rl_room.setAttribute("class", "rl_room");
+                    var id = scope.selectedRooms.indexOf(room._id);
+                    if(id != -1){
+                        rl_room.classList.add("selectedRoom");
+                    }
                     rl_room.setAttribute("data-id",room._id);
                     rl_room.addEventListener("click", function (e) {
                         var id = e.target.getAttribute("data-id");
-                        scope.selectedRooms.push(id);
+                        var i = scope.selectedRooms.indexOf(id);
+                        if(i == -1) {
+                            scope.selectedRooms.push(id);
+                            this.classList.add("selectedRoom");
+                        }else{
+                            scope.selectedRooms.splice(i, 1);
+                            this.classList.remove("selectedRoom");
+                        }
                         scope.$apply();
                     }, true);
 
@@ -190,7 +200,6 @@ angular.module('pro5_hzv.roomListDirective',[])
                     for(var i = 0; i < scope.rooms.length; i++){
 
                         if(scope.filteredRooms.length == 0){
-                            console.log("TEST");
                             var rl_room = renderRoom(scope.rooms[i]);
                             rl_body.appendChild(rl_room);
                         }
