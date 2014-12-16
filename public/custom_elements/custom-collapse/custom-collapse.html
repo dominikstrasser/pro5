@@ -3,6 +3,30 @@
 
 <polymer-element name="custom-collapse" attributes="colType opened" on-test="{{toggle}}">
 
+
+    <!--<style>
+        :host(.cc-closed .open .arrow){
+            -moz-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            transition: all 0.5s;
+        }
+        :host(.cc-open .open .arrow) {
+            -moz-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            transition: all 0.5s;
+        }
+    </style>-->
+
     <template>
         <div class="{{colType}}">
             <content select="h1"></content>
@@ -52,9 +76,11 @@
                 if(this.opened){
                     this.currentState = "cc-open";
                     this.classList.add("cc-open");
+                    this.classList.remove("cc-closed");
                 }else{
                     this.currentState = "cc-closed";
                     this.classList.add("cc-closed");
+                    this.classList.remove("cc-open");
                 }
                 if(typeof this.$.btn != 'undefined') {
                     this.$.btn.addEventListener("click", function () {

@@ -1,5 +1,6 @@
 var router = require("express").Router();
 var roomModel = require("./../database/model/room.js");
+var categoryModel = require("./../database/model/category.js");
 
 
 function roomDAO(){
@@ -44,6 +45,7 @@ function roomDAO(){
             res.json(result);
         });
     };
+
 
 }
 

@@ -141,3 +141,10 @@ typeahead input.ng-valid-email.ng-touched.ng-valid-required {
 .rl_room:hover {
     background: red;
 }
+
+.typeaheadItem.active {
+    background-color: yellow;
+}
+.typeaheadItem .subtitle, .typeaheadItem .subsubtitle {
+    color: darkgray;
+}

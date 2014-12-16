@@ -32,7 +32,7 @@ config(['$routeProvider', function($routeProvider) {
             dateFormat: 'dd.MM.yyyy',
             startWeek: 1,
             autoclose: "true",
-            delay: { show: 100, hide: 1000000000 }
+            delay: { show: 100, hide: 100 }
         });
     }).config(function($collapseProvider) {
         angular.extend($collapseProvider.defaults, {

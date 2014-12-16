@@ -1,23 +1,26 @@
 [
     {
         "number": 0,
-        "name": "Raum Nr 1",
-        "beds": 2,
-        "category": ["HP", "NF"],
+        "name": "Ritterzimmer",
+        "s_beds": 2,
+        "d_beds": 0,
+        "category": ["A", "B"],
         "extra": ["Gitterbett"]
     },
     {
         "number": 1,
-        "name": "Raum Nr 2",
-        "beds": 3,
-        "category": ["HP", "NF", "SE"],
+        "name": "Landhaus",
+        "d_beds": 2,
+        "s_beds": 2,
+        "category": ["A"],
         "extra": []
     },
     {
         "number": 2,
-        "name": "Raum Nr 3",
-        "beds": 2,
-        "category": ["HP"],
+        "name": "Bauernstube",
+        "s_beds": 0,
+        "d_beds": 1,
+        "category": ["C"],
         "extra": ["Balkon"]
     }
 ]

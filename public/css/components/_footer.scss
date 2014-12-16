@@ -61,6 +61,7 @@
   height: 50px;
   width: 171px;
   font-family: "proxima";
+  -webkit-appearance: none;
   @include border-radius(5px);
 }
 #guestInformation .interests .row {
