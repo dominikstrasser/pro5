@@ -1,8 +1,15 @@
-<section class="formular">
-    <dashboard-form
-            complete-data-set="guests"
-            handle-submit="handleForm(form)">
-    </dashboard-form>
+<section class="collapse-wrapper">
+    <custom-collapse class="big" colType="big" opened="true">
+        <h1>Neue Anfrage</h1>
+        <span class="open" ><img src="../../img/arrows/down_grey.png" class="arrow"></span>
+        <div class="formular panel-collapse box content ">
+            <dashboard-form
+                complete-data-set="guests"
+                handle-submit="handleForm(form)">
+            </dashboard-form>
+        </div>
+    </custom-collapse>
+
     
     {{currentBooking}}
 </section>

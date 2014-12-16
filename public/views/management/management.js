@@ -37,8 +37,7 @@ angular.module('pro5_hzv.management', ['ngRoute'])
             $scope.addRoomFormButtonDisabled = true;
             roomProvider.save($scope.newRoom, function(data){
                 $scope.addRoomFormButtonDisabled = false;
-                $scope.addRoomForm = false;
-
+                document.getElementById('newRoomCollapse').toggle();
                 $scope.rooms.unshift($scope.newRoom);
                 $scope.newRoom = {};
             });

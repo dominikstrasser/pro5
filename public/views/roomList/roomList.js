@@ -13,15 +13,6 @@ angular.module('pro5_hzv.roomList', ['ngRoute'])
 
         $scope.currentBooking = {};
         $scope.guests = guestProvider.query();
-        /*
-        $scope.currentBooking.arr = $moment().toDate();
-        $scope.currentBooking.dep = $moment().add(3, "days").toDate();
-        $scope.currentBooking.person_count = 2;
-        $scope.currentBooking.room_count = 1;
-        $scope.currentBooking.guest_id = "5490170d06e2f09a2d243ca0";
-        //$scope.currentBooking.email_name = "test@test.at";
-        $scope.currentBooking.status = 0;
-        */
 
         $scope.startday = $moment();
         $scope.startday.millisecond(0);
@@ -31,12 +22,11 @@ angular.module('pro5_hzv.roomList', ['ngRoute'])
 
         $scope.saveBooking = function(){
             console.log($scope.currentBooking);
-            /*
             bookingProvider.save($scope.currentBooking, function(data){
                 console.log("gespeichert");
-                console.log(data)
+                console.log(data);
             });
-            */
+
         };
 
         $scope.handleForm = function(form){
