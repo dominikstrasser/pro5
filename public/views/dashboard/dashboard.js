@@ -38,20 +38,36 @@ angular.module('pro5_hzv.dashboard', [
         });
 
 
-    }])
+    }]).controller("requestFormController", function($scope, $moment, bookingProvider, guestProvider, roomProvider){
+
+        $scope.guests = guestProvider.query();
 
 
-    .controller("requestFormController", function($scope, $moment, bookingProvider, guestProvider, roomProvider){
+        var testbooking = {};
+        testbooking.email = 'test@mail.com';// This will hold the selected item
+        testbooking.last_name = 'Mustermann'; // This will hold the selected item
+        testbooking.status =  0;
+        testbooking.person_count = 1;
+        testbooking.room_count =  1;
+        testbooking.doubleRoom_count = 1;
+        testbooking.room_id = [];
+        testbooking.category = "NF";
 
-        //$scope.names = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
+        $scope.booking = testbooking;
+
+
+        $scope.handleForm = function(form){
+            console.log(form);
+            console.log("save");
+        }
 
         /*$scope.$watch('requestForm.last_name', function(n, o){
-            angular.forEach($scope.guests, function(guest, key){
-                if(guest.last_name === n) {
-                    $scope.requestForm.email = guest.email;
-                };
-            });
-        });*/
+         angular.forEach($scope.guests, function(guest, key){
+         if(guest.last_name === n) {
+         $scope.requestForm.email = guest.email;
+         };
+         });
+         });
 
         var setTimeTo12 = function(d){
             d.hour(12);
@@ -64,16 +80,17 @@ angular.module('pro5_hzv.dashboard', [
         //###################### Directive ##########################
 
         $scope.guests = guestProvider.query();
-        /*dataFactory.get('states.json').then(function(data) {
+        dataFactory.get('states.json').then(function(data) {
          $scope.items = data;
-         });*/
+         });
         $scope.requestForm = {};
         $scope.requestForm.email = '';// This will hold the selected item
         $scope.requestForm.last_name = ''; // This will hold the selected item
 
         $scope.onItemSelected = function(selectedItem) { // this gets executed when an item is selected
             console.log(selectedItem);
-            console.log(selectedItem['email']);
+            console.log("asdfs");
+
             if($scope.requestForm.last_name) $scope.requestForm.email = selectedItem['email'];
             if($scope.requestForm.email) $scope.requestForm.last_name = selectedItem['last_name'];
 
@@ -86,84 +103,83 @@ angular.module('pro5_hzv.dashboard', [
         $scope.requestForm.room_id = [];
         $scope.requestForm.category = "NF";
 
-        /*$scope.updateEmail = function(item) {
-            angular.forEach($scope.guests, function(guest, key){
-                if(guest.last_name === item) {
-                    $scope.requestForm.e_mail = guest.email;
-                };
-            });
-            console.log(item);
+        $scope.updateEmail = function(item) {
+         angular.forEach($scope.guests, function(guest, key){
+         if(guest.last_name === item) {
+         $scope.requestForm.e_mail = guest.email;
+         };
+         });
+         console.log(item);
+         };
+         $scope.updateName = function(item) {
+         angular.forEach($scope.guests, function(guest, key){
+         if(guest.email === item) {
+         $scope.requestForm.last_name = guest.last_name;
+         };
+         });
+         console.log(item);
+         };
+
+
+        $scope.testBooking = function(){
+
+            //console.log($scope.requestForm);
+
+            var arr = moment.utc([
+                $scope.requestForm.arr.getFullYear(),
+                $scope.requestForm.arr.getMonth(),
+                $scope.requestForm.arr.getDate(),
+                12, 0, 0, 0]);
+
+            var dep = moment.utc([
+                $scope.requestForm.dep.getFullYear(),
+                $scope.requestForm.dep.getMonth(),
+                $scope.requestForm.dep.getDate(),
+                12, 0, 0, 0]);
+
+            //console.log(arr);
+
+            $scope.requestForm.arr = arr.toDate();
+            $scope.requestForm.dep = dep.toDate();
+            console.log($scope.requestForm);
+            //bookingProvider.save($scope.requestForm);
+
         };
-        $scope.updateName = function(item) {
-            angular.forEach($scope.guests, function(guest, key){
-                if(guest.email === item) {
-                    $scope.requestForm.last_name = guest.last_name;
-                };
-            });
-            console.log(item);
-        };*/
 
 
-        $scope.testBooking = function(form){
+         roomProvider.query(function(data){
+         $scope.all_rooms = data;
+         $scope.available_rooms = $scope.all_rooms.slice(0);
+         });
 
-            if(form.$valid/* && ($scope.requestForm.doubleRoom_count != 0 || $scope.requestForm.room_count != 0)*/){
+         $scope.$watchCollection("requestForm", function(newValue, oldValue){
+         if(typeof newValue != 'undefined') {
+         if ($moment(newValue.arr).isValid() && $moment(newValue.dep).isValid()) {
 
-                var arr = moment.utc([
-                    $scope.requestForm.arr.getFullYear(),
-                    $scope.requestForm.arr.getMonth(),
-                    $scope.requestForm.arr.getDate(),
-                    12, 0, 0, 0]);
+         var data = {};
+         data.arr = $moment(newValue.arr);
+         setTimeTo12(data.arr);
+         data.dep = $moment(newValue.dep);
+         setTimeTo12(data.dep);
 
-                var dep = moment.utc([
-                    $scope.requestForm.dep.getFullYear(),
-                    $scope.requestForm.dep.getMonth(),
-                    $scope.requestForm.dep.getDate(),
-                    12, 0, 0, 0]);
+         bookingProvider.check(data, function(data){
 
-                //console.log(arr);
+         $scope.remove_rooms = data;
+         $scope.available_rooms = $scope.all_rooms.slice(0);
 
-                $scope.requestForm.arr = arr.toDate();
-                $scope.requestForm.dep = dep.toDate();
-                console.log("save Data!");
-                //bookingProvider.save($scope.requestForm);
-            }
-
-        };
-
-        /*
-        roomProvider.query(function(data){
-            $scope.all_rooms = data;
-            $scope.available_rooms = $scope.all_rooms.slice(0);
-        });
-
-        $scope.$watchCollection("requestForm", function(newValue, oldValue){
-            if(typeof newValue != 'undefined') {
-                if ($moment(newValue.arr).isValid() && $moment(newValue.dep).isValid()) {
-
-                    var data = {};
-                    data.arr = $moment(newValue.arr);
-                    setTimeTo12(data.arr);
-                    data.dep = $moment(newValue.dep);
-                    setTimeTo12(data.dep);
-
-                    bookingProvider.check(data, function(data){
-
-                        $scope.remove_rooms = data;
-                        $scope.available_rooms = $scope.all_rooms.slice(0);
-
-                        for (var i = 0; i < $scope.available_rooms.length; i++) {
-                            for (var j = 0; j < data.length; j++) {
-                                if ($scope.available_rooms[i]._id == data[j].room_id[0]) {
-                                    $scope.available_rooms.splice(i, 1);
-                                    i--;
-                                    break;
-                                }
-                            }
-                        }
-                    });
-                }
-            }
-        });
-        */
+         for (var i = 0; i < $scope.available_rooms.length; i++) {
+         for (var j = 0; j < data.length; j++) {
+         if ($scope.available_rooms[i]._id == data[j].room_id[0]) {
+         $scope.available_rooms.splice(i, 1);
+         i--;
+         break;
+         }
+         }
+         }
+         });
+         }
+         }
+         });
+         */
 
     });

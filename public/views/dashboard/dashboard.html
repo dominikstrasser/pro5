@@ -22,69 +22,10 @@
         <img src="../img/logo.png">
     </div>
 </div>
-
 <div class="formular" ng-controller="requestFormController">
     <h1>Neue Anfrage</h1>
     <p class="status">{{available_rooms.length}} Zimmer verfügbar</p>
-    <form class="form-inline" role="form" name="form" novalidate>
-        <div class="col">
-            <div class="row">Anreise <input required type="text" class="cal" placeholder="Datum" ng-model="requestForm.arr" name="arr" bs-datepicker></div>
-            <div class="row">Abreise <input required type="text" class="cal" placeholder="Datum" ng-model="requestForm.dep" name="dep" bs-datepicker></div>
-            <div class="row" ng-show="form.$submitted && (form.arr.$error.required || form.dep.$error.required)">Bitte geben Sie den Zeitraum ein</div>
-        </div>
-
-        <div class="col">
-            <div class="row">
-                <custom-counter bind-polymer current="{{requestForm.person_count}}" singular="Person" plural="Personen" size="12"></custom-counter>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="row">
-                <custom-counter bind-polymer current={{requestForm.room_count}} singular="EZ" plural="EZ" size="5"></custom-counter>
-            </div>
-            <div class="row">
-                <custom-counter bind-polymer ng-model="requestForm.doubleRoom_count" current="{{requestForm.doubleRoom_count}}" singular="DZ" plural="DZ" size="5"></custom-counter>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="row">
-                <custom-select bind-polymer selectVal="{{requestForm.category}}">
-                    <div class="item">NF</div>
-                    <div class="item">HP</div>
-                </custom-select>
-            </div>
-        </div>
-
-        <div class="col last form-group">
-            <!--<div class="row">
-                <input autocomplete="off" type="text" class="form-control" ng-change="updateEmail(requestForm.last_name)" ng-model="requestForm.last_name" name="name"
-                       placeholder="Nachname/Firma" ng-options="guest.last_name as guest.last_name + '<b> '+guest.email+'</b>' for guest in guests" data-animation="am-flip-x" template="/custom_elements/custom-tooltip/custom-tooltip.html"  bs-typeahead>
-            </div>
-
-            <div class="row">
-                <!--
-                <input autocomplete="off" type="text" class="form-control" ng-change="updateName(requestForm.e_mail)" ng-model="requestForm.e_mail" name="email"
-                       placeholder="E-Mail Adresse" data-animation="am-flip-x" bs-typeahead>
-            </div>
-            -->
-            <div class="row">
-                <typeahead name="lastName" items="guests" prompt="Nachname" maintitle="last_name" subtitle="first_name" subsubtitle="email" model="requestForm.last_name" on-select="onItemSelected(selectedItem)" type="text"></typeahead>
-                <div ng-show="form.$submitted && form.lastName.$error.required" class="invalid-error">Bitte geben Sie den Nachnamen ein</div>
-            </div>
-            <div class="row">
-                <typeahead name="email" items="guests" prompt="Email" maintitle="email" model="requestForm.email" on-select="onItemSelected(selectedItem)" type="email"></typeahead>
-                <div ng-show="form.$submitted && (form.email.$error.required || form.email.$error.email)" class="invalid-error">Bitte geben Sie eine gültige Email Adresse ein</div>
-            </div>
-
-            <div class="row">
-                <button type="submit" ng-click="testBooking(form)" class="bigButton">Weiter</button>
-            </div>
-        </div>
-
-        <div class="clear"></div>
-    </form>
+<dashboard-form data="booking" complete-data-set="guests"  handle-submit="handleForm(form)"></dashboard-form>
 
     <hr>
 </div>

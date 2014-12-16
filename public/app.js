@@ -21,6 +21,7 @@ angular.module('pro5_hzv', [
     'pro5_hzv.dragDropDirective',
     'pro5_hzv.roomListDirective',
     'pro5_hzv.dashboardAktuellDirective',
+    'pro5_hzv.dashboardFormDirective',
     'pro5_hzv.bindPolymerDirective'
 ]).
 config(['$routeProvider', function($routeProvider) {
@@ -105,12 +106,13 @@ config(['$routeProvider', function($routeProvider) {
                 maintitle: '@',
                 subtitle: '@',
                 subsubtitle: '@',
-                type: '@',
+                customtype: '@',
                 name: '@',
                 model: '=',
                 onSelect: '&'
             },
             link: function(scope, elem, attrs) {
+
                 scope.handleSelection = function(selectedItem) {
                     scope.model = selectedItem[scope.maintitle];
                     scope.current = 0;
@@ -119,7 +121,7 @@ config(['$routeProvider', function($routeProvider) {
                         scope.onSelect({selectedItem : selectedItem});
                     }, 200);
                 };
-                scope.current = 0;
+                scope.current = 0; //TODO fix bug if you doesn't want to select from dropdown
                 scope.selected = true; // hides the list initially
                 scope.isCurrent = function(index) {
                     return scope.current == index;
@@ -134,12 +136,11 @@ config(['$routeProvider', function($routeProvider) {
                         scope.selected = false;
                         return;
                     };
-
                     if(evt.keyCode === 38 && scope.current > 0 && scope.model.length) scope.current--;
                     if(evt.keyCode === 40 && scope.current < size-1 && scope.model.length) scope.current++;
 
                     // Select with enter
-                    if(evt.keyCode === 13 && scope.model.length) {
+                    if(evt.keyCode === 13 && scope.model.length && size > 0) {
                         scope.model = matches[scope.current][scope.maintitle];
                         var currentMatch = matches[scope.current];
                         scope.selected = true;

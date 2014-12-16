@@ -50,14 +50,14 @@
 }
 
 /* ############################### for  dashboard form validation ###################### */
-
+/*
 typeahead input.ng-invalid-email.ng-touched {
     border-color: #FA787E;
   }
 typeahead input.ng-valid-email.ng-touched.ng-valid-required {
     border-color: #5CDEC4;
 }
-
+*/
 /*#################################################################*/
 
 .dropdown-menu {
