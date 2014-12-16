@@ -143,14 +143,9 @@ config(['$routeProvider', function($routeProvider) {
                 };
                 scope.handleKey = function(evt, matches) {
 
-                    if(evt.keyCode === 9) {
-                        console.log("tab");
-                        evt.preventDefault();
-                        return;
-                    }
 
                     var size = matches.length;
-                    if(!/(38|40|13)/.test(evt.keyCode)){
+                    if(!/(38|40|13|9)/.test(evt.keyCode)){
                         scope.selected = false;
                         return;
                     };

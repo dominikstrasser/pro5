@@ -1,4 +1,4 @@
-<input name="{{name}}" ng-model="model" placeholder="{{prompt}}" ng-keydown="handleKey($event, (items | filter:expr(model)))" autocomplete="off" type="text" tabindex="-1" required/><!-- ng-keydown="selected=false" -->
+<input name="{{name}}" ng-model="model" placeholder="{{prompt}}" ng-keydown="handleKey($event, (items | filter:expr(model)))" autocomplete="off" type="text" required/><!-- ng-keydown="selected=false" -->
 <br/>
 
 <div class="typeahead" ng-hide="!model.length || selected">
