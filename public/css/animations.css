@@ -69,3 +69,12 @@ typeahead input.ng-valid-email.ng-touched.ng-valid-required {
 .rl_room:hover {
     background: red;
 }
+
+.rl_room.selectedRoom {
+    background: yellow;
+}
+
+.cc-open #collapse, .cc-open #collapse .panel-collapse{
+    overflow: hidden!important;
+}
+
