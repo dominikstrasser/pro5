@@ -187,7 +187,7 @@ angular.module('pro5_hzv.roomListDirective',[])
                     rl_roomName.setAttribute("class", "rl_roomName");
 
 
-                    rl_roomName.innerHTML =  "<span class='type'>#" + room.number +"</span>" + room.name;
+                    rl_roomName.innerHTML =  room.number + "<span class='type'>"+room.category +"</span>";
                     rl_room.appendChild(rl_roomName);
                     for(var j = 0; j < scope.bookings.length; j++) {
                         if (scope.bookings[j].room_id[0]._id == room._id) {
