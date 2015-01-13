@@ -54,11 +54,6 @@
         <div class="container view-container">
             <div ng-view class="view-frame"></div>
 
-            <form>
-                <input type="text" ng-model="id">
-                <button ng-click="getGuest(id)">Guest laden</button>
-            </form>
-
         </div>
     </core-header-panel>
 
@@ -68,7 +63,7 @@
         <div class="container formular">
             <div id="guestInformationHeader" ng-show="active">
                 <span>{{guest.first_name}} {{guest.last_name}}</span>
-                <button class="blueButton">Speichern</button>
+                <button ng-click="saveGuest()" class="blueButton">Speichern</button>
                 <!--<input type="submit" class="greenButton" value="Speichern" ng-click="saveGuest()">-->
                 <div ng-hide="allActive" ng-click="allActive = true" class="up"></div>
                 <div ng-show="allActive" ng-click="allActive = false" class="down"></div>

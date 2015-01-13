@@ -10,7 +10,6 @@ angular.module('pro5_hzv.dashboardFormDirective',[])
                 handleSubmit: '&'
             },
             controller: function($scope) {
-                console.log($scope.completeDataSet);
                 //$scope.guests = guestProvider.query();
                 $scope.requestForm = {};
 

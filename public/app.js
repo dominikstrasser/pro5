@@ -39,34 +39,37 @@ config(['$routeProvider', function($routeProvider) {
             animation: 'am-flip-x'
         });
     })
-    .controller("indexCtrl", ['$scope','guestProvider', function ($scope, guestProvider) {
+    .controller("indexCtrl", ['$scope','guestProvider','$document', function ($scope, guestProvider, $document) {
 
 
         var cGuestId;
         $scope.active = false;
 
-        $scope.getGuest = function (_id) {
-            guestProvider.get({ _id: '5475b17fcc7b2bd060868008' }, function(data) {
+        $scope.getGuest = function (e, _id) {
+            guestProvider.get({ _id: _id }, function(data) {
                 $scope.guest = data;
                 cGuestId = data._id;
             });
             $scope.active = true;
         };
 
-        $scope.$on("testEvent", function(e,data){
-           console.log("data");
-        });
+        $scope.$on( 'getGuest', $scope.getGuest);
+
+       // var guestTargets = $document[0].getElementsByClassName('getGuest');
+       // console.log(guestTargets);
 
         $scope.saveGuest = function () {
             delete $scope.guest['_id'];
 
             guestProvider.update({"_id": cGuestId}, $scope.guest, function (data) {
+
                 //data saved. do something here.
                 console.log("data was saved");
             });
 
         }
-}]).directive('contenteditable', function () {
+}])
+    .directive('contenteditable', function () {
         return {
             restrict: 'A', // only activate on element attribute
             require: '?ngModel', // get a hold of NgModelController
