@@ -111,6 +111,7 @@
   padding-top: 11px;
   margin-top: 60px;
   margin-bottom: 0;
+  background: white;
 }
 .collapse-wrapper h1:first-of-type {
   margin-top: 37px;
@@ -152,11 +153,14 @@
   margin: 0;
 }
 .collapse-wrapper .panel-collapse {
-  margin-top: 30px;
+  /*margin-top: 30px;*/
+  padding-top: 30px;
+  background: white;
 }
 
 .collapse-wrapper .room-collapse {
   margin-top: 0;
+  background: white;
 }
 .collapse-wrapper .room-collapse .blueButton {
   position: absolute;

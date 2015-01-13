@@ -284,12 +284,6 @@ span.dayGuest {
 .datepicker tbody .btn-today span {
   color: #FFFFFF; }
 
-.date /deep/ core-collapse {
-  overflow: visible !important; }
-
-.date core-collapse {
-  overflow: visible !important; }
-
 /*
  * FOOTER
  */
@@ -730,7 +724,8 @@ button.red {
   border-top: 2px solid #c9cedb;
   padding-top: 11px;
   margin-top: 60px;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  background: white; }
 
 .collapse-wrapper h1:first-of-type {
   margin-top: 37px; }
@@ -775,10 +770,13 @@ button.red {
   margin: 0; }
 
 .collapse-wrapper .panel-collapse {
-  margin-top: 30px; }
+  /*margin-top: 30px;*/
+  padding-top: 30px;
+  background: white; }
 
 .collapse-wrapper .room-collapse {
-  margin-top: 0; }
+  margin-top: 0;
+  background: white; }
 
 .collapse-wrapper .room-collapse .blueButton {
   position: absolute;
@@ -889,7 +887,8 @@ button.red {
   position: relative; }
 
 .management .collapse-wrapper .panel-collapse {
-  margin-top: 0; }
+  /*margin-top: 0;*/
+  padding-top: 0; }
 
 .management-row {
   padding-left: 10px;
