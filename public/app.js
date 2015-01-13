@@ -116,6 +116,9 @@ config(['$routeProvider', function($routeProvider) {
                 var maintitle = scope.maintitle;
                 var model = scope.model;
 
+                scope.looseFocus = function(evt) {
+                    // TODO loose focus
+                };
 
                 //scope.exp = '{\''+maintitle+'\':'+model+'}';
                 scope.expr = function(query) {
@@ -142,7 +145,6 @@ config(['$routeProvider', function($routeProvider) {
                     scope.current = index;
                 };
                 scope.handleKey = function(evt, matches) {
-
 
                     var size = matches.length;
                     if(!/(38|40|13|9)/.test(evt.keyCode)){
