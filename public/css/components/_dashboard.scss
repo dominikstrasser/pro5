@@ -47,3 +47,6 @@ span.dayGuest {
   display: inline-block;
   min-width: 175px;
 }
+span.dayGuest:hover {
+  cursor: pointer;
+}
