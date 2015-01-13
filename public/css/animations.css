@@ -20,7 +20,7 @@
 
 /*############# dashboard animation #################*/
 .panel-collapse{
-    overflow: hidden;
+    /*overflow: hidden;*/
 
     -webkit-transition: max-height 0.3s;
     -moz-transition: max-height 0.3s;
@@ -74,7 +74,9 @@ typeahead input.ng-valid-email.ng-touched.ng-valid-required {
     background: yellow;
 }
 
-.cc-open #collapse, .cc-open #collapse .panel-collapse{
+.cc-open #collapse, .cc-open #collapse .panel-collapse {
     overflow: hidden!important;
 }
-
+.date .cc-open #collapse, .cc-open #collapse .panel-collapse {
+    overflow: visible !important;
+}
