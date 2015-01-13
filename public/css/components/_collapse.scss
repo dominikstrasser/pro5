@@ -209,14 +209,14 @@
   margin-bottom: 2px;
   @include border-radius(5px);
 }
-.collapse-wrapper .content .email-left, .collapse .content .email-right {
+.collapse-wrapper .content .email-left, .collapse-wrapper .content .email-right {
   border: $border;
   width: 70%;
   padding: 20px 30px;
   margin-bottom: 15px;
   min-height: 78px;
 }
-.collapse-wrapper .content .email-info-left, .collapse .content .email-info-right {
+.collapse-wrapper .content .email-info-left, .collapse-wrapper .content .email-info-right {
   width: 25%;
   padding: 0 20px;
   color: $darkgrey;

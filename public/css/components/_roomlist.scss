@@ -54,6 +54,7 @@
   display: inline;
   color: $darkgrey;
   margin-left: 10px;
+  border: none;
 }
 span.rl_booking {
   position: absolute;
@@ -62,6 +63,9 @@ span.rl_booking {
   z-index: 10;
   /*text-align: left;*/
   font-size: 10px;
+  border-bottom-color: $white;
+  border-left-color: $white;
+  border-right-color: $white;
  }
 span.rl_booking:hover {
   cursor: pointer;

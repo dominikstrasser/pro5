@@ -54,11 +54,11 @@
 }
 
 .rl_room:hover {
-    background: red;
+    background: #eef1f9;
 }
 
 .rl_room.selectedRoom {
-    background: yellow;
+    background: #c9cedb;
 }
 
 .cc-open #collapse, .cc-open #collapse .panel-collapse {

@@ -831,14 +831,14 @@ button.red {
   -ms-border-radius: 5px;
   border-radius: 5px; }
 
-.collapse-wrapper .content .email-left, .collapse .content .email-right {
+.collapse-wrapper .content .email-left, .collapse-wrapper .content .email-right {
   border: 2px solid #c9cedb;
   width: 70%;
   padding: 20px 30px;
   margin-bottom: 15px;
   min-height: 78px; }
 
-.collapse-wrapper .content .email-info-left, .collapse .content .email-info-right {
+.collapse-wrapper .content .email-info-left, .collapse-wrapper .content .email-info-right {
   width: 25%;
   padding: 0 20px;
   color: #c9cedb;
@@ -962,7 +962,8 @@ button.red {
 .rl_roomName .type {
   display: inline;
   color: #c9cedb;
-  margin-left: 10px; }
+  margin-left: 10px;
+  border: none; }
 
 span.rl_booking {
   position: absolute;
@@ -970,7 +971,10 @@ span.rl_booking {
   background: #eef1f9;
   z-index: 10;
   /*text-align: left;*/
-  font-size: 10px; }
+  font-size: 10px;
+  border-bottom-color: #FFFFFF;
+  border-left-color: #FFFFFF;
+  border-right-color: #FFFFFF; }
 
 span.rl_booking:hover {
   cursor: pointer; }
