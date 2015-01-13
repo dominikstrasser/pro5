@@ -45,7 +45,7 @@ angular.module('pro5_hzv.dashboard', [
 
         var testbooking = {};
         testbooking.email = 'test@mail.com';// This will hold the selected item
-        testbooking.last_name = 'Mustermann'; // This will hold the selected item
+        testbooking.last_name = ''; // This will hold the selected item
         testbooking.status =  0;
         testbooking.person_count = 1;
         testbooking.room_count =  1;
