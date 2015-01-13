@@ -11,7 +11,6 @@
 .cc-open #collapse, .cc-open #collapse .panel-collapse {
   overflow: visible!important;
 }
-
 .big .open .arrow {
   @include rotate(0deg);
   @include transition(0.5s);
@@ -102,6 +101,10 @@
 .collapse-wrapper {
   margin: 0 20px;
   position: relative;
+}
+.collapse-wrapper.save {
+  margin: 20px;
+  /*margin-top: 40px;*/
 }
 .collapse-wrapper h1 {
   border-top: $border;

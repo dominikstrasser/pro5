@@ -14,7 +14,30 @@
     </custom-collapse>
 </section>
 
-<section class="collapse-wrapper">
+<section class="collapse-wrapper date">
+    <custom-collapse class="big" colType="big">
+        <h1>Anfrage Familie Mustermann</h1>
+
+        <span class="open" ><img src="../../img/arrows/down_grey.png" class="arrow"></span>
+        <div class="panel-collapse">
+            <div class="formular" ng-controller="requestFormController">
+                <form>
+                    <div class="col">
+                        <div class="row">Anreise <input type="text" class="cal" placeholder="Datum" ng-model="requestForm.arr" name="arr" bs-datepicker></div>
+                        <div class="row">Abreise <input type="text" class="cal" placeholder="Datum" ng-model="requestForm.dep" name="dep" bs-datepicker></div>
+                    </div>
+
+                    <div class="col">
+                        <div class="row">
+                            <custom-counter current="0" singular="Person" plural="Personen" size="12"></custom-counter>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="row">
+                            <custom-counter current="0" singular="EZ" plural="EZ" size="5"></custom-counter>
+                        </div>
+>>>>>>> FETCH_HEAD
 
     <custom-collapse class="big" colType="big" id="reqFormCollapse">
 
@@ -108,7 +131,10 @@
             </div>
 
             <hr>
-            <button class="bigButton">Anfrage speichern</button>
         </div>
     </custom-collapse>
+</section>
+<section class="collapse-wrapper save">
+    <button class="bigButton" ng-click="saveBooking()">Anfrage Speichern</button>
+    <div class="clear"></div>
 </section>

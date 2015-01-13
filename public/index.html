@@ -13,7 +13,9 @@
 
 
   <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" type="text/css" href="lib/cs-select.css" />
+  <!--<link rel="stylesheet" type="text/css" href="lib/cs-skin-border.css" />-->
 
   <link rel="stylesheet" href="bower_components/angular-motion/dist/angular-motion.min.css">
   <script src="bower_components/platform/platform.js"></script>
@@ -77,12 +79,21 @@
             <form ng-show="allActive">
                 <div class="col">
                     <div class="row">
-                        <select name="salutation" id="salutation">
+                        <select name="salutation" id="salutation" class="cs-select cs-skin-border">
+                            <!--<option value="" disabled>Anrede</option>-->
                             <option>Herr</option>
                             <option>Frau</option>
                             <option>Familie</option>
                             <option>Firma</option>
                         </select>
+
+                        <!--
+                        <select name="salutation" id="salutation">
+                            <option>Herr</option>
+                            <option>Frau</option>
+                            <option>Familie</option>
+                            <option>Firma</option>
+                        </select>-->
                     </div>
 
                     <div class="row"><input ng-model="guest.address" type="text" name="address" id="address"></div>
@@ -169,6 +180,17 @@
     <script src="bindPolymerDirective.js"></script>
 
   <script src="app.js"></script>
+
+  <!-- Select -->
+  <script src="lib/classie.js"></script>
+  <script src="lib/selectFx.js"></script>
+  <script>
+    (function() {
+      [].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {
+        new SelectFx(el);
+      } );
+    })();
+  </script>
 
   <!-- Including the View Controllers -->
   <script src="views/dashboard/dashboard.js"></script>
