@@ -32,7 +32,7 @@ h2 {
 
 hr {
   border: 1px solid #c9cedb;
-  margin-bottom: 30px;
+  /*margin-bottom: 30px;*/
   margin-top: 15px; }
 
 *:focus,
@@ -209,6 +209,10 @@ button:disabled {
 
 #current .dayEntryDetails .col:last-child {
   padding-bottom: 15px; }
+
+span.dayGuest {
+  display: inline-block;
+  min-width: 175px; }
 
 /*
  * DATEPICKER
@@ -711,6 +715,10 @@ button.red {
   margin: 0 20px;
   position: relative; }
 
+.collapse-wrapper.save {
+  margin: 20px;
+  /*margin-top: 40px;*/ }
+
 .collapse-wrapper h1 {
   border-top: 2px solid #c9cedb;
   padding-top: 11px;
@@ -955,7 +963,7 @@ span.rl_booking {
   top: 0px;
   background: #eef1f9;
   z-index: 10;
-  text-align: left;
+  /*text-align: left;*/
   font-size: 10px; }
 
 span.rl_booking:hover {
