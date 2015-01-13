@@ -68,6 +68,27 @@
 
             },
 
+            close: function() {
+                if(this.currentState == "cc-open"){
+                    this.currentState = "cc-closed";
+                    this.classList.add("cc-closed");
+                    this.classList.remove("cc-open");
+                    this.$.collapse.toggle();
+                }
+
+            },
+
+            open: function() {
+                if(this.currentState == "cc-closed"){
+                    this.currentState = "cc-open";
+                    this.classList.remove("cc-closed");
+                    this.classList.add("cc-open");
+                    this.$.collapse.toggle();
+                }
+
+            },
+
+
 
             ready: function(){
                 var self = this;

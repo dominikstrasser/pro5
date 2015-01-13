@@ -34,7 +34,7 @@ angular.module('pro5_hzv.roomListDirective',[])
             },true);
 
             scope.$watch("dataCounter", function(n,o){
-                if(n >= 3) {
+                if(n >= 4) {
                     start();
                 }
             });
@@ -43,6 +43,13 @@ angular.module('pro5_hzv.roomListDirective',[])
 
                 if(typeof n != 'undefined') {
 
+                }
+            },true);
+
+            scope.$watch("filteredRooms", function(n,o){
+
+                if(typeof n != 'undefined') {
+                    scope.dataCounter++;
                 }
             },true);
 
@@ -140,7 +147,12 @@ angular.module('pro5_hzv.roomListDirective',[])
                     var bWidth = end * dayWidth;
                     rl_booking.setAttribute("style", "left:" + bLeft + "px; width: " + bWidth + "px");
                     rl_booking.setAttribute("data-id", booking.guest_id._id);
-                    rl_booking.innerHTML = booking.guest_id.salutation + " " + booking.guest_id.last_name;
+                    if(typeof booking.guest_id.salutation == "undefined"){
+                        rl_booking.innerHTML = booking.guest_id.last_name;
+                    }else{
+                        rl_booking.innerHTML = booking.guest_id.salutation + " " + booking.guest_id.last_name;
+                    }
+
 
                     rl_booking.addEventListener("click", function (e) {
                         var id = e.target.getAttribute("data-id");
@@ -175,7 +187,7 @@ angular.module('pro5_hzv.roomListDirective',[])
                     rl_roomName.setAttribute("class", "rl_roomName");
 
 
-                    rl_roomName.innerHTML = room.name + " <div class='type'>" + room.type + "</span>";
+                    rl_roomName.innerHTML =  room.number + "<span class='type'>"+room.category +"</span>";
                     rl_room.appendChild(rl_roomName);
                     for(var j = 0; j < scope.bookings.length; j++) {
                         if (scope.bookings[j].room_id[0]._id == room._id) {
@@ -189,10 +201,10 @@ angular.module('pro5_hzv.roomListDirective',[])
                 filterRoom = function(room_id) {
                     for (var i = 0; i < scope.filteredRooms.length; i++) {
                         if (room_id == scope.filteredRooms[i]){
-                            return true;
+                            return false;
                         }
                     }
-                    return false;
+                    return true;
                 };
 
 

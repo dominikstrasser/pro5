@@ -9,9 +9,76 @@ angular.module('pro5_hzv.requests', ['ngRoute'])
         });
     }])
 
-    .controller('requestsCtrl', ["$scope", "bookingProvider", function($scope, bookingProvider) {
+    .controller('requestsCtrl', ["$scope", "bookingProvider", "guestProvider", "roomProvider", "$moment" , function($scope, bookingProvider, guestProvider, roomProvider, $moment) {
 
         $scope.reqs = bookingProvider.detail({'status': 0});
+
+        $scope.guests = guestProvider.query();
+
+        $scope.startday = $moment();
+        $scope.startday.millisecond(0);
+        $scope.startday.second(0);
+        $scope.startday.minute(0);
+        $scope.startday.utc().hours(12);
+
+        roomProvider.query(function(data){
+            $scope.rooms = data;
+        });
+
+        $scope.filteredRooms = [];
+        $scope.selectedRooms = [];
+
+
+        var refreshRoomList = function() {
+            bookingProvider.roomList({"start": $scope.startday.toDate()}, function (data) {
+                $scope.bookings = data;
+            });
+        };
+
+        $scope.$watch("startday", function(n,o){
+            if(typeof n != 'undefined') {
+                refreshRoomList();
+            }
+        },true);
+
+
+        $scope.currentRequest = {};
+
+        var manageFilteredRooms = function(_id){
+
+            for(var i = 0; i < $scope.rooms.length; i++){
+                if($scope.rooms[i]._id != _id){
+                    $scope.filteredRooms.push($scope.rooms[i]._id);
+                }
+            }
+            refreshRoomList();
+        };
+
+
+        $scope.getDetail = function(_id){
+            document.getElementById("reqCollapse").close();
+            document.getElementById("reqFormCollapse").open();
+            document.getElementById("reqRoomListCollapse").open();
+            document.getElementById("reqEmailCollapse").open();
+            $scope.filteredRooms = [];
+            bookingProvider.detail({_id: _id}, function(data){
+                $scope.currentRequest = data[0];
+                manageFilteredRooms(data[0].room_id[0]._id);
+            });
+        };
+
+
+        $scope.increaseDate = function(){
+            $scope.startday.add(7, "days");
+            //console.log("increaseDate" + $scope.startday.toDate());
+        };
+        $scope.decreaseDate = function(){
+            $scope.startday.add(-7, "days");
+            //console.log("decreaseDate" + $scope.startday.toDate());
+        };
+
+
+
 
     }]).controller('emailController', ["$scope", "$sce", "bookingProvider", "emailProvider", function($scope, $sce, bookingProvider, emailProvider){
 
@@ -49,10 +116,10 @@ angular.module('pro5_hzv.requests', ['ngRoute'])
         };
 
 
-        $scope.currentRequest = {};
-        bookingProvider.detail({_id: "5480ca10ec89333b3733852f"}, function(data){
-            $scope.currentRequest = data[0];
-        });
+
+
+
+
 
         $scope.toTrustedHtml = function(data){
             return $sce.trustAsHtml(data);

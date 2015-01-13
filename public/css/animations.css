@@ -20,7 +20,6 @@
 
 /*############# dashboard animation #################*/
 .panel-collapse{
-    overflow: hidden;
 
     -webkit-transition: max-height 0.3s;
     -moz-transition: max-height 0.3s;
@@ -40,17 +39,6 @@
     to   { max-height: 500px;}
 }
 
-/* ############################### for  dashboard form validation ###################### */
-/*
-typeahead input.ng-invalid-email.ng-touched {
-    border-color: #FA787E;
-  }
-typeahead input.ng-valid-email.ng-touched.ng-valid-required {
-    border-color: #5CDEC4;
-}
-*/
-/*#################################################################*/
-
 
 .addGuestForm {
     max-height: 2000px
@@ -65,16 +53,34 @@ typeahead input.ng-valid-email.ng-touched.ng-valid-required {
 
 }
 
-
 .rl_room:hover {
-    background: red;
+    background: #eef1f9;
 }
 
 .rl_room.selectedRoom {
-    background: yellow;
+    background: #c9cedb;
 }
 
-.cc-open #collapse, .cc-open #collapse .panel-collapse{
+.cc-open #collapse, .cc-open #collapse .panel-collapse {
     overflow: hidden!important;
 }
-
+/* DATEPICKER */
+.date .cc-open #collapse, .date .cc-open #collapse .panel-collapse {
+    overflow: visible !important;
+}
+.date /deep/ core-collapse {
+    overflow: visible!important;
+}
+.date core-collapse {
+    overflow: visible!important;
+}
+/* MANAGEMENT */
+.management .cc-open #collapse, .management .cc-open #collapse .panel-collapse {
+    overflow: hidden !important;
+}
+.management /deep/ core-collapse {
+    overflow: hidden!important;
+}
+.management core-collapse {
+    overflow: hidden!important;
+}

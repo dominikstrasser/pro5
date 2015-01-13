@@ -11,7 +11,6 @@
 .cc-open #collapse, .cc-open #collapse .panel-collapse {
   overflow: visible!important;
 }
-
 .big .open .arrow {
   @include rotate(0deg);
   @include transition(0.5s);
@@ -103,11 +102,16 @@
   margin: 0 20px;
   position: relative;
 }
+.collapse-wrapper.save {
+  margin: 20px;
+  /*margin-top: 40px;*/
+}
 .collapse-wrapper h1 {
   border-top: $border;
   padding-top: 11px;
   margin-top: 60px;
   margin-bottom: 0;
+  background: white;
 }
 .collapse-wrapper h1:first-of-type {
   margin-top: 37px;
@@ -149,11 +153,14 @@
   margin: 0;
 }
 .collapse-wrapper .panel-collapse {
-  margin-top: 30px;
+  /*margin-top: 30px;*/
+  padding-top: 30px;
+  background: white;
 }
 
 .collapse-wrapper .room-collapse {
   margin-top: 0;
+  background: white;
 }
 .collapse-wrapper .room-collapse .blueButton {
   position: absolute;
@@ -202,14 +209,14 @@
   margin-bottom: 2px;
   @include border-radius(5px);
 }
-.collapse-wrapper .content .email-left, .collapse .content .email-right {
+.collapse-wrapper .content .email-left, .collapse-wrapper .content .email-right {
   border: $border;
   width: 70%;
   padding: 20px 30px;
   margin-bottom: 15px;
   min-height: 78px;
 }
-.collapse-wrapper .content .email-info-left, .collapse .content .email-info-right {
+.collapse-wrapper .content .email-info-left, .collapse-wrapper .content .email-info-right {
   width: 25%;
   padding: 0 20px;
   color: $darkgrey;
