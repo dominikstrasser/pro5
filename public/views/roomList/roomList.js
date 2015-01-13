@@ -22,20 +22,64 @@ angular.module('pro5_hzv.roomList', ['ngRoute'])
 
         $scope.saveBooking = function(){
             console.log($scope.currentBooking);
-            bookingProvider.save($scope.currentBooking, function(data){
-                console.log("gespeichert");
-                console.log(data);
+            checkGuest(function(){
+                delete $scope.currentBooking.email;
+                delete $scope.currentBooking.last_name;
+                bookingProvider.save($scope.currentBooking, function(data){
+                    console.log("gespeichert");
+                    console.log(data);
+                    refreshRoomList();
+                    $scope.currentBooking = {};
+                    $scope.filteredRooms = [];
+                    $scope.selectedRooms = [];
+                });
             });
 
+        };
+
+        var checkGuest = function(cb){
+            if(typeof $scope.currentBooking.guest_id == 'undefined'){
+                var newGuest = {};
+                newGuest.email = $scope.currentBooking.email;
+                newGuest.last_name = $scope.currentBooking.last_name;
+                guestProvider.save(newGuest, function(data){
+                    console.log("neuer gast angelegt...");
+                    console.log(data);
+                    $scope.currentBooking.guest_id = data._id;
+                    cb();
+                });
+            }
         };
 
         $scope.handleForm = function(form){
             console.log(form);
             $scope.currentBooking = form;
-            $scope.currentBooking.room_id = $scope.selectedRooms;
-            console.log("save");
+            checkRooms(function(){
+                console.log("checked rooms...");
+                $scope.currentBooking.room_id = $scope.selectedRooms;
+            });
         };
 
+
+        var checkRooms = function(cb){
+
+            var data = {};
+            data.arr = $moment($scope.currentBooking.arr);
+            //setTimeTo12(data.arr);
+            data.dep = $moment($scope.currentBooking.dep);
+            //setTimeTo12(data.dep);
+
+            bookingProvider.check(data, function(d){
+                console.log(d);
+                $scope.filteredRooms = [];
+                for(var i = 0; i < d.length; i++){
+                    $scope.filteredRooms.push(d[i].room_id[0]);
+                }
+
+                cb();
+            });
+
+        };
 
         roomProvider.query(function(data){
              $scope.rooms = data;

@@ -10,12 +10,22 @@ angular.module('pro5_hzv.dashboardFormDirective',[])
                 handleSubmit: '&'
             },
             controller: function($scope) {
-                console.log($scope.completeDataSet);
+                //console.log($scope.completeDataSet);
                 //$scope.guests = guestProvider.query();
                 $scope.requestForm = {};
+                $scope.$watch("data", function(n,o){
+                    if(typeof n != 'undefined') {
+                        if(typeof n.guest_id != 'undefined') {
+                            $scope.requestForm = $scope.data;
+                            $scope.requestForm.last_name = $scope.data.guest_id.last_name;
+                            $scope.requestForm.email = $scope.data.guest_id.email;
+                        }
+                    }
+                },true);
 
                 if($scope.data !== undefined){ // if input is given use input
                     $scope.requestForm = $scope.data;
+                    //console.log($scope.data);
 
                 }else{ // use standard values
 

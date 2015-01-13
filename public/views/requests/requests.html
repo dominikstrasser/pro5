@@ -1,5 +1,5 @@
 <section class="collapse-wrapper">
-    <custom-collapse class="big" colType="big" opened="true">
+    <custom-collapse class="big" colType="big" opened="true" id="reqCollapse">
         <h1>Alle Anfragen</h1>
         <span class="open" ><img src="../../img/arrows/down_grey.png" class="arrow"></span>
         <div class="content">
@@ -7,82 +7,54 @@
                 <div horizontal>{{req.guest_id.salutation}} {{req.guest_id.last_name}}</div>
                 <div horizontal><span class="notification">1</span></div>
                 <div horizontal>{{req.person_count}} Personen</div>
-                <div horizontal flex><span>Zimmer <span ng-repeat="room in req.room_id">{{room.number}}</span></span></div>
-                <button class="blueButton">Details</button>
+                <div horizontal flex><span>#<span ng-repeat="room in req.room_id">{{room.number}} - {{room.name}}</span></span></div>
+                <button class="blueButton" ng-click="getDetail(req._id)">Details</button>
             </div>
         </div>
     </custom-collapse>
 </section>
 
-<section class="collapse-wrapper date">
-    <custom-collapse class="big" colType="big">
+
+<section class="collapse-wrapper">
+    <custom-collapse class="big date" colType="big" id="reqFormCollapse">
+
         <h1>Anfrage Familie Mustermann</h1>
 
         <span class="open" ><img src="../../img/arrows/down_grey.png" class="arrow"></span>
-        <div class="panel-collapse">
-            <div class="formular" ng-controller="requestFormController">
-                <form>
-                    <div class="col">
-                        <div class="row">Anreise <input type="text" class="cal" placeholder="Datum" ng-model="requestForm.arr" name="arr" bs-datepicker></div>
-                        <div class="row">Abreise <input type="text" class="cal" placeholder="Datum" ng-model="requestForm.dep" name="dep" bs-datepicker></div>
-                    </div>
-
-                    <div class="col">
-                        <div class="row">
-                            <custom-counter current="0" singular="Person" plural="Personen" size="12"></custom-counter>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="row">
-                            <custom-counter current="0" singular="EZ" plural="EZ" size="5"></custom-counter>
-                        </div>
-
-                        <div class="row">
-                            <custom-counter current="0" singular="DZ" plural="DZ" size="5"></custom-counter>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="row">
-                            <core-selector ng-model="requestForm.category" class="list" selected="-1">
-                                <div class="item">NF</div>
-                                <div class="item">HP</div>
-                            </core-selector>
-                        </div>
-                    </div>
-
-                    <div class="col last">
-                        <div class="row">
-                            <input type="text" name="name" placeholder="Nachname/Firma">
-                        </div>
-
-                        <div class="row">
-                            <input type="email" name="email" placeholder="E-Mail Adresse">
-                        </div>
-                    </div>
-
-                    <div class="clear"></div>
-                </form>
-            </div>
+        <div class="panel-collapse formular">
+            <dashboard-form
+                    complete-data-set="guests"
+                    data="currentRequest"
+                    handle-submit="handleForm(form)">
+            </dashboard-form>
         </div>
     </custom-collapse>
 </section>
 
 <section class="collapse-wrapper">
-    <custom-collapse class="big" colType="big">
+    <div class="changeDate">
+        <button class="blueButton prev" ng-click="decreaseDate()"><</button>
+        <button class="blueButton next" ng-click="increaseDate()">></button>
+    </div>
+    <custom-collapse class="big" colType="big" id="reqRoomListCollapse">
         <h1>Zimmerliste</h1>
 
         <span class="open" ><img src="../../img/arrows/down_grey.png" class="arrow"></span>
 
-        <div class="panel-collapse">
-            Forma temperiemque cornua sidera dissociata cornua recessit innabilis ligavit: solidumque coeptis nullus caelum sponte phoebe di regat mentisque tanta austro capacius amphitrite sui quin postquam semina fossae liquidum umor galeae coeptis caligine liberioris quin liquidum matutinis invasit posset: flexi glomeravit radiis certis invasit oppida postquam onerosior inclusum dominari opifex terris pace finxit quam aquae nunc sine altae auroram quam habentem homo totidemque scythiam in pondus ensis tegit caecoque poena lapidosos humanas coeperunt poena aetas totidem nec natura aethera locavit caelumque distinxit animalibus phoebe cingebant moderantum porrexerat terrae possedit sua sole diu summaque obliquis melioris orbem
+        <div class="room-collapse">
+            <room-list
+                    rooms='rooms'
+                    bookings='bookings'
+                    startday='startday'
+                    selected-rooms="selectedRooms"
+                    filtered-rooms="filteredRooms">
+            </room-list>
         </div>
     </custom-collapse>
 </section>
 
 <section class="collapse-wrapper">
-    <custom-collapse class="big" colType="big">
+    <custom-collapse class="big" colType="big" id="reqEmailCollapse">
         <h1>Korrespondenz</h1>
 
         <span class="open" ><img src="../../img/arrows/down_grey.png" class="arrow"></span>
