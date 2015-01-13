@@ -97,7 +97,7 @@ config(['$routeProvider', function($routeProvider) {
                 }
             }
         };
-    }).directive('typeahead', function($timeout) {
+    }).directive('typeahead', function($timeout, $document) {
         return {
             restrict: 'E',
             scope: {
@@ -116,9 +116,20 @@ config(['$routeProvider', function($routeProvider) {
                 var maintitle = scope.maintitle;
                 var model = scope.model;
 
-                scope.looseFocus = function(evt) {
+                /*scope.looseFocus = function(evt) {
+                    console.log(evt);
+                    //scope.selected = true;
                     // TODO loose focus
-                };
+                };*/
+
+                $document.bind('click', function() { // ohne unbind wird es zweimal ausgeführt
+                    scope.selected = true;
+                    scope.$apply();
+                });
+
+                elem.on('click', function() {
+                    event.stopPropagation();
+                });
 
                 //scope.exp = '{\''+maintitle+'\':'+model+'}';
                 scope.expr = function(query) {
@@ -145,7 +156,6 @@ config(['$routeProvider', function($routeProvider) {
                     scope.current = index;
                 };
                 scope.handleKey = function(evt, matches) {
-
                     var size = matches.length;
                     if(!/(38|40|13|9)/.test(evt.keyCode)){
                         scope.selected = false;
@@ -163,7 +173,7 @@ config(['$routeProvider', function($routeProvider) {
                             scope.onSelect({selectedItem : currentMatch});
                         }, 200);
                        // $typeahead.select(scope.$activeIndex);
-                        scope.current = 0;
+                        scope.current = -1;
                         evt.preventDefault();
                         evt.stopPropagation();
                     }else if(evt.keyCode === 13) {

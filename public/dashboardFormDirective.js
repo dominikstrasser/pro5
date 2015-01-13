@@ -36,7 +36,7 @@ angular.module('pro5_hzv.dashboardFormDirective',[])
                 $scope.onItemSelected = function(selectedItem) { // this gets executed when an item is selected
                     if($scope.requestForm.last_name) $scope.requestForm.email = selectedItem['email'];
                     if($scope.requestForm.email) $scope.requestForm.last_name = selectedItem['last_name'];
-                    $scope.requestForm._id = selectedItem['_id'];// TODO remove ID after Selection is edited
+                    $scope.requestForm._id = selectedItem['_id'];// TODO remove ID after Selection is editedMus
 
                 };
 
