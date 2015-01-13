@@ -156,7 +156,7 @@ function bookingDAO(){
             })
             .populate({
                 path: "room_id",
-                select: "number"
+                select: "number name"
             });
         myQuery.exec(function(err, result){
                 if(err) console.log(err);
