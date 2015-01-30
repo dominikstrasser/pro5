@@ -9,7 +9,7 @@ angular.module('pro5_hzv.requests', ['ngRoute'])
         });
     }])
 
-    .controller('requestsCtrl', ["$scope", "bookingProvider", "guestProvider", "roomProvider", "$moment" , function($scope, bookingProvider, guestProvider, roomProvider, $moment) {
+    .controller('requestsCtrl', ["$scope", "bookingProvider", "guestProvider", "roomProvider", "$moment", "$location" , function($scope, bookingProvider, guestProvider, roomProvider, $moment, $location) {
 
         $scope.reqs = bookingProvider.detail({'status': 0});
 
@@ -75,6 +75,16 @@ angular.module('pro5_hzv.requests', ['ngRoute'])
         $scope.decreaseDate = function(){
             $scope.startday.add(-7, "days");
             //console.log("decreaseDate" + $scope.startday.toDate());
+        };
+
+        $scope.bookBooking = function(){
+            console.log("bookBooking - set status = 1");
+            $scope.currentRequest.status = 1;
+            console.log($scope.currentRequest);
+            bookingProvider.setStatus($scope.currentRequest,function(data){
+                console.log("GEBUCHT!");
+                $location.path("/bookings");
+            });
         };
 
 

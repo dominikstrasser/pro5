@@ -47,6 +47,20 @@ function bookingDAO(){
         });
     };
 
+
+    this.setStatus = function(req, res){
+        console.log("bookingAPI - setStatus");
+        console.log(req.params._id);
+        console.log(req.body.status);
+
+
+        bookingModel.update({"_id": req.params._id}, {$set: {"status": req.body.status}}, function(err, result){
+            if(err) console.log(err);
+            res.json(result);
+        });
+
+    };
+
     this.deleteBooking = function(req, res) {
         console.log("bookingAPI - deleteBooking");
         bookingModel.remove({"_id" : req.params._id},function (err, result) {
@@ -210,7 +224,7 @@ router.get("/getCurrentDepartures", bookingDAO.getCurrentDepartures);
 router.get("/detail", bookingDAO.detail);
 router.get("/detail/:_id", bookingDAO.detail);
 router.get("/roomList/", bookingDAO.roomList);
-
+router.post("/setStatus/:_id", bookingDAO.setStatus);
 
 //typical CRUD
 router.post("/",bookingDAO.postBooking);

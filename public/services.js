@@ -1,9 +1,10 @@
 angular.module('pro5_hzv.dataService', ['ngResource'])
     .factory('bookingProvider', function($resource){
-        return $resource('api/bookings/:_id', {},{
+        return $resource('api/bookings/:_id', {_id : "@_id"},{
             currentArrivals: {method:'GET', url:'api/bookings/getCurrentArrivals/', isArray:true},
             currentDepartures: {method:'GET', url:'api/bookings/getCurrentDepartures/', isArray:true},
             check: {method: "GET", url:'api/bookings/check/', isArray:true},
+            setStatus: {method: "POST", url:'api/bookings/setStatus/:_id'},
             update: {method: 'PUT' },
             detail: {method: "GET", url:'api/bookings/detail/:_id', isArray:true},
             roomList: {method: "GET", url:'api/bookings/roomList/', isArray:true}
