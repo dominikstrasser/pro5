@@ -182,4 +182,46 @@ angular.module('pro5_hzv.dashboard', [
          });
          */
 
+    }).controller("dashboardRoomListController", function($scope, $moment, bookingProvider, roomProvider) {
+
+
+        $scope.startday = $moment();
+        $scope.startday.millisecond(0);
+        $scope.startday.second(0);
+        $scope.startday.minute(0);
+        $scope.startday.utc().hours(12);
+
+        roomProvider.query(function (data) {
+            $scope.rooms = data;
+        });
+
+        var refreshRoomList = function () {
+            bookingProvider.roomList({"start": $scope.startday.toDate()}, function (data) {
+                $scope.bookings = data;
+            });
+        };
+
+        $scope.$watch("startday", function (n, o) {
+            if (typeof n != 'undefined') {
+                refreshRoomList();
+            }
+        }, true);
+
+        $scope.filteredRooms = [];
+        $scope.selectedRooms = [];
+
+        $scope.$watch("selectedRooms", function (n, o) {
+            $scope.currentBooking.room_id = n;
+        }, true);
+
+
+        $scope.increaseDate = function () {
+            $scope.startday.add(7, "days");
+            //console.log("increaseDate" + $scope.startday.toDate());
+        };
+        $scope.decreaseDate = function () {
+            $scope.startday.add(-7, "days");
+            //console.log("decreaseDate" + $scope.startday.toDate());
+        };
+
     });

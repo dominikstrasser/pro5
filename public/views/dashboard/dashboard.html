@@ -22,6 +22,7 @@
         <img src="../img/logo.png">
     </div>
 </div>
+<!--
 <div class="formular" ng-controller="requestFormController">
     <h1>Neue Anfrage</h1>
     <p class="status">{{available_rooms.length}} Zimmer verfügbar</p>
@@ -29,3 +30,28 @@
 
     <hr>
 </div>
+-->
+
+<section class="collapse-wrapper" ng-controller="dashboardRoomListController">
+    <div class="changeDate">
+        <button class="blueButton prev" ng-click="decreaseDate()"><</button>
+        <button class="blueButton next" ng-click="increaseDate()">></button>
+    </div>
+
+    <custom-collapse class="big" colType="big" opened="true">
+        <h1>Zimmerliste</h1>
+
+        <span class="open" ><img src="../../img/arrows/down_grey.png" class="arrow"></span>
+        <div class="content room-collapse">
+            <div vertical layout>
+                <room-list
+                        rooms='rooms'
+                        bookings='bookings'
+                        startday='startday'
+                        selected-rooms="selectedRooms"
+                        filtered-rooms="filteredRooms">
+                </room-list>
+            </div>
+        </div>
+    </custom-collapse>
+</section>
