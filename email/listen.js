@@ -52,16 +52,23 @@ var checkSubject = function(subj){
 
 mailListener.on("mail", function(mail, seqno, attributes){
     // do something with mail object including attachments
-
+    console.log(mail);
     var id = checkSubject(mail.headers.subject);
     if(id){
+        var text;
+        if(typeof  mail.html == 'undefined'){
+            text = mail.text;
+        }else{
+            text = mail.html;
+        }
+
         var msg = {
-            body : mail.html,
+            body : text,
             from_guest : 1,
             subject : mail.headers.subject,
             date : mail.headers.date
         };
-
+        console.log(msg);
         bookingModel.findOneAndUpdate({"_id" : id},{$push: {"messages": msg}},function(err, result){
             if(err) console.log(err);
             console.log("Email wurde zu Buchung gespeichert");

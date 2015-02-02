@@ -65,7 +65,17 @@
                         <div horizontal layout>
                             <div vertical layout class="email-write">
                                 <div class="email">
+                                    <div class="emailSalutation">
+                                        <p>Lieber {{currentRequest.guest_id.salutation}} {{currentRequest.guest_id.last_name}}</p>
+                                    </div>
                                     <div class="email-begin" contenteditable="true" ng-model="email.begin">
+                                    </div>
+                                    <div class="emailDetails">
+                                        <ul>
+                                            <li>Ankunft: {{currentRequest.arr | date: 'dd. MMMM yyyy'}}</li>
+                                            <li>Abfahrt: {{currentRequest.dep | date: 'dd. MMMM yyyy'}}</li>
+                                            <li>Personen: {{currentRequest.person_count}}</li>
+                                        </ul>
                                     </div>
                                     <div class="email-drop" ng-model="email.text" contenteditable="true">
                                     </div>
