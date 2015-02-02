@@ -15,10 +15,10 @@
 </section>
 
 
-<section class="collapse-wrapper">
-    <custom-collapse class="big date" colType="big" id="reqFormCollapse">
+<section class="collapse-wrapper date">
+    <custom-collapse class="big" colType="big" id="reqFormCollapse">
 
-        <h1>Anfrage Familie Mustermann</h1>
+        <h1>Anfrage {{currentRequest.guest_id.salutation}} {{currentRequest.guest_id.last_name}}</h1>
 
         <span class="open" ><img src="../../img/arrows/down_grey.png" class="arrow"></span>
         <div class="panel-collapse formular">
@@ -112,6 +112,6 @@
     </custom-collapse>
 </section>
 <section class="collapse-wrapper save">
-    <button class="bigButton" ng-click="saveBooking()">Anfrage Speichern</button>
+    <button class="bigButton" ng-click="bookBooking()">Anfrage buchen</button>
     <div class="clear"></div>
 </section>

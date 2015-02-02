@@ -1,5 +1,5 @@
 <section class="collapse-wrapper">
-    <custom-collapse class="big" colType="big" opened="true">
+    <custom-collapse class="big" id="reqCollapse" colType="big" opened="true">
         <h1>Alle Buchungen</h1>
 
         <span class="open" ><img src="../../img/arrows/down_grey.png" class="arrow"></span>
@@ -9,8 +9,109 @@
                 <div horizontal><span class="notification">1</span></div>
                 <div horizontal>{{req.person_count}} Personen</div>
                 <div horizontal flex><span>Zimmer <span ng-repeat="room in req.room_id">{{room.number}}</span></span></div>
-                <button class="blueButton">Details</button>
+                <button class="blueButton" ng-click="getDetail(req._id)">Details</button>
             </div>
+        </div>
+    </custom-collapse>
+</section>
+
+
+
+
+<section class="collapse-wrapper">
+    <custom-collapse class="big date" colType="big" id="reqFormCollapse">
+
+        <h1>Buchung {{currentRequest.guest_id.salutation}} {{currentRequest.guest_id.last_name}}</h1>
+
+        <span class="open" ><img src="../../img/arrows/down_grey.png" class="arrow"></span>
+        <div class="panel-collapse formular">
+            <dashboard-form
+                    complete-data-set="guests"
+                    data="currentRequest"
+                    handle-submit="handleForm(form)">
+            </dashboard-form>
+        </div>
+    </custom-collapse>
+</section>
+
+<section class="collapse-wrapper">
+    <div class="changeDate">
+        <button class="blueButton prev" ng-click="decreaseDate()"><</button>
+        <button class="blueButton next" ng-click="increaseDate()">></button>
+    </div>
+    <custom-collapse class="big" colType="big" id="reqRoomListCollapse">
+        <h1>Zimmerliste</h1>
+
+        <span class="open" ><img src="../../img/arrows/down_grey.png" class="arrow"></span>
+
+        <div class="room-collapse">
+            <room-list
+                    rooms='rooms'
+                    bookings='bookings'
+                    startday='startday'
+                    selected-rooms="selectedRooms"
+                    filtered-rooms="filteredRooms">
+            </room-list>
+        </div>
+    </custom-collapse>
+</section>
+
+<section class="collapse-wrapper">
+    <custom-collapse class="big" colType="big" id="reqEmailCollapse">
+        <h1>Korrespondenz</h1>
+
+        <span class="open" ><img src="../../img/arrows/down_grey.png" class="arrow"></span>
+        <div class="panel-collapse">
+            <div ng-controller="emailController">
+                <div class="content">
+                    <div vertical layout>
+                        <div horizontal layout>
+                            <div vertical layout class="email-write">
+                                <div class="email">
+                                    <div class="email-begin" contenteditable="true" ng-model="email.begin">
+                                    </div>
+                                    <div class="email-drop" ng-model="email.text" contenteditable="true">
+                                    </div>
+                                    <div class="email-end" contenteditable="true" ng-model="email.end" >
+                                    </div>
+                                </div>
+                                <div><button ng-disabled="enableEmail" ng-click="sendEmail()" class="bigButton">E-Mail schicken</button></div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="email-drag">
+                                <p class="items">Verfügbare Textbausteine</p>
+                                <div class="item" id="item1" data-text={{wellness.text}} draggable>{{wellness.title}}</div>
+                                <div class="item" id="item2" data-text={{golf.text}} draggable>{{golf.title}}</div>
+                                <div class="item" id="item3" data-text={{kultur.text}} draggable>{{kultur.title}}</div>
+                            </div>
+
+                        </div>
+
+                        <div class="email-list">
+                            <div horizontal layout  ng-repeat="msg in currentRequest.messages | orderBy: '-date'">
+                                <div ng-if="msg.from_guest" class="email-info-right">
+                                    {{currentRequest.guest_id.salutation}} {{currentRequest.guest_id.last_name}}<br>
+                                    {{currentRequest.guest_id.email}}<br>
+                                    E-Mail vom {{msg.date | date: 'dd. MMMM yyyy'}}
+                                </div>
+                                <div ng-class="{'email-right' : msg.from_guest, 'email-left' : !msg.from_guest}">
+                                    <div horizontal ng-bind-html="toTrustedHtml(msg.body)">
+                                    </div>
+                                </div>
+                                <div ng-if="!msg.from_guest" class="email-info-left">
+
+                                    Hotel Sammer<br>
+                                    hotelzimmerverwaltung@gmail.com<br>
+                                    E-Mail vom {{msg.date | date: 'dd. MMMM yyyy'}}
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
         </div>
     </custom-collapse>
 </section>

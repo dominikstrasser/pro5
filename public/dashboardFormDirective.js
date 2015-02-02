@@ -29,7 +29,7 @@ angular.module('pro5_hzv.dashboardFormDirective',[])
 
                 }else{ // use standard values
 
-                    $scope.requestForm._id = '';
+                    $scope.requestForm.guest_id = '';
                     $scope.requestForm.email = '';// This will hold the selected item
                     $scope.requestForm.last_name = ''; // This will hold the selected item
                     $scope.requestForm.status =  0;
@@ -46,7 +46,7 @@ angular.module('pro5_hzv.dashboardFormDirective',[])
                 $scope.onItemSelected = function(selectedItem) { // this gets executed when an item is selected
                     if($scope.requestForm.last_name) $scope.requestForm.email = selectedItem['email'];
                     if($scope.requestForm.email) $scope.requestForm.last_name = selectedItem['last_name'];
-                    $scope.requestForm._id = selectedItem['_id'];// TODO remove ID after Selection is editedMus
+                    $scope.requestForm.guest_id = selectedItem['_id'];// TODO remove ID after Selection is editedMus
 
                 };
 
