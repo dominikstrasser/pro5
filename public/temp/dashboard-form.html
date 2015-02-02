@@ -50,7 +50,7 @@
                 <div ng-show="form.$submitted && (form.email.$error.required || emailerror == true)" class="invalid-error">Bitte geben Sie eine gültige Email Adresse ein</div>
             </div>
 
-            <div class="row">
+            <div class="row" ng-hide="disabled">
                 <button type="submit" ng-click="testBooking(form)" class="bigButton">Weiter</button>
             </div>
         </div>
