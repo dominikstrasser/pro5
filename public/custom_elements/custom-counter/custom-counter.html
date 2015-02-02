@@ -5,14 +5,14 @@
     <template>
 
         <div class="custom-counter-container">
-            <button on-click="{{decrease}}">-</button>
+            <button type="button" on-click="{{decrease}}">-</button>
             <template if="{{current == 1}}">
                 <input type="text" value="{{current}} {{singular}}" size="{{size}}" readonly>
             </template>
             <template if="{{current != 1}}">
                 <input type="text" value="{{current}} {{plural}}" size="{{size}}" readonly>
             </template>
-            <button on-click="{{increase}}">+</button>
+            <button type="button" on-click="{{increase}}">+</button>
         </div>
 
     </template>
