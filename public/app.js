@@ -48,6 +48,7 @@ config(['$routeProvider', function($routeProvider) {
         $scope.getGuest = function (e, _id) {
             guestProvider.get({ _id: _id }, function(data) {
                 $scope.guest = data;
+                console.log($scope.guest);
                 cGuestId = data._id;
             });
             $scope.active = true;
@@ -60,7 +61,7 @@ config(['$routeProvider', function($routeProvider) {
 
         $scope.saveGuest = function () {
             delete $scope.guest['_id'];
-
+            console.log($scope.guest);
             guestProvider.update({"_id": cGuestId}, $scope.guest, function (data) {
 
                 //data saved. do something here.
